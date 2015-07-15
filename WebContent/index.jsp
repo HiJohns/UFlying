@@ -71,16 +71,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     list-style: none;
     float: left; 
     height: 800px;
-    padding-top: 400px;
+    padding-top: 450px;
 }
 .my.banner ul li:first-child {
-    background:url(images/banner.jpg) no-repeat;
+    background:url(images/bannerC.jpg) no-repeat;
 }
 .my.banner ul li:nth-child(2) {
-    background-color: red;
+    background:url(images/bannerB.jpg) no-repeat;
 }
 .my.banner ul li:last-child {
-    background-color: black;
+    background:url(images/bannerA.jpg) no-repeat;
 }
 .my.banner li p.lead {
     width: 50%;
@@ -155,10 +155,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     width: 1050px;
 }
 .arrowMark {
-    height: 800px;
+    height: 60px;
     left: 0;
     position: absolute;
-    top: 0;
+    top: 400px;
     width: 100%;
 }
 .unslider-arrow.next {
@@ -181,7 +181,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     height: 2.1em;
     margin-left: 100px;
     margin-right: 100px;
-    margin-top: 400px;
     opacity: 0.3;
     padding: 5px 16px;
     width: 2em;
@@ -220,70 +219,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <p class="lead">给你翅膀，带你飞！</p>
                 <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
                 <p class="lead">
-                    <a class="btn btn-lg" href="javascript:alert('hi')">我要加入</a>
+                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
                 </p>
             </li>
             <li>
                 <p class="lead">给你翅膀，带你飞！</p>
                 <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
                 <p class="lead">
-                    <a class="btn btn-lg" href="javascript:alert('hi')">我要加入</a>
+                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
                 </p>
             </li>
             <li>
                 <p class="lead">给你翅膀，带你飞！</p>
                 <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
                 <p class="lead">
-                    <a class="btn btn-lg" href="javascript:alert('hi')">我要加入</a>
+                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
                 </p>
             </li>
         </ul>
     </div>
-<div id="home" class="banner" style="display:none">
-	 <div class="container">
-		  <div class="clearfix"> </div>
-		 <!-- script-for-menu -->
-		 <script>
-				$("span.menu").click(function(){
-					$(".top-menu ul").slideToggle("slow" , function(){
-					});
-				});
-		 </script>
-		 <!-- script-for-menu -->	  	 
-		  <div class="banner-info">	
-				<h1>¸øÄã³á°ò£¬´øÄã·É£¡</h1>
-				<h3>»¶Ó­¼ÓÈë¿ÕÖÐÃÎÏëÎÞÈË»úÁªÃË£¬¸æ±ðµ¥·ÉÊ±´ú£¬·ÉÊÖÇë»Ø¼Ò¡£»ã¾Û¸ü¶àÎÞÈË»úÈËÈº£¬Ìá¹©¸üºÃµÄ·þÎñ£¬ÈÃÎÒÃÇÒ»Æð·ÉÆðÀ´£¡</h3>
-				<div class="scroll-down">
-				 <h4>¸ü¶àÄÚÈÝ</h4>
-				<a class="downarrow scroll" href="#skills"><span></span></a>
-				</div>
-		  </div>
-	  </div>
-</div>
-
 <div class="social-media">
-    <a href="#" target="_blank">
-        <div class="row clearfix " style="width:890px;">
-            <div class="main">
-                <span class="cont">
-                    <span id="finish" class="odometer"></span>
-                    <span class="f1 cont_txt">会员&nbsp;&nbsp;</span>
-                </span>
-                <span class="cont" style="margin-right: 18px;">
-                    <span id="trading" class="odometer"></span>
-                    <span class="f1 cont_txt">理事企业&nbsp;&nbsp;</span>
-                </span>
-                <span class="cont" style="margin-left: 18px;">
-                    <span id="com_num" class="odometer"></span>
-                    <span class="f1 cont_txt">万元保额&nbsp;&nbsp;</span>
-                </span>
-                <span class="cont">
-                    <span id="investor" class="odometer"></span>
-                    <span class="f2 cont_txt">场任务</span>
-                </span>
-            </div>
+    <div class="row clearfix " style="width:890px;">
+        <div class="main">
+            <span class="cont">
+                <span id="finish" class="odometer"></span>
+                <span class="f1 cont_txt">会员&nbsp;&nbsp;</span>
+            </span>
+            <span class="cont" style="margin-right: 18px;">
+                <span id="trading" class="odometer"></span>
+                <span class="f1 cont_txt">理事企业&nbsp;&nbsp;</span>
+            </span>
+            <span class="cont" style="margin-left: 18px;">
+                <span id="com_num" class="odometer"></span>
+                <span class="f1 cont_txt">万元保额&nbsp;&nbsp;</span>
+            </span>
+            <span class="cont">
+                <span id="investor" class="odometer"></span>
+                <span class="f2 cont_txt">场任务</span>
+            </span>
         </div>
-    </a>
+    </div>
 </div>
 <!---->
 <div id="about" class="about">
@@ -311,14 +286,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 </div>
 					 <div class="about-icon-info">
 						 <h4>我是广告经理：</h4>
-						 <p>我们的广告需要空中的拍摄，迅速的追踪，高速的俯冲，与主角的擦肩而过。画面，速度，激情，创意，惊现，都是我们的需求，但是这一切都伴随着风险，不能在客户面前有任何的闪失，哪里去找既靠谱又“保险”的航拍团队？
+						 <p>我们的广告需要空中的拍摄，迅速的追踪，高速的俯冲，与主角的擦肩而过。画面，速度，激情，创意，都是我们的需求，但是这一切都伴随着风险，不能在客户面前有任何的闪失，哪里去找既靠谱又“保险”的航拍团队？
 						 </p>
 					 </div>
 					 <div class="clearfix"></div>
 				 </div>
 				 <div class="about-grid">
 					 <div class="about-icon">
-						 <i class="icon1"></i>
+						 <i class="icon3"></i>
 					 </div>
 					 <div class="about-icon-info">
 						 <h4>我是影视导演：</h4>
@@ -344,19 +319,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 </div> 
 		 <div class="skill-grids">
 			 <div class="col-md-4 skill-grid">
+			 	<div>
 				 <img src="images/research.png" alt=""/>
 				 <h3><a href="#">无人机保险</a></h3>
 				 <p>无人机飞行是一项有风险的活动，联盟为成员提供包括机身，三者，团队等多重保障在内的保险服务。</p>
+				 </div>
 			 </div>
 			 <div class="col-md-4 skill-grid">
+			 	<div>
 				 <img src="images/design.png" alt=""/>
 				 <h3><a href="#">商业任务</a></h3>
 				 <p>通过大数据平台，为会员对接商业任务。飞手承接更多任务，需求方更快捷地找到可信任的执行团队。</p>
+				 </div>
 			 </div>
 			 <div class="col-md-4 skill-grid">
+			 	<div>
 				 <img src="images/code.png" alt=""/>
 				 <h3><a href="#">文化娱乐</a></h3>
 				 <p>带您玩转无人机，无人机将成为新的文化时尚。多样的玩法，专业的教练，让零基础也能享受无人机的乐趣。</p>
+				 </div>
 			 </div>
 			 <div class="clearfix"></div>
 		 </div>
@@ -392,36 +373,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div id="portfoliolist">
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic1.jpg" class="swipebox"  title="Image Title"> <img src="images/pic1.jpg" class="img-responsive" alt="">
+							 <a href="images/pic1.jpg" class="swipebox"  title="空中家园旗舰店正门"> <img src="images/pic1.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店正门</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 					</div>				
 					<div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic2.jpg" class="swipebox"  title="Image Title"> <img src="images/pic2.jpg" class="img-responsive" alt="">
+							 <a href="images/pic2.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="images/pic2.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店办公区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 					</div>					
 					<div class="portfolio icon mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="icon" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic3.jpg" class="swipebox"  title="Image Title"> <img src="images/pic3.jpg" class="img-responsive" alt="">
+							 <a href="images/pic3.jpg" class="swipebox"  title="空中家园旗舰店室内"> <img src="images/pic3.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店室内</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
@@ -430,60 +411,60 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
 					<div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic4.jpg" class="swipebox"  title="Image Title"> <img src="images/pic4.jpg" class="img-responsive" alt="">
+							 <a href="images/pic4.jpg" class="swipebox"  title="空中家园旗舰店会议区"> <img src="images/pic4.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店会议区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 					</div>			
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic5.jpg" class="swipebox"  title="Image Title"> <img src="images/pic5.jpg" class="img-responsive" alt="">
+							 <a href="images/pic5.jpg" class="swipebox"  title="空中家园旗舰店休闲区"> <img src="images/pic5.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店休闲区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 					</div>	
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic6.jpg" class="swipebox"  title="Image Title"> <img src="images/pic6.jpg" class="img-responsive" alt="">
+							 <a href="images/pic6.jpg" class="swipebox"  title="空中家园会员用品区"> <img src="images/pic6.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园会员用品区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 					</div>	
 					<div class="portfolio icon mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="icon" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic7.jpg" class="swipebox"  title="Image Title"> <img src="images/pic7.jpg" class="img-responsive" alt="">
+							 <a href="images/pic7.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="images/pic7.jpg" class="img-responsive" alt="">
 								<div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店办公区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
 						</div>
 						<div class="portfolio logos mix_all wow bounceIn" data-wow-delay="0.4s" data-cat="logos" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic8.jpg" class="swipebox"  title="Image Title"> <img src="images/pic8.jpg" class="img-responsive" alt="">
+							 <a href="images/pic8.jpg" class="swipebox"  title="空中家园旗舰店工作区"> <img src="images/pic8.jpg" class="img-responsive" alt="">
 							<div class="caption">
 							 <div class="caption-info">
-								 <h4>MAURIS PHARETRA</h4>								
-								 <p>BRANDING</p>
-								 <p>PRODUCT DESIGN</p>
+								 <h4>空中家园旗舰店工作区</h4>								
+								 <p>UFLYING无人机联盟</p>
+								 <p>空中家园</p>
 								 </div>
 								 </div></a>
 		                </div>
@@ -539,53 +520,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					});	
 					</script>
 
-</div>
-<!---->
-<div id="contact" class="contact" style="display:none">
-	 <div class="container">
-		 <div class="contact-head">
-			 <h3>CONTACT</h3>
-			 <p>To design is to communicate clearly by whatever means you can control or master.</p>
-			 <h5>Milton Glaser</h5>
-			 </div>
-			 <div class="contact-sec">
-				 <div class="col-md-4 contact-address">					
-					 <ul>
-					 <li><span class="navi"></span></li>
-					 <li>Angono, Rizal, Philippines 1930</li>	
-					 </ul>
-					 <ul>
-					 <li><span class="mail"></span></li>
-					 <li><a href="mailto:info@example.com">yorsaquing@gmail.com</a></li>
-					 </ul>
-					 <ul>
-					 <li><span class="mbil"></span></li>
-					 <li class="number">012.3456.789</li>
-					 </ul>
-					 <div class="clearfix"></div>
-					 </ul>				 
-				 </div>
-				 <div class="col-md-8 contact-form">
-					 <div class="contect-form-left">
-						 <form>
-					     <input type="text" placeholder="Name" required/>
-						 <input type="text" placeholder="E-mail Address" required/>
-						 <input type="text" placeholder="Contact Number" required/>
-						 <input type="checkbox"/>
-						 <p class="agree">Check if you want news or freebies from me straight to your inbox</p>
-						 </form>
-					 </div>
-					 <div class="contect-form-right">
-						 <form>
-						 <textarea placeholder="Message"></textarea>
-						 <input type="submit" value="SUBMIT"/>
-						 </form>
-					 </div>
-					 <div class="clearfix"></div>
-				 </div>
-				 <div class="clearfix"></div>
-			 </div>
-		 </div>
 </div>
 <!---fotter-->
 <section class="vendors">
