@@ -8,7 +8,7 @@ body{
 	margin:0;
 	padding:0;
 	background:#fff;
-    font-family: tahoma,arial,Hiragino Sans GB,"Microsoft Yahei",宋体;
+    font-family: "Microsoft YaHei",tahoma,arial,Hiragino Sans GB,宋体;
  }
 body a{
 	transition:0.5s all;
@@ -100,7 +100,7 @@ color:#fff;
 font-size:3.5em;
 font-weight:bold;
 margin-bottom:10px;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 }
 .banner-info h3{
 color:#fff;
@@ -216,7 +216,7 @@ text-align:center;
 .about-head h3{
 color:#fff;
 font-size:2.3em;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 font-weight:600;
 }
 .about-head p{
@@ -305,7 +305,7 @@ text-align:center;
 .skills-head h3{
 color:#fff;
 font-size:2.3em;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 font-weight:bold;
 letter-spacing:1.5px;
 }
@@ -372,7 +372,7 @@ text-align:center;
 .gallery-head h3{
 color:#fff;
 font-size:2.3em;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 font-weight:bold;
 letter-spacing:1.5px;
 }
@@ -591,7 +591,7 @@ text-align:center;
 .contact-head h3{
 color:#fff;
 font-size:2.3em;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 font-weight:bold;
 letter-spacing:1.5px;
 }

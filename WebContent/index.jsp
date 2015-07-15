@@ -71,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     list-style: none;
     float: left; 
     height: 800px;
-    padding-top: 450px;
+    padding-top: 430px;
 }
 .my.banner ul li:first-child {
     background:url(images/bannerC.jpg) no-repeat;
@@ -141,9 +141,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     margin-bottom: 40px;
 }
 .vendors h1 {
-    color: white;
-    font-size: 2em;
-    letter-spacing: 5px;
+	color:#fff;
+	font-size:2.3em;
+	font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
+	font-weight:bold;
+	letter-spacing:1.5px;
 }
 .vendors img {
     width: 105px;
@@ -193,7 +195,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <li><a class="scroll" href="#about"></a></li>
 <li><a class="scroll" href="#skills"></a></li>
 <li><a class="scroll" href="#gallery"></a></li>
-<li><a class="scroll" href="#contact"></a></li>
+<li><a class="scroll" href="#vendors"></a></li>
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
@@ -204,9 +206,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
              <nav class="cl-effect-1">
               <ul>
                  <li><a href="<%=request.getContextPath()%>/login">加入联盟</a></li>
-                 <li><a class="scroll" href="#">派发任务</a></li>
-                 <li><a class="scroll" href="#">承接任务</a></li>
-                 <li><a class="scroll" href="#">网上投保</a></li>						 
+                 <li><a href="#">派发任务</a></li>
+                 <li><a href="#">承接任务</a></li>
+                 <li><a href="#">网上投保</a></li>						 
              </ul>	
              </nav>					 
          </div>	
@@ -239,7 +241,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </ul>
     </div>
 <div class="social-media">
-    <div class="row clearfix " style="width:890px;">
+    <div class="row clearfix " style="width:920px;">
         <div class="main">
             <span class="cont">
                 <span id="finish" class="odometer"></span>
@@ -522,11 +524,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </div>
 <!---fotter-->
-<section class="vendors">
+<section id="vendors" class="vendors">
     <header>
         <h1>合作伙伴</h1>
     </header>
     <div>
+    </div>
+</section>
+<section id="foot">
+    <div>
+    	<img src="images/foot.jpg" width="100%"/>
     </div>
 </section>
 <!---->

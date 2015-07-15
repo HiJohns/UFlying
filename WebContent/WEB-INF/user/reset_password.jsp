@@ -16,7 +16,10 @@
     <script type="text/javascript" name="interface">
         contextPath = '<%=request.getContextPath()%>';
         model = {
-        	phone: 
+            	phone: '',
+            	code: '',
+            	password: '',
+            	confirmPassword: ''
         };
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>

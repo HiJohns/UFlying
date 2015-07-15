@@ -1,12 +1,12 @@
 var _data = {
-    finish: 5263,
+    finish: 45263,
     trading: 15,
     com_num: 685,
-    investor: 896
+    investor: 396
 };
 
 var _format = {
-    finish: 4,
+    finish: 5,
     trading: 2,
     com_num: 3,
     investor: 3
