@@ -199,7 +199,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt="" /></a>
+            <a href="index.html"><img src="img/logo_top.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
