@@ -21,6 +21,8 @@
 	    <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/common/Cities.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/common/RegularExpressions.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/common/Form.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
     </head>
     <body class="enterprise_complete">

@@ -35,7 +35,6 @@ function timer() {
 }
 
 $(document).ready(function () {
-	UF.utils.renderModel(model);
 	$('#code_btn').click(function (e) {
 		e.preventDefault();
 		$(this).prop('disabled', true);

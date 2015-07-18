@@ -23,9 +23,7 @@
         	confirmPassword: ''
         };
     </script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
-
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/pages/individual_register.js">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
 </script>
 </head>
 <body class="personal">
@@ -42,7 +40,9 @@
             <fieldset>
                 <section>
                     <strong>*</strong>
-                    <input type="tel" id="phone" name="phone" data-icon="Phone" data-name="手机号" required="required" placeholder="请输入手机号" aria-describedby="basic-addon1" />
+                    <input type="tel" id="phone" name="phone" data-icon="Phone" msg-empty="请填写手机号" 
+                    	required msg-empty="请填写手机号" data-regex="^\d{11}$" msg-regex="手机号应该为11位数字"
+                    	placeholder="请输入手机号" aria-describedby="basic-addon1" />
                 </section>
                 <section>
                 	<strong></strong>
@@ -50,7 +50,7 @@
                 </section>
                 <section class="collapse">
                     <strong>*</strong>
-                    <input type="text" id="code" name="code" required="required" data-name="验证码" placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
+                    <input type="text" id="code" name="code" required="required" msg-empty="请填写验证码" placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
                 </section>
             </fieldset>
         </section>
@@ -58,11 +58,15 @@
             <fieldset>
                 <section>
                     <strong>*</strong>
-                    <input type="password" id="password" name="password" data-name="密码" required="required" placeholder="设置密码" aria-describedby="basic-addon1" data-icon="Lock" />
+                    <input type="password" id="password" name="password" msg-empty="请填写密码" required="required" 
+                    placeholder="设置密码" data-match="confirmPassword" msg-match="应与确认密码一致"
+                    aria-describedby="basic-addon1" data-icon="Lock" />
                 </section>
                 <section>
                     <strong>*</strong>
-                    <input type="password" placeholder="确认密码" data-name="确认密码" name="confirmPassword" required="required" data-icon="Lock" />
+                    <input type="password" placeholder="确认密码" msg-empty="请输入同一密码" 
+                    	name="confirmPassword" data-match="password" msg-match="两次输入的密码应该一致"
+                    required="required" data-icon="Lock" />
                 </section>
             </fieldset>
         </section>

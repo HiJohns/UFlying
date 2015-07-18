@@ -1,0 +1,145 @@
+UF.framework.Form = (function () {
+	var labels = {
+		store: 'data-store',	// store for combo
+		textField: 'data-textField',	// text field for combo
+		valueField: 'data-valueField',	// value field for combo
+		regex: 'data-regex',	// string of regular expression for validating 
+		regexName: 'data-regexName',	// name of regular expression for validating
+		match: 'data-match',	// name of another field to which this one should match
+		noValidate: 'data-novalidate',	// prevent validating
+		autoValidate: 'data-autoValidate',	// Indicating the current form has been set up auto validating mechanism
+		emptyMessage: 'msg-empty',	// error message when a required field is empty
+		regexMessage: 'msg-regex',	// error message when the field fails in regular testing
+		matchMessage: 'msg-match'	// error message when the field doesn't match the specified one
+	};
+	
+	function is(obj, label) {
+		return $(obj).is('[' + label + ']');
+	}
+
+	return {
+		loadSelect: function () {
+			if ($(this).prop('tagName') != 'SELECT') return;
+			
+			var store = UF.stores[$(this).attr('data-store')];
+			if (!_.isObject(store)) {
+				console.log(this, 'Store not found.');
+				return;
+			}
+			
+			var textField = $(this).attr(labels.textField) || 'name';
+			var valueField = $(this).attr(labels.valueField) || 'id';
+			
+			$(this).find('option:not([disabled])').remove();
+			var _self = this;
+			_.each(store, function (record) {
+				$(_self).append($('<option>', { text: record[textField], value: record[valueField] }));
+			});
+			
+			$(this).val('');
+		},
+		validate: function () {
+			$(this).removeClass('invalid').siblings('.error').remove();
+			if (!$(this).is(':enabled:visible') || is(this, labels.noValidate)) return;
+					
+			var val = $(this).val();
+			var msg = null;
+			if ($(this).is('[required]') && (val == null || (_.isString(val) && val.length == 0))) {
+				msg = $(this).attr('msg-empty') || '请填写本字段';
+			}
+			
+			if (msg == null && (is(this, labels.regex) || is(this, labels.regexName))) {
+				var regexString = $(this).attr(labels.regex) || UF.base.RegularExpressions[$(this).attr(labels.regexName)];
+				if (_.isString(val) && !(new RegExp(regexString, 'i').test(val))) {
+					msg = $(this).attr(labels.regexMessage);
+				}
+			}
+			
+			if (msg == null && is(this, labels.match) && val != $('[name="' + $(this).attr(labels.match) + '"]').val()) {
+				msg = $(this).attr(labels.matchMessage);
+			}
+			
+			if (msg != null) {
+				$(this).addClass('invalid').attr('title', msg);
+				$('<small>').addClass('error').html(msg).appendTo($(this).parent());
+			}
+		},
+		autoValidateForm: function () {
+			if (!_.isUndefined($(this).attr(labels.autoValidate))) return;
+			$(this).attr(labels.autoValidate, 'true').attr('novalidate', 'true');
+			$(this).find('input').change(UF.framework.Form.validate).keyup(UF.framework.Form.validate);
+			$(this).find('select').change(UF.framework.Form.validate);
+			$(this).submit(function () {
+				$(this).find('select:visible').each(UF.framework.Form.validate);
+				$(this).find('input:visible').each(UF.framework.Form.validate);
+				var stack = [];
+				$(this).find('.invalid').each(function (index) {
+					stack.push((index+1) + '. ' + $(this).attr('title'));
+				});
+				
+				if (stack.length == 0) {
+					$(this).find('input[type="submit"]').prop('disabled', false);
+					return true;
+				}
+				
+				alert('以下项目需要修正：\n' + stack.join('\n'));
+				return false;
+			});
+		},
+		renderModel: function (model) {
+			function getValue(name) {
+				return model.hasOwnProperty(name) ? model[name] : '';
+			}
+			
+			function getValueEx(name) {
+		    	var stack = name.split('+');
+		    	for (var i = 0; i < stack.length; i++) {
+		    		var n = stack[i];
+		    		var v = getValue(n);
+		    		if (UF.framework.Renderers.hasOwnProperty(n)) {
+		    			var renderer = UF.framework.Renderers[n];
+		    			if (_.isFunction(renderer)) {
+		    				v = renderer(v, model);
+		    			}
+		    			else if (_.isObject(renderer) || _.isArray(renderer)) {
+		    				v = renderer[v];
+		    			}
+		    		}
+		    		stack[i] = v;
+		    	}
+		    	
+		    	return stack.join('');
+			}
+			
+		    $('*[name]').each(function () {
+		    	var name = $(this).attr('name');
+		    	
+		        switch ($(this).prop('tagName').toLowerCase()) {
+			        case 'input':
+			        	switch ($(this).attr('type')) {
+			        	case 'radio':
+			                $(this).prop('checked', $(this).val() == getValue(name));
+			                break;
+			        	case 'checkbox':
+			        		$(this).prop('checked', getValue(name));
+			        		break;
+			            default:
+			                $(this).val(getValue(name));
+			            }
+			        	if ($(this).is(':visible')) UF.framework.Form.validate.call(this);
+			            break;
+			        case 'select':
+		                $(this).val(getValue(name));
+			        	if ($(this).is(':visible')) UF.framework.Form.validate.call(this);
+			        	break;
+			        case 'span':
+			        case 'div':
+			            this.innerHTML = getValueEx(name);
+			            break;
+			        case 'img':
+			        	$(this).attr('src', getValue(name));
+		        }
+		    });
+		}
+	}
+})();

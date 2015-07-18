@@ -1,5 +1,8 @@
 package com.UFlying.user.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -83,6 +86,16 @@ public class AccountController {
 			}
 		}
 		return "user/login";
+	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public void myInterface(HttpServletResponse response, Model model) {
+		try {
+		byte[] bytes = Files.readAllBytes(Paths.get("/Users/LinWeixun/Documents/workspace/UFlying/WebContent/img/logo_top.png"));
+			response.getOutputStream().write(bytes);
+		}
+		catch (Exception e) {
+		}
 	}
 
 	/** 登录，自动区分个人用户、企业用户 */

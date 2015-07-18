@@ -33,9 +33,7 @@
         <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
 	    <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/common/Cities.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/pages/individual_complete.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
     </head>
     <body class="moreInfo">
         <hgroup class="usersCommon boxWidth">
@@ -65,7 +63,7 @@
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>
-                        <strong>*</strong><input type="text" data-icon="Name" data-name="姓名" required placeholder="输入姓名" name="name"/>
+                        <strong>*</strong><input type="text" data-icon="Name" msg-empty="请填写姓名" required placeholder="输入姓名" name="name"/>
                     </section>
                     <section class="horizon noFrameRow">
                         <strong>*</strong>
@@ -77,21 +75,23 @@
                         <label for="personal_secret">保密</label>
                     </section>
                     <section>
-                        <strong>*</strong><input type="email" data-icon="Mail" data-name="邮箱" required placeholder="输入邮箱" name="email"/>
+                        <strong>*</strong>
+                        <input type="email" data-icon="Mail" data-regexName="email" msg-regex="邮件地址格式不正确"
+                        	msg-empty="请填写Email地址" required placeholder="请输入Email地址" name="email"/>
                         <a href="getConfirmationCode">立即验证</a>
                     </section>
                     <section class="horizon">
                         <strong>*</strong>
-                        <select required="true" name="province" data-name="省/直辖市/自治区" data-store="provinces" data-valueField="name" data-textField="name">
+                        <select required="true" name="province" msg-empty="请填写省/直辖市/自治区" data-store="provinces" data-valueField="name" data-textField="name">
                             <option value="" disabled selected>省/直辖市/自治区</option>
                         </select>
-                        <select required="true" name="city" disabled data-name="城市" data-store="cities" data-valueField="name" data-textField="name">
+                        <select required="true" name="city" disabled msg-empty="请填写城市" data-store="cities" data-valueField="name" data-textField="name">
                             <option value="" disabled selected>城市</option>
                         </select>
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="text" required="true" placeholder="输入地址" data-name="地址" name="address" data-icon="Address"/>
+                        <input type="text" required="true" placeholder="输入地址" msg-empty="请填写地址" name="address" data-icon="Address"/>
                     </section>
                 </fieldset>
             </section>
@@ -107,11 +107,13 @@
             <section class="portal boxWidth form collapse">
             	<fieldset>
                     <section>
-                        <strong>*</strong><input type="text" required="true" data-icon="Identity" required data-name="身份证号码" placeholder="输入身份证号码" name="idCardNumber"/>
+                        <strong>*</strong><input type="text" required="true" class="extended" 
+                        	data-icon="Identity" required msg-empty="请填写身份证号码" placeholder="输入身份证号码" 
+                        	name="idCardNumber" data-regex="^\d{18}$" msg-regex="身份证号码应该为18位数字"/>
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="number" placeholder="飞行经验" data-name="飞行经验" required="true" name="experience"  data-icon="Flight" min="0" step="100"/>
+                        <input type="number" placeholder="飞行经验" msg-empty="请填写飞行经验" required="true" name="experience"  data-icon="Flight" min="0" step="100"/>
                         <label>小时</label>
                     </section>
                 </fieldset>
@@ -122,7 +124,7 @@
                     <section>
                         <strong>*</strong>
                         <p><a href="javascript:;" class="upload-btn" id="upload-photo-pic">
-                            <input type="file" required="required" data-name="近照" accept="image/*" id="photo" name="photo" >
+                            <input type="file" required="required" msg-empty="请提交近照" accept="image/*" id="photo" name="photo" >
                             <img name="photoUrl"/>
                         </a></p>
                     </section>
@@ -134,14 +136,14 @@
                     <section>
                         <strong>*</strong>
                         <p><a href="javascript:;" class="upload-btn" id="upload-photo-id-front">
-                            <input type="file" required="required" data-name="身份证正面照片" accept="image/*" id="idFront" name="identity_front" >
+                            <input type="file" required="required" msg-empty="请提交身份证正面照片" accept="image/*" id="idFront" name="identity_front" >
 	                        <img name="idCardUrl1"/>
                         </a></p>
                     </section>
                     <section>
                         <strong>*</strong>
                         <p><a href="javascript:;" class="upload-btn" id="upload-photo-id-back">
-                            <input type="file" required="required" data-name="身份证反面照片" accept="image/*" id="idBack" name="identity_back" >
+                            <input type="file" required="required" msg-empty="请提交身份证反面照片" accept="image/*" id="idBack" name="identity_back" >
 	                        <img name="idCardUrl2"/>
                         </a></p>
                     </section>

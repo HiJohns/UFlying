@@ -35,6 +35,7 @@ border-top:10px solid #E04444;
 }
 .logo{
 float:left;
+margin: 10px 12px;
 }
 .logo a{
 display:block;

@@ -183,6 +183,19 @@ section.form.collapseHeader, section.form.collapse {
     width: 38.7%;
 }
 
+.form input.extended {
+	width: 75%;
+	font-size: small;
+}
+
+.form .error {
+    color: red;
+    float: left;
+    margin-left: 26px;
+    margin-top: 3px;
+    text-align: left;
+}
+
 .form .noFrameRow > input[type="checkbox"] + label {
     width: 75%;
     height: auto;

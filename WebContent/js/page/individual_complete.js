@@ -1,8 +1,8 @@
 $(document).ready(function () {
 	function updateStatus() {
 		model.status = $('#toAuth').prop('checked') ? 
-				($('#toContract').prop('checked') ? UF.enums.status.contracting : UF.enums.status.authenticating) : 
-				UF.enums.status.base;
+				($('#toContract').prop('checked') ? UF.base.Enums.status.contracting : UF.base.Enums.status.authenticating) : 
+				UF.base.Enums.status.base;
 				
 		$('input[name="status"]').val(model.status);
 	}
@@ -18,12 +18,17 @@ $(document).ready(function () {
     	
     	$('select[name="city"]')
             .prop('disabled', UF.stores.cities.length == 0)
-    		.each(UF.utils.loadSelect);
+    		.each(UF.framework.Form.loadSelect);
     }
 	
 	$('form').submit(function () {
-		if (model.status == UF.enums.status.base && !$('#toAuth').prop('checked')) {
-			$('*[data-group="forAuth"]').val(null);
+		if (model.status == UF.base.Enums.status.base) {
+			if (!$('#toAuth').prop('checked')) {
+				$('*[data-group="forAuth"]').val(null);//.removeAttr('required');
+			}
+			else {
+				//$('*[data-group="forAuth"]').attr('required', 'true');
+			}
 		}
 	})
 
@@ -36,18 +41,18 @@ $(document).ready(function () {
     $('#toContract').click(updateStatus);
     $('.collapse input').attr('data-group', 'forAuth');
     
-    $('select[name="province"]').each(UF.utils.loadSelect);
+    $('select[name="province"]').each(UF.framework.Form.loadSelect);
     
-    UF.utils.renderModel(model);
+    UF.framework.Form.renderModel(model);
     
     $('select[name="province"]').each(updateCity).change(updateCity);
     
     switch (model.status) {
-    case UF.enums.status.base:
+    case UF.base.Enums.status.base:
     	$('#toAuth').prop('checked', false);
     	$('#toContract').prop('checked', false);
     	break;
-    case UF.enums.status.authenticated:
+    case UF.base.Enums.status.authenticated:
     	$('#toContract').prop('checked', false);
     	$('.portal').hide();
     	$('.portal[data-name="contract"]').show().removeClass('collapse');
@@ -58,10 +63,10 @@ $(document).ready(function () {
     	e.preventDefault();
     	$('.collapse input').val('');
     	$('.collapse img').attr('src', '');
-    	$('input[name="status"]').val(UF.enums.status.authenticating);
+    	$('input[name="status"]').val(UF.base.Enums.status.authenticating);
     })
     
     var select = $('select[name="city"]');
     select.prop('disabled', select.find('option').length <= 1);
-    UF.utils.validate.call(select);
+    UF.framework.Form.validate.call(select);
 });

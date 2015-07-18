@@ -117,7 +117,7 @@
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
 <body class="accountType">
     <hgroup class="usersCommon boxWidth">
         <img src="img/Logo.png" />

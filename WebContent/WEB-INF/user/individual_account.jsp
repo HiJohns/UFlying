@@ -46,8 +46,7 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/pages/individual_account.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
   </head>
 <body class="personal_summary">
     <hgroup class="usersCommon boxWidth">
@@ -124,7 +123,7 @@
     		<section class="horizon">
     			<strong></strong>
     			<button class="btn btn-primary" href="#" data-name="edit">编辑</button>
-    			<button class="btn btn-danger" data-name="logout" href="<%=request.getContextPath()%>/logout">登出</button>
+    			<button class="btn btn-danger" data-name="logout">登出</button>
     		</section>
     	</fieldset>
     </section>

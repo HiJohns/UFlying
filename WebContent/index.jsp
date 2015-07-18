@@ -187,6 +187,62 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding: 5px 16px;
     width: 2em;
 }
+
+footer section {
+    overflow: hidden;
+    background-color: black;
+}
+
+footer .item {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+
+footer .center {
+    width: 900px;
+    margin: 40px auto;
+    overflow: hidden
+}
+
+footer section:first-child {
+    background-color: #373737;
+}
+
+footer p, footer h3, footer a {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #898989;
+}
+
+footer h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+footer p {
+    font-size: small;
+    margin-top: 5px;
+}
+
+
+footer .linkBox {
+    float: left;
+    margin-left: 5%;
+    width: 16%;
+}
+
+
+footer .linkBox > div {
+    font-size: small;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.center > img {
+    width: 10%;
+    float: right;
+    margin-right: 4%;
+}
 </style>
 <body>
 <!--body-->
@@ -199,7 +255,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="index.html"><img src="img/logo_top.png" alt="" /></a>
+            <a href="index.html"><img src="img/Logo_Top.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
@@ -531,11 +587,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div>
     </div>
 </section>
-<section id="foot">
-    <div>
-    	<img src="images/foot.jpg" width="100%"/>
-    </div>
-</section>
+<footer>
+    <section>
+        <div class="center">
+            <div class="item">
+                <img src="img/Notes.png" />
+                <h3>成为签约飞手</h3>
+                <p>为超过1000家客户服务，百分之百获得任务</p>
+            </div>
+            <div class="item">
+                <img src="img/Awards.png" />
+                <h3>全国代理加盟</h3>
+                <p>会员服务、商业任务、保险服务授权经销</p>
+            </div>
+            <div class="item">
+                <img src="img/Charity.png" />
+                <h3>公益服务申请</h3>
+                <p>免费为全国公益性组织提供无人机服务</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="center">
+            <div class="linkBox">
+                <div><a href="#">空中梦想</a></div>
+                <div><a href="#">UFLYING无人机联盟</a></div>
+                <div><a href="#">空中家园</a></div>
+            </div>
+            <div class="linkBox">
+                <div><a href="#">派发任务</a></div>
+                <div><a href="#">商业合作</a></div>
+                <div><a href="#">广告合作</a></div>
+            </div>
+            <div class="linkBox">
+                <div><a href="#">签约飞手</a></div>
+                <div><a href="#">代理加盟</a></div>
+            </div>
+            <div class="linkBox">
+                <div><a href="#">代理加盟</a></div>
+                <div><a href="#">联系我们</a></div>
+            </div>
+            <img src="img/qrcode.png"/>
+        </div>
+    </section>
+</footer>
 <!---->
 <div class="arrowMark">
 	<div class="unslider-arrow prev"><</div>

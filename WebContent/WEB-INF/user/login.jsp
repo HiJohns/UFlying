@@ -11,7 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/3rdParty/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/icons.css">
 	<script type="text/javascript" name="interface">
 	    model = {
 	    };
@@ -19,7 +18,7 @@
 	</script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
     <title>登录</title>
     <style type="text/css">
         hgroup.usersCommon {
@@ -65,11 +64,14 @@
             <fieldset class="form">
                 <section>
                     <strong>*</strong>
-                    <input data-icon="User" type="text" value="${form.login}" placeholder="手机号/会员ID" required="required" name="user" aria-describedby="basic-addon1" />
+                    <input data-icon="User" type="text" value="${form.login}" placeholder="手机号/会员ID" 
+                    	required msg-empty="请填写手机号/会员ID" name="user" aria-describedby="basic-addon1" 
+                    	data-regex="^(\d{11}|[GQ]\d{10})$" msg-regex="手机号应该为11位数字，会员ID应该以字母开头，后接10位数字"/>
                 </section>
                 <section>
                     <strong>*</strong>
-                    <input data-icon="Key" type="password" value="${form.password}" required="required" placeholder="输入密码" name="password" aria-describedby="basic-addon1" />
+                    <input data-icon="Key" type="password" value="${form.password}" required msg-empty="请填写密码" 
+                    	placeholder="输入密码" name="password" aria-describedby="basic-addon1" />
                 </section>
                 <section>
                     <strong></strong>
