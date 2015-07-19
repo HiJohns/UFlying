@@ -46,7 +46,7 @@
             float: none !important;
             margin-left: auto !important;
             margin-right: auto !important;
-            padding-left: 20px;
+            padding-right: 25px;
             text-decoration: none;
             font-size: small;
         }

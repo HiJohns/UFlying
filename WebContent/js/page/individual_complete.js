@@ -18,7 +18,7 @@ $(document).ready(function () {
     	
     	$('select[name="city"]')
             .prop('disabled', UF.stores.cities.length == 0)
-    		.each(UF.framework.Form.loadSelect);
+    		.each(UF.business.Form.loadSelect);
     }
 	
 	$('form').submit(function () {
@@ -41,9 +41,9 @@ $(document).ready(function () {
     $('#toContract').click(updateStatus);
     $('.collapse input').attr('data-group', 'forAuth');
     
-    $('select[name="province"]').each(UF.framework.Form.loadSelect);
+    $('select[name="province"]').each(UF.business.Form.loadSelect);
     
-    UF.framework.Form.renderModel(model);
+    UF.business.Form.renderModel(model);
     
     $('select[name="province"]').each(updateCity).change(updateCity);
     
@@ -68,5 +68,5 @@ $(document).ready(function () {
     
     var select = $('select[name="city"]');
     select.prop('disabled', select.find('option').length <= 1);
-    UF.framework.Form.validate.call(select);
+    UF.business.Form.validate.call(select);
 });

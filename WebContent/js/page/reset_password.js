@@ -1,0 +1,3 @@
+UF.page.ResetPassword = function () {
+	
+}

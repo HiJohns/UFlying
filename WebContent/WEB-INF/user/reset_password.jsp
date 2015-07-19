@@ -24,49 +24,56 @@
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
-	<script type="text/javascript">
-	function getVerifyCode() {
-		var phone = $('#phone').val();
-
-		if (phone == '') {
-			alert('请输入手机号');
-			return;
-		}
-		$('#code_btn').text("正在发送...").attr('href', 'javascript:void(0);');
-		$.ajax({
-			type : 'post',
-			url : '<%=request.getContextPath()%>/register_verify_code',
-			data : {
-				phone : phone
-			},
-			error : function() {
-				alert('验证码发送失败，请稍后再试');
-			},
-			success : function(data) {
-				setInterval("timer()", 1000);
-				alert(data.reason);
-			}
-		});
-	}
-	var seconds = 60;
-	function timer() {
-		seconds = seconds - 1;
-		if (seconds > 0) {
-			$('#code_btn').text(seconds + "秒后可再次获取").attr('href', 'javascript:void(0);');
-		} else {
-			$('#code_btn').text("获取验证码").attr('href', 'javascript:getVerifyCode();');
-		}
-	}
-	$(document).ready(preventPost);
-	function preventPost() {
-		$('form:first').submit(function() {
-			$('input[type="submit"]').val('正在保存...').attr('disabled', 'disabled');
-		});
-	}
-	</script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
 </head>
 <body>
-
+    <form id="register-form" action="<%=request.getContextPath()%>/individual_register" method="post">
+        <section class="form portal withHeader boxWidth">
+            <header>
+                <div><img src="img/Right_DarkGray.png" /><span>忘记密码</span></div>
+            </header>
+            <fieldset>
+                <section>
+                    <strong>*</strong>
+                    <input type="tel" id="phone" name="phone" data-icon="Phone" msg-empty="请填写注册手机号" 
+                    	required msg-empty="请填写手机号" data-regexName="mobile" msg-regex="手机号应该为11位数字"
+                    	placeholder="请输入注册手机号" aria-describedby="basic-addon1" />
+                </section>
+                <section>
+                	<strong></strong>
+                    <button data-name="btnVerify" class="btn btn-primary">获取验证码</button>
+                </section>
+                <section class="collapse">
+                    <strong>*</strong>
+                    <input type="text" id="code" name="code" required="required" 
+                    	msg-empty="请填写验证码" placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
+                </section>
+            </fieldset>
+        </section>
+        <section class="form portal boxWidth">
+            <fieldset>
+                <section>
+                    <strong>*</strong>
+                    <input type="password" id="password" name="password" msg-empty="请填写新密码" required="required" 
+                    placeholder="填写新密码" data-match="confirmPassword" msg-match="应与确认密码一致"
+                    aria-describedby="basic-addon1" data-icon="Lock" />
+                </section>
+                <section>
+                    <strong>*</strong>
+                    <input type="password" placeholder="填写确认密码" msg-empty="请填写同一密码" 
+                    	name="confirmPassword" data-match="password" msg-match="两次填写的密码应该一致"
+                    required="required" data-icon="Lock" />
+                </section>
+            </fieldset>
+        </section>
+        <section class="form portal boxWidth">
+            <fieldset>
+                <section>
+                    <strong></strong>
+                    <input type="submit" disabled class="btn" value="下一步" />
+                </section>
+            </fieldset>
+        </section>
+    </form>
 </body>
 </html>

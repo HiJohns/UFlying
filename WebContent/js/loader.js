@@ -27,12 +27,12 @@ $(document).ready(function () {
                "Enums.js",
                "RegularExpressions.js",
                "Cities.js",
+               "Renderers.js",
                "Utils.js"
                ],
 	
-        framework: [
-	               "Renderers.js",
-	               "Forms.js"
+        business: [
+	               "Form.js"
 	               ],
 	    page: [
                	location.href.split('/').pop() + '.js'
@@ -94,7 +94,7 @@ $(document).ready(function () {
 	    });
 
 	    _.delay(function () {
-	    	if (_.isObject(model)) UF.framework.Form.renderModel(model);
+	    	if (_.isObject(model)) UF.business.Form.renderModel(model);
 	    	$('input').removeAttr('data-novalidate');
 	    	$('input[type=submit]').removeAttr('disabled');
 	    	$('select').removeAttr('data-novalidate');
@@ -102,11 +102,21 @@ $(document).ready(function () {
 	    
 	    $('input').attr('data-novalidate', 'true');
 	    $('select').attr('data-novalidate', 'true');
-	    $('form').each(UF.framework.Form.autoValidateForm);
+	    $('form').each(UF.business.Form.autoValidateForm);
+	    
+	    function toBigCamel(s) {
+	    	return s[0].toUpperCase() + s.substr(1);
+	    }
+	    
+	    var pageObjName = scripts.page[0].replace(/([a-zA-Z0-9]+)_([a-zA-Z0-9]+)\.js/, function (match, group1, group2) {
+	    	  return toBigCamel(group1) + toBigCamel(group2);
+	    });
+	    
+	    if (UF.page.hasOwnProperty(pageObjName)) new UF.page[pageObjName]();
 	}
 	
 	loadScripts('base').done(function () {
-		loadScripts('framework').done(function () {
+		loadScripts('business').done(function () {
 			loadScripts('page').done(ready).fail(ready);
 		})
 	})

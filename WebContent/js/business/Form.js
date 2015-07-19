@@ -1,4 +1,4 @@
-UF.framework.Form = (function () {
+UF.business.Form = (function () {
 	var labels = {
 		store: 'data-store',	// store for combo
 		textField: 'data-textField',	// text field for combo
@@ -67,11 +67,11 @@ UF.framework.Form = (function () {
 		autoValidateForm: function () {
 			if (!_.isUndefined($(this).attr(labels.autoValidate))) return;
 			$(this).attr(labels.autoValidate, 'true').attr('novalidate', 'true');
-			$(this).find('input').change(UF.framework.Form.validate).keyup(UF.framework.Form.validate);
-			$(this).find('select').change(UF.framework.Form.validate);
+			$(this).find('input').change(UF.business.Form.validate).keyup(UF.business.Form.validate);
+			$(this).find('select').change(UF.business.Form.validate);
 			$(this).submit(function () {
-				$(this).find('select:visible').each(UF.framework.Form.validate);
-				$(this).find('input:visible').each(UF.framework.Form.validate);
+				$(this).find('select:visible').each(UF.business.Form.validate);
+				$(this).find('input:visible').each(UF.business.Form.validate);
 				var stack = [];
 				$(this).find('.invalid').each(function (index) {
 					stack.push((index+1) + '. ' + $(this).attr('title'));
@@ -96,8 +96,8 @@ UF.framework.Form = (function () {
 		    	for (var i = 0; i < stack.length; i++) {
 		    		var n = stack[i];
 		    		var v = getValue(n);
-		    		if (UF.framework.Renderers.hasOwnProperty(n)) {
-		    			var renderer = UF.framework.Renderers[n];
+		    		if (UF.base.Renderers.hasOwnProperty(n)) {
+		    			var renderer = UF.base.Renderers[n];
 		    			if (_.isFunction(renderer)) {
 		    				v = renderer(v, model);
 		    			}
@@ -126,11 +126,11 @@ UF.framework.Form = (function () {
 			            default:
 			                $(this).val(getValue(name));
 			            }
-			        	if ($(this).is(':visible')) UF.framework.Form.validate.call(this);
+			        	if ($(this).is(':visible')) UF.business.Form.validate.call(this);
 			            break;
 			        case 'select':
 		                $(this).val(getValue(name));
-			        	if ($(this).is(':visible')) UF.framework.Form.validate.call(this);
+			        	if ($(this).is(':visible')) UF.business.Form.validate.call(this);
 			        	break;
 			        case 'span':
 			        case 'div':

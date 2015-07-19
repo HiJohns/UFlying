@@ -1,4 +1,4 @@
-UF.framework.Renderers = {
+UF.base.Renderers = {
 	sex: {
 		0: '女',
 		1: '男',
