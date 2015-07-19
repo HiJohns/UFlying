@@ -27,7 +27,12 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
 </head>
 <body>
-    <form id="register-form" action="<%=request.getContextPath()%>/individual_register" method="post">
+    <hgroup class="usersCommon boxWidth">
+        <img src="img/Logo.png" />
+        <button class="back" data-icon="LeftBlue"></button>
+    </hgroup>
+    <c:if test="${!empty message}"><div role="alert" class="alert alert-danger">${message}</div></c:if>
+    <form id="register-form" action="<%=request.getContextPath()%>/reset_password" method="post">
         <section class="form portal withHeader boxWidth">
             <header>
                 <div><img src="img/Right_DarkGray.png" /><span>忘记密码</span></div>
@@ -46,7 +51,8 @@
                 <section class="collapse">
                     <strong>*</strong>
                     <input type="text" id="code" name="code" required="required" 
-                    	msg-empty="请填写验证码" placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
+                    	msg-empty="请填写验证码" placeholder="请填写验证码" data-regex="^\d{6}$" msg-regex="验证码应该为6位数字"
+                    	aria-describedby="basic-addon1" data-icon="Key" />
                 </section>
             </fieldset>
         </section>
@@ -70,7 +76,7 @@
             <fieldset>
                 <section>
                     <strong></strong>
-                    <input type="submit" disabled class="btn" value="下一步" />
+                    <input type="submit" disabled class="btn" value="下一步" disabled="true"/>
                 </section>
             </fieldset>
         </section>

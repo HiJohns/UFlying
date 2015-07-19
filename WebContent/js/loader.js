@@ -24,18 +24,14 @@ UF = {
 $(document).ready(function () {
 	var scripts = {
 		base: [
-               "Enums.js",
-               "RegularExpressions.js",
-               "Cities.js",
-               "Renderers.js",
-               "Utils.js"
+               "Enums",
+               "RegularExpressions",
+               "Cities",
+               "Renderers",
+               "Utils"
                ],
-	
-        business: [
-	               "Form.js"
-	               ],
 	    page: [
-               	location.href.split('/').pop() + '.js'
+               	location.href.split('/').pop()
                ]
 	};
 	
@@ -56,11 +52,12 @@ $(document).ready(function () {
 		};
 		
 		UF.ns('UF.' + name);
-		_.each(scripts[name], function (url) {
-			$.getScript(contextPath + '/js/' + name + '/' + url)
+		_.each(scripts[name], function (moduleName) {
+			$.getScript(contextPath + '/js/' + name + '/' + moduleName + '.js')
 				.done(function (script) {
 					finished++;
 					if (++succeeded == scripts[name].length && _.isFunction(success)) {
+						console.log(name)
 						success();
 					}
 				})
@@ -92,32 +89,29 @@ $(document).ready(function () {
 	    $('button.back').click(function () {
 	    	history.go(-1);
 	    });
-
-	    _.delay(function () {
-	    	if (_.isObject(model)) UF.business.Form.renderModel(model);
-	    	$('input').removeAttr('data-novalidate');
-	    	$('input[type=submit]').removeAttr('disabled');
-	    	$('select').removeAttr('data-novalidate');
-	    }, 100);
 	    
-	    $('input').attr('data-novalidate', 'true');
-	    $('select').attr('data-novalidate', 'true');
-	    $('form').each(UF.business.Form.autoValidateForm);
-	    
-	    function toBigCamel(s) {
-	    	return s[0].toUpperCase() + s.substr(1);
-	    }
-	    
-	    var pageObjName = scripts.page[0].replace(/([a-zA-Z0-9]+)_([a-zA-Z0-9]+)\.js/, function (match, group1, group2) {
-	    	  return toBigCamel(group1) + toBigCamel(group2);
-	    });
-	    
-	    if (UF.page.hasOwnProperty(pageObjName)) new UF.page[pageObjName]();
+	    if (UF.page.hasOwnProperty(pageObjName)) UF.page[pageObjName].init();
 	}
 	
+	function loadDependencies() {
+		if (_.isObject(UF.page[pageObjName]) && _.isArray(UF.page[pageObjName].dependencies)) {
+			scripts.business = UF.page[pageObjName].dependencies;
+			loadScripts('business').done(ready);
+		}
+		else {
+			ready();
+		}
+	}
+	
+    function toBigCamel(s) {
+    	return _.isString(s) ? s[0].toUpperCase() + s.substr(1) : '';
+    }
+    
+    var pageObjName = scripts.page[0].replace(/([a-zA-Z0-9]+)(_([a-zA-Z0-9]+))?/, function (match, group1, group2, group3) {
+  	  return toBigCamel(group1) + toBigCamel(group3);
+    });
+  
 	loadScripts('base').done(function () {
-		loadScripts('business').done(function () {
-			loadScripts('page').done(ready).fail(ready);
-		})
+		loadScripts('page').done(loadDependencies).fail(ready);
 	})
 });

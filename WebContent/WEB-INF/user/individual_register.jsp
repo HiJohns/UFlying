@@ -46,11 +46,13 @@
                 </section>
                 <section>
                 	<strong></strong>
-                    <button id="code_btn" href="javascript:getVerifyCode();" class="btn btn-primary">获取验证码</button>
+                    <button id="code_btn" data-name="btnVerify" class="btn btn-primary">获取验证码</button>
                 </section>
                 <section class="collapse">
                     <strong>*</strong>
-                    <input type="text" id="code" name="code" required="required" msg-empty="请填写验证码" placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
+                    <input type="text" id="code" name="code" required="required" msg-empty="请填写验证码" 
+                    	data-regex="^\d{6}$" msg-regex="验证码应该为6位数字"
+                    	placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
                 </section>
             </fieldset>
         </section>
@@ -74,7 +76,7 @@
             <fieldset>
                 <section>
                     <strong></strong>
-                    <input type="submit" disabled class="btn" value="下一步" />
+                    <input type="submit" disabled class="btn" value="下一步" disabled="true"/>
                 </section>
             </fieldset>
         </section>

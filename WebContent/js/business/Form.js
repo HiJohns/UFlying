@@ -18,6 +18,17 @@ UF.business.Form = (function () {
 	}
 
 	return {
+		init: function () {
+		    _.delay(function () {
+		    	if (_.isObject(model)) UF.business.Form.renderModel(model);
+		    	$('input').removeAttr('data-novalidate');
+		    	$('select').removeAttr('data-novalidate');
+		    }, 100);
+		    
+		    $('input').attr('data-novalidate', 'true');
+		    $('select').attr('data-novalidate', 'true');
+		    $('form').each(UF.business.Form.autoValidateForm);
+		},
 		loadSelect: function () {
 			if ($(this).prop('tagName') != 'SELECT') return;
 			
@@ -39,11 +50,23 @@ UF.business.Form = (function () {
 			$(this).val('');
 		},
 		validate: function () {
-			$(this).removeClass('invalid').siblings('.error').remove();
+			function clearError() {
+				$(this).removeClass('invalid').siblings('.error').remove();
+			}
+			
+			function addError(obj, msg) {
+				$(obj).each(clearError);
+				if (msg != null) {
+					$(obj).addClass('invalid').attr('title', msg);
+					$('<small>').addClass('error').html(msg).appendTo($(obj).parent());
+				}
+			}
+			
+			$(this).each(clearError);
 			if (!$(this).is(':enabled:visible') || is(this, labels.noValidate)) return;
 					
-			var val = $(this).val();
 			var msg = null;
+			var val = $(this).val();
 			if ($(this).is('[required]') && (val == null || (_.isString(val) && val.length == 0))) {
 				msg = $(this).attr('msg-empty') || '请填写本字段';
 			}
@@ -51,18 +74,23 @@ UF.business.Form = (function () {
 			if (msg == null && (is(this, labels.regex) || is(this, labels.regexName))) {
 				var regexString = $(this).attr(labels.regex) || UF.base.RegularExpressions[$(this).attr(labels.regexName)];
 				if (_.isString(val) && !(new RegExp(regexString, 'i').test(val))) {
+					// console.log(regexString, new RegExp(regexString, 'i'));
 					msg = $(this).attr(labels.regexMessage);
 				}
 			}
 			
-			if (msg == null && is(this, labels.match) && val != $('[name="' + $(this).attr(labels.match) + '"]').val()) {
-				msg = $(this).attr(labels.matchMessage);
+			if (msg == null && is(this, labels.match)) {
+				var matchField = $('[name="' + $(this).attr(labels.match) + '"]');
+				var errorForMatch = null;
+				
+				if (val != matchField.val() && matchField.is(':visible:enabled')) {
+					msg = $(this).attr(labels.matchMessage);
+					errorForMatch = $(matchField).attr(labels.matchMessage);
+				}
+				addError(matchField, errorForMatch);
 			}
 			
-			if (msg != null) {
-				$(this).addClass('invalid').attr('title', msg);
-				$('<small>').addClass('error').html(msg).appendTo($(this).parent());
-			}
+			addError(this, msg);
 		},
 		autoValidateForm: function () {
 			if (!_.isUndefined($(this).attr(labels.autoValidate))) return;

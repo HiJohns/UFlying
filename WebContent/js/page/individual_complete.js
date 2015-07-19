@@ -1,4 +1,4 @@
-$(document).ready(function () {
+UF.page.IndividualComplete = (function () {
 	function updateStatus() {
 		model.status = $('#toAuth').prop('checked') ? 
 				($('#toContract').prop('checked') ? UF.base.Enums.status.contracting : UF.base.Enums.status.authenticating) : 
@@ -21,52 +21,61 @@ $(document).ready(function () {
     		.each(UF.business.Form.loadSelect);
     }
 	
-	$('form').submit(function () {
-		if (model.status == UF.base.Enums.status.base) {
-			if (!$('#toAuth').prop('checked')) {
-				$('*[data-group="forAuth"]').val(null);//.removeAttr('required');
-			}
-			else {
-				//$('*[data-group="forAuth"]').attr('required', 'true');
-			}
-		}
-	})
+	return {
+		dependencies: [
+		               'Form'
+		               ],
+		init: function () {
+			UF.business.Form.init();
+			
+			$('form').submit(function () {
+				if (model.status == UF.base.Enums.status.base) {
+					if (!$('#toAuth').prop('checked')) {
+						$('*[data-group="forAuth"]').val(null);//.removeAttr('required');
+					}
+					else {
+						//$('*[data-group="forAuth"]').attr('required', 'true');
+					}
+				}
+			})
 
-    // hack
-    model.mobilePhone = model.phone;
-    model.emailAddress = model.email;
-    model.headPhotoUrl = model.photoUrl;
-    
-    $('#toAuth').click(updateStatus);
-    $('#toContract').click(updateStatus);
-    $('.collapse input').attr('data-group', 'forAuth');
-    
-    $('select[name="province"]').each(UF.business.Form.loadSelect);
-    
-    UF.business.Form.renderModel(model);
-    
-    $('select[name="province"]').each(updateCity).change(updateCity);
-    
-    switch (model.status) {
-    case UF.base.Enums.status.base:
-    	$('#toAuth').prop('checked', false);
-    	$('#toContract').prop('checked', false);
-    	break;
-    case UF.base.Enums.status.authenticated:
-    	$('#toContract').prop('checked', false);
-    	$('.portal').hide();
-    	$('.portal[data-name="contract"]').show().removeClass('collapse');
-    	$('.portal.withHeader').show();
-    	$('footer').show();    }
-    
-    $('#reauthenticateButton').click(function (e) {
-    	e.preventDefault();
-    	$('.collapse input').val('');
-    	$('.collapse img').attr('src', '');
-    	$('input[name="status"]').val(UF.base.Enums.status.authenticating);
-    })
-    
-    var select = $('select[name="city"]');
-    select.prop('disabled', select.find('option').length <= 1);
-    UF.business.Form.validate.call(select);
-});
+		    // hack
+		    model.mobilePhone = model.phone;
+		    model.emailAddress = model.email;
+		    model.headPhotoUrl = model.photoUrl;
+		    
+		    $('#toAuth').click(updateStatus);
+		    $('#toContract').click(updateStatus);
+		    $('.collapse input').attr('data-group', 'forAuth');
+		    
+		    $('select[name="province"]').each(UF.business.Form.loadSelect);
+		    
+		    UF.business.Form.renderModel(model);
+		    
+		    $('select[name="province"]').each(updateCity).change(updateCity);
+		    
+		    switch (model.status) {
+		    case UF.base.Enums.status.base:
+		    	$('#toAuth').prop('checked', false);
+		    	$('#toContract').prop('checked', false);
+		    	break;
+		    case UF.base.Enums.status.authenticated:
+		    	$('#toContract').prop('checked', false);
+		    	$('.portal').hide();
+		    	$('.portal[data-name="contract"]').show().removeClass('collapse');
+		    	$('.portal.withHeader').show();
+		    	$('footer').show();    }
+		    
+		    $('#reauthenticateButton').click(function (e) {
+		    	e.preventDefault();
+		    	$('.collapse input').val('');
+		    	$('.collapse img').attr('src', '');
+		    	$('input[name="status"]').val(UF.base.Enums.status.authenticating);
+		    })
+		    
+		    var select = $('select[name="city"]');
+		    select.prop('disabled', select.find('option').length <= 1);
+		    UF.business.Form.validate.call(select);
+		}
+	}
+})();
