@@ -21,6 +21,10 @@ UF.page.IndividualAccount = (function () {
 	            location.href = contextPath + '/logout';
 	        });
 			
+	        $('.btn[data-name="changePassword"]').click(function () {
+	            location.href = contextPath + '/change_password';
+	        });
+			
 			$('.btn[data-name="edit"]').prop('disabled', 
 					model.status != UF.base.Enums.status.authenticated && model.status != UF.base.Enums.status.base)
 				.click(function (e) {

@@ -6,11 +6,13 @@ UF.business.Form = (function () {
 		regex: 'data-regex',	// string of regular expression for validating 
 		regexName: 'data-regexName',	// name of regular expression for validating
 		match: 'data-match',	// name of another field to which this one should match
+		remote: 'data-remote',	// method to be invoked for remote checking.
 		noValidate: 'data-novalidate',	// prevent validating
 		autoValidate: 'data-autoValidate',	// Indicating the current form has been set up auto validating mechanism
 		emptyMessage: 'msg-empty',	// error message when a required field is empty
 		regexMessage: 'msg-regex',	// error message when the field fails in regular testing
-		matchMessage: 'msg-match'	// error message when the field doesn't match the specified one
+		matchMessage: 'msg-match',	// error message when the field doesn't match the specified one
+		remoteMessage: 'msg-remote'	// error message when remote checking failed
 	};
 	
 	function is(obj, label) {
@@ -88,6 +90,14 @@ UF.business.Form = (function () {
 					errorForMatch = $(matchField).attr(labels.matchMessage);
 				}
 				addError(matchField, errorForMatch);
+			}
+			
+			if (msg == null && is(this, labels.remote)) {
+				var msgRemote = $(this).attr('msg-remote');
+				var _self = this;
+				UF.business[$(this).attr('data-remote')].check(val, function (isValid) { 
+					if (!isValid) addError(_self, msgRemote); 
+				});
 			}
 			
 			addError(this, msg);

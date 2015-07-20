@@ -42,6 +42,7 @@
                     <strong>*</strong>
                     <input type="tel" id="phone" name="phone" data-icon="Phone" msg-empty="请填写手机号" 
                     	required msg-empty="请填写手机号" data-regexName="mobile" msg-regex="手机号应该为11位数字"
+                    	data-remote="MobileCheck" msg-remote="该手机已注册过"
                     	placeholder="请输入手机号" aria-describedby="basic-addon1" />
                 </section>
                 <section>

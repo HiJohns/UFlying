@@ -15,8 +15,13 @@
         span[name="status"] + a {
             margin-left: 10px;
         }
+        .horizon {
+        	width: 100%!important;
+        }
         .horizon button {
-        	width: 40%!important;
+        	width: 27%!important;
+        	margin-left: 5px!important;
+        	margin-right: 5px!important;
         }
         .staticInfo small {
         	color: red;
@@ -121,8 +126,8 @@
     <section class="portal boxWidth form">
     	<fieldset>
     		<section class="horizon">
-    			<strong></strong>
-    			<button class="btn btn-primary" href="#" data-name="edit">编辑</button>
+    			<button class="btn btn-primary" data-name="edit">编辑</button>
+    			<button class="btn btn-default" data-name="changePassword">修改密码</button>
     			<button class="btn btn-danger" data-name="logout">登出</button>
     		</section>
     	</fieldset>

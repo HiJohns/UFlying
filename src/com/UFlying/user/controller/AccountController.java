@@ -1,8 +1,5 @@
 package com.UFlying.user.controller;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -86,16 +83,6 @@ public class AccountController {
 			}
 		}
 		return "user/login";
-	}
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public void myInterface(HttpServletResponse response, Model model) {
-		try {
-		byte[] bytes = Files.readAllBytes(Paths.get("/Users/LinWeixun/Documents/workspace/UFlying/WebContent/img/logo_top.png"));
-			response.getOutputStream().write(bytes);
-		}
-		catch (Exception e) {
-		}
 	}
 
 	/** 登录，自动区分个人用户、企业用户 */
@@ -372,13 +359,13 @@ public class AccountController {
 	@RequestMapping(value = "/register_verify_code", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseBasic registerVerifyCode(@RequestParam String phone) {
-		boolean phoneExists = accountService.checkPhoneExists(phone);
-		if (phoneExists) {
-			ResponseBasic response = new ResponseBasic();
-			response.setStatus(-1);
-			response.setReason("该手机号已被注册");
-			return response;
-		}
+//		boolean phoneExists = accountService.checkPhoneExists(phone);
+//		if (phoneExists) {
+//			ResponseBasic response = new ResponseBasic();
+//			response.setStatus(-1);
+//			response.setReason("该手机号已被注册");
+//			return response;
+//		}
 		RequestGetVerifyCode request = new RequestGetVerifyCode();
 		request.setPhoneNumber(phone);
 		return smsService.sendVerifyCode(request);
@@ -452,6 +439,17 @@ public class AccountController {
 		}
 		attributes.addFlashAttribute("message", "密码重置成功！请重新登录");
 		return "redirect:/login";
+	}
+
+	/** 验证手机是否被注册 */
+	@RequestMapping(value = "/check_mobile", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseBasic checkMobile(@RequestParam String phone) {
+		boolean phoneExists = accountService.checkPhoneExists(phone);
+		ResponseBasic response = new ResponseBasic();
+		response.setStatus(0);
+		response.setReason(phoneExists?"1":"0");
+		return response;
 	}
 
 }

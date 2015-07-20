@@ -2,7 +2,8 @@ UF.page.IndividualRegister = (function () {
 	return {
 		dependencies: [
 		               'Form',
-		               'VerificationByMobile'
+		               'VerificationByMobile',
+		               'MobileCheck'
 		               ],
 		init: function () {
 			UF.business.Form.init();

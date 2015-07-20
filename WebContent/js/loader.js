@@ -57,7 +57,6 @@ $(document).ready(function () {
 				.done(function (script) {
 					finished++;
 					if (++succeeded == scripts[name].length && _.isFunction(success)) {
-						console.log(name)
 						success();
 					}
 				})
