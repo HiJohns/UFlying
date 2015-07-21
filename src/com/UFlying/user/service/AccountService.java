@@ -770,7 +770,6 @@ public class AccountService {
 	public Object individualAccountToForm(IndividualAccount account) {
 		FormUpdateIndividualAccount form = new FormUpdateIndividualAccount();
 		form.setName(account.getName());
-//		form.setUid(String.format("G%010d", account.getUid())) ;
 		form.setUid(account.getUid()) ;
 		form.setPhone(account.getMobilePhone());
 		form.setIdCardNumber(account.getIdCardNumber());
@@ -778,9 +777,9 @@ public class AccountService {
 		form.setCity(account.getCity());
 		form.setAddress(account.getAddress());
 		form.setEmail(account.getEmailAddress());
-		form.setExperience(account.getExperience());
 		form.setSex(account.getSex());
 		form.setStatus(account.getStatus());
+		form.setExperience(account.getExperience());
 		form.setPhotoUrl(account.getHeadImgUrl());
 		form.setIdCardUrl1(account.getIdCardUrl1());
 		form.setIdCardUrl2(account.getIdCardUrl2());

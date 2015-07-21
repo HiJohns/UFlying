@@ -21,22 +21,6 @@ public class FormUpdateIndividualAccount {
 	private String idCardUrl1;
 	private String idCardUrl2;
 
-	public String getIdCardUrl1() {
-		return idCardUrl1;
-	}
-
-	public void setIdCardUrl1(String idCardUrl1) {
-		this.idCardUrl1 = idCardUrl1;
-	}
-
-	public String getIdCardUrl2() {
-		return idCardUrl2;
-	}
-
-	public void setIdCardUrl2(String idCardUrl2) {
-		this.idCardUrl2 = idCardUrl2;
-	}
-
 	public long getUid() {
 		return uid;
 	}
@@ -101,6 +85,46 @@ public class FormUpdateIndividualAccount {
 		this.status = status;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getIdCardNumber() {
+		return idCardNumber;
+	}
+
+	public void setIdCardNumber(String idCardNumber) {
+		this.idCardNumber = idCardNumber;
+	}
+
+	public String getIdCardUrl1() {
+		return idCardUrl1;
+	}
+
+	public void setIdCardUrl1(String idCardUrl1) {
+		this.idCardUrl1 = idCardUrl1;
+	}
+
+	public String getIdCardUrl2() {
+		return idCardUrl2;
+	}
+
+	public void setIdCardUrl2(String idCardUrl2) {
+		this.idCardUrl2 = idCardUrl2;
+	}
+
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+
 	public int getExperience() {
 		return experience;
 	}
@@ -132,29 +156,4 @@ public class FormUpdateIndividualAccount {
 	public void setIdentity_back(MultipartFile identity_back) {
 		this.identity_back = identity_back;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getIdCardNumber() {
-		return idCardNumber;
-	}
-
-	public void setIdCardNumber(String idCardNumber) {
-		this.idCardNumber = idCardNumber;
-	}
-
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
-
 }

@@ -26,6 +26,7 @@ public class IndividualAccount implements java.io.Serializable {
 	private Date registerDate;
 	private Date certifyDate;
 	private Date contractDate;
+	private String contractVersion;
 	private Timestamp lastTimeStamp;
 	
 	public Date getRegisterDate() {
@@ -186,6 +187,14 @@ public class IndividualAccount implements java.io.Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getContractVersion() {
+		return contractVersion;
+	}
+
+	public void setContractVersion(String contractVersion) {
+		this.contractVersion = contractVersion;
 	}
 
 }

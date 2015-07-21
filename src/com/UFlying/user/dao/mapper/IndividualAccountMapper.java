@@ -28,13 +28,14 @@ public class IndividualAccountMapper implements RowMapper<IndividualAccount> {
 		account.setToken(rs.getString("token"));
 		account.setMobilePhone(rs.getString("mobile_phone"));
 		account.setIdCardNumber(rs.getString("id_card_number"));
-		account.setHeadImgUrl(ACCOUNT_IMAGE_URL +  rs.getString("head_image_url"));
-		account.setIdCardUrl1(ACCOUNT_IMAGE_URL + rs.getString("id_card_url_1"));
-		account.setIdCardUrl2(ACCOUNT_IMAGE_URL + rs.getString("id_card_url_2"));
+		account.setHeadImgUrl((null==rs.getString("head_image_url"))?null:ACCOUNT_IMAGE_URL + rs.getString("head_image_url"));
+		account.setIdCardUrl1((null==rs.getString("id_card_url_1"))?null:ACCOUNT_IMAGE_URL + rs.getString("id_card_url_1"));
+		account.setIdCardUrl2((null==rs.getString("id_card_url_2"))?null:ACCOUNT_IMAGE_URL + rs.getString("id_card_url_2"));
 		account.setExperience(rs.getInt("experience"));
 		account.setRegisterDate(rs.getDate("register_date"));
 		account.setCertifyDate(rs.getDate("certify_date"));
 		account.setContractDate(rs.getDate("contract_date"));
+		account.setContractVersion(rs.getString("contract_version"));
 		account.setLastTimeStamp(rs.getTimestamp("lasttimestamp"));
 		return account;
 	}
