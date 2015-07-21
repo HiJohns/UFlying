@@ -57,7 +57,7 @@
 </head>
 <body class="login uniPage">
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath()%>/index.jsp"><img src="img/Logo.png" /></a>
     </hgroup>
     <form action="<%=request.getContextPath()%>/login" method="post">
         <div class="portal boxWidth">

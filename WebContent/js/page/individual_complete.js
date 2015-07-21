@@ -31,10 +31,12 @@ UF.page.IndividualComplete = (function () {
 			$('form').submit(function () {
 				if (model.status == UF.base.Enums.status.base) {
 					if (!$('#toAuth').prop('checked')) {
-						$('*[data-group="forAuth"]').val(null);//.removeAttr('required');
+						$('*[data-group="forAuth"]').val(null);
+						$('input[name="experience"]').val(0);
+						$('*[data-group="forAuth"]').removeAttr('required');
 					}
 					else {
-						//$('*[data-group="forAuth"]').attr('required', 'true');
+						$('*[data-group="forAuth"]').attr('required', 'true');
 					}
 				}
 			})

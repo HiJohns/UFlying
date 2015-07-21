@@ -17,15 +17,15 @@
            			phone: "${form.phone}",
            			sex: ${form.sex},
            			email: "${form.email}",
-           			idCardNumber: "${form.idCardNumber}",
            			address: "${form.address}",
            			province: "${form.province}",
            			city: "${form.city}",
            			status: ${form.status},
-           			experience: ${form.experience},
+           			idCardNumber: "${form.idCardNumber}",
            			photoUrl: "${form.photoUrl}",
            			idCardUrl1: "${form.idCardUrl1}",
-           			idCardUrl2: "${form.idCardUrl2}"
+           			idCardUrl2: "${form.idCardUrl2}",
+           			experience: ${form.experience}
         	};
             contextPath = '<%=request.getContextPath()%>';
         </script>
@@ -113,7 +113,7 @@
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="number" placeholder="飞行经验" msg-empty="请填写飞行经验" required="true" name="experience"  data-icon="Flight" min="0" step="100"/>
+                        <input type="number" placeholder="飞行经验" msg-empty="请填写飞行经验" required="true" name="experience"  data-icon="Flight" min="0" step="10"/>
                         <label>小时</label>
                     </section>
                 </fieldset>

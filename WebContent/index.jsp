@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				});
 
                 var unslider = $(".my.banner").unslider({
-                    delay: 10000
+                    delay: 6000
                 });
                 
                 $('.unslider-arrow').click(function () {
@@ -62,6 +62,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(div);
             }
+//            div = $('<row>').addClass('clearfix').appendTo(container);
+//            div = $('<row>').addClass('clearfix').appendTo(container);
         });
     </script>
 </head>
@@ -74,27 +76,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding-top: 430px;
 }
 .my.banner ul li:first-child {
-    background:url(images/bannerC.jpg) no-repeat;
+    background:url(images/bannerPA.jpg) no-repeat;
 }
 .my.banner ul li:nth-child(2) {
     background:url(images/bannerB.jpg) no-repeat;
 }
 .my.banner ul li:last-child {
-    background:url(images/bannerA.jpg) no-repeat;
+    background:url(images/bannerC.jpg) no-repeat;
 }
 .my.banner li p.lead {
     width: 50%;
     text-align: center;
     margin: 0px auto 20px;
     color: white;
-    font-size: 3.5em;
+    font-size: 3em;
 }
 .my.banner li p.lead3 {
     width: 50%;
     text-align: center;
     margin: 0px auto 20px;
-    color: white;
-    font-size: 1em;
+    color: #E04444;
+    font-size: 1.5em;
 }
 .my.banner .btn {
     color: white;
@@ -248,14 +250,14 @@ footer .linkBox > div {
 <!--body-->
 <ul class="side_nav">
 <li><a class="scroll" href="#home1"></a></li>
-<li><a class="scroll" href="#about"></a></li>
 <li><a class="scroll" href="#skills"></a></li>
 <li><a class="scroll" href="#gallery"></a></li>
+<li><a class="scroll" href="#about"></a></li>
 <li><a class="scroll" href="#vendors"></a></li>
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="index.html"><img src="img/Logo_Top.png" alt="" /></a>
+            <a href="index.html"><img src="images/logo_top.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
@@ -274,27 +276,25 @@ footer .linkBox > div {
     <div class="banner my">
         <ul>
             <li>
-                <p class="lead">给你翅膀，带你飞！</p>
-                <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
+                <p class="lead"></p>
+                <p class="lead3">详情请咨询：4006-509-579   </p>
+            </li>
+            <li>
+                <p class="lead">给你翅膀，带你飞 ！</p>
+                <p class="lead3">携手实现每个人的空中梦想</p>
                 <p class="lead">
                     <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
                 </p>
             </li>
             <li>
-                <p class="lead">给你翅膀，带你飞！</p>
-                <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
-                <p class="lead">
-                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
-                </p>
-            </li>
-            <li>
-                <p class="lead">给你翅膀，带你飞！</p>
-                <p class="lead3">空中梦想（北京）科技有限公司成立于2014年，旗下有UFlying无人机联盟，优谷文化，空中家园等子品牌。空中梦想致力于打造一个无人机行业商业联盟平台，融合行业各方面资源，为联盟成员及行业提供保险、金融、任务、销售、维修、宣传等服务，共同为无人机行业的大发展贡献力量。</p>
+                <p class="lead">给你翅膀，带你飞 ！</p>
+                <p class="lead3">携手实现每个人的空中梦想</p>
                 <p class="lead">
                     <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
                 </p>
             </li>
         </ul>
+        
     </div>
 <div class="social-media">
     <div class="row clearfix " style="width:920px;">
@@ -317,55 +317,6 @@ footer .linkBox > div {
             </span>
         </div>
     </div>
-</div>
-<!---->
-<div id="about" class="about">
-	 <div class="container">
-		 <div class="about-head">
-			 <h3>无人机航拍服务</h3>
-			 <p>任务经纪平台</p>
-			 <h5>无论您有什么样的航拍需求，无论您需要什么样的航拍团队，来无人机联盟的任务经纪平台，都可以得到满意的答案！</h5>
-		 </div> 
-		 <div class="about-sec">
-			 <div class="col-md-6 about-info">
-				 <div class="about-grid">
-					 <div class="about-icon">
-						 <i class="icon1"></i>
-					 </div>
-					 <div class="about-icon-info">
-						 <h4>我是婚礼新人：</h4>
-						 <p>我要从不同的角度、不同的视野来记录我的婚礼，还要为我的婚礼添加与众不同的亮点。怎么找到满意的飞手，谁能策划拍摄的流程？最最关键的是，人生只有一次的大事，如何保证成功率，不留遗憾……</p>
-					 </div>
-					 <div class="clearfix"></div>
-				 </div>
-				 <div class="about-grid">
-					 <div class="about-icon">
-						 <i class="icon2"></i>
-					 </div>
-					 <div class="about-icon-info">
-						 <h4>我是广告经理：</h4>
-						 <p>我们的广告需要空中的拍摄，迅速的追踪，高速的俯冲，与主角的擦肩而过。画面，速度，激情，创意，都是我们的需求，但是这一切都伴随着风险，不能在客户面前有任何的闪失，哪里去找既靠谱又“保险”的航拍团队？
-						 </p>
-					 </div>
-					 <div class="clearfix"></div>
-				 </div>
-				 <div class="about-grid">
-					 <div class="about-icon">
-						 <i class="icon3"></i>
-					 </div>
-					 <div class="about-icon-info">
-						 <h4>我是影视导演：</h4>
-						 <p>我要能够懂得构图，胆大心细，能够拍出场面感的航拍人。比如连贯的长镜头，比如细致的特写镜头，完全体现导演意图的镜头感！</p>
-					 </div>
-					 <div class="clearfix"></div>
-				 </div>
-			 </div>
-			 <div class="col-md-6 about-phones">
-				 <img src="images/phones.png" alt=""/>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
 </div>
 <!---->
 <div id="skills" class="skills">
@@ -579,6 +530,56 @@ footer .linkBox > div {
 					</script>
 
 </div>
+<!---->
+<div id="about" class="about">
+	 <div class="container">
+		 <div class="about-head">
+			 <h3>无人机航拍服务</h3>
+			 <p>任务经纪平台</p>
+			 <h5>无论您有什么样的航拍需求，无论您需要什么样的航拍团队，来无人机联盟的任务经纪平台，都可以得到满意的答案！</h5>
+		 </div> 
+		 <div class="about-sec">
+			 <div class="col-md-6 about-info">
+				 <div class="about-grid">
+					 <div class="about-icon">
+						 <i class="icon1"></i>
+					 </div>
+					 <div class="about-icon-info">
+						 <h4>我是婚礼新人：</h4>
+						 <p>我要从不同的角度、不同的视野来记录我的婚礼，还要为我的婚礼添加与众不同的亮点。怎么找到满意的飞手，谁能策划拍摄的流程？最最关键的是，人生只有一次的大事，如何保证成功率，不留遗憾……</p>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+				 <div class="about-grid">
+					 <div class="about-icon">
+						 <i class="icon2"></i>
+					 </div>
+					 <div class="about-icon-info">
+						 <h4>我是广告经理：</h4>
+						 <p>我们的广告需要空中的拍摄，迅速的追踪，高速的俯冲，与主角的擦肩而过。画面，速度，激情，创意，都是我们的需求，但是这一切都伴随着风险，不能在客户面前有任何的闪失，哪里去找既靠谱又“保险”的航拍团队？
+						 </p>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+				 <div class="about-grid">
+					 <div class="about-icon">
+						 <i class="icon3"></i>
+					 </div>
+					 <div class="about-icon-info">
+						 <h4>我是影视导演：</h4>
+						 <p>我要能够懂得构图，胆大心细，能够拍出场面感的航拍人。比如连贯的长镜头，比如细致的特写镜头，完全体现导演意图的镜头感！</p>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+			 </div>
+			 <div class="col-md-6 about-phones">
+				 <img src="images/phones.png" alt=""/>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+
 <!---fotter-->
 <section id="vendors" class="vendors">
     <header>
@@ -591,17 +592,17 @@ footer .linkBox > div {
     <section>
         <div class="center">
             <div class="item">
-                <img src="img/Notes.png" />
+                <img src="images/Notes.png" />
                 <h3>成为签约飞手</h3>
                 <p>为超过1000家客户服务，百分之百获得任务</p>
             </div>
             <div class="item">
-                <img src="img/Awards.png" />
+                <img src="images/Awards.png" />
                 <h3>全国代理加盟</h3>
                 <p>会员服务、商业任务、保险服务授权经销</p>
             </div>
             <div class="item">
-                <img src="img/Charity.png" />
+                <img src="images/Charity.png" />
                 <h3>公益服务申请</h3>
                 <p>免费为全国公益性组织提供无人机服务</p>
             </div>

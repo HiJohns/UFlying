@@ -30,7 +30,7 @@ padding:0;
 /*----*/
 .banner{
 background-size:cover;
-min-height:880px;
+min-height:700px;
 border-top:10px solid #E04444;
 }
 .logo{
@@ -207,7 +207,7 @@ display: inline-block;
 }
 /*--about--*/
 .about{
-background:url('../images/about.jpg') repeat;
+background:#080850;
 background-size:100% 100%;
 padding:3.5em 0;
 }
