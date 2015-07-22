@@ -22,18 +22,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script type="text/javascript" src="js/easing.js"></script>
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
+				function moveTo() {
+					instance.stop();
+					instance.move($(this).attr('data-target'));
+					setTimeout(function () {
+						console.log('restart');
+						instance.start();
+					}, 10000);
+				}
+				
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
 
                 var unslider = $(".my.banner").unslider({
-                    delay: 6000
+                    delay: 6000, 
+                    complete: function (e) {
+                    	var current = unslider.data('unslider').current;
+                    	console.log(current);
+                    	var banners = $(".bannerPickerMark > ul > li").removeClass('active');
+                    	$(banners[current]).addClass('active');
+                    }
                 });
                 
+                var instance = unslider.data('unslider');
+                
                 $('.unslider-arrow').click(function () {
-                	unslider.data('unslider')[this.className.split(' ')[1]]();
+                	instance[this.className.split(' ')[1]]();
                 })
+                
+                var bannerCount = $(".banner.my > ul > li").length;
+                var current = instance.current;
+                for (var i = 0; i < bannerCount; i++) {
+                	$('<li>').attr('data-target', i).addClass(i == current ? 'active' : '').click(moveTo)
+                		.appendTo('.bannerPickerMark > ul');
+                }
 			});
 		</script>
  	<!---- start-smoth-scrolling---->
@@ -244,6 +268,29 @@ footer .linkBox > div {
     width: 10%;
     float: right;
     margin-right: 4%;
+}
+.bannerPickerMark {
+    height: 10px;
+    position: absolute;
+    top: 675px;
+    width: 100%;
+}
+.bannerPickerMark ul {
+    height: 10px;
+    margin: 0 auto;
+    width: 180px;
+}
+.bannerPickerMark li {
+    border: 2px solid #dcdcdc;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    margin: 2px 1px 0;
+    width: 58px;
+}
+.bannerPickerMark .active {
+    border: 3px solid white;
+    margin-top: 0;
 }
 </style>
 <body>
@@ -636,6 +683,9 @@ footer .linkBox > div {
 <div class="arrowMark">
 	<div class="unslider-arrow prev"><</div>
 	<div class="unslider-arrow next">></div>
+</div>
+<div class="bannerPickerMark">
+	<ul></ul>
 </div>
 </body>
 </html>
