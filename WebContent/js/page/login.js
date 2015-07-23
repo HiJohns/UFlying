@@ -4,7 +4,6 @@ UF.page.Login = (function () {
 		               'Form'
 		               ],
 		init: function () {
-			UF.business.Form.init();
 		}
 	}
 })();

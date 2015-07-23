@@ -1,5 +1,6 @@
 UF = {
-	stores: {},
+	Stores: {},
+	Remote: {},
 	ns: function (namespace) {
 		var stack = namespace.split('.');
 		if (stack.length == 0) return;
@@ -51,12 +52,21 @@ $(document).ready(function () {
 			}
 		};
 		
+		function initAllModules() {
+			_.each(scripts[name], function (moduleName) {
+				if (_.isObject(UF[name][moduleName]) && _.isFunction(UF[name][moduleName].init)) {
+					UF[name][moduleName].init();
+				}
+			});
+		}
+		
 		UF.ns('UF.' + name);
 		_.each(scripts[name], function (moduleName) {
 			$.getScript(contextPath + '/js/' + name + '/' + moduleName + '.js')
-				.done(function (script) {
+				.done(function () {
 					finished++;
 					if (++succeeded == scripts[name].length && _.isFunction(success)) {
+						initAllModules();
 						success();
 					}
 				})
@@ -72,13 +82,6 @@ $(document).ready(function () {
 	}
 	
 	function ready() {
-		var imgTmpl = _.template('url(<%=contextPath%>/img/<%=dataIcon%>.png)');
-	    $('*[data-icon]').each(function () {
-	        $(this).css({
-	            backgroundImage: imgTmpl({ contextPath: contextPath, dataIcon: $(this).attr('data-icon') })
-	        });
-	    });
-
 	    $('img').each(function () {
 	        var src = $(this).attr('src');
 	        if (typeof src != 'string' || src.match(/^\//) != null) return;
@@ -89,7 +92,7 @@ $(document).ready(function () {
 	    	history.go(-1);
 	    });
 	    
-	    if (UF.page.hasOwnProperty(pageObjName)) UF.page[pageObjName].init();
+	    UF.page[pageObjName].init();
 	}
 	
 	function loadDependencies() {

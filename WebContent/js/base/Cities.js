@@ -12,5 +12,5 @@ for (var prov in UF.base.Cities.prov2Cities) {
     provinces.push({ name: prov, cities: cityData });
 }
 
-UF.stores.provinces = provinces;
-UF.stores.cities = [];
+UF.Stores.provinces = provinces;
+UF.Stores.cities = [];

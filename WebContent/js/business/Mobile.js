@@ -1,4 +1,4 @@
-UF.business.VerificationByMobile = (function () {
+UF.business.Mobile = (function () {
 	var _form = null;
 	
 	function startCountDown(btn) {
@@ -35,18 +35,34 @@ UF.business.VerificationByMobile = (function () {
 		dependencies: [
 		               'Form'
 		               ],
-		getVerifyCode: function () {
+		init: function () {
+			UF.Remote.mobileRegistered = UF.business.Mobile.isRegistered;
+		},
+		prepareGetVerifyCode: function () {
 			_form = this;
 			$(_form).find('button[data-name="btnVerify"]').prop('disabled', false)
 			.click(function (e) {
 				e.preventDefault();
-				var phone = $(_form).find('input[name="phone"]').each(UF.business.Form.validate);
-				if ($(phone).is('.invalid')) return;
+				var phone = $(_form).find('input[name="phone"]');
+				if ($(phone).is('.invalid') || $(phone).is('.onHold')) return;
 				
 				$(this).prop('disabled', true).text('正在发送……');
 				
 				requestCode($(phone).val());
 			});
+		},
+		isRegistered: function (phone, input, callback) {
+			$.ajax({
+				  url: contextPath + '/check_mobile',
+				  method: 'POST',
+				  data: {
+				    phone: phone
+				  },
+				  success: function (data) {
+					  var isValid = data.reason == "0";
+					  callback(isValid);
+				  }
+				});			
 		}
 	}
 })();

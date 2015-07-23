@@ -7,12 +7,14 @@ UF.business.Form = (function () {
 		regexName: 'data-regexName',	// name of regular expression for validating
 		match: 'data-match',	// name of another field to which this one should match
 		remote: 'data-remote',	// method to be invoked for remote checking.
+		icon: 'data-icon',	// icon for input
 		noValidate: 'data-novalidate',	// prevent validating
 		autoValidate: 'data-autoValidate',	// Indicating the current form has been set up auto validating mechanism
 		emptyMessage: 'msg-empty',	// error message when a required field is empty
 		regexMessage: 'msg-regex',	// error message when the field fails in regular testing
 		matchMessage: 'msg-match',	// error message when the field doesn't match the specified one
-		remoteMessage: 'msg-remote'	// error message when remote checking failed
+		remoteMessage: 'msg-remote',	// error message when remote checking failed
+		remoteCheckingMessage: 'msg-remoteChecking'	// message when remote checking is on going
 	};
 	
 	function is(obj, label) {
@@ -23,18 +25,25 @@ UF.business.Form = (function () {
 		init: function () {
 		    _.delay(function () {
 		    	if (_.isObject(model)) UF.business.Form.renderModel(model);
-		    	$('input').removeAttr('data-novalidate');
-		    	$('select').removeAttr('data-novalidate');
+		    	$('input').removeAttr(labels.noValidate);
+		    	$('select').removeAttr(labels.noValidate);
 		    }, 100);
 		    
-		    $('input').attr('data-novalidate', 'true');
-		    $('select').attr('data-novalidate', 'true');
+		    $('input').attr(labels.noValidate, 'true');
+		    $('select').attr(labels.noValidate, 'true');
 		    $('form').each(UF.business.Form.autoValidateForm);
+
+		    var imgTmpl = _.template('url(<%=contextPath%>/img/<%=dataIcon%>.png)');
+		    $('*[' + labels.icon + ']').each(function () {
+		        $(this).css({
+		            backgroundImage: imgTmpl({ contextPath: contextPath, dataIcon: $(this).attr(labels.icon) })
+		        });
+		    });
 		},
 		loadSelect: function () {
 			if ($(this).prop('tagName') != 'SELECT') return;
 			
-			var store = UF.stores[$(this).attr('data-store')];
+			var store = UF.Stores[$(this).attr('data-store')];
 			if (!_.isObject(store)) {
 				console.log(this, 'Store not found.');
 				return;
@@ -62,6 +71,15 @@ UF.business.Form = (function () {
 					$(obj).addClass('invalid').attr('title', msg);
 					$('<small>').addClass('error').html(msg).appendTo($(obj).parent());
 				}
+			}
+			
+			function release() {
+				$(this).removeClass('onHold').prop('disabled', false).siblings('.message').remove();
+			}
+			
+			function putOnHold(obj, msg) {
+				$(obj).addClass('onHold').prop('disabled', true);
+				$('<small>').addClass('message').html(msg).appendTo($(obj).parent());
 			}
 			
 			$(this).each(clearError);
@@ -92,22 +110,33 @@ UF.business.Form = (function () {
 				addError(matchField, errorForMatch);
 			}
 			
+			addError(this, msg);
+			
 			if (msg == null && is(this, labels.remote)) {
-				var msgRemote = $(this).attr('msg-remote');
+				var msgRemote = $(this).attr(labels.remoteMessage);
 				var _self = this;
-				UF.business[$(this).attr('data-remote')].check(val, function (isValid) { 
-					if (!isValid) addError(_self, msgRemote); 
+				
+				putOnHold(_self, $(this).attr(labels.remoteCheckingMessage));
+				UF.Remote[$(this).attr(labels.remote)](val, _self, function (isValid) { 
+					$(_self).each(release);
+					addError(_self, isValid ? null : msgRemote); 
 				});
 			}
-			
-			addError(this, msg);
 		},
 		autoValidateForm: function () {
 			if (!_.isUndefined($(this).attr(labels.autoValidate))) return;
 			$(this).attr(labels.autoValidate, 'true').attr('novalidate', 'true');
+			
+			$(this).find('input').prop('disabled', false);
+			$(this).find('select').prop('disabled', false);
+			$(this).find('input[data-disabled]').prop('disabled', true);
+			$(this).find('select[data-disabled]').prop('disabled', true);
+			
 			$(this).find('input').change(UF.business.Form.validate).keyup(UF.business.Form.validate);
 			$(this).find('select').change(UF.business.Form.validate);
 			$(this).submit(function () {
+				if ($(this).find('.onHold').length > 0) return false;
+			
 				$(this).find('select:visible').each(UF.business.Form.validate);
 				$(this).find('input:visible').each(UF.business.Form.validate);
 				var stack = [];

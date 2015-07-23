@@ -188,12 +188,16 @@ section.form.collapseHeader, section.form.collapse {
 	font-size: small;
 }
 
-.form .error {
+.form .error, .form .message {
     color: red;
     float: left;
     margin-left: 26px;
     margin-top: 3px;
     text-align: left;
+}
+
+.form .message {
+	color: rgb(90, 194, 231)
 }
 
 .form .noFrameRow > input[type="checkbox"] + label {
