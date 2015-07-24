@@ -154,7 +154,7 @@
                     <section class="noFrameRow">
                         <strong></strong>
                         <input type="checkbox" id="toContract">
-                        <label>已阅读并同意<a href="#">商签会员注册协议</a>，申请成为商签会员</label>
+                        <label>已阅读并同意<a href="<%=request.getContextPath()%>/js/contract.html">商签会员注册协议</a>，申请成为商签会员</label>
                     </section>
                 </fieldset>
             </section>
