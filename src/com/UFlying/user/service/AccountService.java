@@ -525,6 +525,7 @@ public class AccountService {
 		String name = form.getName();
 		String idCardNumber = form.getIdCardNumber();
 		String email = form.getEmail();
+		String qq = form.getQq();
 		String phone = form.getPhone();
 		int sex = form.getSex();
 		String province = form.getProvince();
@@ -543,7 +544,7 @@ public class AccountService {
 		if (StringUtils.isBlank(email)) {
 			throw new ServiceException("请输入邮箱");
 		}
-		if (StringUtils.isBlank(idCardNumber)) {
+		if (0 != status && StringUtils.isBlank(idCardNumber)) {
 			throw new ServiceException("请输入身份证号");
 		}
 		if (StringUtils.isBlank(phone)) {
@@ -641,6 +642,7 @@ public class AccountService {
 		account.setAddress(address);
 		account.setStatus(status);
 		account.setEmailAddress(email);
+		account.setQq(qq);
 		account.setIdCardNumber(idCardNumber);
 		account.setExperience(experience);
 		account.setHeadImgUrl(photoUrl);
@@ -777,6 +779,7 @@ public class AccountService {
 		form.setCity(account.getCity());
 		form.setAddress(account.getAddress());
 		form.setEmail(account.getEmailAddress());
+		form.setQq(account.getQq());
 		form.setSex(account.getSex());
 		form.setStatus(account.getStatus());
 		form.setExperience(account.getExperience());

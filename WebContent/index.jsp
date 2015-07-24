@@ -67,6 +67,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var rowWidth = 10;
         var total = 22;
         var padding = 3;
+        
+        var _urls = [
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com',
+                     'www.pingan.com'
+                     ];
         $(document).ready(function () {
             var container = $('.vendors');
             function padRight(n) {
@@ -83,8 +109,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 if (i % 10 == 0) {
                     div = $('<row>').addClass('clearfix').appendTo(container);
                 }
-
-                $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(div);
+                
+                var a = $('<a>').attr('href', 'http://' + _urls[i]).appendTo(div);
+                $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(a);
             }
 //            div = $('<row>').addClass('clearfix').appendTo(container);
 //            div = $('<row>').addClass('clearfix').appendTo(container);
@@ -161,6 +188,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     background-color: rgb(244, 42, 66);
     margin-top: -20px;
     padding-top: 20px;
+    padding-bottom: 30px;
 }
 .vendors header {
     text-align: center;

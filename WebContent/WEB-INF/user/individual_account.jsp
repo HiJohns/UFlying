@@ -104,8 +104,8 @@
                 <span name="idCardNumber"></span>
             </section>
             <section>
-                <label>近照：</label>
-                <img name="photoUrl"/>
+                <label>电子会员证：</label>
+                <span>点击进入<a href="<%=request.getContextPath()%>/individual_card">&gt;&gt;&gt;</a></span>
             </section>
             <section>
                 <label>证件照正面：</label>

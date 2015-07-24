@@ -22,6 +22,7 @@ public class IndividualAccountMapper implements RowMapper<IndividualAccount> {
 		account.setStatus(rs.getInt("status"));
 		account.setUnsigned(rs.getInt("unsigned"));
 		account.setEmailAddress(rs.getString("email_address"));
+		account.setQq(rs.getString("qq"));
 		account.setAddress(rs.getString("address"));
 		account.setProvince(rs.getString("address_province"));
 		account.setCity(rs.getString("address_city"));

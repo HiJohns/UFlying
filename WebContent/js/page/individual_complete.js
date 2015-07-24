@@ -9,15 +9,15 @@ UF.page.IndividualComplete = (function () {
 	
 	function updateCity() {
     	var currProv = $(this).val();
-    	UF.stores.cities = [];
-    	_.each(UF.stores.provinces, function (province) {
+    	UF.Stores.cities = [];
+    	_.each(UF.Stores.provinces, function (province) {
     		if (province.name == currProv) {
-    			UF.stores.cities = province.cities;
+    			UF.Stores.cities = province.cities;
     		}
     	});
     	
     	$('select[name="city"]')
-            .prop('disabled', UF.stores.cities.length == 0)
+            .prop('disabled', UF.Stores.cities.length == 0)
     		.each(UF.business.Form.loadSelect);
     }
 	

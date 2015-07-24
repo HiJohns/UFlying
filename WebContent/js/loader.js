@@ -88,11 +88,11 @@ $(document).ready(function () {
 	        $(this).attr('src', contextPath + '/' + src);
 	    });
 	    
-	    $('button.back').click(function () {
+	    $('.back').click(function () {
 	    	history.go(-1);
 	    });
 	    
-	    UF.page[pageObjName].init();
+	    if (_.isObject(UF.page[pageObjName])) UF.page[pageObjName].init();
 	}
 	
 	function loadDependencies() {

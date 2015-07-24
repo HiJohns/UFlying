@@ -8,6 +8,7 @@ public class FormUpdateIndividualAccount {
 	private String phone;
 	private int sex;
 	private String email;
+	private String qq;
 	private String idCardNumber;
 	private String address;
 	private String province;
@@ -91,6 +92,14 @@ public class FormUpdateIndividualAccount {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
 	}
 
 	public String getIdCardNumber() {

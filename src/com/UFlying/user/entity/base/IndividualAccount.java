@@ -15,6 +15,7 @@ public class IndividualAccount implements java.io.Serializable {
 	private int unsigned;
 	private String mobilePhone;
 	private String emailAddress;
+	private String qq;
 	private String address;
 	private String province;
 	private String city;
@@ -139,6 +140,14 @@ public class IndividualAccount implements java.io.Serializable {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
 	}
 
 	public String getIdCardNumber() {

@@ -187,7 +187,7 @@ public class AccountDao extends CommonDao {
 	public int updateIndividualAccount(final IndividualAccount account) {
 		String sql = "update individual_user_account set name = ?, email_address = ?, mobile_phone = ?, id_card_number = ?, "
 				+ "id_card_url_1 = ?, id_card_url_2 = ?, address = ?, address_province = ?, address_city = ?, sex = ?, "
-				+ "head_image_url = ?, experience = ?, status = ? where token = ?";
+				+ "head_image_url = ?, experience = ?, status = ?, qq = ? where token = ?";
 		return this.getJdbcTemplate().update(sql, new PreparedStatementSetter() {
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
@@ -204,7 +204,8 @@ public class AccountDao extends CommonDao {
 				ps.setString(11, account.getHeadImgUrl());
 				ps.setInt(12, account.getExperience());
 				ps.setInt(13, account.getStatus());
-				ps.setString(14, account.getToken());
+				ps.setString(14, account.getQq());
+				ps.setString(15, account.getToken());
 			}
 		});
 	}

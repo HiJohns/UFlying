@@ -13,8 +13,6 @@ UF.page.IndividualAccount = (function () {
 		               'Form'
 		               ],
 		init: function () {
-			UF.business.Form.init();
-			
 			$('small[data-name="message"]').html(msg[model.status]);
 	
 	        $('.btn[data-name="logout"]').click(function () {

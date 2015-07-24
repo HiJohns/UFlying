@@ -1,0 +1,54 @@
+  	.card {
+	    border-radius: 30px;
+	    margin: 0 auto;
+	    width: 965px;
+	    overflow: hidden;
+ 	}
+ 	
+ 	.card .content {
+	    box-sizing: border-box;
+ 		float: left;
+ 		width: 100%;
+	    background-color: rgb(180, 29, 36);
+	    padding: 55px 40px 10px;
+ 	}
+ 	
+ 	.card img.people {
+ 		width: 30%;
+ 		height: 410px;
+ 		float: left;
+ 	}
+	.card .summary {
+	    color: white;
+	    float: left;
+	    font-size: 1.6em;
+	    margin-left: 2em;
+	    margin-top: 4em;
+	}
+	.card .summary p {
+		margin-bottom: 0.6em;
+	}
+	.card img.qrcode {
+		float: right;
+		width: 26%;
+	}
+	.card small {
+	    color: white;
+	    float: left;
+	    font-size: 1em;
+	    padding: 1em 3em;
+	    max-width: 60%;
+	}
+	.card footer {
+	    background-color: rgb(209, 41, 56);
+	    color: white;
+	    float: left;
+	    font-size: 1.2em;
+	    padding: 1em 2em;
+	    width: 100%;
+	    box-sizing: border-box;
+	}
+	.control {
+		text-align: center;
+		margin-top: 10px;
+	}

@@ -334,7 +334,7 @@ public class AccountController {
 	}
 
 	/** 显示个人电子会员证 */
-	@RequestMapping(value = "/individual_card", method = RequestMethod.POST)
+	@RequestMapping(value = "/individual_card", method = RequestMethod.GET)
 	public String individualCard(@CookieValue(required = false) String token, Model model) {
 		IndividualAccount account = accountService.getIndividualAccountByToken(token);
 		if (account == null) {
