@@ -11,8 +11,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta charset="utf8">
 <title>空中梦想</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href='3rdParty/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -67,7 +67,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var rowWidth = 10;
         var total = 22;
         var padding = 3;
-        
         var _urls = [
                      'www.pingan.com',
                      'www.pingan.com',
@@ -93,6 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      'www.pingan.com',
                      'www.pingan.com'
                      ];
+
         $(document).ready(function () {
             var container = $('.vendors');
             function padRight(n) {
@@ -108,13 +108,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 var div;
                 if (i % 10 == 0) {
                     div = $('<row>').addClass('clearfix').appendTo(container);
+                    $('<img>').attr('src', 'images/Vendors/base.png').appendTo(div);
+                    div = $('<row>').addClass('clearfix').appendTo(container);
                 }
-                
+
                 var a = $('<a>').attr('href', 'http://' + _urls[i]).appendTo(div);
                 $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(a);
             }
-//            div = $('<row>').addClass('clearfix').appendTo(container);
-//            div = $('<row>').addClass('clearfix').appendTo(container);
         });
     </script>
 </head>
@@ -123,17 +123,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 .my.banner li { 
     list-style: none;
     float: left; 
-    height: 800px;
-    padding-top: 430px;
+    height: 700px;
+    padding-top: 470px;
 }
 .my.banner ul li:first-child {
-    background:url(images/bannerPA.jpg) no-repeat;
+    background:url(images/bannerA.jpg) center top no-repeat;
+    background-color:#0545C7
 }
 .my.banner ul li:nth-child(2) {
     background:url(images/bannerB.jpg) no-repeat;
 }
 .my.banner ul li:last-child {
-    background:url(images/bannerC.jpg) no-repeat;
+    background:url(images/bannerPA.jpg) center top no-repeat;
+    background-color:#EB6F09
 }
 .my.banner li p.lead {
     width: 50%;
@@ -141,13 +143,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     margin: 0px auto 20px;
     color: white;
     font-size: 3em;
+    font-weight: bold;
 }
 .my.banner li p.lead3 {
     width: 50%;
     text-align: center;
     margin: 0px auto 20px;
-    color: #E04444;
+    color: ＃000000;
     font-size: 1.5em;
+    font-weight: bold;
 }
 .my.banner .btn {
     color: white;
@@ -159,7 +163,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 .social-media {
-    margin: -30px 0 30px;
+    margin: 3em 0 3em;
 }
 
 .social-media .row {
@@ -185,10 +189,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     margin-top: 8px;
 }
 .vendors {
-    background-color: rgb(244, 42, 66);
-    margin-top: -20px;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    background-color: #000000;
+	padding:4em 0 3em;
 }
 .vendors header {
     text-align: center;
@@ -260,12 +262,11 @@ footer .center {
 }
 
 footer section:first-child {
-    background-color: #373737;
+    background-color: #e04444;
 }
 
 footer p, footer h3, footer a {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #898989;
+    color: #ffffff;
 }
 
 footer h3 {
@@ -306,7 +307,7 @@ footer .linkBox > div {
 .bannerPickerMark ul {
     height: 10px;
     margin: 0 auto;
-    width: 180px;
+    width: 120px;
 }
 .bannerPickerMark li {
     border: 2px solid #dcdcdc;
@@ -332,7 +333,7 @@ footer .linkBox > div {
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="index.html"><img src="images/logo_top.png" alt="" /></a>
+            <a href="index.html"><img src="images/logo.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
@@ -341,7 +342,7 @@ footer .linkBox > div {
                  <li><a href="<%=request.getContextPath()%>/login">加入联盟</a></li>
                  <li><a href="#">派发任务</a></li>
                  <li><a href="#">承接任务</a></li>
-                 <li><a href="#">网上投保</a></li>						 
+                 <li><a href="#">保险预约</a></li>						 
              </ul>	
              </nav>					 
          </div>	
@@ -351,22 +352,14 @@ footer .linkBox > div {
     <div class="banner my">
         <ul>
             <li>
+                <p class="lead">携手实现每个人的空中梦想</p>
+                <p class="lead">
+                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
+                </p>
+            </li>
+            <li>
                 <p class="lead"></p>
                 <p class="lead3">详情请咨询：4006-509-579   </p>
-            </li>
-            <li>
-                <p class="lead">给你翅膀，带你飞 ！</p>
-                <p class="lead3">携手实现每个人的空中梦想</p>
-                <p class="lead">
-                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
-                </p>
-            </li>
-            <li>
-                <p class="lead">给你翅膀，带你飞 ！</p>
-                <p class="lead3">携手实现每个人的空中梦想</p>
-                <p class="lead">
-                    <a class="btn btn-lg" href="<%=request.getContextPath()%>/login">我要加入</a>
-                </p>
             </li>
         </ul>
         
@@ -424,9 +417,6 @@ footer .linkBox > div {
 				 </div>
 			 </div>
 			 <div class="clearfix"></div>
-		 </div>
-		 <div class="pencils">
-			 <img src="images/pencils.png" alt=""/>
 		 </div>
 	 </div>
 </div>
@@ -610,7 +600,7 @@ footer .linkBox > div {
 	 <div class="container">
 		 <div class="about-head">
 			 <h3>无人机航拍服务</h3>
-			 <p>任务经纪平台</p>
+			 <p></p>
 			 <h5>无论您有什么样的航拍需求，无论您需要什么样的航拍团队，来无人机联盟的任务经纪平台，都可以得到满意的答案！</h5>
 		 </div> 
 		 <div class="about-sec">

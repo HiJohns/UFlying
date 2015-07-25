@@ -31,7 +31,6 @@ padding:0;
 .banner{
 background-size:cover;
 min-height:700px;
-border-top:none;
 }
 .logo{
 float:left;
@@ -40,10 +39,11 @@ margin: 10px 12px;
 .logo a{
 display:block;
 }
-.top-header {
-    position: absolute;
-    z-index: 10000;
-    width: 100%
+.top-header{
+	padding-top:1em;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
 }
 .top-menu{
 float:right;
@@ -53,10 +53,11 @@ display: inline-block;
 padding:10px;
 }
 .top-menu ul li a {
+	font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
     text-decoration: none;
     font-weight:400;
     font-size:1.2em;
-    color: white;
+    color: #FFFFFF;
 }
 .top-menu ul li a:hover {
 color:#E04444;
@@ -213,9 +214,9 @@ display: inline-block;
 }
 /*--about--*/
 .about{
-background:#080850;
+background:#E04444;
 background-size:100% 100%;
-padding:3.5em 0;
+padding:2em 0 5em;
 }
 .about-head{
 text-align:center;
@@ -227,14 +228,15 @@ font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 font-weight:600;
 }
 .about-head p{
-color:#6B6B6B;
+color:#EAEAEA;
 margin-top:5px;
 font-size:0.95em;
 font-style:italic;
 font-weight:600;
 }
 .about-head h5{
-color:#E04444;
+font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
+color:#FFFFFF;
 margin-top:5px;
 font-size:1em;
 font-weight:300;
@@ -304,7 +306,7 @@ line-height:1.8em;
 /*--skills--*/
 .skills{
 background:#E04444;
-padding:5em 0;
+padding:2em 0 5em;
 }
 .skills-head {
 text-align:center;
@@ -328,7 +330,6 @@ color:#fff;
 margin-top:5px;
 font-size:1em;
 font-weight:300;
-font-style:italic;
 }
 .skill-grids{
 margin-top:3em;
@@ -371,7 +372,7 @@ text-align:center;
 .gallery{
 background:url('../images/about.jpg') repeat;
 background-size:100% 100%;
-padding:6em 0;
+padding:2em 0 5em;
 }
 .gallery-head{
 text-align:center;
@@ -384,14 +385,13 @@ font-weight:bold;
 letter-spacing:1.5px;
 }
 .gallery-head p{
-color:#6A6A6A;
+color:#eAeAeA;
 margin-top:5px;
 font-size:1em;
-font-style:italic;
 font-weight:300;
 }
 .gallery-head h5{
-color: #E04444;
+color: #EAEAEA;
 margin-top: 5px;
 font-size: 1em;
 font-weight: 300;
@@ -484,7 +484,7 @@ div#portfoliolist {
 	text-decoration: none;
 	color:#fff;
 	cursor: pointer;
-	border:2px solid #018ADA;
+	border:2px solid #FFFFFF;
 	font-size: 1em;
 	font-weight: 700;	
 	margin:0 1em;
@@ -500,10 +500,10 @@ div#portfoliolist {
 }
 #filters li span.filter:hover{
 	color: #FFFFFF;	
-	border:2px solid #018ADA;
+	border:2px solid #E04444;
 }
 #filters li span.active:hover{
-	color: #F3F3F3;
+	color: #FFFFFF;
 }						  
 #filters li {
 	display: -webkit-inline-box;

@@ -126,7 +126,7 @@
     <div class="boxWidth"><label>请选择您的账号类型</label></div>
     <div class="boxWidth">
         <a name="individual" href="<%=request.getContextPath()%>/individual_register"><img src="img/Personal.png" /><div>个人账户</div></a>
-        <a name="enterprise" href="<%=request.getContextPath()%>/enterprise_register"><img src="img/Corporate.png"/><div>企业账户</div></a>
+        <a name="enterprise" href="javascript:alert('企业账户注册暂缓开通');"><img src="img/Corporate.png"/><div>企业账户</div></a>
     </div>
 </body>
 </html>

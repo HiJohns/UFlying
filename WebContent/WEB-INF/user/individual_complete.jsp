@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -17,6 +17,7 @@
            			phone: "${form.phone}",
            			sex: ${form.sex},
            			email: "${form.email}",
+           			qq:"${form.qq}",
            			address: "${form.address}",
            			province: "${form.province}",
            			city: "${form.city}",
@@ -92,6 +93,10 @@
                     <section>
                         <strong>*</strong>
                         <input type="text" required="true" placeholder="输入地址" msg-empty="请填写地址" name="address" data-icon="Address"/>
+                    </section>
+                    <section>
+                        <strong></strong>
+                        <input type="text" required="false" placeholder="输入QQ号" msg-empty="请填写QQ号" name="qq" data-icon="qq"/>
                     </section>
                 </fieldset>
             </section>

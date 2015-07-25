@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -37,6 +37,7 @@
        			phone: "${account.mobilePhone}",
        			sex: ${account.sex},
        			email: "${account.emailAddress}",
+       			qq: "${account.qq}",
        			idCardNumber: "${account.idCardNumber}",
        			address: "${account.address}",
        			province: "${account.province}",
@@ -95,6 +96,10 @@
                 <label>所在地：</label>
                 <span name="province+city"></span>
             </section>
+            <section>
+                <label>QQ：</label>
+                <span name="qq"></span>
+            </section>
         </div>
     </section>
     <section class="portal boxWidth" name="authentication">
@@ -126,9 +131,9 @@
     <section class="portal boxWidth form">
     	<fieldset>
     		<section class="horizon">
-    			<button class="btn btn-primary" data-name="edit">编辑</button>
+    			<button class="btn btn-primary" data-name="edit">完善信息</button>
     			<button class="btn btn-default" data-name="changePassword">修改密码</button>
-    			<button class="btn btn-danger" data-name="logout">登出</button>
+    			<button class="btn btn-danger" data-name="logout">退出</button>
     		</section>
     	</fieldset>
     </section>
