@@ -345,7 +345,7 @@ public class AccountController {
 	}
 
 	/** 显示企业电子会员证 */
-	@RequestMapping(value = "/enterprise_card", method = RequestMethod.POST)
+	@RequestMapping(value = "/enterprise_card", method = RequestMethod.GET)
 	public String enterpriseCard(@CookieValue(required = false) String token, Model model) {
 		EnterpriseAccount account = accountService.getEnterpriseAccountByToken(token);
 		if (account == null) {
