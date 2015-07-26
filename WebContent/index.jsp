@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>空中梦想</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
 <link href='3rdParty/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/index.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -26,7 +26,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					instance.stop();
 					instance.move($(this).attr('data-target'));
 					setTimeout(function () {
-						console.log('restart');
 						instance.start();
 					}, 10000);
 				}
@@ -40,7 +39,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     delay: 6000, 
                     complete: function (e) {
                     	var current = unslider.data('unslider').current;
-                    	console.log(current);
                     	var banners = $(".bannerPickerMark > ul > li").removeClass('active');
                     	$(banners[current]).addClass('active');
                     }
@@ -62,266 +60,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
  	<!---- start-smoth-scrolling---->
     <script type="text/javascript" src="3rdParty/Unslider.min.js"></script>
-    <script type="text/javascript" src="js/statistic.js"> </script>
-    <script type="text/javascript">
-        var rowWidth = 10;
-        var total = 22;
-        var padding = 3;
-        var _urls = [
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com',
-                     'www.pingan.com'
-                     ];
-
-        $(document).ready(function () {
-            var container = $('.vendors');
-            function padRight(n) {
-                var s = (n+1).toString();
-                while (s.length < padding) {
-                    s = '0' + s;
-                }
-
-                return s;
-            }
-
-            for (var i = 0; i < total; i++) {
-                var div;
-                if (i % 10 == 0) {
-                    div = $('<row>').addClass('clearfix').appendTo(container);
-                    $('<img>').attr('src', 'images/Vendors/base.png').appendTo(div);
-                    div = $('<row>').addClass('clearfix').appendTo(container);
-                }
-
-                var a = $('<a>').attr('href', 'http://' + _urls[i]).appendTo(div);
-                $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(a);
-            }
-        });
-    </script>
+    <script type="text/javascript" src="js/page/index.js"></script>
 </head>
-<style>
-.my.banner { position: relative; overflow: auto; }
-.my.banner li { 
-    list-style: none;
-    float: left; 
-    height: 700px;
-    padding-top: 470px;
-}
-.my.banner ul li:first-child {
-    background:url(images/bannerA.jpg) center top no-repeat;
-    background-color:#0545C7
-}
-.my.banner ul li:nth-child(2) {
-    background:url(images/bannerB.jpg) no-repeat;
-}
-.my.banner ul li:last-child {
-    background:url(images/bannerPA.jpg) center top no-repeat;
-    background-color:#EB6F09
-}
-.my.banner li p.lead {
-    width: 50%;
-    text-align: center;
-    margin: 0px auto 20px;
-    color: white;
-    font-size: 3em;
-    font-weight: bold;
-}
-.my.banner li p.lead3 {
-    width: 50%;
-    text-align: center;
-    margin: 0px auto 20px;
-    color: ＃000000;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-.my.banner .btn {
-    color: white;
-    border: white 1px solid;
-}
-.my.banner .btn:hover {
-    background-color: white;
-    color: #333;
-}
-
-.social-media {
-    margin: 3em 0 3em;
-}
-
-.social-media .row {
-    margin: 0 auto;
-    font-size: 2em;
-}
-
-.odometer > span {
-    background: rgba(0, 0, 0, 0) url("images/numpad_bg.png") repeat scroll 0 0;
-    color: white;
-    float: left;
-    font-size: 1.1em;
-    height: 51px;
-    margin-right: 3px;
-    padding: 3px 0 0 5px;
-    width: 36px;
-}
-.cont_txt {
-    float: left;
-    color: rgb(237, 101, 0);
-    font-size: 0.8em;
-    margin-right: 10px;
-    margin-top: 8px;
-}
-.vendors {
-    background-color: #000000;
-	padding:4em 0 3em;
-}
-.vendors header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.vendors h1 {
-	color:#fff;
-	font-size:2.3em;
-	font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
-	font-weight:bold;
-	letter-spacing:1.5px;
-}
-.vendors img {
-    width: 105px;
-    height: 55px;
-}
-.vendors row {
-    display: block;
-    margin: 10px auto;
-    width: 1050px;
-}
-.arrowMark {
-    height: 60px;
-    left: 0;
-    position: absolute;
-    top: 400px;
-    width: 100%;
-}
-.unslider-arrow.next {
-    float: right;
-    text-align: right;
-}
-.unslider-arrow.prev {
-    float: left;
-}
-.unslider-arrow:hover {
-    opacity: 0.8;
-}
-.unslider-arrow {
-    border: 2px solid white;
-    border-radius: 12px;
-    color: white;
-    cursor: pointer;
-    display: inline;
-    font-size: 2em;
-    height: 2.1em;
-    margin-left: 100px;
-    margin-right: 100px;
-    opacity: 0.3;
-    padding: 5px 16px;
-    width: 2em;
-}
-
-footer section {
-    overflow: hidden;
-    background-color: black;
-}
-
-footer .item {
-    float: left;
-    text-align: center;
-    width: 33.33%;
-}
-
-footer .center {
-    width: 900px;
-    margin: 40px auto;
-    overflow: hidden
-}
-
-footer section:first-child {
-    background-color: #e04444;
-}
-
-footer p, footer h3, footer a {
-    color: #ffffff;
-}
-
-footer h3 {
-    font-size: 1em;
-    margin-bottom: 5px;
-}
-
-footer p {
-    font-size: small;
-    margin-top: 5px;
-}
-
-
-footer .linkBox {
-    float: left;
-    margin-left: 5%;
-    width: 16%;
-}
-
-
-footer .linkBox > div {
-    font-size: small;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.center > img {
-    width: 10%;
-    float: right;
-    margin-right: 4%;
-}
-.bannerPickerMark {
-    height: 10px;
-    position: absolute;
-    top: 675px;
-    width: 100%;
-}
-.bannerPickerMark ul {
-    height: 10px;
-    margin: 0 auto;
-    width: 120px;
-}
-.bannerPickerMark li {
-    border: 2px solid #dcdcdc;
-    cursor: pointer;
-    display: inline;
-    float: left;
-    margin: 2px 1px 0;
-    width: 58px;
-}
-.bannerPickerMark .active {
-    border: 3px solid white;
-    margin-top: 0;
-}
-</style>
 <body>
 <!--body-->
 <ul class="side_nav">
@@ -333,7 +73,7 @@ footer .linkBox > div {
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt="" /></a>
+            <a href="<%=request.getContextPath()%>/"><img src="images/logo.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
@@ -645,8 +385,7 @@ footer .linkBox > div {
 	 </div>
 </div>
 
-<!---fotter-->
-<section id="vendors" class="vendors">
+<section class="vendors">
     <header>
         <h1>合作伙伴</h1>
     </header>
@@ -658,16 +397,19 @@ footer .linkBox > div {
         <div class="center">
             <div class="item">
                 <img src="images/Notes.png" />
+                <h3>&nbsp;</h3>
                 <h3>成为签约飞手</h3>
                 <p>为超过1000家客户服务，百分之百获得任务</p>
             </div>
             <div class="item">
                 <img src="images/Awards.png" />
+                <h3>&nbsp;</h3>
                 <h3>全国代理加盟</h3>
                 <p>会员服务、商业任务、保险服务授权经销</p>
             </div>
             <div class="item">
                 <img src="images/Charity.png" />
+                <h3>&nbsp;</h3>
                 <h3>公益服务申请</h3>
                 <p>免费为全国公益性组织提供无人机服务</p>
             </div>
@@ -676,9 +418,9 @@ footer .linkBox > div {
     <section>
         <div class="center">
             <div class="linkBox">
-                <div><a href="#">空中梦想</a></div>
-                <div><a href="#">UFLYING无人机联盟</a></div>
-                <div><a href="#">空中家园</a></div>
+                <div><a href="#home1">空中梦想</a></div>
+                <div><a href="#skills">UFLYING无人机联盟</a></div>
+                <div><a href="#gallery">空中家园</a></div>
             </div>
             <div class="linkBox">
                 <div><a href="#">派发任务</a></div>
@@ -690,7 +432,7 @@ footer .linkBox > div {
                 <div><a href="#">代理加盟</a></div>
             </div>
             <div class="linkBox">
-                <div><a href="#">代理加盟</a></div>
+                <div><a href="#">媒体报道</a></div>
                 <div><a href="#">联系我们</a></div>
             </div>
             <img src="img/qrcode.png"/>

@@ -3,8 +3,7 @@ package com.UFlying.user.form;
 public class FormChangePassword {
 
 	private String oldPassword;
-	private String newPassword1;
-	private String newPassword2;
+	private String Password;
 
 	public String getOldPassword() {
 		return oldPassword;
@@ -14,20 +13,13 @@ public class FormChangePassword {
 		this.oldPassword = oldPassword;
 	}
 
-	public String getNewPassword1() {
-		return newPassword1;
+	public String getPassword() {
+		return Password;
 	}
 
-	public void setNewPassword1(String newPassword1) {
-		this.newPassword1 = newPassword1;
+	public void setPassword(String password) {
+		Password = password;
 	}
 
-	public String getNewPassword2() {
-		return newPassword2;
-	}
-
-	public void setNewPassword2(String newPassword2) {
-		this.newPassword2 = newPassword2;
-	}
 
 }

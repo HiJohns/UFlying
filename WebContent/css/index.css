@@ -819,6 +819,211 @@ border-radius:50%;
 display:block;
 margin-bottom:1em;
 }
+.my.banner { position: relative; overflow: auto; }
+.my.banner li { 
+    list-style: none;
+    float: left; 
+    height: 700px;
+    padding-top: 470px;
+}
+.my.banner ul li:first-child {
+    background:url(../images/bannerA.jpg) center top no-repeat;
+    background-color:#0545C7
+}
+.my.banner ul li:nth-child(2) {
+    background:url(../images/bannerB.jpg) no-repeat;
+}
+.my.banner ul li:last-child {
+    background:url(../images/bannerPA.jpg) center top no-repeat;
+    background-color:#EB6F09
+}
+.my.banner li p.lead {
+    width: 50%;
+    text-align: center;
+    margin: 0px auto 20px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+}
+.my.banner li p.lead3 {
+    width: 50%;
+    text-align: center;
+    margin: 0px auto 20px;
+    color: ＃000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.my.banner .btn {
+    color: white;
+    border: white 1px solid;
+}
+.my.banner .btn:hover {
+    background-color: white;
+    color: #333;
+}
+
+.social-media {
+    margin: 3em 0 3em;
+}
+
+.social-media .row {
+    margin: 0 auto;
+    font-size: 2em;
+}
+
+.odometer > span {
+    background: rgba(0, 0, 0, 0) url("../images/numpad_bg.png") repeat scroll 0 0;
+    color: white;
+    float: left;
+    font-size: 1.1em;
+    height: 51px;
+    margin-right: 3px;
+    padding: 3px 0 0 5px;
+    width: 36px;
+}
+.cont_txt {
+    float: left;
+    color: rgb(237, 101, 0);
+    font-size: 0.8em;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.vendors {
+    background-color: #000000;
+	padding:4em 0 3em;
+}
+.vendors header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.vendors h1 {
+	color:#fff;
+	font-size:2.3em;
+	font-weight:bold;
+	letter-spacing:1.5px;
+}
+.vendors img {
+    width: 105px;
+    height: 55px;
+}
+.vendors row {
+    display: block;
+    margin: 10px auto;
+    width: 1050px;
+}
+.vendors div {
+	margin: 0 auto;
+	max-width: 1050px;
+}
+.arrowMark {
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 400px;
+    width: 100%;
+}
+.unslider-arrow.next {
+    float: right;
+    text-align: right;
+}
+.unslider-arrow.prev {
+    float: left;
+}
+.unslider-arrow:hover {
+    opacity: 0.8;
+}
+.unslider-arrow {
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    display: inline;
+    font-size: 2em;
+    height: 2.1em;
+    margin-left: 100px;
+    margin-right: 100px;
+    opacity: 0.3;
+    padding: 5px 16px;
+    width: 2em;
+}
+
+footer section {
+    overflow: hidden;
+    background-color: black;
+}
+
+footer .item {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+
+footer .center {
+    width: 900px;
+    margin: 40px auto;
+    overflow: hidden
+}
+
+footer section:first-child {
+    background-color: #e04444;
+}
+
+footer p, footer h3, footer a {
+    color: #ffffff;
+}
+
+footer h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+footer p {
+    font-size: small;
+    margin-top: 5px;
+}
+
+
+footer .linkBox {
+    float: left;
+    margin-left: 5%;
+    width: 16%;
+}
+
+
+footer .linkBox > div {
+    font-size: small;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.center > img {
+    width: 10%;
+    float: right;
+    margin-right: 4%;
+}
+.bannerPickerMark {
+    height: 10px;
+    position: absolute;
+    top: 675px;
+    width: 100%;
+}
+.bannerPickerMark ul {
+    height: 10px;
+    margin: 0 auto;
+    width: 120px;
+}
+.bannerPickerMark li {
+    border: 2px solid #dcdcdc;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    margin: 2px 1px 0;
+    width: 58px;
+}
+.bannerPickerMark .active {
+    border: 3px solid white;
+    margin-top: 0;
+}
 /*--responsive--*/
 @media (max-width: 1440px){
 .caption-info {

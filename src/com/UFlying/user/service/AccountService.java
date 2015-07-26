@@ -166,8 +166,7 @@ public class AccountService {
 	public void resetPassword(FormResetPassword form) throws ServiceException {
 		String phone = form.getPhone();
 		String code = form.getCode();
-		String password1 = form.getPassword1();
-		String password2 = form.getPassword2();
+		String password1 = form.getPassword();
 		// 表单验证
 		if (StringUtils.isBlank(phone)) {
 			throw new ServiceException("请填写手机号");
@@ -177,12 +176,6 @@ public class AccountService {
 		}
 		if (StringUtils.isBlank(password1)) {
 			throw new ServiceException("请输入密码");
-		}
-		if (StringUtils.isBlank(password2)) {
-			throw new ServiceException("请重复输入密码");
-		}
-		if (!password1.equals(password2)) {
-			throw new ServiceException("两次输入的密码不一致");
 		}
 		phone = StringUtils.trim(phone);
 		code = StringUtils.trim(code);
@@ -231,8 +224,7 @@ public class AccountService {
 	/** 修改密码 */
 	public void changePassword(FormChangePassword form, String token) throws ServiceException {
 		String oldPassword = form.getOldPassword();
-		String newPassword1 = form.getNewPassword1();
-		String newPassword2 = form.getNewPassword2();
+		String password = form.getPassword();
 		// 表单验证
 		if (StringUtils.isBlank(token)) {
 			throw new ServiceException("请先登录");
@@ -240,11 +232,8 @@ public class AccountService {
 		if (StringUtils.isBlank(oldPassword)) {
 			throw new ServiceException("请输入原密码");
 		}
-		if (StringUtils.isBlank(newPassword1) || StringUtils.isBlank(newPassword2)) {
+		if (StringUtils.isBlank(password) ) {
 			throw new ServiceException("请输入新密码");
-		}
-		if (!newPassword1.equals(newPassword2)) {
-			throw new ServiceException("两次输入的密码不一致");
 		}
 		token = StringUtils.trim(token);
 		// 更新密码，区分个人用户和企业用户
@@ -260,7 +249,7 @@ public class AccountService {
 			}
 			// 原密码验证通过，保存新密码
 			long uid = individualAccount.getUid();
-			String newEncryptedPassword = EncryptionUtils.MD5(newPassword1);
+			String newEncryptedPassword = EncryptionUtils.MD5(password);
 			String newToken = RandomKeyUtil.getToken();
 			rows = accountDao.changePasswordIndividualAccount(uid, newEncryptedPassword, newToken);
 		} else {
@@ -275,7 +264,7 @@ public class AccountService {
 				}
 				// 原密码验证通过，保存新密码
 				long eid = enterpriseAccount.getEid();
-				String newEncryptedPassword = EncryptionUtils.MD5(newPassword1);
+				String newEncryptedPassword = EncryptionUtils.MD5(password);
 				String newToken = RandomKeyUtil.getToken();
 				rows = accountDao.changePasswordEnterpriseAccount(eid, newEncryptedPassword, newToken);
 			}
