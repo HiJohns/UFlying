@@ -654,7 +654,7 @@ public class AccountService {
 		String phone = form.getPhone();
 		String email = form.getEmail();
 		String name = form.getName();
-		String enterpriseCardNumber = form.getEnterpriseCardNumber();
+		String enterpriseCardNumber = form.getBusinessLicenceNumber();
 		MultipartFile businessLicenceImg = form.getBusinessLicenceImg();
 		MultipartFile taxRegistrationImg = form.getTaxRegistrationImg();
 		// 表单验证
@@ -689,7 +689,7 @@ public class AccountService {
 				throw new ServiceException("该邮箱已被占用");
 			}
 		}
-		if (!StringUtils.equals(enterpriseCardNumber, enterpriseAccount.getEnterpriseCardNumber())) {
+		if (!StringUtils.equals(enterpriseCardNumber, enterpriseAccount.getBusinessLicenceNumber())) {
 			if (accountDao.checkEnterpriseCardExists(enterpriseCardNumber)) {
 				throw new ServiceException("该机构代码已被占用");
 			}
@@ -737,7 +737,7 @@ public class AccountService {
 		account.setMobilePhone(phone);
 		account.setName(name);
 		account.setEmailAddress(email);
-		account.setEnterpriseCardNumber(enterpriseCardNumber);
+		account.setBusinessLicenceNumber(enterpriseCardNumber);
 		account.setBusinessLicenceUrl(businessLicenceUrl);
 		account.setTaxRegistrationUrl(taxRegistrationUrl);
 		// 保存信息
@@ -782,7 +782,6 @@ public class AccountService {
 	public Object enterpriseAccountToForm(EnterpriseAccount account) {
 		FormUpdateEnterpriseAccount form = new FormUpdateEnterpriseAccount();
 		form.setName(account.getName());
-//		form.setEid(String.format("G%010d", account.getEid())) ;
 		form.setEid(account.getEid()) ;
 		form.setPhone(account.getMobilePhone());
 		form.setIdCardNumber(account.getIdCardNumber());
@@ -795,6 +794,7 @@ public class AccountService {
 		form.setPhotoUrl(account.getHeadImgUrl());
 		form.setIdCardUrl1(account.getIdCardUrl1());
 		form.setIdCardUrl2(account.getIdCardUrl2());
+		form.setBusinessLicenceNumber(account.getBusinessLicenceNumber());
 		return form;
 	}
 

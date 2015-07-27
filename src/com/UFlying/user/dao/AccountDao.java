@@ -163,8 +163,8 @@ public class AccountDao extends CommonDao {
 
 	/** 企业用户注册 */
 	public int registerEnterpriseAccount(EnterpriseAccount account, String password) {
-		String sql = "insert into enterprise_user_account (mobile_phone, email_address, password, token) values (?, ?, ?, ?)";
-		return this.getJdbcTemplate().update(sql, account.getMobilePhone(), account.getEmailAddress(), password, account.getToken());
+		String sql = "insert into enterprise_user_account (mobile_phone, password, token, register_date) values (?, ?, ?, ?)";
+		return this.getJdbcTemplate().update(sql, account.getMobilePhone(), password, account.getToken(), Calendar.getInstance());
 	}
 
 //	/** 完成个人用户 */
@@ -220,7 +220,7 @@ public class AccountDao extends CommonDao {
 				ps.setString(1, account.getMobilePhone());
 				ps.setString(2, account.getName());
 				ps.setString(3, account.getEmailAddress());
-				ps.setString(4, account.getEnterpriseCardNumber());
+				ps.setString(4, account.getBusinessLicenceNumber());
 				ps.setString(5, account.getBusinessLicenceUrl());
 				ps.setString(6, account.getTaxRegistrationUrl());
 				ps.setString(7, account.getToken());

@@ -21,8 +21,8 @@ public class EnterpriseAccountMapper implements RowMapper<EnterpriseAccount> {
 		account.setCompanyPhone(rs.getString("company_phone"));
 		account.setEmailAddress(rs.getString("email_address"));
 		account.setMobilePhone(rs.getString("mobile_phone"));
-		account.setEnterpriseCardNumber(rs.getString("enterprise_card_number"));
-		account.setOrganizeCode(rs.getString("organize_code"));
+		account.setBusinessLicenceNumber(rs.getString("enterprise_card_number"));
+		account.setTaxRegistrationNumber(rs.getString("organize_code"));
 		account.setBusinessLicenceUrl(rs.getString("business_licence_url"));
 		account.setTaxRegistrationUrl(rs.getString("tax_registration_url"));
 		account.setHeadImgUrl(rs.getString("head_image_url"));

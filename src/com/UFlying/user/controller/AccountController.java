@@ -179,7 +179,7 @@ public class AccountController {
 			cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
 			cookie.setPath("/");
 			response.addCookie(cookie);
-			return "user/enterprise_account";
+			return "redirect:/enterprise_account";
 		}
 		return "user/enterprise_register";
 	}
@@ -200,10 +200,11 @@ public class AccountController {
 			EnterpriseAccount account = accountService.getEnterpriseAccountByToken(token);
 			if (account != null) {
 				model.addAttribute("form", accountService.enterpriseAccountToForm(account));
-				return "user/enterprisel_complete";
+				return "user/enterprise_complete";
 			}
 			return "redirect:/login";
 	}
+	
 	/** 注册页 - 个人用户，完善信息，完成后进入个人中心 */
 //	@RequestMapping(value = "/individual_complete", method = RequestMethod.POST)
 //	public String completeIndividual(@CookieValue(required = false) String token, @ModelAttribute FormUpdateIndividualAccount form,
