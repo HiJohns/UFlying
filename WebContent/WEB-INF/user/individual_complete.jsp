@@ -64,7 +64,7 @@
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>
-                        <strong>*</strong><input type="text" data-icon="Name" msg-empty="请填写姓名" required placeholder="输入姓名" name="name"/>
+                        <strong>*</strong><input type="text" required data-prototype="name" placeholder="填写姓名" name="name"/>
                     </section>
                     <section class="horizon noFrameRow">
                         <strong>*</strong>
@@ -77,26 +77,25 @@
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="email" data-icon="Mail" data-regexName="email" msg-regex="邮件地址格式不正确"
-                        	msg-empty="请填写Email地址" required placeholder="请输入Email地址" name="email"/>
+                        <input type="email" data-prototype="email" required placeholder="请填写Email地址" name="email"/>
                         <a href="getConfirmationCode">立即验证</a>
                     </section>
                     <section class="horizon">
                         <strong>*</strong>
-                        <select required="true" name="province" msg-empty="请填写省/直辖市/自治区" data-store="provinces" data-valueField="name" data-textField="name">
+                        <select required="true" name="province" required data-prototype="province">
                             <option value="" disabled selected>省/直辖市/自治区</option>
                         </select>
-                        <select required="true" name="city" disabled msg-empty="请填写城市" data-store="cities" data-valueField="name" data-textField="name">
+                        <select required="true" name="city" disabled required data-prototype="city">
                             <option value="" disabled selected>城市</option>
                         </select>
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="text" required="true" placeholder="输入地址" msg-empty="请填写地址" name="address" data-icon="Address"/>
+                        <input type="text" required="true" placeholder="填写地址" data-prototype="address" name="address"/>
                     </section>
                     <section>
                         <strong></strong>
-                        <input type="text" required="false" placeholder="输入QQ号" msg-empty="请填写QQ号" name="qq" data-icon="qq"/>
+                        <input type="text" required="false" placeholder="填写QQ号" data-prototype="qq" name="qq"/>
                     </section>
                 </fieldset>
             </section>
@@ -113,8 +112,8 @@
             	<fieldset>
                     <section>
                         <strong>*</strong><input type="text" required="true" class="extended" 
-                        	data-icon="Identity" required msg-empty="请填写身份证号码" placeholder="输入身份证号码" 
-                        	name="idCardNumber" data-regex="^\d{18}$" msg-regex="身份证号码应该为18位数字"/>
+                        	required placeholder="填写身份证号码" data-prototype="idCardNumber"
+                        	name="idCardNumber"/>
                     </section>
                     <section>
                         <strong>*</strong>
@@ -128,8 +127,8 @@
                     <small>上传为本人近期二寸免冠证件照（半年内），jpg格式，大小不超过2MB（高度在139像素至197像素之间；宽度在96像素至150像素之间）</small>
                     <section>
                         <strong>*</strong>
-                        <p><a href="javascript:;" class="upload-btn" id="upload-photo-pic">
-                            <input type="file" required="required" msg-empty="请提交近照" accept="image/*" id="photo" name="photo" >
+                        <p><a href="#" class="upload-btn" id="upload-photo-pic">
+                            <input type="file" required msg-empty="请提交近照" accept="image/*" id="photo" name="photo" >
                             <img name="photoUrl"/>
                         </a></p>
                     </section>

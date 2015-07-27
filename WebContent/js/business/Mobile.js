@@ -45,6 +45,10 @@ UF.business.Mobile = (function () {
 				e.preventDefault();
 				var phone = $(_form).find('input[name="phone"]');
 				if ($(phone).is('.invalid') || $(phone).is('.onHold')) return;
+				if ($(phone).val() == '') {
+					$(phone).each(UF.business.Form.validate);
+					return;
+				}
 				
 				$(this).prop('disabled', true).text('正在发送……');
 				

@@ -9,39 +9,51 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>会员信息</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/3rdParty/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
     <style type="text/css">
-    	.logout {
-    		background-color: rgb(90, 194, 231);
-    	}
-        span[name="status"] + a {
-            margin-left: 10px;
+        .horizon {
+        	width: 100%!important;
+        }
+        .horizon button {
+        	width: 27%!important;
+        	margin-left: 5px!important;
+        	margin-right: 5px!important;
+        }
+        .staticInfo small {
+        	color: red;
+        	padding: 10px 30px;
+        	float: left;
         }
     </style>
     <script type="text/javascript" name="interface">
-        contextPath = '<%=request.getContextPath()%>';
         model = {
-       			eid: "${account.eid}"
+            eid: "${account.eid}",
+            companyName: "${account.companyName}",
+            companyPhone: "${account.companyPhone}",
+            email: "${account.emailAddress}",
+            address: "${account.address}",
+            province: "${account.province}",
+            city: "${account.city}",
+            status: "${account.status}",
+            name: "${account.name}",
+            businessLicenseNumber: "${account.businessLicenceNumber}",
+            taxRegistrationNumber: "${account.taxRegistrationNumber}",
+            businessLicenceUrl: "${account.businessLicenceUrl}",
+            taxRegistrationUrl: "${account.taxRegistrationUrl}",
+            photoUrl: "${account.headImgUrl}",
+            name: "${account.name}",
+            phone: "${account.mobilePhone}",
+            sex: "${account.sex}",
+            idCardNumber: "${account.idCardNumber}",
+            idCardUrl1: "${account.idCardUrl1}",
+            idCardUrl2: "${account.idCardUrl2}"
         };
+        contextPath = '<%=request.getContextPath()%>';
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
-    <script type="text/javascript">
-    	$(document).ready(function () {
-    		$('button.logout').click(function () {
-    			location.href = contextPath + '/logout';
-    		});
-
-            if (model.status == _enums.status.base || model.status == _enums.status.authenticated) {
-                $('span[name="status"] + a').show();
-            }
-            else {
-                $('span[name="status"] + a').hide();
-            }
-    	});
-    </script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
   </head>
 <body class="personal_summary">
     <hgroup class="usersCommon boxWidth">
@@ -61,6 +73,14 @@
                 <label>会员ID：</label>
                 <span name="eid"/>
             </section>
+            <section>
+                <label>认证会员状态：</label>
+                <span><span name="status"></span></span>
+            </section>
+            <section class="authentication">
+                <label>电子会员证：</label>
+                <span>点击查看<a href="<%=request.getContextPath()%>/individual_card">&gt;&gt;&gt;</a></span>
+            </section>
         </div>
     </section>
     <section class="portal boxWidth">
@@ -73,9 +93,13 @@
                 <label>性别：</label>
                 <span name="sex"/>
             </section>
+        </div>
+    </section>
+    <section class="portal boxWidth">
+        <div class="staticInfo">
             <section>
                 <label>企业名称：</label>
-                <span>XXX有限公司</span>
+                <span name="companyName"></span>
             </section>
             <section>
                 <label>企业邮箱：</label>
@@ -83,39 +107,70 @@
             </section>
             <section>
                 <label>固定电话：</label>
-                <span name="phone"/>
+                <span name="companyPhone"/>
             </section>
             <section>
                 <label>所在地：</label>
                 <span name="province+city"></span>
             </section>
+            <section>
+                <label>地址：</label>
+                <span name="address"></span>
+            </section>
         </div>
     </section>
-    <section class="portal boxWidth">
+    <section class="portal boxWidth authentication">
         <div class="staticInfo">
             <section>
-                <label>认证会员状态：</label>
-                <span><span name="status"></span><a href="<%=request.getContextPath()%>/enterprise_complete">我要认证>></a></span>
-            </section>
-            <section>
-                <label>联系人身份证号：</label>
+                <label>联系人身份证号码：</label>
                 <span name="idCardNumber"></span>
             </section>
             <section>
-                <label>联系人照片：</label>
-                <span>证件照<a href="#">>></a><br/>身份证照片<a href="#">>></a></span>
+                <label>联系人证件照正面：</label>
+                <img name="idCardUrl1"/>
             </section>
             <section>
-                <label>企业证件照片：</label>
-                <span>营业执照照片<a href="#">>></a><br/>机构证照片<a href="#">>></a></span>
+                <label>联系人证件照反面：</label>
+                <img name="idCardUrl2"/>
             </section>
         </div>
     </section>
+    <section class="portal boxWidth authentication">
+        <div class="staticInfo">
+            <section>
+                <label>企业Logo：</label>
+                <img name="photoUrl"/>
+            </section>
+            <section>
+                <label>营业执照号码：</label>
+                <span name="businessLicenseNumber"></span>
+            </section>
+            <section>
+                <label>营业执照照片：</label>
+                <img name="businessLicenseUrl"/>
+            </section>
+            <section>
+                <label>组织机构证号码：</label>
+                <span name="taxRegistrationNumber"></span>
+            </section>
+            <section>
+                <label>组织机构证照片：</label>
+                <img name="businessLicenseUrl"/>
+            </section>
+        </div>
+    </section>
+    <section class="portal boxWidth">
+    	<div class="staticInfo">
+    		<small data-name="message">
+    		</small>
+   		</div>
+	</section>
     <section class="portal boxWidth form">
     	<fieldset>
-    		<section>
-    			<strong></strong>
-    			<button class="logout">登 出</button>
+    		<section class="horizon">
+    			<button class="btn btn-primary" data-name="edit">完善信息</button>
+    			<button class="btn btn-default" data-name="changePassword">修改密码</button>
+    			<button class="btn btn-danger" data-name="logout">退出</button>
     		</section>
     	</fieldset>
     </section>

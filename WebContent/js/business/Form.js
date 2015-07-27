@@ -1,26 +1,11 @@
+
+debug = false;
 UF.business.Form = (function () {
-	var labels = {
-		store: 'data-store',	// store for combo
-		textField: 'data-textField',	// text field for combo
-		valueField: 'data-valueField',	// value field for combo
-		regex: 'data-regex',	// string of regular expression for validating 
-		regexName: 'data-regexName',	// name of regular expression for validating
-		match: 'data-match',	// name of another field to which this one should match
-		remote: 'data-remote',	// method to be invoked for remote checking.
-		icon: 'data-icon',	// icon for input
-		noValidate: 'data-novalidate',	// prevent validating
-		autoValidate: 'data-autoValidate',	// Indicating the current form has been set up auto validating mechanism
-		emptyMessage: 'msg-empty',	// error message when a required field is empty
-		regexMessage: 'msg-regex',	// error message when the field fails in regular testing
-		matchMessage: 'msg-match',	// error message when the field doesn't match the specified one
-		remoteMessage: 'msg-remote',	// error message when remote checking failed
-		remoteCheckingMessage: 'msg-remoteChecking'	// message when remote checking is on going
-	};
-	
 	function is(obj, label) {
 		return $(obj).is('[' + label + ']');
 	}
 
+    var labels = UF.base.FormLabels;
 	return {
 		init: function () {
 		    _.delay(function () {
@@ -28,6 +13,18 @@ UF.business.Form = (function () {
 		    	$('input').removeAttr(labels.noValidate);
 		    	$('select').removeAttr(labels.noValidate);
 		    }, 100);
+
+		    var prototypes = UF.base.Prototypes;
+		    $('[' + labels.prototype + ']').each(function () {
+		    	var prototypeName = $(this).attr(labels.prototype);
+		    	if (!prototypes.hasOwnProperty(prototypeName)) return;
+		    	
+		    	var prototype = prototypes[prototypeName];
+		    	for (var field in prototype) {
+		    		if (is(this, field)) return;
+		    		$(this).attr(field, prototype[field]);
+		    	}
+		    });
 		    
 		    $('input').attr(labels.noValidate, 'true');
 		    $('select').attr(labels.noValidate, 'true');
@@ -62,7 +59,7 @@ UF.business.Form = (function () {
 		},
 		validate: function () {
 			function clearError() {
-				$(this).removeClass('invalid').siblings('.error').remove();
+				$(this).removeClass('invalid').attr('title', '').siblings('.error').remove();
 			}
 			
 			function addError(obj, msg) {
@@ -82,11 +79,15 @@ UF.business.Form = (function () {
 				$('<small>').addClass('message').html(msg).appendTo($(obj).parent());
 			}
 			
+			var val = $(this).val();
+			
+			if (val === $(this).attr(labels.validated)) return;
+			$(this).attr(labels.validated, val);
+			
 			$(this).each(clearError);
 			if (!$(this).is(':enabled:visible') || is(this, labels.noValidate)) return;
 					
 			var msg = null;
-			var val = $(this).val();
 			if ($(this).is('[required]') && (val == null || (_.isString(val) && val.length == 0))) {
 				msg = $(this).attr('msg-empty') || '请填写本字段';
 			}
@@ -94,7 +95,6 @@ UF.business.Form = (function () {
 			if (msg == null && (is(this, labels.regex) || is(this, labels.regexName))) {
 				var regexString = $(this).attr(labels.regex) || UF.base.RegularExpressions[$(this).attr(labels.regexName)];
 				if (_.isString(val) && !(new RegExp(regexString, 'i').test(val))) {
-					// console.log(regexString, new RegExp(regexString, 'i'));
 					msg = $(this).attr(labels.regexMessage);
 				}
 			}
@@ -105,12 +105,12 @@ UF.business.Form = (function () {
 				
 				if (val != matchField.val() && matchField.is(':visible:enabled')) {
 					msg = $(this).attr(labels.matchMessage);
-					errorForMatch = $(matchField).attr(labels.matchMessage);
+					if (matchField.val() != '') errorForMatch = $(matchField).attr(labels.matchMessage);
 				}
 				addError(matchField, errorForMatch);
 			}
 			
-			addError(this, msg);
+			addError(this, msg);			
 			
 			if (msg == null && is(this, labels.remote)) {
 				var msgRemote = $(this).attr(labels.remoteMessage);
@@ -132,11 +132,10 @@ UF.business.Form = (function () {
 			$(this).find('input[data-disabled]').prop('disabled', true);
 			$(this).find('select[data-disabled]').prop('disabled', true);
 			
-			$(this).find('input').change(UF.business.Form.validate).keyup(UF.business.Form.validate);
+			$(this).find('input').click(UF.business.Form.validate).keyup(UF.business.Form.validate);
 			$(this).find('select').change(UF.business.Form.validate);
 			$(this).submit(function () {
 				if ($(this).find('.onHold').length > 0) return false;
-			
 				$(this).find('select:visible').each(UF.business.Form.validate);
 				$(this).find('input:visible').each(UF.business.Form.validate);
 				var stack = [];
@@ -177,7 +176,6 @@ UF.business.Form = (function () {
 		    	
 		    	return stack.join('');
 			}
-			
 		    $('*[name]').each(function () {
 		    	var name = $(this).attr('name');
 		    	

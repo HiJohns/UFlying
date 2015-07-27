@@ -10,6 +10,12 @@ UF.base.Renderers = {
 		while (result.length < 10) result = '0' + result;
 		return 'G' + result;
 	}, 
+	eid: function (eid, model){
+        if (_.isString(eid) && eid.match(/^[A-Za-z]/) != null) return eid;
+		var result = eid.toString();
+		while (result.length < 10) result = '0' + result;
+		return 'E' + result;
+	}, 
 	status: {
 		0: '普通用户',
 		1: '待认证',

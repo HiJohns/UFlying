@@ -29,6 +29,8 @@ $(document).ready(function () {
                "RegularExpressions",
                "Cities",
                "Renderers",
+               "Prototypes",
+               "FormLabels",
                "Utils"
                ],
 	    page: [

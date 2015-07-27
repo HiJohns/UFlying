@@ -1,5 +1,5 @@
 UF.base.Utils = {
-	makeMappingTables: function makeMappingTable(mappings, namespace) {
+	makeMappingTable: function makeMappingTable(mappings, namespace) {
 	    function _solveBase(key) {
 	        var fld = newMappings[key];
 

@@ -15,6 +15,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/index.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
+<script type="text/javascript" name="interface">
+	contextPath = '<%=request.getContextPath()%>';
+</script>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="3rdParty/jquery.js"> </script>
 <!---- start-smoth-scrolling---->
@@ -108,19 +111,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="row clearfix " style="width:920px;">
         <div class="main">
             <span class="cont">
-                <span id="finish" class="odometer"></span>
+                <span id="members" class="odometer"></span>
                 <span class="f1 cont_txt">会员&nbsp;&nbsp;</span>
             </span>
             <span class="cont" style="margin-right: 18px;">
-                <span id="trading" class="odometer"></span>
+                <span id="directors" class="odometer"></span>
                 <span class="f1 cont_txt">理事企业&nbsp;&nbsp;</span>
             </span>
             <span class="cont" style="margin-left: 18px;">
-                <span id="com_num" class="odometer"></span>
+                <span id="insurance" class="odometer"></span>
                 <span class="f1 cont_txt">万元保额&nbsp;&nbsp;</span>
             </span>
             <span class="cont">
-                <span id="investor" class="odometer"></span>
+                <span id="missions" class="odometer"></span>
                 <span class="f2 cont_txt">场任务</span>
             </span>
         </div>

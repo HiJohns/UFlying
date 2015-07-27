@@ -12,9 +12,6 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/3rdParty/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
     <style type="text/css">
-        span[name="status"] + a {
-            margin-left: 10px;
-        }
         .horizon {
         	width: 100%!important;
         }
@@ -76,6 +73,10 @@
                 <label>认证会员状态：</label>
                 <span><span name="status"></span></span>
             </section>
+            <section class="authentication">
+                <label>电子会员证：</label>
+                <span>点击查看<a href="<%=request.getContextPath()%>/individual_card">&gt;&gt;&gt;</a></span>
+            </section>
         </div>
     </section>
     <section class="portal boxWidth">
@@ -102,15 +103,15 @@
             </section>
         </div>
     </section>
-    <section class="portal boxWidth" name="authentication">
+    <section class="portal boxWidth authentication">
         <div class="staticInfo">
             <section>
-                <label>身份证：</label>
-                <span name="idCardNumber"></span>
+                <label>个人近照：</label>
+                <img name="photoUrl"/>
             </section>
             <section>
-                <label>电子会员证：</label>
-                <span>点击查看<a href="<%=request.getContextPath()%>/individual_card">&gt;&gt;&gt;</a></span>
+                <label>身份证号码：</label>
+                <span name="idCardNumber"></span>
             </section>
             <section>
                 <label>证件照正面：</label>

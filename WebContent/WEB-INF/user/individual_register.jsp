@@ -40,10 +40,8 @@
             <fieldset>
                 <section>
                     <strong>*</strong>
-                    <input type="tel" id="phone" name="phone" data-icon="Phone" msg-empty="请填写手机号" 
-                    	required msg-empty="请填写手机号" data-regexName="mobile" msg-regex="手机号应该为11位数字"
-                    	data-remote="mobileRegistered" msg-remoteChecking="验证中……" msg-remote="该手机已注册过"
-                    	placeholder="请输入手机号" aria-describedby="basic-addon1" />
+                    <input type="tel" id="phone" name="phone" required 
+                    	data-prototype="mobile"	placeholder="请输入手机号" aria-describedby="basic-addon1" />
                 </section>
                 <section>
                 	<strong></strong>
@@ -51,9 +49,8 @@
                 </section>
                 <section class="collapse">
                     <strong>*</strong>
-                    <input type="text" id="code" name="code" required="required" msg-empty="请填写验证码" 
-                    	data-regex="^\d{6}$" msg-regex="验证码应该为6位数字"
-                    	placeholder="请输入验证码" aria-describedby="basic-addon1" data-icon="Key" />
+                    <input type="text" id="code" name="code" required data-prototype="mobileVerification"
+                    	placeholder="请输入验证码" aria-describedby="basic-addon1" />
                 </section>
             </fieldset>
         </section>
@@ -61,15 +58,14 @@
             <fieldset>
                 <section>
                     <strong>*</strong>
-                    <input type="password" id="password" name="password" msg-empty="请填写密码" required="required" 
-                    placeholder="填写密码" data-match="confirmPassword" msg-match="应与确认密码一致"
-                    aria-describedby="basic-addon1" data-icon="Lock" />
+                    <input type="password" id="password" name="password" required
+                    placeholder="填写密码" data-prototype="password"
+                    aria-describedby="basic-addon1" />
                 </section>
                 <section>
                     <strong>*</strong>
-                    <input type="password" placeholder="填写确认密码" msg-empty="请填写同一密码" 
-                    	name="confirmPassword" data-match="password" msg-match="两次填写的密码应该一致"
-                    required="required" data-icon="Lock" />
+                    <input type="password" placeholder="填写确认密码" 
+                    	name="confirmPassword" data-prototype="confirmPassword" required />
                 </section>
             </fieldset>
         </section>

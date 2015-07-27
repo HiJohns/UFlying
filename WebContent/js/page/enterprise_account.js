@@ -1,12 +1,11 @@
-UF.page.IndividualAccount = (function () {
+UF.page.EnterpriseAccount = (function () {
 	return {
 		dependencies: [
 		               'Form',
 		               'Account'
 		               ],
 		init: function () {
-			UF.business.Account.editUrl = contextPath + '/individual_complete';
+			UF.business.Account.editUrl = contextPath + '/enterprise_complete';
 		}
-	};
+	}
 })();
-
