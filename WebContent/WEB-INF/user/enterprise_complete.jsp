@@ -67,10 +67,10 @@
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>
-                        <strong>*</strong><input type="text" data-prototype="ename" placeholder="填写企业名称" name="ename" />
+                        <strong>*</strong><input type="text" data-prototype="ename" required placeholder="填写企业名称" name="ename" />
                     </section>
                     <section>
-                        <strong>*</strong><input type="text" data-prototype="name" placeholder="填写联系人姓名" name="name" msg-empty="请填写联系人姓名"/>
+                        <strong>*</strong><input type="text" data-prototype="name" required placeholder="填写联系人姓名" name="name"/>
                     </section>
                     <section class="horizon noFrameRow">
                         <strong>*</strong>
@@ -82,11 +82,11 @@
                         <label for="personal_secret">保密</label>
                     </section>
                     <section>
-                        <strong>*</strong><input type="email" data-prototype="email" placeholder="填写邮箱" name="email"/>
+                        <strong>*</strong><input type="email" data-prototype="email" required placeholder="填写邮箱" name="email"/>
                         <a href="getConfirmationCode">立即验证</a>
                     </section>
                     <section>
-                        <strong>*</strong><input type="tel" data-prototype="phone" placeholder="填写固定电话" name="phone" />
+                        <strong>*</strong><input type="tel" data-prototype="mobile" required placeholder="填写手机号" name="phone" />
                     </section>
                     <section class="horizon">
                         <strong>*</strong>
@@ -99,7 +99,7 @@
                     </section>
                     <section>
                         <strong>*</strong>
-                        <input type="text" required="true" placeholder="填写地址" data-prototype="address" name="address"/>
+                        <input type="text" required placeholder="填写地址" data-prototype="address" name="address"/>
                     </section>
                 </fieldset>
             </section>

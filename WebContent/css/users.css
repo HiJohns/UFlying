@@ -255,7 +255,7 @@ footer button {
     margin-top: 25px;
 }
 
-.fileInput input {
+.fileInput input[type=file] {
     background: none;
     height: auto;
     border: inherit;

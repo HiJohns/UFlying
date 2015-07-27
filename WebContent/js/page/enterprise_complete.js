@@ -1,7 +1,9 @@
 UF.page.EnterpriseComplete = (function () {
 	return {
 		dependencies: [
-		               'Form'
+		               'Form',
+		               'Mobile',
+		               'Complete'
 		               ],
 		init: function () {
 		}

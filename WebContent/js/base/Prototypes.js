@@ -28,10 +28,6 @@ UF.base.Prototypes = {
         icon: 'EnterpriseName',
         emptyMessage: '请填写企业名称'
     },
-    phone: {
-        icon: 'Phone',
-        emptyMessage: '请填写固定电话'
-    },
     confirmPassword: {
     	icon: 'Lock',
         emptyMessage: '请填写同一密码',

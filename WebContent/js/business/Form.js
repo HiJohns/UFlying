@@ -1,6 +1,8 @@
-
-debug = false;
 UF.business.Form = (function () {
+	var zeroBase = { 
+		NUMBER: true
+	};
+	
 	function is(obj, label) {
 		return $(obj).is('[' + label + ']');
 	}
@@ -82,7 +84,6 @@ UF.business.Form = (function () {
 			var val = $(this).val();
 			
 			if (val === $(this).attr(labels.validated)) return;
-			$(this).attr(labels.validated, val);
 			
 			$(this).each(clearError);
 			if (!$(this).is(':enabled:visible') || is(this, labels.noValidate)) return;
@@ -120,7 +121,11 @@ UF.business.Form = (function () {
 				UF.Remote[$(this).attr(labels.remote)](val, _self, function (isValid) { 
 					$(_self).each(release);
 					addError(_self, isValid ? null : msgRemote); 
+					$(_self).attr(labels.validated, val);
 				});
+			}
+			else {
+				$(this).attr(labels.validated, val);
 			}
 		},
 		autoValidateForm: function () {
@@ -136,6 +141,8 @@ UF.business.Form = (function () {
 			$(this).find('select').change(UF.business.Form.validate);
 			$(this).submit(function () {
 				if ($(this).find('.onHold').length > 0) return false;
+				$(this).find(':hidden').removeClass('invalid');
+				debugger;
 				$(this).find('select:visible').each(UF.business.Form.validate);
 				$(this).find('input:visible').each(UF.business.Form.validate);
 				var stack = [];
@@ -145,6 +152,10 @@ UF.business.Form = (function () {
 				
 				if (stack.length == 0) {
 					$(this).find('input[type="submit"]').prop('disabled', false);
+					$(this).find('input:hidden').each(function () {
+						$(this).val(zeroBase.hasOwnProperty($(this).attr('type')) ? 0 : null);
+					})
+					$(this).find('select:hidden').val(null);
 					return true;
 				}
 				
