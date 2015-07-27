@@ -20,11 +20,12 @@ public class FormUpdateEnterpriseAccount {
 	private String photoUrl;
 	private String idCardUrl1;
 	private String idCardUrl2;
-	private String enterpriseCardNumber;
-	private String enterpriseNo1;
-	private String enterpriseNo2;
+	private String businessLicenseNumber;
+	private String taxRegistrationNumber;
 	private MultipartFile businessLicenceImg;
 	private MultipartFile taxRegistrationImg;
+	private String businessLicenceUrl;
+	private String taxRegistrationUrl;
 	
 	public long getEid() {
 		return eid;
@@ -146,22 +147,6 @@ public class FormUpdateEnterpriseAccount {
 		this.phone = phone;
 	}
 
-	public String getEnterpriseNo1() {
-		return enterpriseNo1;
-	}
-
-	public void setEnterpriseNo1(String enterpriseNo1) {
-		this.enterpriseNo1 = enterpriseNo1;
-	}
-
-	public String getEnterpriseNo2() {
-		return enterpriseNo2;
-	}
-
-	public void setEnterpriseNo2(String enterpriseNo2) {
-		this.enterpriseNo2 = enterpriseNo2;
-	}
-
 	public MultipartFile getBusinessLicenceImg() {
 		return businessLicenceImg;
 	}
@@ -178,12 +163,20 @@ public class FormUpdateEnterpriseAccount {
 		this.taxRegistrationImg = taxRegistrationImg;
 	}
 
-	public String getEnterpriseCardNumber() {
-		return enterpriseCardNumber;
+	public String getbusinessLicenseNumber() {
+		return businessLicenseNumber;
 	}
 
-	public void setEnterpriseCardNumber(String enterpriseCardNumber) {
-		this.enterpriseCardNumber = enterpriseCardNumber;
+	public void setbusinessLicenseNumber(String businessLicenseNumber) {
+		this.businessLicenseNumber = businessLicenseNumber;
+	}
+
+	public String gettaxRegistrationNumber() {
+		return taxRegistrationNumber;
+	}
+
+	public void settaxRegistrationNumber(String taxRegistrationNumber) {
+		this.taxRegistrationNumber = taxRegistrationNumber;
 	}
 
 	public String getEmail() {
@@ -192,6 +185,22 @@ public class FormUpdateEnterpriseAccount {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getBusinessLicenceUrl() {
+		return businessLicenceUrl;
+	}
+
+	public void setBusinessLicenceUrl(String businessLicenceUrl) {
+		this.businessLicenceUrl = businessLicenceUrl;
+	}
+
+	public String getTaxRegistrationUrl() {
+		return taxRegistrationUrl;
+	}
+
+	public void setTaxRegistrationUrl(String taxRegistrationUrl) {
+		this.taxRegistrationUrl = taxRegistrationUrl;
 	}
 
 }

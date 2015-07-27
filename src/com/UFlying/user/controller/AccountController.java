@@ -78,8 +78,8 @@ public class AccountController {
 			response.addCookie(cookie);
 			if (account instanceof IndividualAccount) {
 				return "redirect:/individual_account";
-//			} else if (account instanceof EnterpriseAccount) {
-//				return "redirect:/enterprise_account";
+			} else if (account instanceof EnterpriseAccount) {
+				return "redirect:/enterprise_account";
 			}
 		}
 		return "user/login";
@@ -104,13 +104,13 @@ public class AccountController {
 				cookie.setPath("/");
 				response.addCookie(cookie);
 				return "redirect:/individual_account";
-//			} else if (account instanceof EnterpriseAccount) {
-//				token = EnterpriseAccount.class.cast(account).getToken();
-//				Cookie cookie = new Cookie("token", token);
-//				cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
-//				cookie.setPath("/");
-//				response.addCookie(cookie);
-//				return "redirect:/enterprise_account";
+			} else if (account instanceof EnterpriseAccount) {
+				token = EnterpriseAccount.class.cast(account).getToken();
+				Cookie cookie = new Cookie("token", token);
+				cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				return "redirect:/enterprise_account";
 			}
 		}
 		return "user/login";
@@ -156,7 +156,7 @@ public class AccountController {
 			cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
 			cookie.setPath("/");
 			response.addCookie(cookie);
-			return "user/individual_account";
+			return "redirect:/individual_account";
 		}
 		return "user/individual_register";
 	}
