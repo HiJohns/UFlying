@@ -17,6 +17,7 @@
     <script type="text/javascript" name="interface">
         contextPath = '<%=request.getContextPath()%>';
         model = {
+    	    message: "${message}",
         	phone: '',
         	code: '',
         	password: '',

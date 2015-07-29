@@ -16,6 +16,7 @@
     <script type="text/javascript" name="interface">
         contextPath = '<%=request.getContextPath()%>';
         model = {
+	    	    message: "${message}",
         		oldPassword: '',
             	password: '',
             	confirmPassword: ''
@@ -30,7 +31,6 @@
         <img src="img/Logo.png" />
         <button class="back" data-icon="LeftBlue"></button>
     </hgroup>
-    <c:if test="${!empty message}"><div role="alert" class="alert alert-danger">${message}</div></c:if>
     <form id="changePasswordForm" action="<%=request.getContextPath()%>/change_password" method="post">
         <section class="form portal withHeader boxWidth">
             <header>

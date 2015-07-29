@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
 	<script type="text/javascript" name="interface">
 	    model = {
+    	    message: "${message}",
 	    };
 	    contextPath = '<%=request.getContextPath()%>';
 	</script>

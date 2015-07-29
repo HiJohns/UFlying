@@ -23,7 +23,7 @@ UF.business.Form = (function () {
 		    	
 		    	var prototype = prototypes[prototypeName];
 		    	for (var field in prototype) {
-		    		if (is(this, field)) return;
+		    		if (is(this, field)) continue;
 		    		$(this).attr(field, prototype[field]);
 		    	}
 		    });
@@ -142,7 +142,6 @@ UF.business.Form = (function () {
 			$(this).submit(function () {
 				if ($(this).find('.onHold').length > 0) return false;
 				$(this).find(':hidden').removeClass('invalid');
-				debugger;
 				$(this).find('select:visible').each(UF.business.Form.validate);
 				$(this).find('input:visible').each(UF.business.Form.validate);
 				var stack = [];
@@ -152,7 +151,7 @@ UF.business.Form = (function () {
 				
 				if (stack.length == 0) {
 					$(this).find('input[type="submit"]').prop('disabled', false);
-					$(this).find('input:hidden').each(function () {
+					$(this).find('input:hidden:not([type=hidden])').each(function () {
 						$(this).val(zeroBase.hasOwnProperty($(this).attr('type')) ? 0 : null);
 					})
 					$(this).find('select:hidden').val(null);
@@ -187,6 +186,11 @@ UF.business.Form = (function () {
 		    	
 		    	return stack.join('');
 			}
+			
+			if (_.isString(model.message) && model.message.length > 0) {
+				$('.portal.alertBox').show();
+			}
+			
 		    $('*[name]').each(function () {
 		    	var name = $(this).attr('name');
 		    	
@@ -210,6 +214,7 @@ UF.business.Form = (function () {
 			        	break;
 			        case 'span':
 			        case 'div':
+			        case 'small':
 			            this.innerHTML = getValueEx(name);
 			            break;
 			        case 'img':

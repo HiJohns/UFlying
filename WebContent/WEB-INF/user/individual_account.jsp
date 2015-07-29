@@ -29,6 +29,7 @@
     <script type="text/javascript" name="interface">
         contextPath = '<%=request.getContextPath()%>';
         model = {
+	    	    message: "${message}",
        			uid: "${account.uid}", 
        			name: "${account.name}", 
        			phone: "${account.mobilePhone}",
@@ -79,6 +80,10 @@
             </section>
         </div>
     </section>
+    <section class="portal boxWidth alertBox">
+    	<div class="staticInfo alert" name="message">
+   		</div>
+	</section>
     <section class="portal boxWidth">
         <div class="staticInfo">
             <section>

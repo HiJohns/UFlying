@@ -28,6 +28,7 @@
     </style>
     <script type="text/javascript" name="interface">
         model = {
+    	    message: "${message}",
             eid: "${account.eid}",
             companyName: "${account.companyName}",
             companyPhone: "${account.companyPhone}",
@@ -66,10 +67,6 @@
         </header>
         <div class="staticInfo">
             <section>
-                <label>联系人手机：</label>
-                <span name="phone"/>
-            </section>
-            <section>
                 <label>会员ID：</label>
                 <span name="eid"/>
             </section>
@@ -83,18 +80,10 @@
             </section>
         </div>
     </section>
-    <section class="portal boxWidth">
-        <div class="staticInfo">
-            <section>
-                <label>联系人姓名：</label>
-                <span name="name"/>
-            </section>
-            <section>
-                <label>性别：</label>
-                <span name="sex"/>
-            </section>
-        </div>
-    </section>
+    <section class="portal boxWidth alertBox">
+    	<div class="staticInfo alert" name="message">
+   		</div>
+	</section>
     <section class="portal boxWidth">
         <div class="staticInfo">
             <section>
@@ -116,6 +105,22 @@
             <section>
                 <label>地址：</label>
                 <span name="address"></span>
+            </section>
+        </div>
+    </section>
+    <section class="portal boxWidth">
+        <div class="staticInfo">
+            <section>
+                <label>联系人姓名：</label>
+                <span name="name"/>
+            </section>
+            <section>
+                <label>性别：</label>
+                <span name="sex"/>
+            </section>
+            <section>
+                <label>联系人手机：</label>
+                <span name="phone"/>
             </section>
         </div>
     </section>

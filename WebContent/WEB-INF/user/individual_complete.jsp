@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
         <script type="text/javascript" name="interface">
         	model = {
+    	    	    message: "${message}",
            			uid: "${form.uid}", 
            			name: "${form.name}", 
            			phone: "${form.phone}",
@@ -41,7 +42,6 @@
             <img src="img/Logo.png" />
             <button data-icon="LeftBlue" class="back"></button>
         </hgroup>
-        <c:if test="${!empty message}"><div role="alert" class="alert alert-danger">${message}</div></c:if>
         <form action="<%=request.getContextPath()%>/individual_edit" method="post" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="uid"/>                        
             <input type="hidden" name="phone"/>                        
@@ -61,6 +61,10 @@
                     </section>
                 </div>
             </section>
+		    <section class="portal boxWidth alertBox">
+		    	<div class="staticInfo alert" name="message">
+		   		</div>
+			</section>
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>

@@ -200,6 +200,7 @@ public class AccountController {
 			EnterpriseAccount account = accountService.getEnterpriseAccountByToken(token);
 			if (account != null) {
 				model.addAttribute("form", accountService.enterpriseAccountToForm(account));
+				model.addAttribute("message", "test");
 				return "user/enterprise_complete";
 			}
 			return "redirect:/login";
@@ -376,7 +377,7 @@ public class AccountController {
 	@RequestMapping(value = "/reset_password_verify_code", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseBasic resetPasswordVerifyCode(@RequestParam String phone) {
-		boolean phoneExists = accountService.checkPhoneExists(phone);
+		boolean phoneExists = accountService.checkPhoneExists(phone, "");
 		if (!phoneExists) {
 			ResponseBasic response = new ResponseBasic();
 			response.setStatus(-1);
@@ -445,8 +446,8 @@ public class AccountController {
 	/** 验证手机是否被注册 */
 	@RequestMapping(value = "/check_mobile", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseBasic checkMobile(@RequestParam String phone) {
-		boolean phoneExists = accountService.checkPhoneExists(phone);
+	public ResponseBasic checkMobile(@CookieValue String token, @RequestParam String phone) {
+		boolean phoneExists = accountService.checkPhoneExists(phone, token);
 		ResponseBasic response = new ResponseBasic();
 		response.setStatus(0);
 		response.setReason(phoneExists?"1":"0");

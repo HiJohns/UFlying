@@ -905,6 +905,7 @@ margin-bottom:1em;
 .vendors img {
     width: 105px;
     height: 55px;
+    margin-bottom: 30px;
 }
 .vendors row {
     display: block;

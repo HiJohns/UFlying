@@ -76,6 +76,15 @@ hgroup img {
 	max-width: 200px;
 }
 
+.staticInfo.alert {
+	color: red;
+}
+
+.portal.alertBox {
+	background-color: rgb(255, 255, 221);
+	display: none;
+}
+
 .portal fieldset {
     border: 0 none;
     clear: both;

@@ -86,7 +86,7 @@ public class AccountService {
 		phone = StringUtils.trim(phone);
 		code = StringUtils.trim(code);
 		// 合法性验证
-		if (accountDao.checkPhoneExists(phone)) {
+		if (accountDao.checkPhoneExists(phone, "")) {
 			throw new ServiceException("该手机号已被注册");
 		}
 		// 验证码校验
@@ -133,7 +133,7 @@ public class AccountService {
 		phone = StringUtils.trim(phone);
 		code = StringUtils.trim(code);
 		// 合法性验证
-		if (accountDao.checkPhoneExists(phone)) {
+		if (accountDao.checkPhoneExists(phone, "")) {
 			throw new ServiceException("该手机已被注册");
 		}
 		// 验证码校验
@@ -180,7 +180,7 @@ public class AccountService {
 		phone = StringUtils.trim(phone);
 		code = StringUtils.trim(code);
 		// 合法性验证
-		if (!accountDao.checkPhoneExists(phone)) {
+		if (!accountDao.checkPhoneExists(phone, "")) {
 			throw new ServiceException("该手机号未被注册");
 		}
 		// 验证码校验
@@ -554,7 +554,7 @@ public class AccountService {
 			}
 		}
 		if (!StringUtils.equalsIgnoreCase(phone, individualAccount.getMobilePhone())) {
-			if (accountDao.checkPhoneExists(phone)) {
+			if (accountDao.checkPhoneExists(phone, token)) {
 				throw new ServiceException("该手机号已被占用");
 			}
 		}
@@ -680,7 +680,7 @@ public class AccountService {
 			throw new ServiceException("用户不存在");
 		}
 		if (!StringUtils.equals(phone, enterpriseAccount.getMobilePhone())) {
-			if (accountDao.checkPhoneExists(phone)) {
+			if (accountDao.checkPhoneExists(phone, token)) {
 				throw new ServiceException("该手机号已被占用");
 			}
 		}
@@ -753,8 +753,8 @@ public class AccountService {
 	}
 
 	/** 检测手机号是否存在 */
-	public boolean checkPhoneExists(String phone) {
-		return accountDao.checkPhoneExists(phone);
+	public boolean checkPhoneExists(String phone, String token) {
+		return accountDao.checkPhoneExists(phone, token);
 	}
 
 	/** 将个人会员信息映射到前端表单类 */

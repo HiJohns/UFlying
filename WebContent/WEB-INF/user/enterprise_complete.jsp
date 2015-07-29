@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/users.css">
 	    <script type="text/javascript" name="interface">
 	        model = {
+	    	    message: "${message}",
 	            eid: "${form.eid}",
 	            companyName: "${form.companyName}",
 	            companyPhone: "${form.companyPhone}",
@@ -45,8 +46,7 @@
             <img src="img/Logo.png" />
             <button data-icon="LeftBlue" class="back"></button>
         </hgroup>
-        <c:if test="${!empty message}"><div role="alert" class="alert alert-danger">${message}</div></c:if>
-        <form action="<%=request.getContextPath()%>/individual_edit" enctype="multipart/form-data"  method="post">
+        <form action="<%=request.getContextPath()%>/enterprise_edit" enctype="multipart/form-data"  method="post">
             <section class="portal withHeader boxWidth">
                 <header>
                     <div><img src="img/Right_DarkGray.png" alt="Next" /><span>基本信息</span></div>
@@ -64,29 +64,21 @@
                     </section>
                 </div>
             </section>
+		    <section class="portal boxWidth alertBox">
+		    	<div class="staticInfo alert" name="message">
+		   		</div>
+			</section>
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>
-                        <strong>*</strong><input type="text" data-prototype="ename" required placeholder="填写企业名称" name="ename" />
+                        <strong>*</strong><input type="text" data-prototype="ename" required placeholder="填写企业名称" name="CompanyName" />
                     </section>
                     <section>
-                        <strong>*</strong><input type="text" data-prototype="name" required placeholder="填写联系人姓名" name="name"/>
-                    </section>
-                    <section class="horizon noFrameRow">
-                        <strong>*</strong>
-                        <input type="radio" name="sex" value="0" id="personal_female" />
-                        <label for="personal_female">女</label>
-                        <input type="radio" name="sex" value="1" id="personal_male" />
-                        <label for="personal_male">男</label>
-                        <input type="radio" name="sex" value="2" id="personal_secret" />
-                        <label for="personal_secret">保密</label>
+                        <strong>*</strong><input type="text" required placeholder="填写企业电话" name="CompanyPhone" data-icon="Phone" msg-empty="请填写企业电话"/>
                     </section>
                     <section>
-                        <strong>*</strong><input type="email" data-prototype="email" required placeholder="填写邮箱" name="email"/>
+                        <strong>*</strong><input type="email" data-prototype="email" required placeholder="填写企业邮箱" name="email" msg-empty="请填写企业邮箱"/>
                         <a href="getConfirmationCode">立即验证</a>
-                    </section>
-                    <section>
-                        <strong>*</strong><input type="tel" data-prototype="mobile" required placeholder="填写手机号" name="phone" />
                     </section>
                     <section class="horizon">
                         <strong>*</strong>
@@ -100,6 +92,25 @@
                     <section>
                         <strong>*</strong>
                         <input type="text" required placeholder="填写地址" data-prototype="address" name="address"/>
+	                </section>
+                </fieldset>
+            </section>
+            <section class="portal boxWidth form">
+                <fieldset>
+                    <section>
+                        <strong>*</strong><input type="text" data-prototype="name" required placeholder="填写联系人姓名" name="name"/>
+                    </section>
+                    <section class="horizon noFrameRow">
+                        <strong>*</strong>
+                        <input type="radio" name="sex" value="0" id="personal_female" />
+                        <label for="personal_female">女</label>
+                        <input type="radio" name="sex" value="1" id="personal_male" />
+                        <label for="personal_male">男</label>
+                        <input type="radio" name="sex" value="2" id="personal_secret" />
+                        <label for="personal_secret">保密</label>
+                    </section>
+                    <section>
+                        <strong>*</strong><input type="tel" data-prototype="mobile" required msg-empty="请填写联系人手机号" placeholder="填写联系人手机号" name="phone" />
                     </section>
                 </fieldset>
             </section>
