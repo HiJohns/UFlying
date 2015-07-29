@@ -200,7 +200,6 @@ public class AccountController {
 			EnterpriseAccount account = accountService.getEnterpriseAccountByToken(token);
 			if (account != null) {
 				model.addAttribute("form", accountService.enterpriseAccountToForm(account));
-				model.addAttribute("message", "test");
 				return "user/enterprise_complete";
 			}
 			return "redirect:/login";
@@ -329,7 +328,7 @@ public class AccountController {
 			model.addAttribute("account", account);
 			model.addAttribute("message", e.getMessage());
 			model.addAttribute("form", form);
-			return "user/enterprise_edit";
+			return "user/enterprise_complete";
 		}
 		attributes.addFlashAttribute("message", "保存成功");
 		return "redirect:/enterprise_account";

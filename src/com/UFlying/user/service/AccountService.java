@@ -549,7 +549,7 @@ public class AccountService {
 			throw new ServiceException("用户不存在");
 		}
 		if (!StringUtils.equalsIgnoreCase(email, individualAccount.getEmailAddress())) {
-			if (accountDao.checkEmailExists(email)) {
+			if (accountDao.checkEmailExists(email, token)) {
 				throw new ServiceException("该邮箱已被占用");
 			}
 		}
@@ -561,6 +561,11 @@ public class AccountService {
 		if (!StringUtils.equalsIgnoreCase(idCardNumber, individualAccount.getIdCardNumber())) {
 			if (accountDao.checkIdCardExists(idCardNumber)) {
 				throw new ServiceException("该身份证号已被占用");
+			}
+		}
+		if (!StringUtils.equalsIgnoreCase(qq, individualAccount.getQq())) {
+			if (accountDao.checkQQExists(qq)) {
+				throw new ServiceException("该QQ号已被占用");
 			}
 		}
 		// 图片处理
@@ -651,30 +656,35 @@ public class AccountService {
 
 	/** 更新企业用户信息 */
 	public void updateEnterpriseAccount(FormUpdateEnterpriseAccount form, String token) throws ServiceException {
-		String phone = form.getPhone();
-		String email = form.getEmail();
-		String name = form.getName();
-		String enterpriseCardNumber = form.getBusinessLicenceNumber();
+
+		String name = StringUtils.trim(form.getName());
+		String companyName = StringUtils.trim(form.getCompanyName());
+		String email = StringUtils.trim(form.getEmail());
+		String phone = StringUtils.trim(form.getPhone());
+		String companyPhone = StringUtils.trim(form.getCompanyPhone());
+		int sex = form.getSex();
+		String province = StringUtils.trim(form.getProvince());
+		String city = StringUtils.trim(form.getCity());
+		String address = StringUtils.trim(form.getAddress());
+		int status = form.getStatus();
+
+		String idCardNumber = StringUtils.trim(form.getIdCardNumber());		
+		String enterpriseCardNumber = StringUtils.trim(form.getBusinessLicenceNumber());
+		String taxRegistrationNumber = StringUtils.trim(form.getTaxRegistrationNumber());
+		
 		MultipartFile businessLicenceImg = form.getBusinessLicenceImg();
 		MultipartFile taxRegistrationImg = form.getTaxRegistrationImg();
+		MultipartFile photoImg = form.getPhoto();
+		MultipartFile idCardCoverImg = form.getIdentity_front();
+		MultipartFile idCardBackImg = form.getIdentity_back();
+		
 		// 表单验证
-		if (StringUtils.isBlank(phone)) {
-			throw new ServiceException("请输入手机号");
-		}
 		if (StringUtils.isBlank(email)) {
 			throw new ServiceException("请输入邮箱");
 		}
 		if (StringUtils.isBlank(name)) {
 			throw new ServiceException("请输入企业名称");
 		}
-		if (StringUtils.isBlank(enterpriseCardNumber)) {
-			throw new ServiceException("请输入机构代码");
-		}
-		phone = StringUtils.trim(phone);
-		token = StringUtils.trim(token);
-		email = StringUtils.trim(email);
-		name = StringUtils.trim(name);
-		enterpriseCardNumber = StringUtils.trim(enterpriseCardNumber);
 		EnterpriseAccount enterpriseAccount = accountDao.getEnterpriseAccountByToken(token);
 		if (enterpriseAccount == null) {
 			throw new ServiceException("用户不存在");
@@ -685,16 +695,19 @@ public class AccountService {
 			}
 		}
 		if (!StringUtils.equals(email, enterpriseAccount.getEmailAddress())) {
-			if (accountDao.checkEmailExists(email)) {
+			if (accountDao.checkEmailExists(email, token)) {
 				throw new ServiceException("该邮箱已被占用");
 			}
 		}
 		if (!StringUtils.equals(enterpriseCardNumber, enterpriseAccount.getBusinessLicenceNumber())) {
 			if (accountDao.checkEnterpriseCardExists(enterpriseCardNumber)) {
-				throw new ServiceException("该机构代码已被占用");
+				throw new ServiceException("该营业执照号码已被占用");
 			}
 		}
 		// 图片处理
+		String idCardUrl1 = enterpriseAccount.getIdCardUrl1();
+		String idCardUrl2 = enterpriseAccount.getIdCardUrl2();
+		String photoUrl = enterpriseAccount.getHeadImgUrl();
 		String businessLicenceUrl = enterpriseAccount.getBusinessLicenceUrl();
 		String taxRegistrationUrl = enterpriseAccount.getTaxRegistrationUrl();
 		long eid = enterpriseAccount.getEid();
@@ -711,7 +724,7 @@ public class AccountService {
 				businessLicenceImg.transferTo(originFile);
 				ImageUtil.resize(originFile, resizeFile);
 			} catch (Exception e) {
-				throw new ServiceException("文件保存失败");
+				throw new ServiceException("营业执照保存失败");
 			}
 			businessLicenceUrl = resizeFileName;
 		}
@@ -728,18 +741,83 @@ public class AccountService {
 				taxRegistrationImg.transferTo(originFile);
 				ImageUtil.resize(originFile, resizeFile);
 			} catch (Exception e) {
-				throw new ServiceException("文件保存失败");
+				throw new ServiceException("组织机构代码保存失败");
 			}
 			taxRegistrationUrl = resizeFileName;
 		}
+		if (photoImg != null && photoImg.isEmpty() == false){
+			String fileNamePrefix = 1 + "_" + eid + "_";
+			String random = RandomKeyUtil.getRandomFileName();
+			String originFileName = fileNamePrefix + random + "_origin.jpg";
+			String originFilePath = ACCOUNT_IMAGE_PATH + originFileName;
+			File originFile = new File(originFilePath);
+			String resizeFileName = fileNamePrefix + random + ".jpg";
+			String resizeFilePath = ACCOUNT_IMAGE_PATH + resizeFileName;
+			File resizeFile = new File(resizeFilePath);
+			try {
+				photoImg.transferTo(originFile);
+				ImageUtil.resize(originFile, resizeFile);
+			} catch (Exception e) {
+				throw new ServiceException("证件照片保存失败");
+			}
+			photoUrl = resizeFileName;
+		}
+		if (idCardCoverImg != null && idCardCoverImg.isEmpty() == false) {
+			String fileNamePrefix = 1 + "_" + eid + "_";
+			String random = RandomKeyUtil.getRandomFileName();
+			String originFileName = fileNamePrefix + random + "_origin.jpg";
+			String originFilePath = ACCOUNT_IMAGE_PATH + originFileName;
+			File originFile = new File(originFilePath);
+			String resizeFileName = fileNamePrefix + random + ".jpg";
+			String resizeFilePath = ACCOUNT_IMAGE_PATH + resizeFileName;
+			File resizeFile = new File(resizeFilePath);
+			try {
+				idCardCoverImg.transferTo(originFile);
+				ImageUtil.resize(originFile, resizeFile);
+			} catch (Exception e) {
+				throw new ServiceException("身份证正面照片保存失败");
+			}
+			idCardUrl1 = resizeFileName;
+		}
+		if (idCardBackImg != null && idCardBackImg.isEmpty() == false) {
+			String fileNamePrefix = 1 + "_" + eid + "_";
+			String random = RandomKeyUtil.getRandomFileName();
+			String originFileName = fileNamePrefix + random + "_origin.jpg";
+			String originFilePath = ACCOUNT_IMAGE_PATH + originFileName;
+			File originFile = new File(originFilePath);
+			String resizeFileName = fileNamePrefix + random + ".jpg";
+			String resizeFilePath = ACCOUNT_IMAGE_PATH + resizeFileName;
+			File resizeFile = new File(resizeFilePath);
+			try {
+				idCardBackImg.transferTo(originFile);
+				ImageUtil.resize(originFile, resizeFile);
+			} catch (Exception e) {
+				throw new ServiceException("身份证背面照片保存失败");
+			}
+			idCardUrl2 = resizeFileName;
+		}
+
 		EnterpriseAccount account = new EnterpriseAccount();
+		account.setCompanyName(companyName);
+		account.setCompanyPhone(companyPhone);
+		account.setProvince(province);
+		account.setCity(city);
+		account.setAddress(address);
 		account.setToken(token);
+		account.setStatus(status);
 		account.setMobilePhone(phone);
 		account.setName(name);
+		account.setSex(sex);
+		account.setIdCardNumber(idCardNumber);
 		account.setEmailAddress(email);
 		account.setBusinessLicenceNumber(enterpriseCardNumber);
+		account.setTaxRegistrationNumber(taxRegistrationNumber);
 		account.setBusinessLicenceUrl(businessLicenceUrl);
 		account.setTaxRegistrationUrl(taxRegistrationUrl);
+		account.setHeadImgUrl(photoUrl);
+		account.setIdCardUrl1(idCardUrl1);
+		account.setIdCardUrl2(idCardUrl2);
+
 		// 保存信息
 		int rows = 0;
 		try {

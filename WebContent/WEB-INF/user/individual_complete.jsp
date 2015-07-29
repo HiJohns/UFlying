@@ -82,7 +82,6 @@
                     <section>
                         <strong>*</strong>
                         <input type="email" data-prototype="email" required placeholder="请填写Email地址" name="email"/>
-                        <a href="getConfirmationCode">立即验证</a>
                     </section>
                     <section class="horizon">
                         <strong>*</strong>

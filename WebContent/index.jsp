@@ -102,7 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </li>
             <li>
                 <p class="lead"></p>
-                <p class="lead3">详情请咨询：4006-509-579   </p>
+                <p class="lead3">详情请咨询：4008-816-956＃2 </p>
             </li>
         </ul>
         
@@ -388,7 +388,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	 </div>
 </div>
 
-<section class="vendors">
+<section class="vendors" id="vendors">
     <header>
         <h1>合作伙伴</h1>
     </header>
@@ -440,7 +440,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <img src="img/qrcode.png"/>
         </div>
+                <div class="copyright">©2015 AIR DREAM 京ICP备15036034号-1&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-816-956 </div>
     </section>
+    
 </footer>
 <!---->
 <div class="arrowMark">

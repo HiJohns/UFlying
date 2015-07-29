@@ -213,7 +213,9 @@ public class AccountDao extends CommonDao {
 	/** 修改企业用户 */
 	public int updateEnterpriseAccount(final EnterpriseAccount account) {
 		String sql = "update enterprise_user_account set mobile_phone = ?, name = ?, email_address = ?, enterprise_card_number = ?, "
-				+ "business_licence_url = ?, tax_registration_url = ? where token = ?";
+				+ "business_licence_url = ?, tax_registration_url = ?, company_name = ?, company_phone = ?, address_province = ?, "
+				+ "address_city = ?, address = ?, organize_code = ?, sex = ?, id_card_number = ?, id_card_url_1 = ?, id_card_url_2 = ?, "
+				+ "head_image_url = ?, status = ? where token = ?";
 		return this.getJdbcTemplate().update(sql, new PreparedStatementSetter() {
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
@@ -223,7 +225,19 @@ public class AccountDao extends CommonDao {
 				ps.setString(4, account.getBusinessLicenceNumber());
 				ps.setString(5, account.getBusinessLicenceUrl());
 				ps.setString(6, account.getTaxRegistrationUrl());
-				ps.setString(7, account.getToken());
+				ps.setString(7, account.getCompanyName());
+				ps.setString(8, account.getCompanyPhone());
+				ps.setString(9, account.getProvince());
+				ps.setString(10, account.getCity());
+				ps.setString(11, account.getAddress());
+				ps.setString(12, account.getTaxRegistrationNumber());
+				ps.setInt(13, account.getSex());
+				ps.setString(14, account.getIdCardNumber());
+				ps.setString(15, account.getIdCardUrl1());
+				ps.setString(16, account.getIdCardUrl2());
+				ps.setString(17, account.getHeadImgUrl());
+				ps.setInt(18, account.getStatus());
+				ps.setString(19, account.getToken());
 			}
 		});
 	}
@@ -250,18 +264,27 @@ public class AccountDao extends CommonDao {
 	}
 
 	/** 验证邮箱是否存在 */
-	public boolean checkEmailExists(String email) {
-		String sql1 = "select * from individual_user_account where email_address = ?";
-		String sql2 = "select * from enterprise_user_account where email_address = ?";
-		List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, email);
-		List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, email);
+	public boolean checkEmailExists(String email, String token) {
+		String sql1 = "select * from individual_user_account where email_address = ? and token <> ?";
+		String sql2 = "select * from enterprise_user_account where email_address = ? and token <> ?";
+		List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, email, token);
+		List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, email, token);
 		return list1.size() > 0 || list2.size() > 0;
 	}
 
 	/** 验证身份证号是否存在 */
 	public boolean checkIdCardExists(String idCard) {
-		String sql = "select * from individual_user_account where id_card_number = ?";
-		List<IndividualAccount> list = this.getJdbcTemplate().query(sql, individualAccountMapper, idCard);
+		String sql1 = "select * from individual_user_account where id_card_number = ?";
+		String sql2 = "select * from enterprise_user_account where id_card_number = ?";
+		List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, idCard);
+		List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, idCard);
+		return list1.size() > 0 || list2.size() > 0;
+	}
+
+	/** 验证QQ号是否存在 */
+	public boolean checkQQExists(String qq) {
+		String sql = "select * from individual_user_account where qq = ?";
+		List<IndividualAccount> list = this.getJdbcTemplate().query(sql, individualAccountMapper, qq);
 		return list.size() > 0;
 	}
 

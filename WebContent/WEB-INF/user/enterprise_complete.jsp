@@ -78,7 +78,6 @@
                     </section>
                     <section>
                         <strong>*</strong><input type="email" data-prototype="email" required placeholder="填写企业邮箱" name="email" msg-empty="请填写企业邮箱"/>
-                        <a href="getConfirmationCode">立即验证</a>
                     </section>
                     <section class="horizon">
                         <strong>*</strong>
@@ -108,9 +107,6 @@
                         <label for="personal_male">男</label>
                         <input type="radio" name="sex" value="2" id="personal_secret" />
                         <label for="personal_secret">保密</label>
-                    </section>
-                    <section>
-                        <strong>*</strong><input type="tel" data-prototype="mobile" required msg-empty="请填写联系人手机号" placeholder="填写联系人手机号" name="phone" />
                     </section>
                 </fieldset>
             </section>
