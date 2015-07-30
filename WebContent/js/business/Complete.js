@@ -24,13 +24,14 @@ UF.business.Complete = (function () {
 	
 	return {
 		dependencies: [
+		               'Form',
 		               'Mobile'
 		               ],
 		init: function () {
-		    $('select[name="province"]').each(UF.business.Form.loadSelect).each(updateCity).change(updateCity);
+		    $('select[name="province"]').each(updateCity).change(updateCity);
 		    
 		    var city = $('select[name="city"]');
-		    city.prop('disabled', city.find('option').length <= 1);
+		    city.prop('disabled', city.find('option').length <= 1).val(model.city);
 		    
 		    $('#toAuth').click(updateStatus);
 		    $('#toContract').click(updateStatus);

@@ -10,12 +10,6 @@ UF.business.Form = (function () {
     var labels = UF.base.FormLabels;
 	return {
 		init: function () {
-		    _.delay(function () {
-		    	if (_.isObject(model)) UF.business.Form.renderModel(model);
-		    	$('input').removeAttr(labels.noValidate);
-		    	$('select').removeAttr(labels.noValidate);
-		    }, 100);
-
 		    var prototypes = UF.base.Prototypes;
 		    $('[' + labels.prototype + ']').each(function () {
 		    	var prototypeName = $(this).attr(labels.prototype);
@@ -38,6 +32,10 @@ UF.business.Form = (function () {
 		            backgroundImage: imgTmpl({ contextPath: contextPath, dataIcon: $(this).attr(labels.icon) })
 		        });
 		    });
+		    
+	    	if (_.isObject(model)) UF.business.Form.renderModel(model);
+	    	$('input').removeAttr(labels.noValidate);
+	    	$('select').removeAttr(labels.noValidate);
 		},
 		loadSelect: function () {
 			if ($(this).prop('tagName') != 'SELECT') return;
@@ -209,6 +207,9 @@ UF.business.Form = (function () {
 			        	if ($(this).is(':visible')) UF.business.Form.validate.call(this);
 			            break;
 			        case 'select':
+			        	console.log(UF.Stores);
+			        	console.log(getValue(name), name);
+		                $(this).each(UF.business.Form.loadSelect);
 		                $(this).val(getValue(name));
 			        	if ($(this).is(':visible')) UF.business.Form.validate.call(this);
 			        	break;

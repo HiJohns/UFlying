@@ -78,6 +78,7 @@ hgroup img {
 
 .staticInfo.alert {
 	color: red;
+	text-align: center;
 }
 
 .portal.alertBox {

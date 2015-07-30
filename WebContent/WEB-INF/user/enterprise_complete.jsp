@@ -71,10 +71,10 @@
             <section class="portal boxWidth form">
                 <fieldset>
                     <section>
-                        <strong>*</strong><input type="text" data-prototype="ename" required placeholder="填写企业名称" name="CompanyName" />
+                        <strong>*</strong><input type="text" data-prototype="ename" required placeholder="填写企业名称" name="companyName" />
                     </section>
                     <section>
-                        <strong>*</strong><input type="text" required placeholder="填写企业电话" name="CompanyPhone" data-icon="Phone" msg-empty="请填写企业电话"/>
+                        <strong>*</strong><input type="text" required placeholder="填写企业电话" name="companyPhone" data-icon="Phone" msg-empty="请填写企业电话"/>
                     </section>
                     <section>
                         <strong>*</strong><input type="email" data-prototype="email" required placeholder="填写企业邮箱" name="email" msg-empty="请填写企业邮箱"/>
