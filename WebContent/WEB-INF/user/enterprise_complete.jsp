@@ -47,6 +47,9 @@
             <button data-icon="LeftBlue" class="back"></button>
         </hgroup>
         <form action="<%=request.getContextPath()%>/enterprise_edit" enctype="multipart/form-data"  method="post">
+            <input type="hidden" name="eid"/>                        
+            <input type="hidden" name="phone"/>   
+            <input type="hidden" name="status"/>                     
             <section class="portal withHeader boxWidth">
                 <header>
                     <div><img src="img/Right_DarkGray.png" alt="Next" /><span>基本信息</span></div>
@@ -55,12 +58,10 @@
                     <section>
                         <label>会员ID：</label>
                         <span name="eid"></span>
-                        <input type="hidden" name="eid"/>                        
                     </section>
                     <section>
                         <label>联系人手机：</label>
                         <span name="phone"></span>
-                        <input type="hidden" name="phone"/>                        
                     </section>
                 </div>
             </section>
