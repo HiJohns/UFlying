@@ -28,7 +28,7 @@
 </head>
 <body>
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
         <button class="back" data-icon="LeftBlue"></button>
     </hgroup>
     <form id="changePasswordForm" action="<%=request.getContextPath()%>/change_password" method="post">
@@ -36,7 +36,13 @@
             <header>
                 <div><img src="img/Right_DarkGray.png" /><span>修改密码</span></div>
             </header>
-            <fieldset>
+        </section>
+	    <section class="portal boxWidth alertBox">
+	    	<div class="staticInfo alert" name="message">
+	   		</div>
+		</section>
+	    <section class="portal boxWidth form">
+		    <fieldset>
                 <section>
                     <strong>*</strong>
                     <input type="password" id="oldPassword" name="oldPassword" msg-empty="请填写原密码" required="required" 
@@ -54,6 +60,10 @@
                     	name="confirmPassword" data-match="password" msg-match="两次填写的密码应该一致"
                     required="required" data-icon="Lock" />
                 </section>
+            </fieldset>
+        </section>
+	    <section class="portal boxWidth form">
+		    <fieldset>
                 <section>
                     <strong></strong>
                     <input type="submit" disabled class="btn" value="下一步"/>

@@ -114,13 +114,14 @@
     </head>
     <script type="text/javascript" name="interface">
         contextPath = '<%=request.getContextPath()%>';
+        model = {};
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/loader.js"></script>
 <body class="accountType">
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
         <button class="back" data-icon="LeftBlue"></button>
     </hgroup>
     <div class="boxWidth"><label>请选择您的账号类型</label></div>

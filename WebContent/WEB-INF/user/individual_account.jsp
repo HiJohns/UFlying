@@ -54,7 +54,7 @@
   </head>
 <body class="personal_summary">
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
         <button data-icon="LeftBlue" class="back"></button>
     </hgroup>
     <section class="portal withHeader boxWidth">

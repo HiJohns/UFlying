@@ -39,7 +39,7 @@
     </head>
     <body class="moreInfo">
         <hgroup class="usersCommon boxWidth">
-            <img src="img/Logo.png" />
+	        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
             <button data-icon="LeftBlue" class="back"></button>
         </hgroup>
         <form action="<%=request.getContextPath()%>/individual_edit" method="post" enctype="multipart/form-data" novalidate>

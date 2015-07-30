@@ -14,7 +14,6 @@ UF.business.Complete = (function () {
     }
 	
 	function updateStatus() {
-		debugger;
 		model.status = $('#toAuth').prop('checked') ? 
 				($('#toContract').prop('checked') ? UF.base.Enums.status.contracting : UF.base.Enums.status.authenticating) : 
 				UF.base.Enums.status.base;

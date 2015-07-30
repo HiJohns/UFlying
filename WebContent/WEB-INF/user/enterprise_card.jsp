@@ -12,32 +12,38 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/card.css">
     <style type="text/css">
  	.card .content {
-	    background-color: rgb(180, 29, 36);
+	    background-color: rgb(45, 130, 167);
 	}
  	.card footer {
-	    background-color: rgb(209, 41, 56);
+	    background-color: rgb(102, 158, 185);
 	}
     </style>
   </head>
     <script type="text/javascript" name="interface">
-        contextPath = '<%=request.getContextPath()%>';
         model = {
-	    	    message: "${message}",
-       			uid: "${account.uid}", 
-       			name: "${account.name}", 
-       			phone: "${account.mobilePhone}",
-       			sex: ${account.sex},
-       			email: "${account.emailAddress}",
-       			idCardNumber: "${account.idCardNumber}",
-       			address: "${account.address}",
-       			province: "${account.province}",
-       			city: "${account.city}",
-       			status: ${account.status},
-       			experience: ${account.experience},
-       			photoUrl: "${account.headImgUrl}",
-       			idCardUrl1: "${account.idCardUrl1}",
-       			idCardUrl2: "${account.idCardUrl2}"
+    	    message: "${message}",
+            eid: "${account.eid}",
+            companyName: "${account.companyName}",
+            companyPhone: "${account.companyPhone}",
+            email: "${account.emailAddress}",
+            address: "${account.address}",
+            province: "${account.province}",
+            city: "${account.city}",
+            status: "${account.status}",
+            name: "${account.name}",
+            businessLicenseNumber: "${account.businessLicenceNumber}",
+            taxRegistrationNumber: "${account.taxRegistrationNumber}",
+            businessLicenceUrl: "${account.businessLicenceUrl}",
+            taxRegistrationUrl: "${account.taxRegistrationUrl}",
+            photoUrl: "${account.headImgUrl}",
+            name: "${account.name}",
+            phone: "${account.mobilePhone}",
+            sex: "${account.sex}",
+            idCardNumber: "${account.idCardNumber}",
+            idCardUrl1: "${account.idCardUrl1}",
+            idCardUrl2: "${account.idCardUrl2}"
         };
+        contextPath = '<%=request.getContextPath()%>';
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/3rdParty/underscore-min.js"></script>
@@ -50,11 +56,11 @@
   			<div class="summary">
   				<p>
   					<label>姓名</label>
-  					<span name="name"></span>
+  					<span name="companyName"></span>
   				</p>
   				<p>
   					<label>电话</label>
-  					<span name="phone"></span>
+  					<span name="companyPhone"></span>
   				</p>
   			</div>
   			<img src="img/qrcode.png" class="qrcode">
@@ -71,7 +77,7 @@
   		</div>
   		<footer>
   			<label>会员ID：</label>
-  			<span name="uid"></span>
+  			<span name="eid"></span>
   		</footer>
   	</div>
   	<div class="control">

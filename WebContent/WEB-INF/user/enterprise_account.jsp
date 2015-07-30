@@ -58,7 +58,7 @@
   </head>
 <body class="personal_summary">
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
         <button data-icon="LeftBlue" class="back"></button>
     </hgroup>
     <section class="portal withHeader boxWidth">
@@ -76,7 +76,7 @@
             </section>
             <section class="authentication">
                 <label>电子会员证：</label>
-                <span>点击查看<a href="<%=request.getContextPath()%>/individual_card">&gt;&gt;&gt;</a></span>
+                <span>点击查看<a href="<%=request.getContextPath()%>/enterprise_card">&gt;&gt;&gt;</a></span>
             </section>
         </div>
     </section>

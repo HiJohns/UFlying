@@ -1,10 +1,9 @@
-UF.page.EnterpriseCard = (function () {
+UF.page.AccountType = (function () {
 	return {
 		dependencies: [
 		               'Form'
 		               ],
 		init: function () {
-			
 		}
 	}
 })();

@@ -28,7 +28,7 @@
 </head>
 <body class="enterprise">
     <hgroup class="usersCommon boxWidth">
-        <img src="img/Logo.png" />
+        <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
         <button class="back" data-icon="LeftBlue"></button>
     </hgroup>
     <c:if test="${!empty message}"><div role="alert" class="alert alert-danger">${message}</div></c:if>

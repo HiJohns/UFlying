@@ -43,7 +43,7 @@
     </head>
     <body class="enterprise_complete">
         <hgroup class="usersCommon boxWidth">
-            <img src="img/Logo.png" />
+            <a href="<%=request.getContextPath() %>/index.jsp"><img src="img/Logo.png" /></a>
             <button data-icon="LeftBlue" class="back"></button>
         </hgroup>
         <form action="<%=request.getContextPath()%>/enterprise_edit" enctype="multipart/form-data"  method="post">

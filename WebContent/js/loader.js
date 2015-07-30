@@ -34,9 +34,10 @@ $(document).ready(function () {
                "Utils"
                ],
 	    page: [
-               	location.href.split('/').pop()
+               	location.href.replace(/#.*$/, '').split('/').pop()
                ]
 	};
+	console.log(scripts);
 	
 	function loadScripts(name) {
 		var succeeded = 0;

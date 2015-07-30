@@ -198,11 +198,10 @@ public class AccountController {
 	@RequestMapping(value = "/enterprise_complete", method = RequestMethod.GET)
 	public String completeEnterprise(@CookieValue(required = false) String token, Model model) {
 			EnterpriseAccount account = accountService.getEnterpriseAccountByToken(token);
-			if (account != null) {
-				model.addAttribute("form", accountService.enterpriseAccountToForm(account));
-				return "user/enterprise_complete";
-			}
-			return "redirect:/login";
+			if (account == null) return "redirect:/login";
+			if (account.getStatus() != 0 && account.getStatus() != 2) return "redirect:/enterprise_account";
+			model.addAttribute("form", accountService.enterpriseAccountToForm(account));
+			return "user/enterprise_complete";
 	}
 	
 	/** 注册页 - 个人用户，完善信息，完成后进入个人中心 */

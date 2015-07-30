@@ -9,7 +9,6 @@
 	    box-sizing: border-box;
  		float: left;
  		width: 100%;
-	    background-color: rgb(180, 29, 36);
 	    padding: 55px 40px 10px;
  	}
  	
@@ -40,7 +39,6 @@
 	    max-width: 60%;
 	}
 	.card footer {
-	    background-color: rgb(209, 41, 56);
 	    color: white;
 	    float: left;
 	    font-size: 1.2em;
