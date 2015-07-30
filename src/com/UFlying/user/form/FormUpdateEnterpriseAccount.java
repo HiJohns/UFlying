@@ -5,8 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class FormUpdateEnterpriseAccount {
 	//企业相关信息部分
 	private long eid;
-	private String CompanyName;
-	private String CompanyPhone;
+	private String companyName;
+	private String companyPhone;
 	private String email;
 	private String address;
 	private String province;
@@ -37,16 +37,16 @@ public class FormUpdateEnterpriseAccount {
 		this.eid = eid;
 	}
 	public String getCompanyName() {
-		return CompanyName;
+		return companyName;
 	}
 	public void setCompanyName(String companyName) {
-		CompanyName = companyName;
+		this.companyName = companyName;
 	}
 	public String getCompanyPhone() {
-		return CompanyPhone;
+		return companyPhone;
 	}
 	public void setCompanyPhone(String companyPhone) {
-		CompanyPhone = companyPhone;
+		this.companyPhone = companyPhone;
 	}
 	public String getEmail() {
 		return email;

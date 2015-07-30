@@ -53,5 +53,6 @@
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="maxUploadSize" value="52428800" />
 	</bean>
-	
- </beans>
+	<mvc:resources location="/html/" mapping="/html/**" />
+
+</beans>

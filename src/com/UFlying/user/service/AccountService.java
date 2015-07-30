@@ -873,6 +873,8 @@ public class AccountService {
 		form.setIdCardUrl1(account.getIdCardUrl1());
 		form.setIdCardUrl2(account.getIdCardUrl2());
 		form.setBusinessLicenceNumber(account.getBusinessLicenceNumber());
+		form.setCompanyName(account.getCompanyName());
+		form.setCompanyPhone(account.getCompanyPhone());
 		return form;
 	}
 
