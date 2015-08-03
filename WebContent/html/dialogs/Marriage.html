@@ -1,0 +1,62 @@
+<style type="text/css">
+	.modal-content {
+		padding: 2em;
+	}
+	
+	.modal-content h1 {
+		font-size: 1.5em;
+		margin: 0 0 1em;
+	}
+	
+	.modal-content section {
+		margin-bottom: 1em;
+	}
+	
+	.modal-content label {
+		display: inline;
+	}
+</style>
+<header>
+	<h1>婚礼任务设置</h1>
+</header>
+<form>
+	<fieldset>
+		<section>
+		    <label for="location" class="control-label input-group">场所类型</label>
+		    <span class="btn-group" data-toggle="buttons">
+		        <label class="btn btn-default active">
+		            <input type="radio" name="location" value="1">户外
+		        </label>
+		        <label class="btn btn-default">
+		            <input type="radio" name="location" value="2">室内
+		        </label>
+		        <label class="btn btn-default">
+		            <input type="radio" name="location" value="3" checked="">户外+室内
+		        </label>
+		    </span>
+		</section>
+		<section>
+			<label>任务城市</label>
+			<select ng-model="province" ng-options="prov.name as prov.name for prov in provinces" ng-change="provinceChange()"></select>
+			<select ng-model="city" ng-show="cities.length > 0" ng-options="city for city in cities" ng-change="cityChange()"></select>
+		</section>
+		<section>
+			<label>具体地址</label>
+			<input ng-model="address" type="text"></input>
+		</section>
+		<section>
+			<label>任务时间</label>
+			<input type="date"></input>
+		</section>
+		<section>
+			<label>任务时长</label>
+			<input type="time"></input>
+			<label>至</label>
+			<input type="time"></input>
+		</section>
+	</fieldset>
+</form>
+<footer>
+	<button class="btn btn-primary" ng-click="submit()">提交</button>
+	<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</footer>
