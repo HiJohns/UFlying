@@ -116,9 +116,10 @@ UF.business.Form = (function () {
 				var _self = this;
 				
 				putOnHold(_self, $(this).attr(labels.remoteCheckingMessage));
-				UF.Remote[$(this).attr(labels.remote)](val, _self, function (isValid) { 
+				UF.Remote[$(this).attr(labels.remote)](val, _self, function (isValid, errMsg) { 
 					$(_self).each(release);
-					addError(_self, isValid ? null : msgRemote); 
+                    if (_.isString(errMsg)) errMsg = '验证出错，错误信息：' + errMsg;
+					addError(_self, isValid ? null : (errMsg || msgRemote)); 
 					$(_self).attr(labels.validated, val);
 				});
 			}

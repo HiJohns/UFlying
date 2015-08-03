@@ -62,6 +62,9 @@ UF.business.Mobile = (function () {
 				  data: {
 				    phone: phone
 				  },
+                  error: function (jqXHR, status, errorThrown) {
+                      callback(false, errorThrown);
+                  },
 				  success: function (data) {
 					  var isValid = data.reason == "0";
 					  callback(isValid);
