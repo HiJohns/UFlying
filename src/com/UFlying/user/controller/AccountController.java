@@ -188,11 +188,10 @@ public class AccountController {
 	@RequestMapping(value = "/individual_complete", method = RequestMethod.GET)
 	public String completeIndividual(@CookieValue(required = false) String token, Model model) {
 			IndividualAccount account = accountService.getIndividualAccountByToken(token);
-			if (account != null) {
-				model.addAttribute("form", accountService.individualAccountToForm(account));
-				return "user/individual_complete";
-			}
-			return "redirect:/login";
+			if (account == null) return "redirect:/login";
+			if (account.getStatus() != 0 && account.getStatus() != 2) return "redirect:/individual_account";
+			model.addAttribute("form", accountService.individualAccountToForm(account));
+			return "user/individual_complete";
 	}
 
 	@RequestMapping(value = "/enterprise_complete", method = RequestMethod.GET)
