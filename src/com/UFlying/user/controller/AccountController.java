@@ -443,7 +443,7 @@ public class AccountController {
 	/** 验证手机是否被注册 */
 	@RequestMapping(value = "/check_mobile", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseBasic checkMobile(@CookieValue String token, @RequestParam String phone) {
+	public ResponseBasic checkMobile(@RequestParam String phone, @CookieValue(required = false)  String token) {
 		boolean phoneExists = accountService.checkPhoneExists(phone, token);
 		ResponseBasic response = new ResponseBasic();
 		response.setStatus(0);

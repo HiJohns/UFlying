@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
@@ -256,11 +257,19 @@ public class AccountDao extends CommonDao {
 
 	/** 验证手机号是否存在 */
 	public boolean checkPhoneExists(String phone, String token) {
-		String sql1 = "select * from individual_user_account where mobile_phone = ? and token <> ?";
-		String sql2 = "select * from enterprise_user_account where mobile_phone = ? and token <> ?";
-		List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, phone, token);
-		List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, phone, token);
-		return list1.size() > 0 || list2.size() > 0;
+		if (StringUtils.isBlank(token)){
+			String sql1 = "select * from individual_user_account where mobile_phone = ?";
+			String sql2 = "select * from enterprise_user_account where mobile_phone = ?";
+			List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, phone);
+			List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, phone);
+			return list1.size() > 0 || list2.size() > 0;			
+		}else {
+			String sql1 = "select * from individual_user_account where mobile_phone = ? and token <> ?";
+			String sql2 = "select * from enterprise_user_account where mobile_phone = ? and token <> ?";
+			List<IndividualAccount> list1 = this.getJdbcTemplate().query(sql1, individualAccountMapper, phone, token);
+			List<EnterpriseAccount> list2 = this.getJdbcTemplate().query(sql2, enterpriseAccountMapper, phone, token);
+			return list1.size() > 0 || list2.size() > 0;
+		}
 	}
 
 	/** 验证邮箱是否存在 */

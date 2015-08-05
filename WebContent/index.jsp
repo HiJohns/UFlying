@@ -435,7 +435,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div><a href="#">代理加盟</a></div>
             </div>
             <div class="linkBox">
-                <div><a href="#">媒体报道</a></div>
+                <div><a href="html/about.html">媒体报道</a></div>
                 <div><a href="#">联系我们</a></div>
             </div>
             <img src="img/qrcode.png"/>

@@ -65,7 +65,7 @@
             <fieldset class="form">
                 <section>
                     <strong>*</strong>
-                    <input data-icon="User" type="text" value="${form.login}" placeholder="手机号/会员ID" 
+                    <input data-icon="User" type="text" value="${form.user}" placeholder="手机号/会员ID" 
                     	required msg-empty="请填写手机号/会员ID" name="user" aria-describedby="basic-addon1" 
                     	data-regex="^(\d{11}|[GQ]\d{10})$" msg-regex="手机号应该为11位数字，会员ID应该以字母开头，后接10位数字"/>
                 </section>
