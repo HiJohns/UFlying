@@ -19,6 +19,7 @@ public class MissionController {
 
 	@Autowired
 	private MissionService missionService;
+	@Autowired
 	private AccountService accountService;
 	
 	/** 获取登录状况 */
