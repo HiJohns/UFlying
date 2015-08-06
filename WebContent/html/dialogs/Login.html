@@ -1,0 +1,19 @@
+<header>
+    <h1>登录</h1>
+</header>
+<form no-validate>
+    <fieldset>
+        <section>
+            <label>手机/会员ID</label>
+            <input ng-model="user" type="text" required></input>
+        </section>
+        <section>
+            <label>密码</label>
+            <input ng-model="password" required type="password"></input>
+        </section>
+    </fieldset>
+    <footer>
+        <button class="btn btn-primary" ng-click="ok()">登录</button>
+        <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+    </footer>
+</form>

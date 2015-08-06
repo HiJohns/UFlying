@@ -1,0 +1,89 @@
+section.main {
+    height: 630px;
+    background: url(../img/task/background-1.png) no-repeat rgb(140,226,251) 730px 330px;
+}
+
+section.main > img {
+    position: absolute;
+    left: 45px;
+    top: 65px;
+}
+
+div.client {
+    /*background-color: white;
+    border: 1px solid rgb(100, 204, 255);*/
+    border: 3px solid white;
+    border-radius: 6px;
+    height: 25em;
+    left: 9em;
+    padding: 2em 1em;
+    position: relative;
+    top: 10em;
+    width: 35em;
+}
+
+section.main > div {
+    border: 1px solid white;
+    border-radius: 15px;
+    height: 400px;
+    margin-left: 8em;
+    margin-top: 12em;
+    overflow: hidden;
+    width: 500px;
+    padding: 3em 0;
+}
+
+section.main > div > button {
+    margin: 1em 6em 0;
+    width: 60%;
+}
+
+section.main div > .dropdown-menu {
+    position: inherit;
+    top: 0;
+    margin: 0 6em;
+}
+.modal-content {
+	padding: 2em;
+}
+
+.modal-content h1 {
+	font-size: 1.5em;
+	margin: 0 0 1em;
+}
+
+form section {
+	margin-bottom: 1em;
+       width: 80%;
+       float: left;
+}
+
+form section label {
+	display: inline;
+}
+
+form section > label:first-child {
+    margin-right: 10px;
+    float: left; 
+    width: 80px;
+    margin-top: 7px;
+}
+
+form input, form select {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 34px;
+}
+
+form input {
+    padding-left: 5px;
+}
+
+.form-horizontal.time > label, .form-horizontal.time > table {
+    float: left;
+    margin-right: 10px;
+}
+.form-horizontal.time > label {
+    margin-top: 40px;
+}

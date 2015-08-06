@@ -1,4 +1,4 @@
-UFlying.controller('marriageDialog', function ($scope, $modalInstance, cities, data, $timeout) {
+UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities, data, $timeout, $http) {
     cities.load(function (data) {
         var provinces = [];
         for (var province in data) {
@@ -61,10 +61,4 @@ UFlying.controller('marriageDialog', function ($scope, $modalInstance, cities, d
 
     $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
-
-    $scope.account = {
-        phone: '18618686888',
-        uid: 'G0000000004'
-    }
-    $scope.logined = _.isObject($scope.account);
 })

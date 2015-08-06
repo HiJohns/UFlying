@@ -1,15 +1,29 @@
-UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main'])
-	
-	.controller('Task',function($scope,$rootScope,$timeout,dialogs){
-		$scope.action = function (msg) {
-			var dlg = dialogs.create('dialogs/Marriage.html','marriageDialog',{},{size:'md',keyboard: true,backdrop: false,windowClass: 'my-class'});
-			dlg.result.then(function(name){
-				$scope.name = name;
-			},function(){
-				if(angular.equals($scope.name,''))
-					$scope.name = 'You did not enter in your name!';
-			});
-		}
+UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
+	.controller('Task', function($scope,$rootScope,$timeout,dialogs,$cookies){
+        function openDialog(name, callback) {
+            var dlg = dialogs.create(
+                'dialogs/' + name + '.html',
+                'dialogs.' + name,
+                {},
+                {
+                    size:'md',
+                    keyboard: true,
+                    backdrop: false,
+                    windowClass: 'my-class'
+                });
+
+            dlg.result.then(callback);
+        }
+
+		$scope.action = function (type) {
+            var token = $cookies.get('token');
+            if (_.isString(token) && token.length > 0) {
+                openDialog(type);
+            }
+            else {
+                openDialog('Login', openDialog.bind(null, type));
+            }
+        }
 	})
 
 	.controller('customDialogCtrl',function($scope,$modalInstance,data){
