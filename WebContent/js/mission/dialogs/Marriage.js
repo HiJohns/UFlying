@@ -1,22 +1,18 @@
 UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities, data, $timeout, $http) {
-    cities.load(function (data) {
-        var provinces = [];
-        for (var province in data) {
-            provinces.push({
-                name: province,
-                cities: data[province]
-            });
-        }
-
-        $scope.provinces = provinces;
-        
-        $scope.province = provinces.length > 0 ? provinces[0].name : null;
-        $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
-        $scope.city = $scope.cities[0];
-    });
-
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
+    }
+
+    $scope.submit = function () {
+        $scope.money = '￥1000.00';
+        $scope.user = 'G0000000005';
+        $scope.phone = '1868618666';
+        $scope.timeDescript = $scope.dateText;
+        $scope.page = 'summary';
+    }
+
+    $scope.edit = function () {
+        $scope.page = 'form';
     }
 
     $scope.provinceChange = function () {
@@ -41,6 +37,22 @@ UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities,
       });
     };
 
+    cities.load(function (data) {
+        var provinces = [];
+        for (var province in data) {
+            provinces.push({
+                name: province,
+                cities: data[province]
+            });
+        }
+
+        $scope.provinces = provinces;
+        
+        $scope.province = provinces.length > 0 ? provinces[0].name : null;
+        $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
+        $scope.city = $scope.cities[0];
+    });
+
     $scope.dateOptions = {
       'year-format': "'yy'",
       'starting-day': 1,
@@ -61,4 +73,6 @@ UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities,
 
     $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
+
+    $scope.page = 'form';
 })

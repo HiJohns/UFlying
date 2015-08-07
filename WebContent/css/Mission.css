@@ -69,21 +69,63 @@ form section > label:first-child {
     margin-top: 7px;
 }
 
-form input, form select {
-    border: 1px solid #CCC;
-    border-radius: 3px;
-    box-sizing: border-box;
-    height: 34px;
-}
-
-form input {
-    padding-left: 5px;
-}
-
 .form-horizontal.time > label, .form-horizontal.time > table {
     float: left;
     margin-right: 10px;
 }
 .form-horizontal.time > label {
     margin-top: 40px;
+}
+
+form input, form select, form textarea {
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+}
+form input, form select {
+    height: 34px;
+}
+form input {
+    padding-left: 5px;
+    margin-right: 5px;
+}
+form textarea {
+    height: 4em;
+    max-height: 8em;
+    max-width: 80%;
+}
+section > select, section > input, section > textarea {
+    width: 50.6%;
+}
+.twoEqual select, .twoEqual input {
+    width: 25%;
+}
+section.date input {
+    width: 41.5%;
+}
+section.date button {
+    margin-top: -4px;
+}
+footer {
+    padding-left: 89px;
+}
+
+article > section {
+    border-top: 1px solid lightgray;
+    padding-top: 10px;
+}
+article > section > section {
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+article section > label {
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
+}
+article footer {
+    border-top: 3px solid #555;
+    padding-left: 20px;
+    padding-top: 25px;
 }
