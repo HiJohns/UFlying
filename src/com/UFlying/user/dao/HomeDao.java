@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.UFlying.user.dao.common.CommonDao;
+import com.UFlying.user.dao.common.BaseDao;
 import com.UFlying.user.dao.mapper.HomeStatisticsMapper;
 import com.UFlying.user.entity.base.HomeStatistics;
 
 /** 首页DAO */
 @Repository
-public class HomeDao extends CommonDao {
+public class HomeDao extends BaseDao {
 
 	@Autowired
 	private HomeStatisticsMapper homeStatisticsMapper;

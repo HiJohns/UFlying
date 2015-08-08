@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
-import com.UFlying.user.dao.common.CommonDao;
+import com.UFlying.user.dao.common.BaseDao;
 import com.UFlying.user.dao.mapper.EnterpriseAccountMapper;
 import com.UFlying.user.dao.mapper.IndividualAccountMapper;
 import com.UFlying.user.entity.base.EnterpriseAccount;
@@ -18,7 +18,7 @@ import com.UFlying.user.entity.base.IndividualAccount;
 
 /** 用户表，包括个人用户和企业用户 */
 @Repository
-public class AccountDao extends CommonDao {
+public class AccountDao extends BaseDao {
 
 	@Autowired
 	private IndividualAccountMapper individualAccountMapper;
