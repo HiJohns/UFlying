@@ -16,7 +16,9 @@
 		<script src="../3rdParty/angular-cookies/angular-cookies.min.js"></script>
 		<script src="../js/mission/Main.js"></script>
 		<script src="../js/providers/Cities.js"></script>
-		<script src="../js/mission/dialogs/Marriage.js"></script>
+		<script src="../js/providers/Login.js"></script>
+		<script src="../js/providers/MissionConfigs.js"></script>
+		<script src="../js/mission/dialogs/MissionEdit.js"></script>
 		<script src="../js/mission/dialogs/Login.js"></script>
 	
 	    <link rel="stylesheet" type="text/css" href="../3rdParty/bootstrap/css/bootstrap.min.css">
@@ -30,16 +32,11 @@
     <section class="main">
         <div class="btn-group">
             <img src="../img/task/caption.png"/>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null">
                 请选择任务类型 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#" ng-click="action('Marriage')">婚礼</a></li>
-                <li><a href="#">求婚</a></li>
-                <li><a href="#">公关</a></li>
-                <li><a href="#">广告</a></li>
-                <li><a href="#">宣传片</a></li>
-                <li><a href="#">私人教练</a></li>
+                <li ng-repeat="config in missionConfigs"><a href="#" uf-target="{{config.typeInitials}}" ng-click="mission()">{{config.typeName}}</a></li>
            </ul>
         </div>
         <img src="../img/Logo.png"/>

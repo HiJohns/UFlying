@@ -129,3 +129,14 @@ article footer {
     padding-left: 20px;
     padding-top: 25px;
 }
+
+form.ng-submitted .ng-invalid {
+    border: red solid 1px;
+}
+.errInfo {
+    display: none;
+}
+form.ng-submitted .errInfo {
+    display: inline;
+    color: red;
+}

@@ -13,7 +13,6 @@ UFlying.controller('dialogs.Login', function ($scope, $modalInstance, $http, dat
     				return;
     			}
     			
-    			$cookies.put('token', data.account.token);
     			$modalInstance.close(data.account);
     		}, function (response) {
     			alert('登录失败！');

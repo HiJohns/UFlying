@@ -2,19 +2,19 @@
     <header>
         <h1>任务设置</h1>
     </header>
-    <form>
+    <form novalidate name="missionForm">
         <fieldset>
             <section>
                 <label for="location" class="control-label input-group">场所类型</label>
                 <span class="btn-group" data-toggle="buttons">
                     <label class="btn btn-default active">
-                        <input type="radio" name="mode" value="1">户外
+                        <input type="radio" name="place" value="1">室内
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="mode" value="2">室内
+                        <input type="radio" name="place" value="2" checked>室外
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="mode" value="3" checked="">户外+室内
+                        <input type="radio" name="place" value="3">室外+室内
                     </label>
                 </span>
             </section>
@@ -25,7 +25,8 @@
             </section>
             <section>
                 <label>具体地址</label>
-                <input ng-model="address" type="text"></input>
+                <input ng-model="address" name="address" type="text" required></input>
+                <small class="errInfo" ng-show="missionForm.address.$invalid">请填写具体地址</small>
             </section>
             <section class="date">
                 <label>任务日期</label>
@@ -58,8 +59,12 @@
         </header>
         <section>
             <section>
+                <label>任务类型</label>
+                <span ng-bind="config.typeName"/>
+            </section>
+            <section>
                 <label>发起人ID</label>
-                <span ng-bind="user"/>
+                <span ng-bind="user|userId"/>
             </section>
             <section>
                 <label>联系电话</label>
@@ -73,11 +78,13 @@
             </section>
             <section>
                 <label>地点</label>
-                <span ng-bind="address"/>
+                <span ng-bind="province"></span>
+                <span ng-bind="city"></span>
+                <span ng-bind="address"></span>
             </section>
             <section>
                 <label>飞行场地</label>
-                <span ng-bind="mode"/>
+                <span ng-bind="place|missionPlace"/>
             </section>
         </section>
         <section>

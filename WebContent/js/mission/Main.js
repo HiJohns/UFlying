@@ -1,10 +1,11 @@
 UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
-	.controller('Task', function($scope,$rootScope,$timeout,dialogs,$cookies){
-        function openDialog(name, callback) {
+	.controller('Task', function($scope,$rootScope,$timeout,dialogs,$cookies,UFlyingLogin, UFlyingMissionConfigs){
+        function openDialog(mission, callback) {
             var dlg = dialogs.create(
-                'dialogs/' + name + '.html',
-                'dialogs.' + name,
-                {},
+                'dialogs/MissionEdit.html',
+                'dialogs.MissionEdit', {
+                    config: mission
+                },
                 {
                     size:'md',
                     keyboard: true,
@@ -15,17 +16,81 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
             dlg.result.then(callback);
         }
 
-		$scope.action = function (type) {
-            var token = $cookies.get('token');
-            if (_.isString(token) && token.length > 0) {
-                openDialog(type);
-            }
-            else {
-                openDialog('Login', openDialog.bind(null, type));
-            }
-        }
-	})
+        function login(followingAction) {
+            dialogs.create(
+                'dialogs/Login.html',
+                'dialogs.Login',
+                {},
+                {
+                    size:'md',
+                    keyboard: true,
+                    backdrop: false
+                }).result.then(function (account) {
+                    var d = new Date();
+                    $cookies.put(
+                        'token', 
+                        account.token, { 
+                            domain: '/', 
+                            expires: new Date(
+                                d.getFullYear(), 
+                                d.getMonth(),
+                                d.getDate() + 15, 
+                                d.getHours(),
+                                d.getMinutes()
+                            )
+                        });
 
+                    openDialog(followingAction);
+                });
+        }
+
+		$scope.mission = function () {
+            function onLoginInfo(info) {
+                if (info == null) {
+                    login(config);
+                }
+                else {
+                    openDialog(config);
+                }
+            }
+
+            function onLoginFailed(response) {
+                alert('非常抱歉，无法连接服务器，错误码为' + response.status + '，请致电客服为您解决问题。');
+            }
+
+            var config = this.config;
+
+            UFlyingLogin.getLoginInfo().then(onLoginInfo, onLoginFailed);
+        }
+
+        $scope.missionConfigs = null;
+        UFlyingMissionConfigs.load(function (configs) {
+            $scope.missionConfigs = configs;
+        });
+	})
+    .filter('missionPlace', function () {
+        var text = [
+            '室外',
+            '室内',
+            '室内+室外'
+        ];
+
+        return function (place) {
+            return text[place];
+        };
+    })
+    .filter('userId', function () {
+        function packZeros(user) {
+            if (user < 0) user = -user;
+            var s = user.toString();
+            while (s.length < 10) s = '0' + s;
+            return s;
+        }
+
+        return function (user) {
+            return _.isNumber(user) ? ((user > 0 ? 'G' : 'E') + packZeros(user)) : '';
+        }
+    })
 	.controller('customDialogCtrl',function($scope,$modalInstance,data){
 		//-- Variables --//
 

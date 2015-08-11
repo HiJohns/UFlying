@@ -1,14 +1,23 @@
-UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities, data, $timeout, $http) {
+UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, cities, $timeout, data, $http, UFlyingLogin) {
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
     }
 
     $scope.submit = function () {
+        if ($scope.missionForm.$invalid) return;
+        var account = UFlyingLogin.getCurrentUser();
         $scope.money = '￥1000.00';
-        $scope.user = 'G0000000005';
-        $scope.phone = '1868618666';
+        $scope.user = account.uid || -account.eid;
+        $scope.phone = account.mobilePhone;
         $scope.timeDescript = $scope.dateText;
         $scope.page = 'summary';
+        $scope.place = parseInt($('input[type="radio"][name="place"]:checked').val(), 10);
+
+        var duration = Math.ceil(($scope.endTime.getTime() - $scope.startTime.getTime()) / (60*1000));
+
+        var config = $scope.config;
+        $scope.money = config.standardFee + 
+            (duration > config.standardDuration ? config.extraFee * Math.ceil((duration - config.standardDuration) / config.extraDuration) : 0);
     }
 
     $scope.edit = function () {
@@ -36,6 +45,11 @@ UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities,
         $scope.opened = true;
       });
     };
+
+    $scope.setMode = function (mode) {
+        console.log('setMode', mode);
+        $scope.mode = mode;
+    }
 
     cities.load(function (data) {
         var provinces = [];
@@ -73,6 +87,8 @@ UFlying.controller('dialogs.Marriage', function ($scope, $modalInstance, cities,
 
     $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
+    $scope.place = 1;
+    $scope.config = data.config;
 
     $scope.page = 'form';
-})
+});
