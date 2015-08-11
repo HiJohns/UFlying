@@ -11,6 +11,7 @@ import com.UFlying.user.entity.base.Mission;
 @Repository
 public class MissionMapper implements RowMapper<Mission> {
 
+	@Override
 	public Mission mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Mission mission = new Mission();
 		mission.setAddress(rs.getString("address"));

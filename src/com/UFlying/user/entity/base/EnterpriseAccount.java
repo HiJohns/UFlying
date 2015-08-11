@@ -29,6 +29,7 @@ public class EnterpriseAccount implements java.io.Serializable {
 	private String idCardUrl2;
 	//数据库控制信息部分
 	private String token;
+	private int cookieLifecycle;
 	private Date registerDate;
 	private Date certifyDate;
 	private Date contractDate;
@@ -176,6 +177,12 @@ public class EnterpriseAccount implements java.io.Serializable {
 	}
 	public void setLastTimeStamp(Timestamp lastTimeStamp) {
 		this.lastTimeStamp = lastTimeStamp;
+	}
+	public int getCookieLifecycle() {
+		return cookieLifecycle;
+	}
+	public void setCookieLifecycle(int cookieLifecycle) {
+		this.cookieLifecycle = cookieLifecycle;
 	}	
 	
 }

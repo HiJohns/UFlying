@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.UFlying.config.Constants;
 import com.UFlying.exception.ServiceException;
 import com.UFlying.user.entity.base.EnterpriseAccount;
 import com.UFlying.user.entity.base.IndividualAccount;
@@ -38,9 +39,6 @@ public class AccountController {
 
 	@Autowired
 	private SmsService smsService;
-
-	/** 用户票证在cookie中的有效期为15天 */
-	private static final int COOKIE_TOKEN_MAX_AGE = 15 * 24 * 60 * 60;
 
 	// 登录
 
@@ -73,7 +71,7 @@ public class AccountController {
 			model.addAttribute("account", account);
 			// 登录成功，保存用户token到cookie中，并重设cookie有效期
 			Cookie cookie = new Cookie("token", token);
-			cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+			cookie.setMaxAge(Constants.COOKIE_TOKEN_MAX_AGE);
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			if (account instanceof IndividualAccount) {
@@ -100,14 +98,14 @@ public class AccountController {
 			if (account instanceof IndividualAccount) {
 				token = IndividualAccount.class.cast(account).getToken();
 				Cookie cookie = new Cookie("token", token);
-				cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+				cookie.setMaxAge(Constants.COOKIE_TOKEN_MAX_AGE);
 				cookie.setPath("/");
 				response.addCookie(cookie);
 				return "redirect:/individual_account";
 			} else if (account instanceof EnterpriseAccount) {
 				token = EnterpriseAccount.class.cast(account).getToken();
 				Cookie cookie = new Cookie("token", token);
-				cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+				cookie.setMaxAge(Constants.COOKIE_TOKEN_MAX_AGE);
 				cookie.setPath("/");
 				response.addCookie(cookie);
 				return "redirect:/enterprise_account";
@@ -153,7 +151,7 @@ public class AccountController {
 			String token = account.getToken();
 			// 保存用户token到cookie中
 			Cookie cookie = new Cookie("token", token);
-			cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+			cookie.setMaxAge(Constants.COOKIE_TOKEN_MAX_AGE);
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			return "redirect:/individual_account";
@@ -176,7 +174,7 @@ public class AccountController {
 			String token = account.getToken();
 			// 保存用户token到cookie中
 			Cookie cookie = new Cookie("token", token);
-			cookie.setMaxAge(COOKIE_TOKEN_MAX_AGE);
+			cookie.setMaxAge(Constants.COOKIE_TOKEN_MAX_AGE);
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			return "redirect:/enterprise_account";

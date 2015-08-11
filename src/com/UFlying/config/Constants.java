@@ -11,6 +11,9 @@ public class Constants {
 	/** 第三方责任险类型 */
 	public static final LinkedHashMap<Integer, ThirdpartyInsuranceType> THIRDPARTY_INSURANCE_TYPES = new LinkedHashMap<Integer, ThirdpartyInsuranceType>();
 
+	/** 用户票证在cookie中的有效期为15天 */
+	public static final int COOKIE_TOKEN_MAX_AGE = 15 * 24 * 60 * 60;
+
 	static {
 		// 初始化第三方责任险类型
 		ThirdpartyInsuranceType type1 = new ThirdpartyInsuranceType();

@@ -24,6 +24,7 @@ public class IndividualAccount implements java.io.Serializable {
 	private String idCardUrl2;
 	private String headImgUrl;
 	private int experience;
+	private int cookieLifecycle;
 	private Date registerDate;
 	private Date certifyDate;
 	private Date contractDate;
@@ -204,6 +205,14 @@ public class IndividualAccount implements java.io.Serializable {
 
 	public void setContractVersion(String contractVersion) {
 		this.contractVersion = contractVersion;
+	}
+
+	public int getCookieLifecycle() {
+		return cookieLifecycle;
+	}
+
+	public void setCookieLifecycle(int cookieLifecycle) {
+		this.cookieLifecycle = cookieLifecycle;
 	}
 
 }

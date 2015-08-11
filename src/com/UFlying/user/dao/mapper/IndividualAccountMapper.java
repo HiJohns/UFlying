@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.UFlying.config.Constants;
 import com.UFlying.user.entity.base.IndividualAccount;
 import com.UFlying.user.util.PropertiesHelper;
 
@@ -33,6 +34,7 @@ public class IndividualAccountMapper implements RowMapper<IndividualAccount> {
 		account.setIdCardUrl1((null==rs.getString("id_card_url_1"))?null:ACCOUNT_IMAGE_URL + rs.getString("id_card_url_1"));
 		account.setIdCardUrl2((null==rs.getString("id_card_url_2"))?null:ACCOUNT_IMAGE_URL + rs.getString("id_card_url_2"));
 		account.setExperience(rs.getInt("experience"));
+		account.setCookieLifecycle(Constants.COOKIE_TOKEN_MAX_AGE);
 		account.setRegisterDate(rs.getDate("register_date"));
 		account.setCertifyDate(rs.getDate("certify_date"));
 		account.setContractDate(rs.getDate("contract_date"));
