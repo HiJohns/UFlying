@@ -24,7 +24,7 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
             return time.getHours() + ':' + time.getMinutes();
         }
 
-        $http.post('../create_mission', {
+        $http.post('../create_mission', JSON.stringify({
             missionType: $scope.config.missionType,
             address: $scope.address,
             city: $scope.city,
@@ -35,7 +35,7 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
             payment: $scope.payment,
             place: $scope.place,
             remark: $scope.remark
-        }).then(function (result) {
+        })).then(function (result) {
         });
     }
 
