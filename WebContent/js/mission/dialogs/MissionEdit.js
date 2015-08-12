@@ -1,4 +1,4 @@
-UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, cities, $timeout, data, $http, UFlyingLogin) {
+UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, cities, $timeout, data, $http, UFlyingLogin, UFlyingUtils) {
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
     }
@@ -20,18 +20,14 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     }
 
     $scope.checkout = function () {
-        function renderTime(time) {
-            return time.getHours() + ':' + time.getMinutes();
-        }
-
         $http.post('../create_mission', JSON.stringify({
             missionType: $scope.config.missionType,
             address: $scope.address,
             city: $scope.city,
             province: $scope.province,
-            endTime: renderTime($scope.endTime),
-            startTime: renderTime($scope.startTime),
-            missionDate: $scope.dateText,
+            endTime: UFlyingUtils.renderJsonTime($scope.endTime),
+            startTime: UFlyingUtils.renderJsonTime($scope.startTime),
+            missionDate: UFlyingUtils.renderJsonDate($scope.date),
             payment: $scope.payment,
             place: $scope.place,
             remark: $scope.remark
