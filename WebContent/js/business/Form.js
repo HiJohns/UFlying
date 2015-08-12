@@ -151,7 +151,7 @@ UF.business.Form = (function () {
 				if (stack.length == 0) {
 					$(this).find('input[type="submit"]').prop('disabled', false);
 					$(this).find('input:hidden:not([type=hidden])').each(function () {
-						$(this).val(zeroBase.hasOwnProperty($(this).attr('type')) ? 0 : null);
+						$(this).val(zeroBase.hasOwnProperty($(this).attr('type').toUpperCase()) ? 0 : null);
 					})
 					$(this).find('select:hidden').val(null);
 					return true;

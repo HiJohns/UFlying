@@ -6,7 +6,6 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     $scope.submit = function () {
         if ($scope.missionForm.$invalid) return;
         var account = UFlyingLogin.getCurrentUser();
-        $scope.money = '￥1000.00';
         $scope.user = account.uid || -account.eid;
         $scope.phone = account.mobilePhone;
         $scope.timeDescript = $scope.dateText;
@@ -16,8 +15,28 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         var duration = Math.ceil(($scope.endTime.getTime() - $scope.startTime.getTime()) / (60*1000));
 
         var config = $scope.config;
-        $scope.money = config.standardFee + 
+        $scope.payment = config.standardFee + 
             (duration > config.standardDuration ? config.extraFee * Math.ceil((duration - config.standardDuration) / config.extraDuration) : 0);
+    }
+
+    $scope.checkout = function () {
+        function renderTime(time) {
+            return time.getHours() + ':' + time.getMinutes();
+        }
+
+        $http.post('../create_mission', {
+            missionType: $scope.config.missionType,
+            address: $scope.address,
+            city: $scope.city,
+            province: $scope.province,
+            endTime: renderTime($scope.endTime),
+            startTime: renderTime($scope.startTime),
+            missionDate: $scope.dateText,
+            payment: $scope.payment,
+            place: $scope.place,
+            remark: $scope.remark
+        }).then(function (result) {
+        });
     }
 
     $scope.edit = function () {

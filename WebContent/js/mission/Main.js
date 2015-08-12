@@ -91,6 +91,11 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
             return _.isNumber(user) ? ((user > 0 ? 'G' : 'E') + packZeros(user)) : '';
         }
     })
+    .filter('money', function () {
+        return function (money) {
+            return _.isNumber(money) ? money.toFixed(2) + '元' : money;
+        }
+    })
 	.controller('customDialogCtrl',function($scope,$modalInstance,data){
 		//-- Variables --//
 

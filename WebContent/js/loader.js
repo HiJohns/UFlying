@@ -23,6 +23,11 @@ UF = {
 }
 
 $(document).ready(function () {
+    var pageMapper = {
+        'individual_edit': 'individual_complete',
+        'enterprise_edit': 'enterprise_complete'
+    };
+
 	var scripts = {
 		base: [
                "Enums",
@@ -33,11 +38,16 @@ $(document).ready(function () {
                "FormLabels",
                "Utils"
                ],
-	    page: [
-               	location.href.replace(/#.*$/, '').split('/').pop()
-               ]
+	    page: getPageScripts()
 	};
-	console.log(scripts);
+
+    function getPageScripts() {
+        var script = location.href.replace(/#.*$/, '').split('/').pop();
+        if (pageMapper.hasOwnProperty(script)) {
+            script = pageMapper[script];
+        }
+        return [ script ];
+    }
 	
 	function loadScripts(name) {
 		var succeeded = 0;

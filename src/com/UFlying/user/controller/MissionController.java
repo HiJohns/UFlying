@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.UFlying.user.entity.base.MissionFee;
+import com.UFlying.user.form.FormCreateMission;
 import com.UFlying.user.service.MissionService;
 
 @Controller
@@ -22,6 +24,14 @@ public class MissionController {
 	@ResponseBody
 	public List<MissionFee> getMissionFee() {
 		return missionService.getMissionFee();
+
+	}
+	
+	/** 发布新任务 */
+	@RequestMapping(value = "/create_mission", method = RequestMethod.POST)
+	@ResponseBody
+	public FormCreateMission createMission(@RequestBody FormCreateMission form) {
+		return form;
 
 	}
 

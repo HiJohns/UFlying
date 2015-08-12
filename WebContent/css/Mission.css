@@ -101,7 +101,8 @@ section > select, section > input, section > textarea {
     width: 25%;
 }
 section.date input {
-    width: 41.5%;
+    width: 40.4%;
+    margin-right: 0px;
 }
 section.date button {
     margin-top: -4px;

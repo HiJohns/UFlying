@@ -18,7 +18,7 @@ UF.business.Complete = (function () {
 				($('#toContract').prop('checked') ? UF.base.Enums.status.contracting : UF.base.Enums.status.authenticating) : 
 				UF.base.Enums.status.base;
 				
-				UF.business.Form.renderModel(model);
+				//UF.business.Form.renderModel(model);
 		$('input[name="status"]').val(model.status);
 	}
 	
