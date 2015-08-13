@@ -4,9 +4,6 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class FormCreateMission {
-	//登录用
-	private String user;
-	private String password;
 	//任务用
 	private int missionType;
 	private Date missionDate;
@@ -17,21 +14,12 @@ public class FormCreateMission {
 	private String city;
 	private int place;//1：室内，2：室外，3:室内＋室外
 	private String remark;//其他要求备注
-	private String misssionId;
+	private String missionId;
+	private String typeInitials;
 	private int payment;
+	private int accountType;
+	private long accountId;
 	
-	public String getUser() {
-		return user;
-	}
-	public void setUser(String user) {
-		this.user = user;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public int getMissionType() {
 		return missionType;
 	}
@@ -86,17 +74,35 @@ public class FormCreateMission {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public String getMisssionId() {
-		return misssionId;
+	public String getMissionId() {
+		return missionId;
 	}
-	public void setMisssionId(String misssionId) {
-		this.misssionId = misssionId;
+	public void setMissionId(String missionId) {
+		this.missionId = missionId;
 	}
 	public int getPayment() {
 		return payment;
 	}
 	public void setPayment(int payment) {
 		this.payment = payment;
+	}
+	public int getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(int accountType) {
+		this.accountType = accountType;
+	}
+	public String getTypeInitials() {
+		return typeInitials;
+	}
+	public void setTypeInitials(String typeInitials) {
+		this.typeInitials = typeInitials;
+	}
+	public long getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
 	}
 	
 	

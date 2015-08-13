@@ -558,10 +558,16 @@ public class AccountService {
 				throw new ServiceException("该手机号已被占用");
 			}
 		}
+		if (StringUtils.isBlank(idCardNumber)) {
+			idCardNumber = null;
+		}
 		if (!StringUtils.equalsIgnoreCase(idCardNumber, individualAccount.getIdCardNumber())) {
 			if (accountDao.checkIdCardExists(idCardNumber)) {
 				throw new ServiceException("该身份证号已被占用");
 			}
+		}
+		if (StringUtils.isBlank(qq)) {
+			qq = null;
 		}
 		if (!StringUtils.equalsIgnoreCase(qq, individualAccount.getQq())) {
 			if (accountDao.checkQQExists(qq)) {
