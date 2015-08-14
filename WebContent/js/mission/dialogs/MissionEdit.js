@@ -94,11 +94,6 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     var _dateTemplate = _.template('<%=year%>年<%=month%>月<%=date%>日');
 
     var date = $scope.date = new Date();
-    $scope.dateText = _dateTemplate({
-        year: date.getFullYear(),
-        month: date.getMonth() + 1,
-        date: date.getDate()
-    });
 
     $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);

@@ -30,9 +30,8 @@
             </section>
             <section class="date">
                 <label>任务日期</label>
-                <!--<div date-picker="start" min-view="date"></div>-->
-                    <input type="text" datepicker-popup="yyyy年M月d日" ng-model="dateText" is-open="opened" datepicker-options="dateOptions" ng-required="true" />
-                    <button class="btn" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                <input type="text" datepicker-popup="yyyy年M月d日" ng-model="date" is-open="opened" datepicker-options="dateOptions" ng-required="true" />
+                <button class="btn" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
             </section>
 
             <section class="form-horizontal time">
@@ -98,4 +97,6 @@
             <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
         </footer>
     </article>
+</div>
+<div ng-show="page=='result'">
 </div>

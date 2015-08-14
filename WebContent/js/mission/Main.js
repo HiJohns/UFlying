@@ -30,7 +30,7 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
                     $cookies.put(
                         'token', 
                         account.token, { 
-                            domain: '/', 
+                            path: '/', 
                             expires: new Date(
                                 d.getFullYear(), 
                                 d.getMonth(),
@@ -44,8 +44,9 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
                 });
         }
 
-		$scope.mission = function () {
+		$scope.mission = function (missionType) {
             function onLoginInfo(info) {
+            	var config = _.findWhere($scope.missionConfigs, { missionType: missionType });
                 if (info == null) {
                     login(config);
                 }
@@ -58,14 +59,13 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
                 alert('非常抱歉，无法连接服务器，错误码为' + response.status + '，请致电客服为您解决问题。');
             }
 
-            var config = this.config;
-
             UFlyingLogin.getLoginInfo().then(onLoginInfo, onLoginFailed);
         }
 
         $scope.missionConfigs = null;
         UFlyingMissionConfigs.load(function (configs) {
             $scope.missionConfigs = configs;
+            $scope.$apply();
         });
 	})
     .filter('missionPlace', function () {
