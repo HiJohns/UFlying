@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.UFlying.user.dao.MissionDao;
-import com.UFlying.user.entity.base.MissionFee;
+import com.UFlying.user.entity.base.MissionType;
 import com.UFlying.user.entity.response.ResponseCreateMission;
 import com.UFlying.user.form.FormCreateMission;
 
@@ -20,8 +20,8 @@ public class MissionService {
 	private MissionDao missionDao;
 	
 	/** 获取任务费率*/
-	public List<MissionFee> getMissionFee(){
-		List<MissionFee> list = missionDao.getMissionFee();
+	public List<MissionType> getMissionFee(){
+		List<MissionType> list = missionDao.getMissionFee();
 		return list;
 	}
 

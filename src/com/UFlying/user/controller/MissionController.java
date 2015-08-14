@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.UFlying.user.entity.base.EnterpriseAccount;
 import com.UFlying.user.entity.base.IndividualAccount;
-import com.UFlying.user.entity.base.MissionFee;
+import com.UFlying.user.entity.base.MissionType;
 import com.UFlying.user.entity.response.ResponseCreateMission;
 import com.UFlying.user.form.FormCreateMission;
 import com.UFlying.user.service.AccountService;
@@ -28,15 +28,14 @@ public class MissionController {
 	private MissionService missionService;
 	@Autowired
 	private AccountService accountService;
-	
+
 	/** 获取任务费率表 */
 	@RequestMapping(value = "/mission_fee", method = RequestMethod.POST)
 	@ResponseBody
-	public List<MissionFee> getMissionFee() {
+	public List<MissionType> getMissionFee() {
 		return missionService.getMissionFee();
-
 	}
-	
+
 	/** 发布新任务 */
 	@RequestMapping(value = "/create_mission", method = RequestMethod.POST)
 	@ResponseBody
@@ -71,7 +70,6 @@ public class MissionController {
 			response = missionService.createMission(form);
 		}
 		return response;
-
 	}
 
 }

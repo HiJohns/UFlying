@@ -11,9 +11,9 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
 import com.UFlying.user.dao.common.BaseDao;
-import com.UFlying.user.dao.mapper.MissionFeeMapper;
 import com.UFlying.user.dao.mapper.MissionMapper;
-import com.UFlying.user.entity.base.MissionFee;
+import com.UFlying.user.dao.mapper.MissionTypeMapper;
+import com.UFlying.user.entity.base.MissionType;
 import com.UFlying.user.form.FormCreateMission;
 
 /** 首页DAO */
@@ -23,11 +23,11 @@ public class MissionDao extends BaseDao {
 	@Autowired
 	private MissionMapper missionMapper;
 	@Autowired
-	private MissionFeeMapper missionFeeMapper;
+	private MissionTypeMapper missionFeeMapper;
 	
-	public List<MissionFee> getMissionFee(){
-		String sql = "select * from mission_fee";
-		List<MissionFee> list = this.getJdbcTemplate().query(sql, missionFeeMapper);
+	public List<MissionType> getMissionFee(){
+		String sql = "select * from mission_type";
+		List<MissionType> list = this.getJdbcTemplate().query(sql, missionFeeMapper);
 		if (list.size() > 0) {
 			return list;
 		}
