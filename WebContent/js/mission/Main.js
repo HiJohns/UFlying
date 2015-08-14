@@ -44,7 +44,7 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
                 });
         }
 
-		$scope.mission = function (missionType) {
+		$scope.mission = function () {
             function onLoginInfo(info) {
             	var config = _.findWhere($scope.missionConfigs, { missionType: missionType });
                 if (info == null) {
@@ -59,6 +59,7 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
                 alert('非常抱歉，无法连接服务器，错误码为' + response.status + '，请致电客服为您解决问题。');
             }
 
+            missionType = _.isObject(this.config) ? this.config.missionType : 1;
             UFlyingLogin.getLoginInfo().then(onLoginInfo, onLoginFailed);
         }
 
@@ -79,22 +80,26 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
             return text[place];
         };
     })
-    .filter('userId', function () {
-        function packZeros(user) {
-            if (user < 0) user = -user;
-            var s = user.toString();
-            while (s.length < 10) s = '0' + s;
-            return s;
-        }
-
+    .filter('userId', function (UFlyingUtils) {
         return function (user) {
-            return _.isNumber(user) ? ((user > 0 ? 'G' : 'E') + packZeros(user)) : '';
+            var isIndividual = user > 0;
+            if (!isIndividual) user = -user;
+            return _.isNumber(user) ? ((isIndividual ? 'G' : 'E') + UFlyingUtils.packZeros(user, 10)) : '';
         }
     })
     .filter('money', function () {
         return function (money) {
             return _.isNumber(money) ? money.toFixed(2) + '元' : money;
         }
+    })
+    .filter('dateFormat', function () {
+        var _tmpl = _.template('<%=year%>年<%=month%>月<%=day%>日');
+        return function (date) {
+            return _.isDate(date) ? _tmpl({ year: date.getFullYear(), month: date.getMonth()+1, day: date.getDate() }) : date;
+        }
+    })
+    .filter('timeFormat', function (UFlyingUtils) {
+        return UFlyingUtils.renderTime;
     })
 	.controller('customDialogCtrl',function($scope,$modalInstance,data){
 		//-- Variables --//

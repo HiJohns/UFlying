@@ -30,7 +30,7 @@
             </section>
             <section class="date">
                 <label>任务日期</label>
-                <input type="text" datepicker-popup="yyyy年M月d日" ng-model="date" is-open="opened" datepicker-options="dateOptions" ng-required="true" />
+                <input type="date" datepicker-popup="yyyy年M月d日" ng-model="date" is-open="opened" datepicker-options="dateOptions" ng-required="true" />
                 <button class="btn" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
             </section>
 
@@ -73,7 +73,9 @@
         <section>
             <section>
                 <label>时间</label>
-                <span ng-bind="timeDescript"/>
+                <span ng-bind="date|dateFormat"></span>
+                <span ng-bind="startTime|timeFormat"></span>至
+                <span ng-bind="endTime|timeFormat"></span>
             </section>
             <section>
                 <label>地点</label>
@@ -89,7 +91,7 @@
         <section>
             <section>
                 <label>预算金额</label>
-                <span ng-bind="payment"/>
+                <span ng-bind="payment|money"/>
             </section>
         </section>
         <footer>

@@ -8,9 +8,10 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         var account = UFlyingLogin.getCurrentUser();
         $scope.user = account.uid || -account.eid;
         $scope.phone = account.mobilePhone;
-        $scope.timeDescript = $scope.dateText;
         $scope.page = 'summary';
         $scope.place = parseInt($('input[type="radio"][name="place"]:checked').val(), 10);
+        var match = $('section.date > input[type=date]').val().match(/(\d+)年(\d+)月(\d+)日/);
+        $scope.date = new Date(match[1], parseInt(match[2], 10)-1, match[3]);
 
         var duration = Math.ceil(($scope.endTime.getTime() - $scope.startTime.getTime()) / (60*1000));
 
