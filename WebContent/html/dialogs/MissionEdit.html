@@ -20,12 +20,12 @@
             </section>
             <section class="twoEqual">
                 <label>任务城市</label>
-                <select ng-model="province" ng-options="prov.name as prov.name for prov in provinces" ng-change="provinceChange()"></select>
-                <select ng-model="city" ng-disabled="cities.length == 0" ng-options="city for city in cities" ng-change="cityChange()"></select>
+                <select ng-model="province" ng-disabled="loading" ng-options="prov.name as prov.name for prov in provinces" ng-change="provinceChange()"></select>
+                <select ng-model="city" ng-disabled="cities.length == 0 || loading" ng-options="city for city in cities" ng-change="cityChange()"></select>
             </section>
             <section>
                 <label>具体地址</label>
-                <input ng-model="address" name="address" type="text" required></input>
+                <input ng-model="address" name="address" type="text" required ng-disabled="loading"></input>
                 <small class="errInfo" ng-show="missionForm.address.$invalid">请填写具体地址</small>
             </section>
             <section class="date">
@@ -46,7 +46,7 @@
             </section>
         </fieldset>
         <footer>
-            <button class="btn btn-primary" ng-click="submit()">提交</button>
+            <button class="btn btn-primary" ng-disabled="loading" ng-click="submit()">提交</button>
             <button class="btn btn-cancel" ng-click="cancel()">取消</button>
         </footer>
     </form>
@@ -73,15 +73,19 @@
         <section>
             <section>
                 <label>时间</label>
-                <span ng-bind="date|dateFormat"></span>
-                <span ng-bind="startTime|timeFormat"></span>至
-                <span ng-bind="endTime|timeFormat"></span>
+                <span>
+                    <span ng-bind="date|dateFormat"></span>
+                    <span ng-bind="startTime|timeFormat"></span>至
+                    <span ng-bind="endTime|timeFormat"></span>
+                </span>
             </section>
             <section>
                 <label>地点</label>
-                <span ng-bind="province"></span>
-                <span ng-bind="city"></span>
-                <span ng-bind="address"></span>
+                <span>
+                    <span ng-bind="province"></span>
+                    <span ng-bind="city"></span>
+                    <span ng-bind="address"></span>
+                </span>
             </section>
             <section>
                 <label>飞行场地</label>
@@ -95,10 +99,38 @@
             </section>
         </section>
         <footer>
-            <button class="btn btn-primary" ng-click="checkout()">准备付款</button>
+            <button class="btn btn-primary" ng-click="checkout()" ng-disabled="loading">确认</button>
             <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
         </footer>
     </article>
 </div>
 <div ng-show="page=='result'">
+    <article>
+        <header>
+            <h1>恭喜！任务提交完成！</h1>
+        </header>
+        <section>
+            <label>任务编号</label>
+            <span ng-bind="missionId"></span>
+        </section>
+        <section>
+            <label>应付金额</label>
+            <span ng-bind="payment|money"></span>
+        </section>
+        <section>
+            <label>付款方式</label>
+            <ul>
+                <li><label>户名</label><span ng-bind="bankAccount.name"></span></li>
+                <li><label>开户行</label><span ng-bind="bankAccount.branch"></span></li>
+                <li><label>帐号</label><span ng-bind="bankAccount.account"></span></li>
+            </ul>
+        </section>
+        <section>
+            <label>手机支付</label>
+            <img ng-src="{{qrcodePayment}}"></img>
+        </section>
+        <footer>
+            <button class="btn btn-danger" ng-click="return()">返回</button>
+        </footer>
+    </article>
 </div>

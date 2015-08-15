@@ -3,6 +3,10 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         $modalInstance.dismiss('Canceled');
     }
 
+    $scope.return = function() {
+        $modalInstance.close();
+    }
+
     $scope.submit = function () {
         if ($scope.missionForm.$invalid) return;
         var account = UFlyingLogin.getCurrentUser();
@@ -21,8 +25,10 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     }
 
     $scope.checkout = function () {
+        $scope.loading = true;
         $http.post('../create_mission', JSON.stringify({
             missionType: $scope.config.missionType,
+            typeInitials: $scope.config.typeInitials,
             address: $scope.address,
             city: $scope.city,
             province: $scope.province,
@@ -33,6 +39,12 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
             place: $scope.place,
             remark: $scope.remark
         })).then(function (result) {
+            $scope.missionId = result.data.missionId;
+            $scope.page = 'result';
+            $scope.loading = false;
+        }, function (result) {
+            alert('提交失败!请稍候重试。');
+            $scope.loading = false;
         });
     }
 
@@ -67,7 +79,9 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         $scope.mode = mode;
     }
 
+    $scope.loading = true;
     cities.load(function (data) {
+        $scope.loading = false;
         var provinces = [];
         for (var province in data) {
             provinces.push({
@@ -102,4 +116,11 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     $scope.config = data.config;
 
     $scope.page = 'form';
+    // const.
+    $scope.bankAccount = {
+        name: '刘鹏',
+        account: '6216610100010698856',
+        branch: '中国银行北京分行东大桥支行'
+    };
+    $scope.qrcodePayment = '../img/8cd0b33a3c074896bf537ed479b683ad.jpg';
 });

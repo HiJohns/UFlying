@@ -111,9 +111,17 @@ footer {
     padding-left: 89px;
 }
 
+article {
+    overflow: hidden;
+}
 article > section {
     border-top: 1px solid lightgray;
     padding-top: 10px;
+}
+article > section, article > footer {
+    float: left;
+    width: 90%;
+    overflow: hidden;
 }
 article > section > section {
     margin-bottom: 5px;
@@ -125,10 +133,30 @@ article section > label {
     text-align: right;
     width: 100px;
 }
+article button {
+    margin-left: 0.4em;
+}
+article section > span, article section > ul {
+    margin-left: 1.6em;
+}
 article footer {
     border-top: 3px solid #555;
-    padding-left: 20px;
+    padding-left: 3.3em;
     padding-top: 25px;
+}
+article section > ul {
+    float: left;
+    width: 60%;
+    padding-left: 0;
+}
+article section li {
+    list-style-type: none;
+}
+article section li label {
+    width: 4em;
+}
+article img {
+    width: 50%;
 }
 
 form.ng-submitted .ng-invalid {

@@ -46,6 +46,7 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
 
 		$scope.mission = function () {
             function onLoginInfo(info) {
+                $scope.loading = false;
             	var config = _.findWhere($scope.missionConfigs, { missionType: missionType });
                 if (info == null) {
                     login(config);
@@ -56,9 +57,11 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
             }
 
             function onLoginFailed(response) {
+                $scope.loading = false;
                 alert('非常抱歉，无法连接服务器，错误码为' + response.status + '，请致电客服为您解决问题。');
             }
 
+            $scope.loading = true;
             missionType = _.isObject(this.config) ? this.config.missionType : 1;
             UFlyingLogin.getLoginInfo().then(onLoginInfo, onLoginFailed);
         }
@@ -71,6 +74,7 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
 	})
     .filter('missionPlace', function () {
         var text = [
+             '',
             '室外',
             '室内',
             '室内+室外'
