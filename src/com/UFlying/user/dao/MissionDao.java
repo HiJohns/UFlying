@@ -37,7 +37,7 @@ public class MissionDao extends BaseDao {
 	public int createMission(final FormCreateMission form){
 		String sql = "insert into mission (mission_id, orderer_type, orderer_id, mission_type," +
 				" place, mission_date, start_time, end_time, address_province, address_city, address, " +
-				"remark, peyment, status, order_datetime) values (values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				"remark, peyment, status, order_datetime) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		return this.getJdbcTemplate().update(sql, new PreparedStatementSetter() {
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {

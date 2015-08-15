@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.UFlying.user.dao.common.CommonDao;
+import com.UFlying.user.entity.base.Contract;
 import com.UFlying.user.entity.base.Region;
 
 @Service
@@ -18,5 +19,7 @@ public class CommonService {
 		return list;
 	}
 
-	
+	public Contract getContract(int contractType){
+		return commonDao.getContract(contractType);
+	}
 }

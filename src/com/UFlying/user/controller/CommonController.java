@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.UFlying.exception.ServiceException;
+import com.UFlying.user.entity.base.Contract;
 import com.UFlying.user.entity.base.EnterpriseAccount;
 import com.UFlying.user.entity.base.IndividualAccount;
 import com.UFlying.user.entity.base.Region;
 import com.UFlying.user.entity.response.ResponseLoginInfo;
+import com.UFlying.user.form.FormContract;
 import com.UFlying.user.form.FormLogin;
 import com.UFlying.user.service.AccountService;
 import com.UFlying.user.service.CommonService;
@@ -91,5 +93,12 @@ public class CommonController {
 	public List<Region> getRegion() {
 		return service.getRegion();
 
+	}
+	
+	/** 获取合同文本 */
+	@RequestMapping(value = "/contract", method = RequestMethod.POST)
+	@ResponseBody
+	public Contract getContract(@RequestBody FormContract form) {
+		return service.getContract(form.getContractType());
 	}
 }
