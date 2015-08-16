@@ -157,6 +157,7 @@ article section li label {
 }
 article img {
     width: 50%;
+    margin-top: -16px;
 }
 
 form.ng-submitted .ng-invalid {
