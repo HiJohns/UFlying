@@ -21,26 +21,28 @@
 		<script src="../js/providers/MissionConfigs.js"></script>
 		<script src="../js/mission/dialogs/MissionEdit.js"></script>
 		<script src="../js/mission/dialogs/Login.js"></script>
+		<script src="../js/directives/Footer.js"></script>
+		<script src="../js/directives/Vendors.js"></script>
+		
 	
 	    <link rel="stylesheet" type="text/css" href="../3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="../3rdParty/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="../3rdParty/angular-dialog-service/dialogs.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/Mission.css">
 	</head>
-  <style type="text/css">
-  </style>
 	<body ng-controller="Task">
-    <section class="main">
-        <div class="btn-group">
-            <img src="../img/task/caption.png"/>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
-                请选择任务类型 <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li ng-repeat="config in missionConfigs"><a href="#" ng-click="mission()">{{config.typeName}}</a></li>
-           </ul>
-        </div>
-        <img src="../img/Logo.png"/>
-    </section>
+	    <section class="main">
+	        <div class="btn-group">
+	            <img src="../img/task/caption.png"/>
+	            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
+	                请选择任务类型 <span class="caret"></span>
+	            </button>
+	            <ul class="dropdown-menu">
+	                <li ng-repeat="config in missionConfigs"><a href="#" ng-click="mission()">{{config.typeName}}</a></li>
+	           </ul>
+	        </div>
+	        <img src="../img/Logo.png"/>
+	    </section>
+	    <uf-footer></uf-footer>
 	</body>
 </html>

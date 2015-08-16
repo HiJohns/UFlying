@@ -1,0 +1,28 @@
+.vendors {
+    background-color: #000000;
+	padding:4em 0 1em;
+}
+.vendors header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.vendors h1 {
+	color:#fff;
+	font-size:2.3em;
+	font-weight:bold;
+	letter-spacing:1.5px;
+}
+.vendors img {
+    width: 105px;
+    height: 55px;
+    margin-bottom: 40px;
+}
+.vendors row {
+    display: block;
+    margin: 10px auto;
+    width: 1050px;
+}
+.vendors div {
+	margin: 0 auto;
+	max-width: 1050px;
+}

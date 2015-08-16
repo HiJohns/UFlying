@@ -1,0 +1,58 @@
+footer section {
+    overflow: hidden;
+    background-color: black;
+}
+
+footer .item {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+
+footer .center {
+    width: 900px;
+    margin: 40px auto;
+    overflow: hidden
+}
+
+footer section:first-child {
+    background-color: #dddddd;
+}
+
+footer p, footer h3, footer a {
+    color: #999;
+}
+
+footer a {
+	text-decoration: underline;
+}
+
+footer h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+footer p {
+    font-size: small;
+    margin-top: 5px;
+}
+
+footer .copyright {
+	overflow: hidden;
+    text-align: center;
+	font-size: 0.8em;
+    color: #9f9f9f;
+}
+
+footer .linkBox {
+    float: left;
+    margin-left: 5%;
+    width: 16%;
+}
+
+
+footer .linkBox > div {
+    font-size: small;
+    font-weight: bold;
+    margin: 10px 0;
+}
