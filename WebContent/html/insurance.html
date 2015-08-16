@@ -126,7 +126,7 @@ margin-top: 2em;
 
 <div>
 
-  <div class="container" ng-app="myApp" ng-controller="insurance">
+  <div class="container" ng-app="myApp" ng-controller="Insurance">
           <div>
             <img src="../img/insurance/logo.png" width=100% alt="" />
         </div>	
@@ -249,7 +249,7 @@ margin-top: 2em;
     <script src="http://cdn.bootcss.com/angular.js/1.2.10/angular.min.js"></script>
     <script type="text/javascript">
     var app = angular.module('myApp', []);
-    app.controller('insurance', function($scope, $http) {
+    app.controller('Insurance', function($scope, $http) {
         $http.get("text.json").
         then(function(response) {
         	$scope.questions = response.data.section.questions;
