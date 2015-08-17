@@ -75,8 +75,8 @@ UFlying = angular.module('UFlying',['ui.bootstrap','dialogs.main', 'ngCookies'])
     .filter('missionPlace', function () {
         var text = [
              '',
-            '室外',
             '室内',
+            '室外',
             '室内+室外'
         ];
 

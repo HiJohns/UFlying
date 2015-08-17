@@ -1,3 +1,9 @@
+body, .btn-default, .btn-default.active, .btn-default:active {
+	background-color: lightgray;
+    font-family: "Microsoft YaHei",tahoma,arial,Hiragino Sans GB,宋体;
+    color: #888;
+}
+
 section .center {
     width: 1200px;
     margin: 0 auto;
@@ -60,6 +66,7 @@ div.actions .dropdown-menu {
 .modal-content h1 {
 	font-size: 1.5em;
 	margin: 0 0 1em;
+	color: rgb(107,217,254);
 }
 
 form section {
@@ -77,6 +84,10 @@ form section > label:first-child {
     float: left; 
     width: 80px;
     margin-top: 7px;
+}
+form section.staticInfo span {
+	margin-top: 7px;
+	float: left;
 }
 
 .form-horizontal.time > label, .form-horizontal.time > table {
@@ -168,6 +179,12 @@ article section li label {
 article img {
     width: 50%;
     margin-top: -16px;
+}
+article .emphasis {
+	color: rgb(107,217,254);
+}
+article .agreement {
+	padding-bottom: 10px;
 }
 
 form.ng-submitted .ng-invalid, form .invalid input {

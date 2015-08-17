@@ -4,6 +4,10 @@
     </header>
     <form novalidate name="missionForm">
         <fieldset>
+	        <section class="staticInfo">
+	            <label>任务类型</label>
+	            <span ng-bind="config.typeName"/>
+	        </section>
             <section>
                 <label for="location" class="control-label input-group">场所类型</label>
                 <span class="btn-group" data-toggle="buttons">
@@ -91,17 +95,20 @@
             </section>
             <section>
                 <label>飞行场地</label>
-                <span ng-bind="place|missionPlace"/>
+                <span ng-bind="place|missionPlace"></span>
             </section>
         </section>
-        <section>
+        <section class="emphasis">
             <section>
                 <label>预算金额</label>
-                <span ng-bind="payment|money"/>
+                <span><strong ng-bind="payment|money"></strong></span>
             </section>
         </section>
+        <section class="agreement">
+            <span><input type="checkbox" ng-model="agree"/>&nbsp;已阅读并同意<a target="_blank" href="../doc/contract20150801.pdf">本合同</a></span>
+        </section>
         <footer>
-            <button class="btn btn-primary" ng-click="checkout()" ng-disabled="loading">确认</button>
+            <button class="btn btn-primary" ng-click="checkout()" ng-disabled="loading || !agree">确认</button>
             <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
         </footer>
     </article>
@@ -130,10 +137,6 @@
         <section>
             <label>手机支付</label>
             <img ng-src="{{qrcodePayment}}"></img>
-        </section>
-        <section>
-            <label>商业合同</label>
-            <span><a target="_blank" href="../doc/contract20150801.pdf">点击查看</a></span>
         </section>
         <footer>
             <button class="btn btn-danger" ng-click="close()">返回</button>

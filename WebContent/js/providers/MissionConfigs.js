@@ -10,7 +10,6 @@ UFlying.factory('UFlyingMissionConfigs', function ($http, $timeout) {
             		timeout: 5000,
             		success: function (data) {
             			configs = data;
-            			console.log('mission_fee调用成功: ', data);
             			callback(configs);
             		},
             		error: function (jqXHR, textStatus, errorThrown) {
