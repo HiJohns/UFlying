@@ -100,9 +100,9 @@ form input {
     margin-right: 5px;
 }
 form textarea {
-    height: 4em;
-    max-height: 8em;
-    max-width: 80%;
+    height: 10em;
+    max-height: 10em;
+    max-width: 75%;
 }
 section > select, section > input, section > textarea {
     width: 50.6%;
@@ -170,13 +170,18 @@ article img {
     margin-top: -16px;
 }
 
-form.ng-submitted .ng-invalid {
+form.ng-submitted .ng-invalid, form .invalid input {
     border: red solid 1px;
 }
 .errInfo {
     display: none;
 }
-form.ng-submitted .errInfo {
+form.ng-submitted .errInfo, form .invalid .errInfo {
     display: inline;
     color: red;
+    width: 20%;
+}
+form .time .errInfo {
+	float: left;
+	margin-top: 2.8em;
 }

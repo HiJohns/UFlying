@@ -3,7 +3,7 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         $modalInstance.dismiss('Canceled');
     }
 
-    $scope.return = function() {
+    $scope.close = function() {
         $modalInstance.close();
     }
 
@@ -105,15 +105,18 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
       'clear-text': '清空',
       'close-text': '完成'
     };
-
+    var date = new Date();
     var _dateTemplate = _.template('<%=year%>年<%=month%>月<%=date%>日');
-
-    var date = $scope.date = new Date();
-
+    $scope.minDate = $scope.date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2);
     $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
+    
     $scope.place = 1;
     $scope.config = data.config;
+    
+    $scope.$watch('startTime < endTime', function (newValue) {
+    	$scope.timeClass = newValue ? '' : 'invalid';
+    });
 
     $scope.page = 'form';
     // const.
