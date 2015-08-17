@@ -1,6 +1,16 @@
+section .center {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 40px;
+}
+
 section.main {
-    height: 630px;
-    background: url(../img/task/background-1.png) no-repeat rgb(140,226,251) 730px 330px;
+    overflow: hidden;
+}
+
+section.main .center {
+    background: url(../img/task/background-1.png) no-repeat rgb(140,226,251) 620px 252px;
 }
 
 section.main > img {
@@ -22,23 +32,23 @@ div.client {
     width: 35em;
 }
 
-section.main > div {
+div.actions {
     border: 1px solid white;
     border-radius: 15px;
     height: 400px;
-    margin-left: 8em;
-    margin-top: 12em;
+    margin-left: 6em;
+    margin-top: 3em;
     overflow: hidden;
     width: 500px;
     padding: 3em 0;
 }
 
-section.main > div > button {
+div.actions button {
     margin: 1em 6em 0;
     width: 60%;
 }
 
-section.main div > .dropdown-menu {
+div.actions .dropdown-menu {
     position: inherit;
     top: 0;
     margin: 0 6em;

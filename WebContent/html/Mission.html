@@ -23,6 +23,7 @@
 		<script src="../js/mission/dialogs/Login.js"></script>
 		<script src="../js/directives/Footer.js"></script>
 		<script src="../js/directives/Vendors.js"></script>
+		<script src="../js/directives/Videos.js"></script>
 		
 	
 	    <link rel="stylesheet" type="text/css" href="../3rdParty/bootstrap/css/bootstrap.min.css">
@@ -32,17 +33,22 @@
 	</head>
 	<body ng-controller="Task">
 	    <section class="main">
-	        <div class="btn-group">
-	            <img src="../img/task/caption.png"/>
-	            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
-	                请选择任务类型 <span class="caret"></span>
-	            </button>
-	            <ul class="dropdown-menu">
-	                <li ng-repeat="config in missionConfigs"><a href="#" ng-click="mission()">{{config.typeName}}</a></li>
-	           </ul>
-	        </div>
-	        <img src="../img/Logo.png"/>
+	    	<div class="center">
+		        <img src="../img/Logo.png"/>
+		    	<div class="actions">
+			        <div class="btn-group">
+			            <img src="../img/task/caption.png"/>
+			            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
+			                请选择任务类型 <span class="caret"></span>
+			            </button>
+			            <ul class="dropdown-menu">
+			                <li ng-repeat="config in missionConfigs"><a href="#" ng-click="mission()">{{config.typeName}}</a></li>
+			           </ul>
+			        </div>
+		    	</div>
+	    	</div>
 	    </section>
+	    <uf-videos></uf-videos>
 	    <uf-footer></uf-footer>
 	</body>
 </html>

@@ -1,6 +1,5 @@
 footer section {
     overflow: hidden;
-    background-color: black;
 }
 
 footer .item {
@@ -9,13 +8,11 @@ footer .item {
     width: 33.33%;
 }
 
-footer .center {
-    width: 900px;
-    margin: 40px auto;
-    overflow: hidden
+footer section .center {
+    background-color: black;
 }
 
-footer section:first-child {
+footer section:first-child .center {
     background-color: #dddddd;
 }
 
@@ -47,7 +44,7 @@ footer .copyright {
 footer .linkBox {
     float: left;
     margin-left: 5%;
-    width: 16%;
+    width: 15%;
 }
 
 

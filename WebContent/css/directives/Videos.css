@@ -1,0 +1,8 @@
+.videos li {
+    background-color: rgb(140, 226, 251);
+    display: inline;
+    float: left;
+    height: 100px;
+    margin: 0 10px;
+    width: 21.2%;
+}
