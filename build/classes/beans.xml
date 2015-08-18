@@ -14,7 +14,10 @@
 	<mvc:resources mapping="/html/**" location="/html/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
-	<mvc:resources mapping="/doc/**" location="/doc/" />
+	<mvc:resources mapping="/doc/**" location="/doc/" /><mvc:resources
+		location="/controllers/**" mapping="/controllers/" /><mvc:resources
+		location="/components/**" mapping="/components/" /><mvc:resources
+		location="/style/**" mapping="/style/" ></mvc:resources><mvc:resources location="/models/**" mapping="/models/" />
 	<mvc:resources mapping="/3rdParty/**" location="/3rdParty/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<mvc:resources mapping="/fonts/**" location="/fonts/" />

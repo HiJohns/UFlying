@@ -1,0 +1,43 @@
+一些基本约定
+
+    系统分为若干子系统（会员、任务、保险、管理）
+    每个子系统对应于一个页面，是一个单页面程序，有自己的jsp文件、controller（JavaScript）和css文件
+    考虑到自适应界面的要求，子系统内的视图切换不再使用弹出式对话框，而采用Angular路由控制下的视图切换
+    视图内实行组件化编程，每个组件可以包括html/css/js文件，在编程过程中应识别可通用组件，使组件通用化
+    定义数据组件（models），不直接接触界面，采用Singleton架构，主要负责处理与服务器端通讯及缓存（如城市信息）。
+    定义工具类组件（misc），不直接接触界面，不与服务器端通讯。
+    CSS编程时尽可能避免针对单一目标设定，而应识别通用的样式适用规则，尽快制订适应全局的配色方案和样式规范
+    目录名适用小camel规则，文件名适用大camel规则
+    Angular定义的对象命名规则为：
+
+    所有对象都有Uf前缀
+    节与节之间不设分节符，每一节都适用大camel规则
+    第二节为以下缩写
+
+    Cmp: Components
+    Misc: Misc
+    Mdl: Models
+    Ctrl: Controllers
+
+        以下各节应与文件路径对应，如components/common/Footer.js中定义的对象命名为UfCmpCommonFooter。
+
+2、新目录结构如下：
+
+    WEB_INF    存放各子系统的页面定义文件
+    controllers 存放页面级控制逻辑
+    components 存放组件
+        common 存放适用于所有子系统的通用组件
+        mission / insurance / admin / user
+    models 存放数据组件
+    misc 存放工具类对象
+    3rdParty 存放第三方插件
+    style 存放css文件
+        uf.css 全局通用样式
+        mission.css / insurance.css / admin.css / user.css 子系统通用样式
+    原有的目录结构（js/css）暂时保留
+    img目录用于保存图像
+	    common 存放适用于所有子系统的图像
+	    mission / insurance / admin / user存放各个子系统的图像
+	doc文件用于存放包括本规范在内的文档（不对外发布）
+
+3、服务器端配置应作相应修改

@@ -29,6 +29,12 @@ public class MissionController {
 	@Autowired
 	private AccountService accountService;
 
+	/** 注册页 - 提示用户选择个人用户或企业用户 */
+	@RequestMapping(value = "/mission", method = RequestMethod.GET)
+	public String getPage() {
+		return "Mission";
+	}
+	
 	/** 获取任务费率表 */
 	@RequestMapping(value = "/mission_fee", method = RequestMethod.POST)
 	@ResponseBody

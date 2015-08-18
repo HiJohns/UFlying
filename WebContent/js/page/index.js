@@ -42,7 +42,7 @@ $(document).ready(function () {
     for (var i = 0; i < total; i++) {
 
         var a = $('<a>').attr('href', 'http://' + _urls[i]).attr('target', '_blank').appendTo(div);
-        $('<img>').attr('src', 'images/Vendors/' + padRight(i) + '.png').appendTo(a);
+        $('<img>').attr('src', 'img/homepage/vendors/' + padRight(i) + '.png').appendTo(a);
     }
     
 	$.ajax({

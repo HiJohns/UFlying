@@ -76,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </ul>
  <div id="home1" class="top-header">		  
         <div class="logo">
-            <a href="<%=request.getContextPath()%>/"><img src="images/logo.png" alt="" /></a>
+            <a href="<%=request.getContextPath()%>/"><img src="img/common/logo.png" alt="" /></a>
         </div>			  
          <div class="top-menu">
              <span class="menu"></span> 
@@ -140,21 +140,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 <div class="skill-grids">
 			 <div class="col-md-4 skill-grid">
 			 	<div>
-				 <img src="images/research.png" alt=""/>
+				 <img src="img/homepage/research.png" alt=""/>
 				 <h3><a href="#">无人机保险</a></h3>
 				 <p>无人机飞行是一项有风险的活动，联盟为成员提供包括机身，三者，团队等多重保障在内的保险服务。</p>
 				 </div>
 			 </div>
 			 <div class="col-md-4 skill-grid">
 			 	<div>
-				 <img src="images/design.png" alt=""/>
+				 <img src="img/homepage/design.png" alt=""/>
 				 <h3><a href="#">商业任务</a></h3>
 				 <p>通过大数据平台，为会员对接商业任务。飞手承接更多任务，需求方更快捷地找到可信任的执行团队。</p>
 				 </div>
 			 </div>
 			 <div class="col-md-4 skill-grid">
 			 	<div>
-				 <img src="images/code.png" alt=""/>
+				 <img src="img/homepage/code.png" alt=""/>
 				 <h3><a href="#">文化娱乐</a></h3>
 				 <p>带您玩转无人机，无人机将成为新的文化时尚。多样的玩法，专业的教练，让零基础也能享受无人机的乐趣。</p>
 				 </div>
@@ -190,7 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div id="portfoliolist">
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic1.jpg" class="swipebox"  title="空中家园旗舰店正门"> <img src="images/pic1.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic1.jpg" class="swipebox"  title="空中家园旗舰店正门"> <img src="img/homepage/pic1.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店正门</h4>								
@@ -202,7 +202,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>				
 					<div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic2.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="images/pic2.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic2.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="img/homepage/pic2.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店办公区</h4>								
@@ -214,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>					
 					<div class="portfolio icon mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="icon" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic3.jpg" class="swipebox"  title="空中家园旗舰店室内"> <img src="images/pic3.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic3.jpg" class="swipebox"  title="空中家园旗舰店室内"> <img src="img/homepage/pic3.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店室内</h4>								
@@ -228,7 +228,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
 					<div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic4.jpg" class="swipebox"  title="空中家园旗舰店会议区"> <img src="images/pic4.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic4.jpg" class="swipebox"  title="空中家园旗舰店会议区"> <img src="img/homepage/pic4.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店会议区</h4>								
@@ -240,7 +240,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>			
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic5.jpg" class="swipebox"  title="空中家园旗舰店休闲区"> <img src="images/pic5.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic5.jpg" class="swipebox"  title="空中家园旗舰店休闲区"> <img src="img/homepage/pic5.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店休闲区</h4>								
@@ -252,7 +252,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>	
 					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic6.jpg" class="swipebox"  title="空中家园会员用品区"> <img src="images/pic6.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic6.jpg" class="swipebox"  title="空中家园会员用品区"> <img src="img/homepage/pic6.jpg" class="img-responsive" alt="">
 							 <div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园会员用品区</h4>								
@@ -264,7 +264,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>	
 					<div class="portfolio icon mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="icon" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic7.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="images/pic7.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic7.jpg" class="swipebox"  title="空中家园旗舰店办公区"> <img src="img/homepage/pic7.jpg" class="img-responsive" alt="">
 								<div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店办公区</h4>								
@@ -276,7 +276,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="portfolio logos mix_all wow bounceIn" data-wow-delay="0.4s" data-cat="logos" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper grid_box">		
-							 <a href="images/pic8.jpg" class="swipebox"  title="空中家园旗舰店工作区"> <img src="images/pic8.jpg" class="img-responsive" alt="">
+							 <a href="img/homepage/pic8.jpg" class="swipebox"  title="空中家园旗舰店工作区"> <img src="img/homepage/pic8.jpg" class="img-responsive" alt="">
 							<div class="caption">
 							 <div class="caption-info">
 								 <h4>空中家园旗舰店工作区</h4>								
@@ -350,7 +350,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			 <div class="col-md-6 about-info">
 				 <div class="about-grid">
 					 <div class="about-icon">
-						 <i class="icon1"></i>
+						 <i class="wedding"></i>
 					 </div>
 					 <div class="about-icon-info">
 						 <h4>我是婚礼新人：</h4>
@@ -360,7 +360,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 </div>
 				 <div class="about-grid">
 					 <div class="about-icon">
-						 <i class="icon2"></i>
+						 <i class="ad"></i>
 					 </div>
 					 <div class="about-icon-info">
 						 <h4>我是广告经理：</h4>
@@ -371,7 +371,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 </div>
 				 <div class="about-grid">
 					 <div class="about-icon">
-						 <i class="icon3"></i>
+						 <i class="movie"></i>
 					 </div>
 					 <div class="about-icon-info">
 						 <h4>我是影视导演：</h4>
@@ -381,7 +381,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 </div>
 			 </div>
 			 <div class="col-md-6 about-phones">
-				 <img src="images/phones.png" alt=""/>
+				 <img src="img/homepage/phones.png" alt=""/>
 			 </div>
 			 <div class="clearfix"></div>
 		 </div>
@@ -399,19 +399,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <section>
         <div class="center">
             <div class="item">
-                <img src="images/Notes.png" />
+                <img src="img/homepage/Notes.png" />
                 <h3>&nbsp;</h3>
                 <h3>成为签约飞手</h3>
                 <p>为超过1000家客户服务，百分之百获得任务</p>
             </div>
             <div class="item">
-                <img src="images/Awards.png" />
+                <img src="img/homepage/Awards.png" />
                 <h3>&nbsp;</h3>
                 <h3>全国代理加盟</h3>
                 <p>会员服务、商业任务、保险服务授权经销</p>
             </div>
             <div class="item">
-                <img src="images/Charity.png" />
+                <img src="img/homepage/Charity.png" />
                 <h3>&nbsp;</h3>
                 <h3>公益服务申请</h3>
                 <p>免费为全国公益性组织提供无人机服务</p>

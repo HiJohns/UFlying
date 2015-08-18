@@ -5,7 +5,7 @@ UFlying.factory('UFlyingMissionConfigs', function ($http, $timeout) {
         load: function (callback) {
             if (configs == null) {
             	$.ajax({
-            		url: '../mission_fee',
+            		url: 'mission_fee',
             		method: 'post',
             		timeout: 5000,
             		success: function (data) {
@@ -28,7 +28,7 @@ UFlying.factory('UFlyingMissionConfigs', function ($http, $timeout) {
             	});
             	
             	return;
-                $http.post('../mission_fee').then(function (response) {
+                $http.post('mission_fee').then(function (response) {
                     configs = response;
                     callback(configs);
                 }, function (response) {

@@ -28,14 +28,14 @@ UFlying.directive('ufVendors', function (UFlyingUtils) {
 	
 	return {
 		restrict: 'E',
-		templateUrl: '../html/directives/Vendors.html',
+		templateUrl: 'html/directives/Vendors.html',
 		link: function (scope, elem, attrs) {
 		    var container = $(elem).find('.vendors div');
 		    var div = container;
 		    for (var i = 0; i < _urls.length; i++) {
 
 		        var a = $('<a>').attr('href', 'http://' + _urls[i]).attr('target', '_blank').appendTo(div);
-		        $('<img>').attr('src', '../images/Vendors/' + UFlyingUtils.packZeros(i+1, _namePattern) + '.png').appendTo(a);
+		        $('<img>').attr('src', '../img/homepage/vendors/' + UFlyingUtils.packZeros(i+1, _namePattern) + '.png').appendTo(a);
 		    }
 		}
 	}
