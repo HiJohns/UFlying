@@ -1,0 +1,30 @@
+body, .btn-default, .btn-default.active, .btn-default:active {
+	background-color: lightgray;
+    font-family: "Microsoft YaHei",tahoma,arial,Hiragino Sans GB,宋体;
+    color: #888;
+}
+section .main {
+	width: 80%;
+ 	margin: 0 auto; 
+ 	float:none; 
+ 	background-color:#fff; 
+ 	padding:12px;
+    overflow: hidden; 	
+}
+
+section .tabset{
+	font-size: 1em;
+	margin: 10px auto;
+	padding: 20px;
+}
+section .heading{
+	
+	font-size: 1.2em;
+}
+section .center {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  	background-color:#fff;
+	padding:40px;
+}
