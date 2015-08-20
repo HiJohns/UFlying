@@ -1,4 +1,4 @@
-UFlying.factory('UFlyingLogin', function ($http) {
+UfCommon.factory('modLogin', function ($http) {
     var _current = null;
     return {
         getLoginInfo: function () {
@@ -20,7 +20,7 @@ UFlying.factory('UFlyingLogin', function ($http) {
             var _failure = null;
 
             $.ajax({
-                url: '../login_info',
+                url: 'login_info',
                 method: 'post',
                 success: onLoginInfo,
                 error: onLoginInfoFailure

@@ -1,4 +1,4 @@
-UFlying.factory('UFlyingUtils', function () {
+UfCommon.factory('misUtils', function () {
     var jsonDateTmpl = _.template('<%=year%>-<%=month%>-<%=date%>');
     var jsonTimeTmpl = _.template('<%=hours%>:<%=minutes%>:<%=seconds%>');
     var timeTmpl = _.template('<%=hours%>:<%=minutes%>');

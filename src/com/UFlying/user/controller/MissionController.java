@@ -30,7 +30,7 @@ public class MissionController {
 	private AccountService accountService;
 
 	/** 注册页 - 提示用户选择个人用户或企业用户 */
-	@RequestMapping(value = "/mission", method = RequestMethod.GET)
+	@RequestMapping(value = "/mission_page", method = RequestMethod.GET)
 	public String getPage() {
 		return "Mission";
 	}

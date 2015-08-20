@@ -14,11 +14,14 @@
 	<mvc:resources mapping="/html/**" location="/html/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
-	<mvc:resources mapping="/doc/**" location="/doc/" /><mvc:resources
-		location="/controllers/**" mapping="/controllers/" /><mvc:resources
-		location="/components/**" mapping="/components/" /><mvc:resources
-		location="/style/**" mapping="/style/" ></mvc:resources><mvc:resources location="/models/**" mapping="/models/" />
-	<mvc:resources mapping="/3rdParty/**" location="/3rdParty/" />
+	<mvc:resources mapping="/doc/**" location="/doc/" />
+	<mvc:resources mapping="/common/**" location="/common/" />
+	<mvc:resources mapping="/admin/**" location="/admin/" />
+	<mvc:resources mapping="/account/**" location="/account/" />
+	<mvc:resources mapping="/mission/**" location="/mission/" />
+	<mvc:resources mapping="/insurance/**" location="/insurance/" />
+	<mvc:resources mapping="/homepage/**" location="/homepage/" />
+    <mvc:resources mapping="/3rdParty/**" location="/3rdParty/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<mvc:resources mapping="/fonts/**" location="/fonts/" />
 	 <!-- 启动定时器 --> 

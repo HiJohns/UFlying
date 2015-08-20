@@ -1,4 +1,4 @@
-UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, cities, $timeout, data, $http, UFlyingLogin, UFlyingUtils) {
+UfMission.controller('comDialogMissionedit', function ($scope, $modalInstance, modCities, $timeout, data, $http, modLogin, misUtils) {
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
     }
@@ -9,7 +9,7 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
 
     $scope.submit = function () {
         if ($scope.missionForm.$invalid) return;
-        var account = UFlyingLogin.getCurrentUser();
+        var account = modLogin.getCurrentUser();
         $scope.user = account.uid || -account.eid;
         $scope.phone = account.mobilePhone;
         $scope.page = 'summary';
@@ -26,15 +26,15 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
 
     $scope.checkout = function () {
         $scope.loading = true;
-        $http.post('../create_mission', JSON.stringify({
+        $http.post('create_mission', JSON.stringify({
             missionType: $scope.config.missionType,
             typeInitials: $scope.config.typeInitials,
             address: $scope.address,
             city: $scope.city,
             province: $scope.province,
-            endTime: UFlyingUtils.renderJsonTime($scope.endTime),
-            startTime: UFlyingUtils.renderJsonTime($scope.startTime),
-            missionDate: UFlyingUtils.renderJsonDate($scope.date),
+            endTime: misUtils.renderJsonTime($scope.endTime),
+            startTime: misUtils.renderJsonTime($scope.startTime),
+            missionDate: misUtils.renderJsonDate($scope.date),
             payment: $scope.payment,
             place: $scope.place,
             remark: $scope.remark
@@ -80,7 +80,7 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
     }
 
     $scope.loading = true;
-    cities.load(function (data) {
+    modCities.load(function (data) {
         $scope.loading = false;
         var provinces = [];
         for (var province in data) {
@@ -125,5 +125,5 @@ UFlying.controller('dialogs.MissionEdit', function ($scope, $modalInstance, citi
         account: '6216610100010698856',
         branch: '中国银行北京分行东大桥支行'
     };
-    $scope.qrcodePayment = '../img/8cd0b33a3c074896bf537ed479b683ad.jpg';
+    $scope.qrcodePayment = 'img/8cd0b33a3c074896bf537ed479b683ad.jpg';
 });

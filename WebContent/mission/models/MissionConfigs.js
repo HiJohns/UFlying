@@ -1,4 +1,4 @@
-UFlying.factory('UFlyingMissionConfigs', function ($http, $timeout) {
+UfMission.factory('modMissionconfigs', function ($http, $timeout) {
     var configs = null;
 
     return {

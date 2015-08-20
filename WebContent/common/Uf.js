@@ -1,0 +1,1 @@
+UfCommon = angular.module('UfCommon', []);

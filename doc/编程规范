@@ -1,18 +1,30 @@
 一些基本约定
 
-    系统分为若干子系统（会员、任务、保险、管理）
-    每个子系统对应于一个页面，是一个单页面程序，有自己的jsp文件、controller（JavaScript）和css文件
-    考虑到自适应界面的要求，子系统内的视图切换不再使用弹出式对话框，而采用Angular路由控制下的视图切换
-    视图内实行组件化编程，每个组件可以包括html/css/js文件，在编程过程中应识别可通用组件，使组件通用化
-    定义数据组件（models），不直接接触界面，采用Singleton架构，主要负责处理与服务器端通讯及缓存（如城市信息）。
-    定义工具类组件（misc），不直接接触界面，不与服务器端通讯。
-    CSS编程时尽可能避免针对单一目标设定，而应识别通用的样式适用规则，尽快制订适应全局的配色方案和样式规范
-    目录名适用小camel规则，文件名适用大camel规则
-    Angular定义的对象命名规则为：
-
-    所有对象都有Uf前缀
-    节与节之间不设分节符，每一节都适用大camel规则
-    第二节为以下缩写
+1、子系统
+    系统分为若干子系统（首页、会员、任务、保险、管理以及公共子系统）。
+    视觉上，除公共子系统外，每个子系统对应于一个页面，形成一个单页面程序，而公共子系统处理公共逻辑和样式，保证全局一致性。
+    逻辑上，每个页面子系统都由以下部分构成：
+        - 一个jsp文件
+        - 一个顶层controller（JavaScript）
+        - 一个css文件
+        - 适用于本子系统的组件，组件由一个或若干个html/css/js文件构成
+    公共子系统由以下部分构成：
+        - uf.css（公用样式）
+        - 公共组件
+        - 数据模型
+        - 公共服务
+    当切换进一个页面的时候，总会首先载入公共子系统，再载入对应的页面子系统。
+2、一些设计原则
+    - 考虑到自适应界面的要求，子系统内的视图切换不再使用弹出式对话框，而采用Angular路由控制下的视图切换
+    - 数据模型不操纵界面，采用Singleton架构，主要负责处理与服务器端通讯及缓存（如城市信息）。
+    - 避免针对单一目标设定样式，而应识别通用的样式适用规则，尽快制订适应全局的配色方案和样式规范
+3、命名原则
+    - 目录名适用小camel规则，文件名适用大camel规则
+9、逻辑组织为，每个子系统
+定义的对象命名规则为：
+- 所有对象都有Uf前缀
+节与节之间不设分节符，每一节都适用大camel规则
+第二节为以下缩写
 
     Cmp: Components
     Misc: Misc
@@ -24,16 +36,37 @@
 2、新目录结构如下：
 
     WEB_INF    存放各子系统的页面定义文件
-    controllers 存放页面级控制逻辑
-    components 存放组件
-        common 存放适用于所有子系统的通用组件
-        mission / insurance / admin / user
-    models 存放数据组件
-    misc 存放工具类对象
+    common: module名UfCommon
+        Uf.css
+        components
+        models
+        misc
+    admin: module名UfAdmin
+        Admin.js
+        Admin.css
+        components
+        models
+        misc
+    account: module名UfAccount
+        Account.js
+        Account.css
+        components
+        models
+        misc
+    mission: module名UfMission
+        Mission.js
+        Mission.css
+        components
+        models
+        misc
+    insurance: module名UfInsurance
+        Insurance.js
+        Insurance.css
+        components
+        models
+        misc
+    组件命名时以c开头，然后依次为目录名和文件名，目录名和文件名不管包含几个字母都只有首字母大写。数据模型命名以m开头，其他以i开头。
     3rdParty 存放第三方插件
-    style 存放css文件
-        uf.css 全局通用样式
-        mission.css / insurance.css / admin.css / user.css 子系统通用样式
     原有的目录结构（js/css）暂时保留
     img目录用于保存图像
 	    common 存放适用于所有子系统的图像

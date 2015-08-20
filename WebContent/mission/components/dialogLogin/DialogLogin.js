@@ -1,4 +1,4 @@
-UFlying.controller('dialogs.Login', function ($scope, $modalInstance, $http, data, $cookies) {
+UfMission.controller('comDialogLogin', function ($scope, $modalInstance, $http, data, $cookies) {
     $scope.cancel = function () {
         $modalInstance.dismiss('Canceled');
     }

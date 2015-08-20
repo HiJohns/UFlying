@@ -3,10 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
-<html ng-app="UFlying">
+<html ng-app="UfMission">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>空中梦想</title>
 		<script src="3rdParty/angular/angular.min.js"></script>
 		<script src="3rdParty/angular-sanitize/angular-sanitize.min.js"></script>
 		<script src="3rdParty/angular-translate/angular-translate.min.js"></script>
@@ -20,23 +21,26 @@
 		<script src="3rdParty/angular-dialog-service/dialogs-default-translations.min.js"></script>
 		<script src="3rdParty/angular-dialog-service/dialogs.min.js"></script>
 		<script src="3rdParty/angular-cookies/angular-cookies.min.js"></script>
-		<script src="js/mission/Main.js"></script>
-		<script src="js/Utils.js"></script>
-		<script src="js/providers/Cities.js"></script>
-		<script src="js/providers/Login.js"></script>
-		<script src="js/providers/MissionConfigs.js"></script>
-		<script src="js/mission/dialogs/MissionEdit.js"></script>
-		<script src="js/mission/dialogs/Login.js"></script>
-		<script src="js/directives/Footer.js"></script>
-		<script src="js/directives/Vendors.js"></script>
-		<script src="js/directives/Videos.js"></script>
+		
+		<script src="common/Uf.js"></script>
+		<script src="common/components/footer/Footer.js"></script>
+		<script src="common/components/videos/Videos.js"></script>
+		<script src="common/misc/Utils.js"></script>
+		<script src="common/models/Cities.js"></script>
+		<script src="common/models/Login.js"></script>
+		
+		<script src="mission/Mission.js"></script>
+		<script src="mission/components/dialogLogin/DialogLogin.js"></script>
+		<script src="mission/components/dialogMissionEdit/DialogMissionEdit.js"></script>
+		<script src="mission/models/MissionConfigs.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="3rdParty/angular-dialog-service/dialogs.min.css">
-		<link rel="stylesheet" type="text/css" href="css/Mission.css">
+		<link rel="stylesheet" type="text/css" href="common/Uf.css">
+		<link rel="stylesheet" type="text/css" href="mission/Mission.css">
 	</head>
-	<body ng-controller="Task">
+	<body ng-controller="Main">
 	    <section class="main">
 	    	<div class="center">
 		        <img src="img/Logo.png"/>
@@ -53,7 +57,7 @@
 		    	</div>
 	    	</div>
 	    </section>
-	    <uf-videos></uf-videos>
-	    <uf-footer></uf-footer>
+	    <com-videos></com-videos>
+	    <com-footer></com-footer>
 	</body>
 </html>
