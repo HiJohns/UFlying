@@ -103,7 +103,7 @@
 			</div>
 				</section>
 
-	<uf-footer></uf-footer>
+	    <com-footer></com-footer>
 </body>
 </html>
 			
