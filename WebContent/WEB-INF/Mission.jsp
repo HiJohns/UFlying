@@ -46,7 +46,7 @@
 		        <img src="img/Logo.png"/>
 		    	<div class="actions">
 			        <div class="btn-group">
-			            <img src="img/task/caption.png"/>
+			            <img src="mission/img/caption.png"/>
 			            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
 			                请选择任务类型 <span class="caret"></span>
 			            </button>

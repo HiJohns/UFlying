@@ -125,5 +125,5 @@ UfMission.controller('comDialogMissionedit', function ($scope, $modalInstance, m
         account: '6216610100010698856',
         branch: '中国银行北京分行东大桥支行'
     };
-    $scope.qrcodePayment = 'img/8cd0b33a3c074896bf537ed479b683ad.jpg';
+    $scope.qrcodePayment = 'common/img/8cd0b33a3c074896bf537ed479b683ad.jpg';
 });

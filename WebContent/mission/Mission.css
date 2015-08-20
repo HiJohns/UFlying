@@ -16,7 +16,7 @@ section.main {
 }
 
 section.main .center {
-    background: url(../img/task/background-1.png) no-repeat rgb(140,226,251) 620px 252px;
+    background: url(img/background-1.png) no-repeat rgb(140,226,251) 620px 252px;
 }
 
 section.main > img {
