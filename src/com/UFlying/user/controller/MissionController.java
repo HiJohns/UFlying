@@ -29,10 +29,14 @@ public class MissionController {
 	@Autowired
 	private AccountService accountService;
 
-	/** 注册页 - 提示用户选择个人用户或企业用户 */
 	@RequestMapping(value = "/mission_page", method = RequestMethod.GET)
 	public String getPage() {
 		return "Mission";
+	}
+	
+	@RequestMapping(value = "/insurance_page", method = RequestMethod.GET)
+	public String getInsurancePage() {
+		return "Insurance";
 	}
 	
 	/** 获取任务费率表 */

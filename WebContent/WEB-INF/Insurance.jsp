@@ -10,7 +10,6 @@
 	<title>空中梦想</title>
 
 		<link rel="stylesheet" href="3rdParty/bootstrap/css/bootstrap.min.css">
-		<script src="3rdParty/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="3rdParty/angular/angular.min.js"></script>
 		<script src="3rdParty/angular-sanitize/angular-sanitize.min.js"></script>
 		<script src="3rdParty/angular-translate/angular-translate.min.js"></script>
@@ -38,10 +37,10 @@
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="3rdParty/angular-dialog-service/dialogs.min.css">
 		<link rel="stylesheet" type="text/css" href="common/Uf.css">
-		<link rel="stylesheet" type="text/css" href="mission/Insurance.css">
+		<link rel="stylesheet" type="text/css" href="insurance/Insurance.css">
 </head>
-<body ng-app="myApp" >
-		<section class="main" ng-controller="Insurance" >
+<body ng-app="UfInsurance" >
+		<section class="main" ng-controller="Main" >
 		<div class="center">
 	
 			<img src="img/insurance/logo.png" width=100%/>
