@@ -34,6 +34,11 @@ public class MissionController {
 		return "Mission";
 	}
 	
+	@RequestMapping(value = "/mission_page/**", method = RequestMethod.GET)
+	public String getPageAnySub() {
+		return "Mission";
+	}
+	
 	@RequestMapping(value = "/insurance_page", method = RequestMethod.GET)
 	public String getInsurancePage() {
 		return "Insurance";

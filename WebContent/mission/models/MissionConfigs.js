@@ -2,6 +2,9 @@ UfMission.factory('modMissionconfigs', function ($http, $timeout) {
     var configs = null;
 
     return {
+    	find: function (type) {
+    		return _.find(configs, function (config) { return config.typeInitials == type; });
+    	},
         load: function (callback) {
             if (configs == null) {
             	$.ajax({

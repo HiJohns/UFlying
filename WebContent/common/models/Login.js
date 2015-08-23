@@ -20,7 +20,7 @@ UfCommon.factory('modLogin', function ($http) {
             var _failure = null;
 
             $.ajax({
-                url: 'login_info',
+                url: contextPath + 'login_info',
                 method: 'post',
                 success: onLoginInfo,
                 error: onLoginInfoFailure

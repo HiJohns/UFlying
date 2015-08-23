@@ -1,0 +1,48 @@
+section.main {
+    overflow: hidden;
+}
+
+section.main .center {
+    background: url(../../img/background-1.png) no-repeat rgb(140,226,251) 620px 252px;
+}
+
+section.main > img {
+    position: absolute;
+    left: 45px;
+    top: 65px;
+}
+
+div.client {
+    /*background-color: white;
+    border: 1px solid rgb(100, 204, 255);*/
+    border: 3px solid white;
+    border-radius: 6px;
+    height: 25em;
+    left: 9em;
+    padding: 2em 1em;
+    position: relative;
+    top: 10em;
+    width: 35em;
+}
+
+div.actions {
+    border: 1px solid white;
+    border-radius: 15px;
+    height: 400px;
+    margin-left: 6em;
+    margin-top: 3em;
+    overflow: hidden;
+    width: 500px;
+    padding: 3em 0;
+}
+
+div.actions button {
+    margin: 1em 6em 0;
+    width: 60%;
+}
+
+div.actions .dropdown-menu {
+    position: inherit;
+    top: 0;
+    margin: 0 6em;
+}

@@ -1,78 +1,27 @@
-UfMission = angular.module('UfMission',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon'])
+UfMission = angular.module('UfMission',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon', 'ngRoute'])
 	.controller('Main', function($scope,$rootScope,$timeout,dialogs,$cookies, modLogin, modMissionconfigs){
-        function openDialog(mission, callback) {
-            var dlg = dialogs.create(
-                'mission/components/dialogMissionEdit/DialogMissionEdit.html',
-                'comDialogMissionedit', {
-                    config: mission
-                },
-                {
-                    size:'md',
-                    keyboard: true,
-                    backdrop: false,
-                    windowClass: 'my-class'
-                });
-
-            dlg.result.then(callback);
-        }
-
-        function login(followingAction) {
-            dialogs.create(
-                'mission/components/dialogLogin/DialogLogin.html',
-                'comDialogLogin',
-                {},
-                {
-                    size:'md',
-                    keyboard: true,
-                    backdrop: false
-                }).result.then(function (account) {
-                    var d = new Date();
-                    $cookies.put(
-                        'token', 
-                        account.token, { 
-                            path: '/', 
-                            expires: new Date(
-                                d.getFullYear(), 
-                                d.getMonth(),
-                                d.getDate() + 15, 
-                                d.getHours(),
-                                d.getMinutes()
-                            )
-                        });
-
-                    openDialog(followingAction);
-                });
-        }
-
-		$scope.mission = function () {
-            function onLoginInfo(info) {
-                $scope.loading = false;
-            	var config = _.findWhere($scope.missionConfigs, { missionType: missionType });
-                if (info == null) {
-                    login(config);
-                }
-                else {
-                    openDialog(config);
-                }
-            }
-
-            function onLoginFailed(response) {
-                $scope.loading = false;
-                alert('非常抱歉，无法连接服务器，错误码为' + response.status + '，请致电客服为您解决问题。');
-            }
-
-            $scope.loading = true;
-            missionType = _.isObject(this.config) ? this.config.missionType : 1;
-            modLogin.getLoginInfo().then(onLoginInfo, onLoginFailed);
-        }
-
         $scope.missionConfigs = null;
         modMissionconfigs.load(function (configs) {
             $scope.missionConfigs = configs;
             $scope.$apply();
         });
 	})
-    .filter('missionPlace', function () {
+	.config(['$routeProvider', '$locationProvider',
+	    function ($routeProvider, $locationProvider) {
+			$routeProvider
+				.when('/mission_page', {
+					templateUrl: 'mission/views/main/Main.html',
+					controller: 'vieMain'
+				})
+				.when('/mission_page/create/:type', {
+					templateUrl: 'mission/views/missionEdit/MissionEdit.html',
+					controller: 'vieMissionedit'
+				})
+;			
+			$locationProvider.html5Mode(true);
+		}
+	])
+	.filter('missionPlace', function () {
         var text = [
              '',
             '室内',

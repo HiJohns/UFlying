@@ -1,0 +1,19 @@
+<link href="mission/views/main/Main.css" rel="stylesheet" type="text/css" media="all"/>
+
+<section class="main" ng-controller="vieMain">
+	<div class="center">
+	   	<img src="img/Logo.png"/>
+	  	<div class="actions">
+	       <div class="btn-group">
+	           <img src="mission/img/caption.png"/>
+	           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="missionConfigs == null || loading">
+	               请选择任务类型 <span class="caret"></span>
+	           </button>
+	           <ul class="dropdown-menu">
+	               <li ng-repeat="config in missionConfigs"><a href="mission_page/create/{{config.typeInitials}}">{{config.typeName}}</a></li>
+	          </ul>
+	       </div>
+	  	</div>
+	</div>
+</section>
+<com-videos></com-videos>

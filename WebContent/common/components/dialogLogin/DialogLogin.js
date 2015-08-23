@@ -1,10 +1,10 @@
-UfMission.controller('comDialogLogin', function ($scope, $modalInstance, $http, data, $cookies) {
+UfCommon.controller('comDialogLogin', function ($scope, $modalInstance, $http, data, $cookies) {
     $scope.cancel = function () {
         $modalInstance.dismiss('Canceled');
     }
 
     $scope.ok = function () {
-    	$http.post('../ajax_login', JSON.stringify({ user: $scope.user, password: $scope.password }))
+    	$http.post('ajax_login', JSON.stringify({ user: $scope.user, password: $scope.password }))
     		.then(function (response) {
     			var data = response.data;
     			if (data.status != 0) {

@@ -30,7 +30,13 @@ UfCommon.factory('misUtils', function () {
             if (!_.isDate(time)) return time;
             return timeTmpl({ hours: time.getHours(), minutes: packZeros(time.getMinutes(), 2) });
         },
-        packZeros: packZeros
-
+        packZeros: packZeros,
+        loadCss: function (path) {
+        	var link = document.createElement('link');
+        	link.setAttribute('rel', 'stylesheet');
+        	link.setAttribute('type', 'text/css');
+        	link.setAttribute('href', path);
+        	document.getElementsByTagName("head")[0].appendChild(link)
+        }
     }
 });
