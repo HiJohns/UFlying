@@ -1,12 +1,9 @@
 <link href="common/components/formPageHeader/FormPageHeader.css" rel="stylesheet" type="text/css" media="all"/>
 <section class="formPageHeader">
-<!-- 	<div class="clientWidth"> -->
-<!-- 		<img src="img/Logo_white.png"></img> -->
-<!-- 	</div> -->
 	<div class="center">
 		<nav>
 			<ul class="clientWidth">
-				<li>任务设置</li>
+				<li ng-repeat="tab in tabs" ng-class="$index==active?'active':''">{{tab.title}}</li>
 			</ul>
 		</nav>
 	</div>

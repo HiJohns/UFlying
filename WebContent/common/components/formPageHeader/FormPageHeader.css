@@ -15,11 +15,13 @@
 }
 
 .formPageHeader nav li {
-    background-color: rgb(98, 98, 98);
     color: white;
     display: inline;
     float: left;
     padding: 1em 2em 0.8em;
+}
+.formPageHeader nav li.active {
+    background-color: rgb(98, 98, 98);
 }
 
 .formPageHeader .center {

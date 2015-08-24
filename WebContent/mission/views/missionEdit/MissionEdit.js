@@ -22,6 +22,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
 	        $scope.user = account.uid || -account.eid;
 	        $scope.phone = account.mobilePhone;
 	        $scope.page = 'summary';
+	        $scope.headerActive = 1;
 	        $scope.place = parseInt($('input[type="radio"][name="place"]:checked').val(), 10);
 	        var match = $('section.date > input[type=date]').val().match(/(\d+)年(\d+)月(\d+)日/);
 	        $scope.date = new Date(match[1], parseInt(match[2], 10)-1, match[3]);
@@ -158,6 +159,9 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
     $scope.$watch('startTime < endTime', function (newValue) {
     	$scope.timeClass = newValue ? '' : 'invalid';
     });
+    
+    $scope.headerTabs = [ '任务设置', '确认' ];
+    $scope.headerActive = 0;
 
     // const.
     $scope.bankAccount = {

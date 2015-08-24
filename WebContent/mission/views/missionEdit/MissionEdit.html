@@ -1,4 +1,4 @@
-<com-formpageheader></com-formpageheader>
+<com-formpageheader tabs="headerTabs" active="headerActive"></com-formpageheader>
 <div ng-show="page=='form'">
     <section>
     	<div class="center">
@@ -59,67 +59,68 @@
     	</div>
     </section>
 </div>
-<div ng-show="page=='summary'" style="display:none">
-    <article>
-        <header>
-            <h1>任务总结</h1>
-        </header>
-        <section>
-            <section>
-                <label>任务类型</label>
-                <span ng-bind="config.typeName"/>
-            </section>
-            <section>
-                <label>发起人ID</label>
-                <span ng-bind="user|userId"/>
-            </section>
-            <section>
-                <label>联系电话</label>
-                <span ng-bind="phone"/>
-            </section>
-        </section>
-        <section>
-            <section>
-                <label>时间</label>
-                <span>
-                    <span ng-bind="date|dateFormat"></span>
-                    <span ng-bind="startTime|timeFormat"></span>至
-                    <span ng-bind="endTime|timeFormat"></span>
-                </span>
-            </section>
-            <section>
-                <label>地点</label>
-                <span>
-                    <span ng-bind="province"></span>
-                    <span ng-bind="city"></span>
-                    <span ng-bind="address"></span>
-                </span>
-            </section>
-            <section>
-                <label>飞行场地</label>
-                <span ng-bind="place|missionPlace"></span>
-            </section>
-        </section>
-        <section class="emphasis">
-            <section>
-                <label>预算金额</label>
-                <span><strong ng-bind="payment|money"></strong></span>
-            </section>
-        </section>
-        <section class="agreement">
-            <span><input type="checkbox" ng-model="agree"/>&nbsp;已阅读并同意<a target="_blank" href="../doc/contract20150801.pdf">本合同</a></span>
-        </section>
-        <footer>
-            <button class="btn btn-primary" ng-click="checkout()" ng-disabled="loading || !agree">确认</button>
-            <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
-        </footer>
-    </article>
+<div ng-show="page=='summary'">
+	<section>
+		<div class="center">
+		    <article>
+		        <header>
+		            <h1>任务总结</h1>
+		        </header>
+		        <section>
+		            <section>
+		                <label>任务类型</label>
+		                <span ng-bind="config.typeName"/>
+		            </section>
+		            <section>
+		                <label>发起人ID</label>
+		                <span ng-bind="user|userId"/>
+		            </section>
+		            <section>
+		                <label>联系电话</label>
+		                <span ng-bind="phone"/>
+		            </section>
+		        </section>
+		        <section>
+		            <section>
+		                <label>时间</label>
+		                <span>
+		                    <span ng-bind="date|dateFormat"></span>
+		                    <span ng-bind="startTime|timeFormat"></span>至
+		                    <span ng-bind="endTime|timeFormat"></span>
+		                </span>
+		            </section>
+		            <section>
+		                <label>地点</label>
+		                <span>
+		                    <span ng-bind="province"></span>
+		                    <span ng-bind="city"></span>
+		                    <span ng-bind="address"></span>
+		                </span>
+		            </section>
+		            <section>
+		                <label>飞行场地</label>
+		                <span ng-bind="place|missionPlace"></span>
+		            </section>
+		        </section>
+		        <section class="emphasis">
+		            <section>
+		                <label>预算金额</label>
+		                <span><strong ng-bind="payment|money"></strong></span>
+		            </section>
+		        </section>
+		        <section class="agreement">
+		            <span><input type="checkbox" ng-model="agree"/>&nbsp;已阅读并同意<a target="_blank" href="../doc/contract20150801.pdf">本合同</a></span>
+		        </section>
+		        <footer>
+		            <button class="btn btn-primary" ng-click="checkout()" ng-disabled="loading || !agree">确认</button>
+		            <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
+		        </footer>
+		    </article>
+		</div>
+	</section>
 </div>
-<div ng-show="page=='result'" style="display:none">
+<div ng-show="page=='result'">
     <article>
-        <header>
-            <h1>恭喜！任务提交完成！</h1>
-        </header>
         <section>
             <label>任务编号</label>
             <span ng-bind="missionId"></span>

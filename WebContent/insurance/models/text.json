@@ -95,6 +95,23 @@
             {
             	"type":"保费账户信息", "resource":"帐户名：谢棋琛　账号：6226 2201 2464 5135  开户行：中国民生银行北京西长安街支行  支付宝账户：xqc1116@sina.com" 
             }            
+        ],
+        "images":[
+            {
+            	"linkAddress": "#", "alt": "insurance type A", "source": "insurance/img/insurance1.jpg"
+            },
+            {
+            	"linkAddress": "#", "alt": "insurance type B", "source": "insurance/img/insurance2.jpg"
+            },
+            {
+            	"linkAddress": "#", "alt": "insurance type C", "source": "insurance/img/insurance3.jpg"
+            },
+            {
+            	"linkAddress": "#", "alt": "insurance type B", "source": "insurance/img/insurance4.jpg"
+            },
+            {
+            	"linkAddress": "#", "alt": "insurance type C", "source": "insurance/img/insurance4.jpg"
+            }            
         ]
     } 
 }
