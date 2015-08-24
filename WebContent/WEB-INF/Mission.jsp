@@ -28,15 +28,16 @@
 		<script src="common/components/footer/Footer.js"></script>
 		<script src="common/components/videos/Videos.js"></script>
 		<script src="common/components/dialogLogin/DialogLogin.js"></script>
+		<script src="common/components/formPageHeader/FormPageHeader.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
 		
 		<script src="mission/Mission.js"></script>
+		<script src="mission/models/MissionConfigs.js"></script>
 		<script src="mission/views/main/Main.js"></script>
 		<script src="mission/views/missionEdit/MissionEdit.js"></script>
 		<script src="mission/components/dialogMissionEdit/DialogMissionEdit.js"></script>
-		<script src="mission/models/MissionConfigs.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">

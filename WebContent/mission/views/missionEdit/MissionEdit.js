@@ -1,4 +1,4 @@
-UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionconfigs, $routeParams, $timeout, $http, modLogin, misUtils) {
+UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionconfigs, $routeParams, $timeout, $http, $cookies, dialogs, modLogin, misUtils) {
     $scope.page = 'form';
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
@@ -11,18 +11,28 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
     $scope.submit = function () {
         if ($scope.missionForm.$invalid) return;
         var account = modLogin.getCurrentUser();
-        $scope.user = account.uid || -account.eid;
-        $scope.phone = account.mobilePhone;
-        $scope.page = 'summary';
-        $scope.place = parseInt($('input[type="radio"][name="place"]:checked').val(), 10);
-        var match = $('section.date > input[type=date]').val().match(/(\d+)年(\d+)月(\d+)日/);
-        $scope.date = new Date(match[1], parseInt(match[2], 10)-1, match[3]);
-
-        var duration = Math.ceil(($scope.endTime.getTime() - $scope.startTime.getTime()) / (60*1000));
-
-        var config = $scope.config;
-        $scope.payment = config.standardFee + 
-            (duration > config.standardDuration ? config.extraFee * Math.ceil((duration - config.standardDuration) / config.extraDuration) : 0);
+        if (account == null) {
+        	login(_submit);
+        }
+        else {
+        	_submit(account);
+        }
+        
+        function _submit(account) {
+	        $scope.user = account.uid || -account.eid;
+	        $scope.phone = account.mobilePhone;
+	        $scope.page = 'summary';
+	        $scope.place = parseInt($('input[type="radio"][name="place"]:checked').val(), 10);
+	        var match = $('section.date > input[type=date]').val().match(/(\d+)年(\d+)月(\d+)日/);
+	        $scope.date = new Date(match[1], parseInt(match[2], 10)-1, match[3]);
+	
+	        var duration = Math.ceil(($scope.endTime.getTime() - $scope.startTime.getTime()) / (60*1000));
+	
+	        var config = $scope.config;
+	        $scope.payment = config.standardFee + 
+	            (duration > config.standardDuration ? config.extraFee * Math.ceil((duration - config.standardDuration) / config.extraDuration) : 0);
+        	
+        }
     }
 
     $scope.checkout = function () {
@@ -78,6 +88,34 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
     $scope.setMode = function (mode) {
         console.log('setMode', mode);
         $scope.mode = mode;
+    }
+    
+    function login(callback) {
+        dialogs.create(
+            	'common/components/dialogLogin/DialogLogin.html',
+                'comDialogLogin',
+                {},
+                {
+                    size:'md',
+                    keyboard: true,
+                    backdrop: false
+                }).result.then(function (account) {
+                    var d = new Date();
+                    $cookies.put(
+                        'token', 
+                        account.token, { 
+                            path: '/', 
+                            expires: new Date(
+                                d.getFullYear(), 
+                                d.getMonth(),
+                                d.getDate() + 15, 
+                                d.getHours(),
+                                d.getMinutes()
+                            )
+                        });
+
+                    callback(account);
+                });
     }
 
     _.delay(function () {

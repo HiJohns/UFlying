@@ -1,5 +1,5 @@
 UfMission = angular.module('UfMission',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon', 'ngRoute'])
-	.controller('Main', function($scope,$rootScope,$timeout,dialogs,$cookies, modLogin, modMissionconfigs){
+	.controller('Main', function($scope,$rootScope, modLogin, modMissionconfigs){
         $scope.missionConfigs = null;
         modMissionconfigs.load(function (configs) {
             $scope.missionConfigs = configs;

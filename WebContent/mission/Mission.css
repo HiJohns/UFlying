@@ -5,10 +5,7 @@ body, .btn-default, .btn-default.active, .btn-default:active {
 }
 
 section .center {
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 40px;
+	background-color: white;
 }
 
 .modal-content {
@@ -19,10 +16,6 @@ section .center {
 	font-size: 1.5em;
 	margin: 0 0 1em;
 	color: rgb(107,217,254);
-}
-
-.card {
-	display: none;
 }
 
 form section {
