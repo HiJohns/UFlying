@@ -135,6 +135,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
         $scope.province = provinces.length > 0 ? provinces[0].name : null;
         $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
         $scope.city = $scope.cities[0];
+        $scope.$apply();
     });
     
     modMissionconfigs.load(function (configs) {
