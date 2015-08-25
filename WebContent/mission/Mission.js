@@ -3,7 +3,7 @@ UfMission = angular.module('UfMission',['ui.bootstrap','dialogs.main', 'ngCookie
         $scope.missionConfigs = null;
         modMissionconfigs.load(function (configs) {
             $scope.missionConfigs = configs;
-            $scope.$apply();
+            if (!$scope.$$phase) $scope.$apply();
         });
 	})
 	.config(['$routeProvider', '$locationProvider',

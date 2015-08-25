@@ -1,11 +1,11 @@
-UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionconfigs, $routeParams, $timeout, $http, $cookies, dialogs, modLogin, misUtils) {
+UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $http, $location, modMissionconfigs, $routeParams, dialogs, modLogin, misUtils) {
     $scope.page = 'form';
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
     }
 
     $scope.close = function() {
-        locaiton.href = '/mission_edit';
+        $location.path('/mission_page');
     }
 
     $scope.submit = function () {
@@ -135,14 +135,16 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
         $scope.province = provinces.length > 0 ? provinces[0].name : null;
         $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
         $scope.city = $scope.cities[0];
-        $scope.$apply();
+        if (!$scope.$$phase) $scope.$apply();
     });
     
     modMissionconfigs.load(function (configs) {
     	$scope.configs = configs;
         $scope.config = modMissionconfigs.find($routeParams.type);
-        $scope.$apply();
+        if (!$scope.$$phase) $scope.$apply();
     });
+    
+    modLogin.load(function () {});
 
     $scope.dateOptions = {
       'year-format': "'yy'",
