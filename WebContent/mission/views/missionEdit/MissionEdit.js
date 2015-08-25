@@ -5,7 +5,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
     }
 
     $scope.close = function() {
-        $modalInstance.close();
+        locaiton.href = '/mission_edit';
     }
 
     $scope.submit = function () {
@@ -59,7 +59,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
             $scope.loading = false;
         });
     }
-
+    
     $scope.edit = function () {
         $scope.page = 'form';
     }
@@ -119,25 +119,29 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
                 });
     }
 
-    _.delay(function () {
-        $scope.loading = true;
-        modCities.load(function (data) {
-            $scope.loading = false;
-            var provinces = [];
-            for (var province in data) {
-                provinces.push({
-                    name: province,
-                    cities: data[province]
-                });
-            }
+    $scope.loading = true;
+    modCities.load(function (data) {
+        $scope.loading = false;
+        var provinces = [];
+        for (var province in data) {
+            provinces.push({
+                name: province,
+                cities: data[province]
+            });
+        }
 
-            $scope.provinces = provinces;
-            
-            $scope.province = provinces.length > 0 ? provinces[0].name : null;
-            $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
-            $scope.city = $scope.cities[0];
-        });
-    }, 1000);
+        $scope.provinces = provinces;
+        
+        $scope.province = provinces.length > 0 ? provinces[0].name : null;
+        $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
+        $scope.city = $scope.cities[0];
+    });
+    
+    modMissionconfigs.load(function (configs) {
+    	$scope.configs = configs;
+        $scope.config = modMissionconfigs.find($routeParams.type);
+        $scope.$apply();
+    });
 
     $scope.dateOptions = {
       'year-format': "'yy'",
@@ -154,7 +158,6 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, modMissionco
     $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
     
     $scope.place = 1;
-    $scope.config = modMissionconfigs.find($routeParams.type);
     
     $scope.$watch('startTime < endTime', function (newValue) {
     	$scope.timeClass = newValue ? '' : 'invalid';

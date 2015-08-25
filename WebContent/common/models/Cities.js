@@ -1,4 +1,4 @@
-UfCommon.factory('modCities', ['$http', function ($http, scope) {
+UfCommon.factory('modCities', ['$http', 'misThread', function ($http, misThread, scope) {
 	function buildCache(data) {
 		var result = {};
 		var provinces = {};
@@ -22,11 +22,13 @@ UfCommon.factory('modCities', ['$http', function ($http, scope) {
 		load: function (callback) {
 			if (cache != null) return callback(cache);
 			
-			$http.post('region').then(function (response) {
-				callback(buildCache(response.data));
-			}, function (response) {
-				console.log('省市信息载入失败，错误码：' + response.status);
-			});
+			misThread
+				.assign('POST', '../../region', null)
+				.then(function (data) {
+					callback(buildCache(data));
+				}, function (status) {
+					console.log('省市信息载入失败，错误码：' + status);
+				});
 		}
 	}
 }])
