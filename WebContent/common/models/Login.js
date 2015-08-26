@@ -7,7 +7,7 @@ UfCommon.factory('modLogin', function (misThread) {
 			misThread
 				.assign('POST', '../../login_info', null)
 				.then(function (data) {
-					_current = data;
+					_current = data.account;
 					callback(_current);
 				}, function (status) {
 					console.log('登录信息载入失败，错误码：' + status);

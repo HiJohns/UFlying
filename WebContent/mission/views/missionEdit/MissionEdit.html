@@ -1,3 +1,5 @@
+<link href="mission/views/missionEdit/MissionEdit.css" rel="stylesheet" type="text/css" media="all"/>
+
 <com-formpageheader tabs="headerTabs" active="headerActive"></com-formpageheader>
 <div ng-show="page=='form'">
     <section>
@@ -50,12 +52,13 @@
 		                <label>补充信息</label>
 		                <textarea ng-model="remark"></textarea>
 		            </section>
+			        <footer>
+			            <button class="btn btn-primary" ng-disabled="loading" ng-click="submit()">提交</button>
+			            <button class="btn btn-cancel" ng-click="close()">取消</button>
+			        </footer>
 		        </fieldset>
-		        <footer>
-		            <button class="btn btn-primary" ng-disabled="loading" ng-click="submit()">提交</button>
-		            <button class="btn btn-cancel" ng-click="close()">取消</button>
-		        </footer>
 		    </form>
+		    <com-helpSideBar></com-helpSideBar>
     	</div>
     </section>
 </div>
@@ -113,35 +116,39 @@
 		            <button class="btn btn-cancel" ng-click="edit()">返回修改</button>
 		        </footer>
 		    </article>
+		    <com-helpSideBar></com-helpSideBar>
 		</div>
 	</section>
 </div>
 <div ng-show="page=='result'">
 	<section>
-	    <article class="center">
-	        <section>
-	            <label>任务编号</label>
-	            <span ng-bind="missionId"></span>
-	        </section>
-	        <section>
-	            <label>应付金额</label>
-	            <span ng-bind="payment|money"></span>
-	        </section>
-	        <section>
-	            <label>付款方式</label>
-	            <ul>
-	                <li><label>户名</label><span ng-bind="bankAccount.name"></span></li>
-	                <li><label>开户行</label><span ng-bind="bankAccount.branch"></span></li>
-	                <li><label>帐号</label><span ng-bind="bankAccount.account"></span></li>
-	            </ul>
-	        </section>
-	        <section>
-	            <label>手机支付</label>
-	            <img ng-src="{{qrcodePayment}}"></img>
-	        </section>
-	        <footer>
-	            <button class="btn btn-danger" ng-click="close()">返回</button>
-	        </footer>
-	    </article>
+	    <div class="center">
+	    	<article>
+		        <section>
+		            <label>任务编号</label>
+		            <span ng-bind="missionId"></span>
+		        </section>
+		        <section>
+		            <label>应付金额</label>
+		            <span ng-bind="payment|money"></span>
+		        </section>
+		        <section>
+		            <label>付款方式</label>
+		            <ul>
+		                <li><label>户名</label><span ng-bind="bankAccount.name"></span></li>
+		                <li><label>开户行</label><span ng-bind="bankAccount.branch"></span></li>
+		                <li><label>帐号</label><span ng-bind="bankAccount.account"></span></li>
+		            </ul>
+		        </section>
+		        <section>
+		            <label>手机支付</label>
+		            <img ng-src="{{qrcodePayment}}"></img>
+		        </section>
+		        <footer>
+		            <button class="btn btn-danger" ng-click="close()">返回</button>
+		        </footer>
+		    </article>
+  		    <com-helpSideBar></com-helpSideBar>
+	    </div>
 	</section>
 </div>

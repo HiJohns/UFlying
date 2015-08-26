@@ -29,6 +29,7 @@
 		<script src="common/components/videos/Videos.js"></script>
 		<script src="common/components/dialogLogin/DialogLogin.js"></script>
 		<script src="common/components/formPageHeader/FormPageHeader.js"></script>
+		<script src="common/components/helpSideBar/HelpSideBar.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/misc/Thread.js"></script>
 		<script src="common/models/Cities.js"></script>

@@ -65,13 +65,13 @@ form textarea {
     max-width: 75%;
 }
 section > select, section > input, section > textarea {
-    width: 50.6%;
+    width: 70.6%;
 }
 .twoEqual select, .twoEqual input {
-    width: 25%;
+    width: 35%;
 }
 section.date input {
-    width: 40.4%;
+    width: 64%;
     margin-right: 0px;
 }
 section.date button {
@@ -79,13 +79,14 @@ section.date button {
 }
 form footer {
     padding-left: 89px;
+    width: 70%;
 }
 
 article {
     overflow: hidden;
 }
 article > section {
-    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
     padding-top: 10px;
 }
 article > section, article > footer {
