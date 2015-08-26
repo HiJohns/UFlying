@@ -1,4 +1,4 @@
-UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $http, $location, modMissionconfigs, $routeParams, dialogs, modLogin, misUtils) {
+UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $timeout, $http, $location, modMissionconfigs, $routeParams, dialogs, modLogin, misUtils) {
     $scope.page = 'form';
     $scope.cancel = function() {
         $modalInstance.dismiss('Canceled');
