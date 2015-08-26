@@ -25,6 +25,5 @@
 }
 
 .formPageHeader .center {
-    padding: 9em 0 0;
-    background: white url("../../img/LogoFormPage.png") no-repeat scroll 1em 2em;
+    padding: 0;
 }
