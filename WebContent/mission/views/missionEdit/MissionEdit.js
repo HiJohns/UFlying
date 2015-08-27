@@ -48,6 +48,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $t
             remark: $scope.remark
         })).then(function (result) {
             $scope.missionId = result.data.missionId;
+	        $scope.headerActive = 2;
             $scope.page = 'result';
             $scope.loading = false;
         }, function (result) {
@@ -162,7 +163,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $t
     	$scope.timeClass = newValue ? '' : 'invalid';
     });
     
-    $scope.headerTabs = [ '任务设置', '确认' ];
+    $scope.headerTabs = [ '任务设置', '确认', '提交' ];
     $scope.headerActive = 0;
 
     // const.
@@ -173,6 +174,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $t
     };
     
     _.delay(function () {
-    $scope.qrcodePayment = 'common/img/8cd0b33a3c074896bf537ed479b683ad.jpg';
+	    $scope.qrcodePayment = 'common/img/8cd0b33a3c074896bf537ed479b683ad.jpg';
+	    $('.card').css('display', '');
     }, 100);
 });

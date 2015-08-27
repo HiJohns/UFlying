@@ -1,7 +1,7 @@
 <link href="mission/views/missionEdit/MissionEdit.css" rel="stylesheet" type="text/css" media="all"/>
 
 <com-formpageheader tabs="headerTabs" active="headerActive"></com-formpageheader>
-<div ng-show="page=='form'">
+<div ng-show="page=='form'" class="card" >
     <section>
     	<div class="center">
 		    <form novalidate name="missionForm">
@@ -62,7 +62,7 @@
     	</div>
     </section>
 </div>
-<div ng-show="page=='summary'">
+<div ng-show="page=='summary'" class="card" style="display: none">
 	<section>
 		<div class="center">
 		    <article>
@@ -120,7 +120,7 @@
 		</div>
 	</section>
 </div>
-<div ng-show="page=='result'">
+<div ng-show="page=='result'" class="card" style="display: none">
 	<section>
 	    <div class="center">
 	    	<article>
