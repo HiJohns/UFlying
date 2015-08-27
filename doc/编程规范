@@ -44,28 +44,35 @@
     admin: module名UfAdmin
         Admin.js
         Admin.css
+	views
         components
         models
         misc
     account: module名UfAccount
         Account.js
         Account.css
+	views
         components
         models
         misc
     mission: module名UfMission
         Mission.js
         Mission.css
+	views
         components
         models
         misc
     insurance: module名UfInsurance
         Insurance.js
         Insurance.css
+	views
         components
         models
         misc
-    组件命名时以c开头，然后依次为目录名和文件名，目录名和文件名不管包含几个字母都只有首字母大写。数据模型命名以m开头，其他以i开头。
+    视图与组件的区别在于：
+	视图是子系统的顶层可视模块，有独立的URL（要求支持独立打开），容器仅限于ng-view标记，有独立的控制器。
+	组件可以出现在系统的任何位置，无独立URL，有自己特有的标记，一般没有独立的控制器，但有连接函数。
+    组件命名时以com开头，然后依次为目录名和文件名，目录名和文件名不管包含几个字母都只有首字母大写。数据模型命名以mod开头，其他以i开头。
     3rdParty 存放第三方插件
     原有的目录结构（js/css）暂时保留
     img目录用于保存图像

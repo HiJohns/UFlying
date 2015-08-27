@@ -10,6 +10,7 @@
 	<title>空中梦想</title>
 
 		<link rel="stylesheet" href="3rdParty/bootstrap/css/bootstrap.min.css">
+
 		<script src="3rdParty/angular/angular.min.js"></script>
 		<script src="3rdParty/angular-sanitize/angular-sanitize.min.js"></script>
 		<script src="3rdParty/angular-translate/angular-translate.min.js"></script>
@@ -23,14 +24,13 @@
 		<script src="3rdParty/angular-dialog-service/dialogs-default-translations.min.js"></script>
 		<script src="3rdParty/angular-dialog-service/dialogs.min.js"></script>
 		<script src="3rdParty/angular-cookies/angular-cookies.min.js"></script>
-		
 		<script src="common/Uf.js"></script>
+		<script src="common/components/scrollview/Scrollview.js"></script>		
 		<script src="common/components/footer/Footer.js"></script>
 		<script src="common/components/videos/Videos.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
-		
 		<script src="insurance/Insurance.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
@@ -39,6 +39,7 @@
 		<link rel="stylesheet" type="text/css" href="common/Uf.css">
 		<link rel="stylesheet" type="text/css" href="insurance/Insurance.css">
 </head>
+
 <body ng-app="UfInsurance" >
 		<section class="main" ng-controller="Main" >
 		<div class="center">
@@ -46,7 +47,9 @@
 			<img src="img/insurance/logo.png" width=100%/>
 		
 			<tabset>
-				<tab heading="保险种类" class="heading"><img align="center" src="img/insurance/type1.png" width=100%></tab>
+				<tab heading="保险种类" class="heading">		
+				<com-scrollview images="images" myInterval="myInterval"></com-scrollview>
+				</tab>
 				<tab heading="保险流程" class="heading"><img align="center" src="img/insurance/process.png" width=100%>
 				  <br>
 				  <ol>
@@ -102,7 +105,6 @@
 			</tabset>
 			</div>
 				</section>
-
 	    <com-footer></com-footer>
 </body>
 </html>
