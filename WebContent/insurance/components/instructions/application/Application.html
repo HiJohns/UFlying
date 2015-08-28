@@ -1,0 +1,7 @@
+<article class="insuranceInstructions">
+	<ol><li ng-repeat="x in process">{{x}}</li></ol> 
+	<h2>投保所需资料</h2>
+	<ul>
+		<li ng-repeat="x in materials"><label>{{x.type}}</label><details>{{x.resource}}</details></li>
+	</ul> 
+</article>

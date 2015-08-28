@@ -3,53 +3,7 @@ body, .btn-default, .btn-default.active, .btn-default:active {
     font-family: "Microsoft YaHei",tahoma,arial,Hiragino Sans GB,å®‹ä½“;
     color: #888;
 }
-section .main {
-	width: 80%;
- 	margin: 0 auto; 
- 	float:none; 
- 	background-color:#fff; 
- 	padding:12px;
-    overflow: hidden; 	
-}
-
-section .tabset{
-	font-size: 1em;
-	margin: 10px auto;
-	padding: 20px;
-}
-section .heading{
-	
-	font-size: 1.2em;
-}
-section .center {
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-  	background-color:#fff;
-	padding:40px;
-}
-
-.imageWords{
-	color: #000;
-	font-size: 1.20em;
-}
-
-
-.wordMargin {
-  position: absolute;
-  right: 15%;
-  bottom: 90px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 27px;
-  padding-bottom: 13px;
-  padding-left : 100px;
-  padding-right: 70px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-}
-
+/*
 .imageRotation{
 	height:690px;
 	width:1000px;
@@ -62,3 +16,4 @@ section .center {
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	}
+*/

@@ -1,0 +1,43 @@
+section .main {
+	width: 80%;
+ 	margin: 0 auto; 
+ 	float:none; 
+ 	background-color:#fff; 
+ 	padding:12px;
+    overflow: hidden; 	
+}
+
+section .tabset{
+	font-size: 1em;
+	margin: 10px auto;
+	padding: 20px;
+}
+section .heading{
+	
+	font-size: 1.2em;
+}
+section .center {
+    width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+  	background-color:#fff;
+	padding:40px;
+}
+
+.insuranceInstructions h1 {
+	font-size: 1.6em;
+}
+
+.insuranceInstructions h2 {
+	font-size: 1.2em;
+}
+
+.insuranceInstructions label, .insuranceInstructions details {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.insuranceInstructions header img {
+	width: 100%;
+	margin-bottom: 2em;
+}

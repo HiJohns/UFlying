@@ -1,0 +1,22 @@
+<link href="insurance/views/instructions/Instructions.css" rel="stylesheet" type="text/css" media="all"/>
+<section class="main" ng-controller="Main" >
+<article class="center">
+
+	<img src="img/insurance/logo.png" width=100%/>
+
+	<tabset>
+		<tab heading="保险种类" class="heading">	
+			<com-instructions-info></com-instructions-info>	
+		</tab>
+		<tab heading="保险流程" class="heading"><img align="center" src="img/insurance/process.png" width=100%>
+			<com-instructions-application></com-instructions-application> 
+		</tab>
+		<tab heading="常见问题" class="heading">   
+			<com-instructions-faq></com-instructions-faq>
+  		</tab>
+		<tab heading="理赔流程" class="heading">
+			<com-instructions-claim></com-instructions-claim>
+		</tab>
+	</tabset>
+</article>
+</section>

@@ -1,18 +1,18 @@
 <link href="common/components/scrollview/Scrollview.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="insurance/insurance.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="insurance/Insurance.css" rel="stylesheet" type="text/css" media="all"/>
 <section class="scrollview">
-				<div>
-					<div>
-					    <carousel interval="myInterval">
-					        <slide ng-repeat="image in images" active="slide.active">
-					            <img ng-src="{{image.source}}" style="margin:auto;">
-					            <div class="wordMargin" >
-					                <div class="imageWords"><p>{{image.words}} <a href="{{image.linkAddress}}" target=_blank><img ng-src={{image.smallicon}}></a></p>
-					                </div>
-					            </div>
+	<div>
+		<div>
+		    <carousel interval="interval">
+		        <slide ng-repeat="image in images" active="slide.active">
+		            <img ng-src="{{image.source}}" style="margin:auto;">
+		            <div class="wordMargin" >
+		                <div class="imageWords"><p>{{image.words}} <a href="{{image.linkAddress}}" target=_blank><img ng-src={{image.smallicon}}></a></p>
+		                </div>
+		            </div>
 
-					        </slide>
-					    </carousel>
-					</div>
-				</div>
+		        </slide>
+		    </carousel>
+		</div>
+	</div>
 </section>

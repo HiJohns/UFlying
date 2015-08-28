@@ -3,12 +3,11 @@ UfCommon.directive('comScrollview', function () {
         restrict: 'E',
         scope: {
         	images: '=',
-        	myInterval: '='
+        	interval: '='
         },
         templateUrl: 'common/components/scrollview/Scrollview.html',
-        link: function(scope, element, attributes, interval){
-        	scope.images = scope.images;
-        	scope.myInterval = scope.myInterval || 2000;
+        link: function(scope, element, attrs){
+        	scope.interval = scope.interval || 2000;
         }
     }
     
