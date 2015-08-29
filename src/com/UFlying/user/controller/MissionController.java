@@ -44,6 +44,11 @@ public class MissionController {
 		return "Insurance";
 	}
 	
+	@RequestMapping(value = "/insurance_page/**", method = RequestMethod.GET)
+	public String getInsuranceAnySub() {
+		return "Insurance";
+	}
+	
 	/** 获取任务费率表 */
 	@RequestMapping(value = "/mission_fee", method = RequestMethod.POST)
 	@ResponseBody

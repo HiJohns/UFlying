@@ -1,7 +1,7 @@
 UfInsurance.constant('modInstructionsInfo', {
     "infoGraphics":[
               {
-              	"linkAddress": "insurance_page", "words": "在保险期间内，UFLYING无人机联盟成员所拥有的无人飞机在飞行或滑行中不论任何原因（不包括条款中的责任免除），造成飞机及其附件的意外损失或损坏，保险公司按照保险合同的约定负责赔偿。", "source": "insurance/img/insurance1.jpg", "smallicon": "insurance/img/buy.png"
+              	"linkAddress": "insurance_page/create/QH", "words": "在保险期间内，UFLYING无人机联盟成员所拥有的无人飞机在飞行或滑行中不论任何原因（不包括条款中的责任免除），造成飞机及其附件的意外损失或损坏，保险公司按照保险合同的约定负责赔偿。", "source": "insurance/img/insurance1.jpg", "smallicon": "insurance/img/buy.png"
               },
               {
               	"linkAddress": "#", "words": "在保险期间内，凡UFLYING无人机联盟成员聘用的员工（包括正式注册员工、短期工、临时工和学徒工），在中华人民共和国境内（不包括港、澳、台地区）因遭受意外伤害事故导致身故或残疾，保险公司依照合同约定给付保险金。", "source": "insurance/img/insurance2.jpg"
