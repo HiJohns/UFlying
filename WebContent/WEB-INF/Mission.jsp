@@ -39,7 +39,6 @@
 		<script src="mission/models/MissionConfigs.js"></script>
 		<script src="mission/views/main/Main.js"></script>
 		<script src="mission/views/missionEdit/MissionEdit.js"></script>
-		<script src="mission/components/dialogMissionEdit/DialogMissionEdit.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">

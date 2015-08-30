@@ -1,0 +1,7 @@
+<link href="common/components/wizard/Wizard.css" rel="stylesheet" type="text/css" media="all"/>
+<com-formpageheader tabs="headerTabs" active="active"></com-formpageheader>
+<ul>
+	<li ng-repeat="card in config.cards">
+		<com-wizardcard path="card.path" name="card.name" controller="card.controller" active="active === $index" first="$first" last="$last"></com-wizardcard>
+	</li>
+</ul>

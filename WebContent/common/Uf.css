@@ -3,4 +3,6 @@ section .center {
     overflow: hidden;
     padding: 40px;
     width: 1280px;
+	background-color: white;
 }
+

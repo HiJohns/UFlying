@@ -1,0 +1,20 @@
+com-wizard > ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    overflow: hidden;
+}
+
+com-wizard > ul > li {
+	list-style-type: none;
+}
+
+.cardContent > main, .cardContent > footer {
+	width: 75%;
+	float: left;
+	margin-bottom: 2em;
+}
+
+.cardContent > footer button {
+	margin-right: 0.5em;
+	width: 7em;
+}

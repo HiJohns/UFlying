@@ -32,6 +32,10 @@
 		<script src="common/components/scrollview/Scrollview.js"></script>		
 		<script src="common/components/footer/Footer.js"></script>
 		<script src="common/components/videos/Videos.js"></script>
+		<script src="common/components/formPageHeader/FormPageHeader.js"></script>
+		<script src="common/components/helpSideBar/HelpSideBar.js"></script>
+		<script src="common/components/wizard/Wizard.js"></script>
+		<script src="common/components/wizardCard/WizardCard.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
@@ -45,7 +49,10 @@
 		<script src="insurance/components/instructions/claim/Claim.js"></script>
 		<script src="insurance/components/instructions/faq/Faq.js"></script>
 		<script src="insurance/components/instructions/info/Info.js"></script>
+		<script src="insurance/components/editor/form/Form.js"></script>
+		<script src="insurance/components/editor/confirm/Confirm.js"></script>
 		<script src="insurance/views/instructions/Instructions.js"></script>
+		<script src="insurance/views/editor/Editor.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">
