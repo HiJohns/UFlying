@@ -49,7 +49,7 @@
 		<script src="insurance/components/instructions/claim/Claim.js"></script>
 		<script src="insurance/components/instructions/faq/Faq.js"></script>
 		<script src="insurance/components/instructions/info/Info.js"></script>
-		<script src="insurance/components/editor/form/Form.js"></script>
+		<script src="insurance/components/editor/formPingan360/FormPingan360.js"></script>
 		<script src="insurance/components/editor/confirm/Confirm.js"></script>
 		<script src="insurance/views/instructions/Instructions.js"></script>
 		<script src="insurance/views/editor/Editor.js"></script>
