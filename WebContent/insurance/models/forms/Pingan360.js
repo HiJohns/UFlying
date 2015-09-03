@@ -3,11 +3,12 @@ UfInsurance.factory('modFormsPingan360', function ($http) {
 		create: function () {
 			return {
 				flyer: {
-					mode: null, // 机型代码，整数
+					title: null, // 机型名称，字符串
+					code: null, // 机型代码，整数
 					vendor: null, // 厂商代码，整数
 					weight: null // 飞机重量，浮点
 				}, 
-				picture: [], // 飞机照片句柄，字符串数组，长度为6
+				flyerPictures: [], // 飞机照片句柄，字符串数组，长度为6
 				owner: null, // 设备所有人，字符串
 				receipt: null, // 发票句柄，字符串
 				control: null, // 飞控编号

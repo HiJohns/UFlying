@@ -1,5 +1,5 @@
-UfInsurance = angular.module('UfInsurance',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon', 'ngRoute'])
-	.controller('Main', function($scope,$rootScope,$timeout,dialogs,$cookies,$http,modInstructionsApplication){
+UfInsurance = angular.module('UfInsurance',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon', 'ngRoute', 'ngFileUpload'])
+	.controller('Main', function($scope,$rootScope,$timeout,dialogs,$cookies,$http,modInstructionsApplication,Upload){
 	})
 	.config(['$routeProvider', '$locationProvider',
  	    function ($routeProvider, $locationProvider) {
@@ -14,4 +14,10 @@ UfInsurance = angular.module('UfInsurance',['ui.bootstrap','dialogs.main', 'ngCo
  				});			
  			$locationProvider.html5Mode(true);
  		}
- 	]);
+ 	])
+ 	.filter('flyerInfo', function () {
+ 		var _tmpl = _.template('厂商代码：<%=vendor%>，飞行器重量：<%=weight%>克');
+ 		return function (flyer) {
+ 			return _.isObject(flyer) ? _tmpl(flyer) : '';
+ 		}
+ 	});

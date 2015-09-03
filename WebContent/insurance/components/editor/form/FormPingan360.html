@@ -1,0 +1,71 @@
+<link href="insurance/components/editor/form/Form.css" rel="stylesheet" type="text/css" media="all"/>
+<form novalidate name="insuranceForm">
+	<fieldset>
+        <section class="staticInfo">
+            <label>保险类型</label>
+            <div ng-bind="typeName"></div>
+            <small></small>
+        </section>
+        <section>
+            <label>投保机型</label>
+            <div>
+            	<select ng-model="flyer" ng-options="model as model.title for model in flyerModels"></select>
+            	<details>
+	            	<img src="img/Flyer.png"></img>
+	            	<small ng-bind="flyer|flyerInfo"></small>
+            	</details>
+            </div>
+			<small></small>
+        </section>
+        <section>
+            <label>飞控编号</label>
+            <div><input type="string" ng-model="control"></div>
+			<small></small>
+        </section>
+        <section>
+            <label>飞行器价格</label>
+            <div><input type="number" ng-model="price"></div>
+			<small></small>
+        </section>
+        <section class="flightPictures">
+        	<label>飞行器照片</label>
+        	<div>
+        		<button class="fileUpload" ng-model="flyerPicture[0]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 0)">
+        			<img ngf-src="flyerPicture[0] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        		<button class="fileUpload" ng-model="flyerPicture[1]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 1)">
+        			<img ngf-src="flyerPicture[1] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        		<button class="fileUpload" ng-model="flyerPicture[2]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 2)">
+        			<img ngf-src="flyerPicture[2] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        		<button class="fileUpload" ng-model="flyerPicture[3]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 3)">
+        			<img ngf-src="flyerPicture[3] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        		<button class="fileUpload" ng-model="flyerPicture[4]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 4)">
+        			<img ngf-src="flyerPicture[4] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        		<button class="fileUpload" ng-model="flyerPicture[5]" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 5)">
+        			<img ngf-src="flyerPicture[5] || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+        	</div>
+        	<small></small>
+        </section>
+        <section>
+            <label>购机发票</label>
+            <div>
+        		<button ngf-select class="fileUpload" ng-model="receipt" name="file" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB">
+        			<img ngf-src="receipt || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+            </div>
+			<small></small>
+        </section>
+	</fieldset>
+</form>

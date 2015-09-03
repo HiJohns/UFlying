@@ -27,6 +27,8 @@
 		<script src="3rdParty/angular-dialog-service/dialogs.min.js"></script>
 		<script src="3rdParty/angular-cookies/angular-cookies.min.js"></script>
 		<script src="3rdParty/angular-route/angular-route.min.js"></script>
+		<script src="3rdParty/ng-file-upload/ng-file-upload-shim.min.js"></script>
+		<script src="3rdParty/ng-file-upload/ng-file-upload.min.js"></script>
 		
 		<script src="common/Uf.js"></script>
 		<script src="common/components/scrollview/Scrollview.js"></script>		
@@ -37,8 +39,10 @@
 		<script src="common/components/wizard/Wizard.js"></script>
 		<script src="common/components/wizardCard/WizardCard.js"></script>
 		<script src="common/misc/Utils.js"></script>
+		<script src="common/misc/Thread.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
+		<script src="common/models/FlyerModels.js"></script>
 		
 		<script src="insurance/Insurance.js"></script>
 		<script src="insurance/models/instructions/Application.js"></script>
@@ -49,7 +53,7 @@
 		<script src="insurance/components/instructions/claim/Claim.js"></script>
 		<script src="insurance/components/instructions/faq/Faq.js"></script>
 		<script src="insurance/components/instructions/info/Info.js"></script>
-		<script src="insurance/components/editor/formPingan360/FormPingan360.js"></script>
+		<script src="insurance/components/editor/form/Form.js"></script>
 		<script src="insurance/components/editor/confirm/Confirm.js"></script>
 		<script src="insurance/views/instructions/Instructions.js"></script>
 		<script src="insurance/views/editor/Editor.js"></script>
