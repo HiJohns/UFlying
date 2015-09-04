@@ -50,7 +50,7 @@ UfCommon.factory('misThread', function () {
 		stop: function () {
 			_worker.terminate();
 		}, 
-		assign: function (method, url, data, success, failure) {
+		assign: function (method, url, data, wait) {
 			if (_worker === null) start();
 			if (_worker === null) return;
 			var id = _id++;
@@ -58,7 +58,8 @@ UfCommon.factory('misThread', function () {
 				id: id,
 				method: method, 
 				url: url, 
-				data: data
+				data: data, 
+				wait: wait
 			});
 			
 			return new promise(id);

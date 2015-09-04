@@ -21,35 +21,42 @@ function http(data) {
 	xhr.onreadystatechange = ensureReadiness;
 		
 	function ensureReadiness() {
-		if(xhr.readyState < 4) {
-			return;
-		}
-			
-		if(xhr.status !== 200) {
+		if(xhr.status !== 200 || xhr.readyState !== 4 || finished) {
 			return;
 		}
 
 		// all is well	
-		if(xhr.readyState === 4) {
-			if (xhr.status === 200) {
-				self.postMessage({
-					id: data.id,
-					success: true, 
-					result: xhr.responseText
-				});
-			}
-			else {
-				self.postMessage({
-					id: data.id,
-					success: false,
-					result: xhr.status
-				})
-			}
+		finished = true;
+		if (xhr.status === 200) {
+			self.postMessage({
+				id: data.id,
+				success: true, 
+				result: xhr.responseText
+			});
 		}
-	}			
+		else {
+			self.postMessage({
+				id: data.id,
+				success: false,
+				result: xhr.status
+			})
+		}
+	}	
+	
+	var finished = false;
 
 	xhr.open(data.method || 'GET', data.url, true);
 	xhr.send(data.data);
+	
+	setTimeout(function () {
+		if (finished) return;
+		finished = true;
+		self.postMessage({
+			id: data.id,
+			success: false,
+			result: 'timeout'
+		});
+	}, data.wait || 10000);
 }
 
 function messageHandler(e) {

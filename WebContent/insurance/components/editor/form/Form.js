@@ -1,9 +1,13 @@
-UfInsurance.controller('comEditorForm', function ($scope, modFlyermodels, Upload) {
+UfInsurance.controller('comEditorForm', function ($scope, modFlyermodels, Upload, modLogin) {
 	modFlyermodels.load(function (list) {
 		$scope.flyerModels = list;
-	})
+	});
 	
-	$scope.flyerPicture = function (file, index) {
-		
+	modLogin.watch(function (account) {
+		$scope.account = account;
+		$scope.$apply();
+	});
+	
+	$scope.flyerPicture = function (file, index) {		
 	}
 });

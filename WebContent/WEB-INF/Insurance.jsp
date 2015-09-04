@@ -40,6 +40,8 @@
 		<script src="common/components/wizardCard/WizardCard.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/misc/Thread.js"></script>
+		<script src="common/misc/Login.js"></script>
+		<script src="common/misc/Filters.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
 		<script src="common/models/FlyerModels.js"></script>
