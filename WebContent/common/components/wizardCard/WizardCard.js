@@ -32,6 +32,10 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 		scope.nextText = scope.last ? "提交" : '下一步';
 		
 		scope.next = function () {
+			if (_.isString(scope.form) && 
+					_.isObject(scope.$$childHead) && 
+					_.isObject(scope.$$childHead[scope.form]) &&
+					scope.$$childHead[scope.form].$invalid) return;
 			if (scope.last) 
 				scope.$parent.submit() 
 			else 
@@ -52,7 +56,8 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 			name: '=',
 			active: '=',
 			first: '=',
-			last: '='
+			last: '=',
+			form: '='
 		}
 	}
 })
