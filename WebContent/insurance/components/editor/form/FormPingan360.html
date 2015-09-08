@@ -15,9 +15,9 @@
         <section>
             <label>投保机型</label>
             <div>
-            	<select ng-model="flyer" ng-required="true" ng-options="model as model.title for model in flyerModels"></select>
+            	<select ng-model="flyer" name="flyer" class="form-control" ng-required="true" ng-options="model as model.title for model in flyerModels"></select>
 				<small>
-					<span ng-show="insuranceForm.price.$error.required" class="errInfo">请填写投保机型</span>
+					<span ng-show="insuranceForm.flyer.$error.required && insuranceForm.flyer.$dirty" class="errInfo">请填写投保机型</span>
 				</small>
             	<details>
 	            	<img src="img/Flyer.png"></img>
@@ -28,56 +28,62 @@
         <section>
             <label>飞控编号</label>
             <div>
-            	<input type="string" ng-model="control" ng-required="true">
+            	<input type="string" name="control" ng-model="control" ng-required="true" class="form-control">
 				<small class="errInfo">
-					<span ng-show="insuranceForm.price.$error.required">请填写飞控编号</span>
+					<span ng-show="insuranceForm.control.$error.required && insuranceForm.control.$dirty">请填写飞控编号</span>
 				</small>
            	</div>
         </section>
         <section>
             <label>飞行器价格</label>
             <div>
-            	<input type="number" name="price" ng-required="true" ng-model="price" min="0" step="1" data-number-to-fixed="2" data-number-stepfactor="100">
+            	<div class="input-group">
+	            	<input type="number" class="form-control" name="price" ng-required="true" ng-model="price" min="0" step="1" data-number-to-fixed="2" data-number-stepfactor="100">
+	            	<span class="input-group-addon">元</span>
+            	</div>
 				<small class="errInfo">
-					<span ng-show="insuranceForm.price.$error.required">请填写飞行器价格</span>
-					<span ng-show="insuranceForm.price.$error.number">请填写数字</span>
+					<span ng-show="insuranceForm.price.$error.required && insuranceForm.price.$dirty">请填写飞行器价格</span>
+					<span ng-show="insuranceForm.price.$error.number && insuranceForm.price.$dirty">请填写数字</span>
 				</small>
             </div>
         </section>
         <section class="flightPictures">
         	<label>飞行器照片</label>
         	<div>
-        		<button class="fileUpload" ng-model="flyerPicture[0]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 0)">
-        			<img ngf-src="flyerPicture[0] || 'common/img/Placeholder.jpg'"></img>
+        		<button class="fileUpload" ng-model="flyerPictures_0" name="flyerPictures_0" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_0 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-        		<button class="fileUpload" ng-model="flyerPicture[1]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 1)">
-        			<img ngf-src="flyerPicture[1] || 'common/img/Placeholder.jpg'"></img>
+        		<button class="fileUpload" ng-model="flyerPictures_1" name="flyerPictures_1" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_1 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-        		<button class="fileUpload" ng-model="flyerPicture[2]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 2)">
-        			<img ngf-src="flyerPicture[2] || 'common/img/Placeholder.jpg'"></img>
+	        	<small class="errInfo">
+					<span ng-show="insuranceForm.$submitted && flyerPictures_missing">请提供六张飞行器照片</span>
+					<span ng-show="flyerPictures_duplicated">照片不得重复</span>
+	        	</small>
+        		<button class="fileUpload" ng-model="flyerPictures_2" name="flyerPictures_2" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_2 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-        		<button class="fileUpload" ng-model="flyerPicture[3]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 3)">
-        			<img ngf-src="flyerPicture[3] || 'common/img/Placeholder.jpg'"></img>
+        		<button class="fileUpload" ng-model="flyerPictures_3" name="flyerPictures_3" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_3 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-        		<button class="fileUpload" ng-model="flyerPicture[4]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 4)">
-        			<img ngf-src="flyerPicture[4] || 'common/img/Placeholder.jpg'"></img>
+        		<button class="fileUpload" ng-model="flyerPictures_4" name="flyerPictures_4" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_4 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-        		<button class="fileUpload" ng-model="flyerPicture[5]" name="file" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB" ngf-select="setFlyerPicture($file, 5)">
-        			<img ngf-src="flyerPicture[5] || 'common/img/Placeholder.jpg'"></img>
+        		<button class="fileUpload" ng-model="flyerPictures_5" name="flyerPictures_5" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
+        			<img ngf-src="flyerPictures_5 || 'common/img/Placeholder.jpg'"></img>
         		</button>
         	</div>
-        	<small></small>
         </section>
         <section>
             <label>购机发票</label>
             <div>
-        		<button ngf-select class="fileUpload" ng-model="receipt" name="file" ngf-pattern="image/*" accept="image/*" 
+        		<button ngf-select required class="fileUpload" ng-model="receipt" name="receipt" ngf-pattern="image/*" accept="image/*" 
         			ngf-max-size="20MB">
         			<img ngf-src="receipt || 'common/img/Placeholder.jpg'"></img>
         		</button>
