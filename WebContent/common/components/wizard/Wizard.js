@@ -14,20 +14,20 @@ UfCommon.directive('comWizard', function () {
 			});
 			
 			$scope.headerTabs = tabs;
-
-			$scope.moveForward = function () {
-				$scope.active++;
-			}
-
-			$scope.moveBackward = function () {
-				$scope.active--;
-			}
 			
-			$scope.submit = function () {
+			$scope.$on('submit', function () {
 				if (_.isFunction($scope.config.submit)) {
 					$scope.config.submit();
 				}
-			}
+			});
+
+			$scope.$on('forward', function () {
+				$scope.active++;
+			});
+
+			$scope.$on('backward', function () {
+				$scope.active--;
+			});
 		}
 	}
 })

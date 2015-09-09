@@ -34,6 +34,10 @@ public class MissionController {
 		return "Mission";
 	}
 	
+	public void upload() {
+		
+	}
+	
 	@RequestMapping(value = "/mission_page/**", method = RequestMethod.GET)
 	public String getPageAnySub() {
 		return "Mission";

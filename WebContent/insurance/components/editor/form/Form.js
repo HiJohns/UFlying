@@ -7,6 +7,21 @@ UfInsurance.controller('comEditorForm', function ($scope, modFlyermodels, Upload
 		$scope.account = account;
 		$scope.$apply();
 	});
+	
+	$scope.$on('save', function () {
+		Upload.upload({
+			url: 'mission/upload',
+			file: $scope.flyerPictures_0
+		})
+		.success(function (data, status) {
+			console.log('success: ', arguments);
+			$scope.$emit('saved');
+		})
+		.error(function (data, status) {
+			console.log('Uploading ' + $scope.flyerPictures_0.name + 'failed!')
+			$scope.$emit('saved');
+		});
+	});
 })
 .directive('ufValidateFilelist', function () {
 	return {

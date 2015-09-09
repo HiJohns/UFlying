@@ -1,10 +1,15 @@
 UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 	var _cardTmpl = null;
+	
 	function linker(scope, element, attrs) {
 		function apply(allSuccess) {
 			if (!allSuccess) return;
 			element.html(_cardTmpl(scope));
 			$compile(element.contents())(scope);
+			
+			if (_.isString(scope.form) && _.isObject(scope.$$childHead)) {
+				scope.form = scope.$$childHead[scope.form];
+			}
 		}
 		
 		function loadCard(callback) {
@@ -32,18 +37,19 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 		scope.nextText = scope.last ? "提交" : '下一步';
 		
 		scope.next = function () {
-			if (_.isString(scope.form) && 
-					_.isObject(scope.$$childHead) && 
-					_.isObject(scope.$$childHead[scope.form]) &&
-					scope.$$childHead[scope.form].$invalid) return;
-			if (scope.last) 
-				scope.$parent.submit() 
-			else 
-				scope.$parent.moveForward();
+			scope.$broadcast('save');
 		}
 		
+		scope.$on('saved', function (e) {
+			e.stopPropagation();
+			if (scope.last) 
+				scope.$emit('submit'); 
+			else 
+				scope.$emit('forward');
+		});
+		
 		scope.prev = function () {
-			scope.$parent.moveBackward();
+			scope.$emit('backward');
 		}
 	}
 	
