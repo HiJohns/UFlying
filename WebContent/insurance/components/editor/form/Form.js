@@ -1,6 +1,8 @@
-UfInsurance.controller('comEditorForm', function ($scope, modFlyermodels, Upload, modLogin, $timeout) {
-	modFlyermodels.load(function (list) {
-		$scope.flyerModels = list;
+UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, modLogin, $timeout) {
+	$scope.devices = [];
+	modDevices.load(function (list) {
+		$scope.devices = list;
+		$scope.$apply();
 	});
 	
 	modLogin.watch(function (account) {
@@ -23,7 +25,14 @@ UfInsurance.controller('comEditorForm', function ($scope, modFlyermodels, Upload
 		});
 	});
 })
-.directive('ufValidateFilelist', function () {
+.filter('flyerInfo', function () {
+	var _tmpl = _.template('生产厂商：<%=brandName%>，飞行器重量：<%=weightText%>');
+	return function (flyer) {
+		if (!_.isObject(flyer)) return '';
+		flyer.weightText = _.isNumber(flyer.weight) && flyer.weight > 0 ? flyer.weight + '克' : '未知';
+		return _tmpl(flyer);
+	}
+}).directive('ufValidateFilelist', function () {
 	return {
 		require: 'ngModel',
 		restrict: 'A',

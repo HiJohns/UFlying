@@ -44,7 +44,7 @@
 		<script src="common/misc/Filters.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
-		<script src="common/models/FlyerModels.js"></script>
+		<script src="common/models/Devices.js"></script>
 		
 		<script src="insurance/Insurance.js"></script>
 		<script src="insurance/models/instructions/Application.js"></script>

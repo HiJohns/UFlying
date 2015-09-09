@@ -15,7 +15,7 @@
         <section>
             <label>投保机型</label>
             <div>
-            	<select ng-model="flyer" name="flyer" class="form-control" ng-required="true" ng-options="model as model.title for model in flyerModels"></select>
+            	<select ng-model="flyer" name="flyer" class="form-control" ng-disabled="devices.length == 0" ng-required="true" ng-options="device as device.deviceName for device in devices"></select>
 				<small>
 					<span ng-show="insuranceForm.flyer.$error.required && insuranceForm.flyer.$dirty" class="errInfo">请填写投保机型</span>
 				</small>

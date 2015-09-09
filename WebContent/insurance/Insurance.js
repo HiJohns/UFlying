@@ -14,10 +14,4 @@ UfInsurance = angular.module('UfInsurance',['ui.bootstrap','dialogs.main', 'ngCo
  				});			
  			$locationProvider.html5Mode(true);
  		}
- 	])
- 	.filter('flyerInfo', function () {
- 		var _tmpl = _.template('厂商代码：<%=vendor%>，飞行器重量：<%=weight%>克');
- 		return function (flyer) {
- 			return _.isObject(flyer) ? _tmpl(flyer) : '';
- 		}
- 	});
+ 	]);
