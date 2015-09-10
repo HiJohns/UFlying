@@ -1,5 +1,5 @@
 UfInsurance = angular.module('UfInsurance',['ui.bootstrap','dialogs.main', 'ngCookies', 'UfCommon', 'ngRoute', 'ngFileUpload'])
-	.controller('Main', function($scope,$rootScope,$timeout,dialogs,$cookies,$http,modInstructionsApplication,Upload){
+	.controller('Main', function($scope,$rootScope,$timeout,$http,modInstructionsApplication,Upload){
 	})
 	.config(['$routeProvider', '$locationProvider',
  	    function ($routeProvider, $locationProvider) {

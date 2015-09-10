@@ -12,7 +12,10 @@ UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, mo
 	
 	$scope.$on('save', function () {
 		Upload.upload({
-			url: 'mission/upload',
+			url: 'upload',
+			fields: {
+				uid: $scope.account.uid
+			},
 			file: $scope.flyerPictures_0
 		})
 		.success(function (data, status) {

@@ -1,3 +1,4 @@
+<link href="common/components/dialogLogin/DialogLogin.css" rel="stylesheet" type="text/css" media="all"/>
 <header>
     <h1>登录</h1>
 </header>
@@ -5,13 +6,17 @@
     <fieldset>
         <section>
             <label>手机/会员ID</label>
-            <input ng-model="user" type="text" required></input>
-            <a href="../accountType">注册新帐号</a>
+            <div>
+	            <input ng-model="user" class="form-control" type="text" required></input>
+	            <a href="../accountType">注册新帐号</a>
+            </div>
         </section>
         <section>
             <label>密码</label>
-            <input ng-model="password" required type="password"></input>
-            <a href="../reset_password">忘记密码</a>
+            <div>
+	            <input ng-model="password" class="form-control"  required type="password"></input>
+	            <a href="../reset_password">忘记密码</a>
+            </div>
         </section>
     </fieldset>
     <footer>

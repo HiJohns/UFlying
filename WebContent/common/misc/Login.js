@@ -1,4 +1,4 @@
-UfCommon.factory('misLogin', ['$http', 'modLogin', function ($http, modLogin, dialogs) {
+UfCommon.factory('misLogin', ['$http', 'modLogin', 'dialogs', '$cookies', function ($http, modLogin, dialogs, $cookies) {
     function _prompt(callback) {
         dialogs.create(
             	'common/components/dialogLogin/DialogLogin.html',

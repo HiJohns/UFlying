@@ -1,0 +1,7 @@
+.modal-content {
+    padding: 1em 3em 3em;
+}
+
+.modal-content label {
+	flex: 0.45 1 0;
+}

@@ -38,6 +38,7 @@
 		<script src="common/components/helpSideBar/HelpSideBar.js"></script>
 		<script src="common/components/wizard/Wizard.js"></script>
 		<script src="common/components/wizardCard/WizardCard.js"></script>
+		<script src="common/components/dialogLogin/DialogLogin.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/misc/Thread.js"></script>
 		<script src="common/misc/Login.js"></script>
