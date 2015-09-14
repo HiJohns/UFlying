@@ -14,7 +14,7 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 		
 		function loadCard(callback) {
 			$http.get(scope.path).then(function (response) {
-				scope.data = response.data;
+				scope.pageHtml = response.data;
 				callback(true);
 			}, function (response) {
 				console.log('载入' + scope.path + '失败！错误码' + response.status);
@@ -37,20 +37,19 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 		scope.nextText = scope.last ? "提交" : '下一步';
 		
 		scope.next = function () {
-			scope.$broadcast('save');
+			console.log('WizardCard: next');
+			if (_.isObject(scope.form)) scope.form.$submitted = true;
+			if (scope.form.$invalid) return;
+			scope.$emit('forward', scope.data);
 		}
-		
-		scope.$on('saved', function (e) {
-			e.stopPropagation();
-			if (scope.last) 
-				scope.$emit('submit'); 
-			else 
-				scope.$emit('forward');
-		});
 		
 		scope.prev = function () {
 			scope.$emit('backward');
 		}
+		
+		scope.$on('data', function (e, name, data) { 
+			if (name === scope.name) scope.data = data; 
+		});
 	}
 	
 	return {

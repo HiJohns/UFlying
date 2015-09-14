@@ -69,3 +69,36 @@ form .errInfo {
 form .ng-invalid.ng-dirty {
     border: red solid 1px;
 }
+
+article > section {
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 1em;
+}
+article > section > section {
+	display: flex;
+	margin-top: 0.5em;
+}
+article > section > section > label {
+	flex: 0.3;
+	margin-left: 0.5em;
+}
+article > section > section > div {
+	flex: 2
+}
+article > section > h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.9em;
+}
+article .images div {
+    background-color: transparent;
+    margin-bottom: 1em;
+    margin-right: 10px;
+    padding: 0;
+    width: 34%;
+    height: 214px;
+    text-align: center;
+}
+article .images img {
+	max-width: 100%;
+	max-height: 214px;
+}

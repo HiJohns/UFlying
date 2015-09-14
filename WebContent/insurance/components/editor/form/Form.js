@@ -1,4 +1,4 @@
-UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, modLogin, $timeout) {
+UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, modLogin, $timeout, misUtils) {
 	$scope.devices = [];
 	modDevices.load(function (list) {
 		$scope.devices = list;
@@ -6,26 +6,9 @@ UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, mo
 	});
 	
 	modLogin.watch(function (account) {
-		$scope.account = account;
+		$scope.data.insuree = account;
+		$scope.data.owner = account.name;
 		$scope.$apply();
-	});
-	
-	$scope.$on('save', function () {
-		Upload.upload({
-			url: 'upload',
-			fields: {
-				uid: $scope.account.uid
-			},
-			file: $scope.flyerPictures_0
-		})
-		.success(function (data, status) {
-			console.log('success: ', arguments);
-			$scope.$emit('saved');
-		})
-		.error(function (data, status) {
-			console.log('Uploading ' + $scope.flyerPictures_0.name + 'failed!')
-			$scope.$emit('saved');
-		});
 	});
 })
 .filter('flyerInfo', function () {

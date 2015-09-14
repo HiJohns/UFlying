@@ -7,7 +7,7 @@ UfCommon.factory('misThread', function () {
 			return;
 		}
 		
-		var result = _.isString(data.result) ? $.parseJSON(data.result) : data.result;
+		var result = data.success ? $.parseJSON(data.result) : data.result;
 		_.each(record, function (r) {
 			var handler = data.success ? r.success : r.failure;
 			if (_.isFunction(handler)) handler(result);

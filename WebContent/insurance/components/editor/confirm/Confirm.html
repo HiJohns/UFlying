@@ -1,2 +1,76 @@
-<div>OK this is confirm</div>
-<div ng-bind="message"></div>
+ <article>
+ 	<section>
+	    <section>
+	        <label>保险类型</label>
+	        <div ng-bind="typeName"></div>
+	    </section>
+ 	</section>
+ 	<section>
+ 		<h2>飞行器信息</h2>
+ 		<section>
+ 			<label>机型</label>
+ 			<div ng-bind="data.flyer.deviceName"></div>
+ 		</section>
+ 		<section>
+ 			<label>生产厂商</label>
+ 			<div ng-bind="data.flyer.brandName"></div>
+ 		</section>
+ 		<section>
+ 			<label>重量</label>
+ 			<div ng-bind="data.flyer.weight"></div>
+ 		</section>
+ 		<section>
+ 			<label>价格</label>
+ 			<div ng-bind="data.flyer.price"></div>
+ 		</section>
+ 		<section>
+ 			<label>购机发票</label>
+ 			<div class="images">
+				<div><img ngf-src="data.receiptFile"></img></div>
+ 			</div>
+ 		</section>
+ 		<section>
+ 			<label>照片</label>
+ 			<div class="images">
+ 				<div><img ngf-src="data.flyerPictures_0"></img></div>
+ 				<div><img ngf-src="data.flyerPictures_1"></img></div>
+ 				<div><img ngf-src="data.flyerPictures_2"></img></div>
+ 				<div><img ngf-src="data.flyerPictures_3"></img></div>
+ 				<div><img ngf-src="data.flyerPictures_4"></img></div>
+ 				<div><img ngf-src="data.flyerPictures_5"></img></div>
+ 			</div>
+ 		</section>
+ 	</section>
+ 	<section>
+ 		<h2>被保险人信息</h2>
+	    <section>
+	    	<label>会员ID</label>
+	    	<div ng-bind="data.insuree|accountId"></div>
+	    </section>
+	    <section>
+	    	<label>姓名</label>
+	    	<div ng-bind="data.insuree.name"></div>
+	    </section>
+	    <section>
+	    	<label>电话</label>
+	    	<div ng-bind="data.insuree.mobilePhone"></div>
+	    </section>
+	    <section>
+	    	<label>地址</label>
+	    	<div ng-bind="data.insuree.address"></div>
+	    </section>
+	    <section ng-show="data.insuree.idCardNumber !== null">
+	    	<label>身份证</label>
+	    	<div ng-bind="data.insuree.idCardNumber"></div>
+	    </section>
+	    <section ng-show="data.insuree.idCardUrl1 !== null">
+	    	<label>身份证照正面</label>
+	    	<img ng-bind="data.insuree.idCardUrl1"/>
+	    </section>
+	    <section ng-show="data.insuree.idCardUrl2 !== null">
+	    	<label>身份证照反面</label>
+	    	<img ng-bind="data.insuree.idCardUrl2"/>
+	    </section>
+ 	</section>
+</article>
+ 

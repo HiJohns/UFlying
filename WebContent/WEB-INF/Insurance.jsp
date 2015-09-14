@@ -52,6 +52,7 @@
 		<script src="insurance/models/instructions/Claim.js"></script>
 		<script src="insurance/models/instructions/Faq.js"></script>
 		<script src="insurance/models/instructions/Info.js"></script>
+		<script src="insurance/models/forms/Pingan360.js"></script>
 		<script src="insurance/components/instructions/application/Application.js"></script>
 		<script src="insurance/components/instructions/claim/Claim.js"></script>
 		<script src="insurance/components/instructions/faq/Faq.js"></script>
