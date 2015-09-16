@@ -37,4 +37,14 @@ UfCommon.filter('missionPlace', function () {
    })
    .filter('timeFormat', function (misUtils) {
        return misUtils.renderTime;
+   })
+   .filter('withCurrency', function () {
+	   return function (money) {
+		   return !_.isNumber(money) ? '' : money + '元';
+	   }
+   })
+   .filter('withGramme', function () {
+	   return function (weight) {
+		   return !_.isNumber(weight) ? '' : weight + '克';
+	   }
    });

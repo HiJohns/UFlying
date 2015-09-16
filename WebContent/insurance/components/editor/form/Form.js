@@ -25,9 +25,10 @@ UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, mo
 		link: function(scope, elem, attr, ngModel) {
 			function validate(value) {
 				var found = [];
+				var data = scope.data;
 				if (_.isObject(value)) {
-					for (var field in scope) {
-						if (modelField.test(field) && _.isObject(scope[field]) && scope[field].name === value.name) {
+					for (var field in data) {
+						if (modelField.test(field) && _.isObject(data[field]) && data[field].name === value.name) {
 							found.push(field);
 						}
 					};

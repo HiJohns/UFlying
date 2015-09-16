@@ -34,12 +34,14 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 		
 		misUtils.waitForAll(apply, loadCard, loadTemplate);
 		
-		scope.nextText = scope.last ? "提交" : '下一步';
+		scope.nextText = scope.submit ? "提交" : '下一步';
 		
 		scope.next = function () {
-			console.log('WizardCard: next');
-			if (_.isObject(scope.form)) scope.form.$submitted = true;
-			if (scope.form.$invalid) return;
+			if (_.isObject(scope.form)) {
+				scope.form.$submitted = true;
+				if (scope.form.$invalid) return;
+			}
+			
 			scope.$emit('forward', scope.data);
 		}
 		
@@ -60,9 +62,9 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 			path: '=',
 			name: '=',
 			active: '=',
-			first: '=',
-			last: '=',
-			form: '='
+			submit: '=',
+			form: '=',
+			firstPage: '='
 		}
 	}
 })

@@ -21,7 +21,7 @@ function http(data) {
 	xhr.onreadystatechange = ensureReadiness;
 		
 	function ensureReadiness() {
-		if(xhr.status !== 200 || xhr.readyState !== 4 || finished) {
+		if(xhr.readyState !== 4 || finished) {
 			return;
 		}
 

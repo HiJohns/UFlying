@@ -97,6 +97,7 @@ article .images div {
     width: 34%;
     height: 214px;
     text-align: center;
+    float: left;
 }
 article .images img {
 	max-width: 100%;

@@ -7,40 +7,52 @@ UfCommon.directive('comWizard', function ($injector) {
 		templateUrl: 'common/components/wizard/Wizard.html',
 		controller: function ($scope, $timeout) {
 			function broadCastData() {
-				var card = $scope.config.cards[$scope.active];
-				$scope.$broadcast('data', card.name, $scope.model.getData(card.name));
+				var card = cards[$scope.active];
+				$scope.$broadcast('data', card.name, model.getData(card.name));
 			}
 			
-			$scope.model = $injector.get($scope.config.model);
+			function createTabs() {
+				var tabs = [];
+				_.each(cards, function (card, index) {
+					tabs.push(card.title);
+				});
+				
+				$scope.headerTabs = tabs;
+			}
 			
-			$scope.active = $scope.config.active || 0;
-			$timeout(broadCastData, 100);
+			function _moveNext() {
+				if ($scope.active >= cards.length) return;
+				
+				++$scope.active;
+				broadCastData();
+				if (!$scope.$$phase) $scope.$apply();
+			}
 			
-			var tabs = [];
-			_.each($scope.config.cards, function (card, index) {
-				tabs.push(card.title);
-			});
+			function _saveError() {
+				alert("文件上传失败，请稍候重试");
+			}
 			
-			$scope.headerTabs = tabs;
+			var config = $scope.config;
+			var cards = config.cards;
+			
+			var model = $injector.get(config.model);
+			
+			$scope.active = config.active || 0;
+			$timeout(broadCastData, 100); // 广播首页的数据。这里用timeout的原因是首页创建在此之后
+			
+			createTabs();
 			
 			$scope.$on('forward', function (e, data) {
-				console.log('Wizard: forward');
-				$scope.model
-					.setData($scope.config.cards[$scope.active].name, data)
-					.then(function () {
-						console.log('Wizard: setData.then active=', $scope.active, "cards=", $scope.config.cards.length);
-						if ($scope.active < $scope.config.cards.length) {
-							++$scope.active;
-							broadCastData();
-							$scope.$apply();
-						}
-						else {
-							$scope.$broadcast('beforesave');
-							$scope.model.save();
-						}
-					}, function (errMsg) {
-						
-					});
+				var activeCard = cards[$scope.active];
+				model.setData(activeCard.name, data);
+				
+				if (activeCard.submit) {
+					model.save()
+						.then(_moveNext, _saveError);
+				}
+				else {
+					_moveNext();
+				}
 			});
 
 			$scope.$on('backward', function () {

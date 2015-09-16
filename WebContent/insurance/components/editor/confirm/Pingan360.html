@@ -17,17 +17,11 @@
  		</section>
  		<section>
  			<label>重量</label>
- 			<div ng-bind="data.flyer.weight"></div>
+ 			<div ng-bind="data.flyer.weight|withGramme"></div>
  		</section>
  		<section>
  			<label>价格</label>
- 			<div ng-bind="data.flyer.price"></div>
- 		</section>
- 		<section>
- 			<label>购机发票</label>
- 			<div class="images">
-				<div><img ngf-src="data.receiptFile"></img></div>
- 			</div>
+ 			<div ng-bind="data.flyer.price|withCurrency"></div>
  		</section>
  		<section>
  			<label>照片</label>
@@ -38,6 +32,12 @@
  				<div><img ngf-src="data.flyerPictures_3"></img></div>
  				<div><img ngf-src="data.flyerPictures_4"></img></div>
  				<div><img ngf-src="data.flyerPictures_5"></img></div>
+ 			</div>
+ 		</section>
+ 		<section>
+ 			<label>购机发票</label>
+ 			<div class="images">
+				<div><img ngf-src="data.receiptFile"></img></div>
  			</div>
  		</section>
  	</section>

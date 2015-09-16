@@ -1,4 +1,4 @@
-UfInsurance.factory('modFormsPingan360', function ($http) {
+UfInsurance.factory('modFormsPingan360', function ($http, Upload, misUtils) {
     var _data = {
         flyer: null, 
         flyerPictures: [], // 飞机照片句柄，字符串数组，长度为6
@@ -10,55 +10,70 @@ UfInsurance.factory('modFormsPingan360', function ($http) {
         maximum: null	// 赔偿上限
     };
     
-    function temp() {
-		function uploadFile(config, callback) {
-			Upload.upload({
-				url: 'upload',
-				fields: {
-					uid: $scope.data.insuree.uid
-				},
-				file: config.file
-			})
-			.success(function (data, status) {
-	            if (_.isArray(config.target)) {
-	                config.target[config.index] = data.fileHandle;
-	            }
-	            else {
-	                config.target = data.fileHandle;
-	            }
+    function _save() {
+    	return new Promise(function (resolve, reject) {
+    		console.log('提交对象：', _data)
+    		resolve();
+    	});
+    }
+    
+    function _uploadFiles() {
+	    return new Promise(function (resolve, reject) {
+			function uploadFile(config, callback) {
+				Upload.upload({
+					url: 'upload',
+					fields: {
+						uid: _data.insuree.uid
+					},
+					file: config.file
+				})
+				.success(function (data, status) {
+	                config.tgtObj[config.field] = data.fileHandle;
 
-				console.log('success: ', arguments);
-	            callback(true);
-			})
-			.error(function (data, status) {
-				console.log('Uploading ' + config.file.name + 'failed!')
-	            callback(false);
-			});
-		}
+					console.log('文件上传成功: ', arguments);
+		            callback(true);
+				})
+				.error(function (data, status) {
+					console.log(config.file.name + '上传失败!')
+		            callback(false);
+				});
+			}
 
-	    function uploaded(allSuccess) {
-	        if (allSuccess) {
-	            $scope.$emit('saved');
-	        }
-	        else {
-	            alert('部分文件上传失败，请稍候重试。');
-	        }
-	    }
-		
-        var tasks = [];
-		_.each([
-		        { file: data.flyerPictures_0, target: data.flyerPictures, index: 0 },
-		        { file: data.flyerPictures_1, target: data.flyerPictures, index: 1 },
-		        { file: data.flyerPictures_2, target: data.flyerPictures, index: 2 },
-		        { file: data.flyerPictures_3, target: data.flyerPictures, index: 3 },
-		        { file: data.flyerPictures_4, target: data.flyerPictures, index: 4 },
-		        { file: data.flyerPictures_5, target: data.flyerPictures, index: 5 },
-		        { file: data.receiptFile, target: $scope.data.receipt }
-		        ], function (config) {
-                    tasks.push(uploadFile.bind(null, config));
-                });
-
-        misUtils.waitForAll(uploaded, tasks);
+		    function uploaded(allSuccess) {
+		        if (allSuccess) {
+		        	for (var field in _data) {
+		        		if (/flyerPictures_\d+/.test(field) || field === 'receiptFile') {
+		        			delete _data[field];
+		        		}
+		        	}
+		        	
+		            resolve();
+		        }
+		        else {
+		            reject();
+		        }
+		    }
+			try {
+		        var tasks = [];
+				_.each([
+				        { file: _data.flyerPictures_0, tgtObj: _data.flyerPictures, field: 0 },
+				        { file: _data.flyerPictures_1, tgtObj: _data.flyerPictures, field: 1 },
+				        { file: _data.flyerPictures_2, tgtObj: _data.flyerPictures, field: 2 },
+				        { file: _data.flyerPictures_3, tgtObj: _data.flyerPictures, field: 3 },
+				        { file: _data.flyerPictures_4, tgtObj: _data.flyerPictures, field: 4 },
+				        { file: _data.flyerPictures_5, tgtObj: _data.flyerPictures, field: 5 },
+				        { file: _data.receiptFile, tgtObj: _data, field: 'receipt' }
+				        ], function (config) {
+		                    tasks.push(uploadFile.bind(null, config));
+		                });
+				
+		        misUtils.waitForAll(uploaded, tasks);
+			}
+			catch (e) {
+				console.log(e);
+				reject();
+			}
+	    });
     }
 
 	return {
@@ -66,11 +81,7 @@ UfInsurance.factory('modFormsPingan360', function ($http) {
             return _.clone(_data);
         },
         setData: function (cardName, data) {
-			console.log('Pingan360: setData');
         	_.extend(_data, data);
-        	return new Promise(function (resolve, reject) {
-        		resolve(_data);
-        	});
         },
         isValid: function (cardName) {
         	return _.isObject(_data.flyer) &&
@@ -79,6 +90,14 @@ UfInsurance.factory('modFormsPingan360', function ($http) {
         		_.isObject(_data.receipt) && 
         		_.isNumber(_data.price) &&
         		_.isObject(_data.insuree)
+        },
+        save: function () {
+        	return new Promise(function (resolve, reject) {
+            	_uploadFiles()
+        		.then(function () {
+        			_save().then(resolve, reject);
+        		}, reject);
+        	});
         }
 	}
 })
