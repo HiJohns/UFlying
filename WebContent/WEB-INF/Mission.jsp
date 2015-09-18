@@ -7,6 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>空中梦想</title>
         <base href="<%=request.getContextPath() %>/">
 		<script src="3rdParty/angular/angular.min.js"></script>

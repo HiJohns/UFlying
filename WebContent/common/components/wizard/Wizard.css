@@ -8,10 +8,19 @@ com-wizard > ul > li {
 	list-style-type: none;
 }
 
-.cardContent > main, .cardContent > footer {
+.cardContent > footer {
 	width: 80%;
 	float: left;
+}
+.cardContent > div {
+	display: flex;
+}
+.cardContent > div > main {
+	flex: 5;
 	margin-bottom: 2em;
+}
+.cardContent > div > com-helpsidebar {
+	flex: 1;
 }
 
 .cardContent > footer button {
@@ -102,4 +111,25 @@ article .images div {
 article .images img {
 	max-width: 100%;
 	max-height: 214px;
+}
+
+@media screen and (max-width: 480px) {
+	.cardContent {
+		padding: 1em 1em 3em!important;
+	}
+	.cardContent > div {
+		flex-direction: column-reverse;
+	}
+	form > fieldset > section {
+		flex-direction: column;
+	}
+	article > section > section > label, form > fieldset > section > label {
+		flex: 0.8;
+	}
+	article .images div {
+		width: 85%;
+	}
+	form button.fileUpload {
+		width: 59%;
+	}
 }

@@ -6,3 +6,9 @@ section .center {
 	background-color: white;
 }
 
+@media screen and (max-width: 480px) {
+	section .center {
+		width: 360px;
+		padding: 0.5em;
+	}
+}

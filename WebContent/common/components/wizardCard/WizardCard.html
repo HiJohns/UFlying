@@ -1,9 +1,11 @@
 <section ng-show="active">
 	<div class="center cardContent">
-		<main ng-controller="<%=controller%>">
-			<%=pageHtml%>
-		</main>
-		<com-helpSideBar></com-helpSideBar>
+		<div>
+			<main ng-controller="<%=controller%>">
+				<%=pageHtml%>
+			</main>
+			<com-helpSideBar></com-helpSideBar>
+		</div>
 		<footer>
 			<button class="btn btn-cancel" ng-click="prev()" ng-disabled="firstPage">上一步</button>
 			<button class="btn btn-primary" ng-click="next()" ng-bind="nextText"></button>

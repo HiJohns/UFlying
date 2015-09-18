@@ -21,7 +21,7 @@ UfCommon.directive('comWizard', function ($injector) {
 			}
 			
 			function _moveNext() {
-				if ($scope.active >= cards.length) return;
+				if ($scope.active >= cards.length - 1) return;
 				
 				++$scope.active;
 				broadCastData();
