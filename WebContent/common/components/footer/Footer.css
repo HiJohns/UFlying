@@ -2,10 +2,12 @@ footer section {
     overflow: hidden;
 }
 
+footer .prize {
+	display: flex;
+}
 footer .item {
-    float: left;
     text-align: center;
-    width: 33.33%;
+    flex: 0.3333;
 }
 
 footer section .center {
@@ -42,14 +44,37 @@ footer .copyright {
 }
 
 footer .linkBox {
-    float: left;
-    margin-left: 5%;
-    width: 15%;
+	display: flex;
+}
+footer .linkBox div:first-child {
+	flex: 5;
+}
+footer .linkBox div:last-child {
+	flex: 1.8;
+	text-align: center;
 }
 
-
-footer .linkBox > div {
+footer .linkBox a {
     font-size: small;
     font-weight: bold;
     margin: 10px 0;
+    float: left; 
+    width: 25%;
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+	footer .linkBox {
+		flex-direction: column;
+	}
+	footer .linkBox >  div {
+		margin: 1em;
+	}
+	footer .linkBox a {
+		width: 50%;
+	}
+	footer .prize {
+		flex-direction: column;
+		padding: 2em;
+	}
 }
