@@ -39,6 +39,27 @@
 				</small>
             </div>
         </section>
+        <section>
+            <label>设备所有人</label>
+            <div>
+            	<input type="string" name="owner" ng-model="data.owner" ng-required="true" class="form-control">
+				<small class="errInfo">
+					<span ng-show="insuranceForm.owner.$error.required && (insuranceForm.owner.$dirty || insuranceForm.$submitted)">请填写设备所有人</span>
+				</small>
+           	</div>
+        </section>
+        <section>
+            <label>购机发票</label>
+            <div>
+        		<button ngf-select required class="fileUpload" ng-model="data.receiptFile" name="receipt" ngf-pattern="image/*" accept="image/*" 
+        			ngf-max-size="20MB">
+        			<img ngf-src="data.receiptFile || 'common/img/Placeholder.jpg'"></img>
+        		</button>
+				<small class="errInfo">
+					<span ng-show="insuranceForm.$submitted && insuranceForm.receipt.$error.required">请提供购机发票</span>
+				</small>
+            </div>
+        </section>
         <section class="flightPictures">
         	<label>飞行器照片</label>
         	<div>
@@ -50,10 +71,6 @@
         			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
         			<img ngf-src="data.flyerPictures_1 || 'common/img/Placeholder.jpg'"></img>
         		</button>
-	        	<small class="errInfo">
-					<span ng-show="insuranceForm.$submitted && flyerPictures_missing">请提供六张飞行器照片</span>
-					<span ng-show="flyerPictures_duplicated">照片不得重复</span>
-	        	</small>
         		<button class="fileUpload" ng-model="data.flyerPictures_2" name="flyerPictures_2" ngf-pattern="image/*" accept="image/*" 
         			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
         			<img ngf-src="data.flyerPictures_2 || 'common/img/Placeholder.jpg'"></img>
@@ -70,28 +87,11 @@
         			ngf-max-size="20MB" ngf-select required uf-validate-filelist="insuranceForm.flyerPictures">
         			<img ngf-src="data.flyerPictures_5 || 'common/img/Placeholder.jpg'"></img>
         		</button>
+	        	<small class="errInfo">
+					<span ng-show="insuranceForm.$submitted && flyerPictures_required">请提供六张飞行器照片</span>
+					<span ng-show="flyerPictures_duplicated">照片不得重复</span>
+	        	</small>
         	</div>
-        </section>
-        <section>
-            <label>购机发票</label>
-            <div>
-        		<button ngf-select required class="fileUpload" ng-model="data.receiptFile" name="receipt" ngf-pattern="image/*" accept="image/*" 
-        			ngf-max-size="20MB">
-        			<img ngf-src="data.receiptFile || 'common/img/Placeholder.jpg'"></img>
-        		</button>
-				<small class="errInfo">
-					<span ng-show="insuranceForm.$submitted && insuranceForm.receipt.$error.required">请提供购机发票</span>
-				</small>
-            </div>
-        </section>
-        <section>
-            <label>设备所有人</label>
-            <div>
-            	<input type="string" name="owner" ng-model="data.owner" ng-required="true" class="form-control">
-				<small class="errInfo">
-					<span ng-show="insuranceForm.owner.$error.required && (insuranceForm.owner.$dirty || insuranceForm.$submitted)">请填写设备所有人</span>
-				</small>
-           	</div>
         </section>
 	</fieldset>
 </form>

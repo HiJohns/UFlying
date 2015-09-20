@@ -23,7 +23,13 @@
  			<label>价格</label>
  			<div ng-bind="data.flyer.price|withCurrency"></div>
  		</section>
- 		<section>
+ 		<section class="images">
+ 			<label>购机发票</label>
+ 			<div class="images">
+				<div><img ngf-src="data.receiptFile"></img></div>
+ 			</div>
+ 		</section>
+ 		<section class="images">
  			<label>照片</label>
  			<div class="images">
  				<div><img ngf-src="data.flyerPictures_0"></img></div>
@@ -32,12 +38,6 @@
  				<div><img ngf-src="data.flyerPictures_3"></img></div>
  				<div><img ngf-src="data.flyerPictures_4"></img></div>
  				<div><img ngf-src="data.flyerPictures_5"></img></div>
- 			</div>
- 		</section>
- 		<section>
- 			<label>购机发票</label>
- 			<div class="images">
-				<div><img ngf-src="data.receiptFile"></img></div>
  			</div>
  		</section>
  	</section>

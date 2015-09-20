@@ -34,7 +34,7 @@ UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, mo
 					};
 				}
 				
-				ngModel.$setValidity('required', !required || !_.isObject(value));
+				ngModel.$setValidity('required', !required || _.isObject(value));
 				
 				if (_.isArray(ngModel.__duplicated)) {
 					_.each(ngModel.__duplicated, function (name) {

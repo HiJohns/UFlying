@@ -5,7 +5,7 @@ footer section {
 footer .prize {
 	display: flex;
 }
-footer .item {
+footer .prize > div {
     text-align: center;
     flex: 0.3333;
 }
