@@ -14,8 +14,8 @@ UfMission = angular.module('UfMission',['ui.bootstrap','dialogs.main', 'ngCookie
 					controller: 'vieMain'
 				})
 				.when('/mission_page/create/:type', {
-					templateUrl: 'mission/views/missionEdit/MissionEdit.html',
-					controller: 'vieMissionedit'
+					templateUrl: 'mission/views/editor/Editor.html',
+					controller: 'vieEditor'
 				})
 ;			
 			$locationProvider.html5Mode(true);

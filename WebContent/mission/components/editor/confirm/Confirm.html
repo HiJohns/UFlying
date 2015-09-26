@@ -1,0 +1,51 @@
+<article>
+    <section>
+        <section>
+            <label>任务类型</label>
+            <div ng-bind="data.missionConfig.typeName"/>
+        </section>
+        <section>
+            <label>发起人ID</label>
+            <div ng-bind="data.account|accountId"/>
+        </section>
+        <section>
+            <label>联系电话</label>
+            <div ng-bind="data.account.mobilePhone"/>
+        </section>
+    </section>
+    <section>
+        <section>
+            <label>时间</label>
+            <div>
+                <span ng-bind="data.missionDate|dateFormat"></span>
+                <span ng-bind="data.startTime|timeFormat"></span>至
+                <span ng-bind="data.endTime|timeFormat"></span>
+            </div>
+        </section>
+        <section>
+            <label>地点</label>
+            <div>
+                <span ng-bind="data.province"></span>
+                <span ng-bind="data.city"></span>
+                <span ng-bind="data.address"></span>
+            </div>
+        </section>
+        <section>
+            <label>飞行场地</label>
+            <div ng-bind="data.place|missionPlace"></div>
+        </section>
+        <section>
+        	<label>补充信息</label>
+        	<div ng-bind="data.remark"></div>
+        </section>
+    </section>
+    <section class="emphasis">
+        <section>
+            <label>预算金额</label>
+            <div><strong ng-bind="data.payment|money"></strong></div>
+        </section>
+    </section>
+    <section class="agreement">
+        <span><input type="checkbox" ng-model="data.agree"/>&nbsp;已阅读并同意<a target="_blank" href="../doc/contract20150801.pdf">本合同</a></span>
+    </section>
+</article>

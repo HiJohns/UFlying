@@ -1,0 +1,2 @@
+UfMission.controller('comEditorResult', function () {
+});

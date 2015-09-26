@@ -46,6 +46,8 @@ UfCommon.directive('comWizard', function ($injector) {
 				var activeCard = cards[$scope.active];
 				model.setData(activeCard.name, data);
 				
+				if (_.isFunction(model.isValid) && !model.isValid(activeCard.name)) return;
+				
 				if (activeCard.submit) {
 					model.save()
 						.then(_moveNext, _saveError);

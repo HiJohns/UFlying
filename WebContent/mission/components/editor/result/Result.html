@@ -1,0 +1,25 @@
+   	<article>
+        <section>
+            <label>任务编号</label>
+            <span ng-bind="missionId"></span>
+        </section>
+        <section>
+            <label>应付金额</label>
+            <span ng-bind="payment|money"></span>
+        </section>
+        <section>
+            <label>付款方式</label>
+            <ul>
+                <li><label>户名</label><span ng-bind="bankAccount.name"></span></li>
+                <li><label>开户行</label><span ng-bind="bankAccount.branch"></span></li>
+                <li><label>帐号</label><span ng-bind="bankAccount.account"></span></li>
+            </ul>
+        </section>
+        <section>
+            <label>手机支付</label>
+            <img ng-src="{{qrcodePayment}}"></img>
+        </section>
+        <footer>
+            <button class="btn btn-danger" ng-click="close()">返回</button>
+        </footer>
+    </article>

@@ -31,22 +31,29 @@
 		<script src="common/components/dialogLogin/DialogLogin.js"></script>
 		<script src="common/components/formPageHeader/FormPageHeader.js"></script>
 		<script src="common/components/helpSideBar/HelpSideBar.js"></script>
+		<script src="common/components/wizard/Wizard.js"></script>
+		<script src="common/components/wizardCard/WizardCard.js"></script>
 		<script src="common/misc/Utils.js"></script>
 		<script src="common/misc/Thread.js"></script>
 		<script src="common/misc/Filters.js"></script>
+		<script src="common/misc/Login.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
 		
 		<script src="mission/Mission.js"></script>
 		<script src="mission/models/MissionConfigs.js"></script>
 		<script src="mission/views/main/Main.js"></script>
+		<script src="mission/views/editor/Editor.js"></script>
 		<script src="mission/views/missionEdit/MissionEdit.js"></script>
+		<script src="mission/components/editor/form/Form.js"></script>
+		<script src="mission/components/editor/confirm/Confirm.js"></script>
+		<script src="mission/components/editor/result/Result.js"></script>
+		<script src="mission/models/Mission.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="3rdParty/angular-dialog-service/dialogs.min.css">
 		<link rel="stylesheet" type="text/css" href="common/Uf.css">
-		<link rel="stylesheet" type="text/css" href="mission/Mission.css">
 	</head>
 	<body ng-controller="Main">
 	    <ng-view></ng-view>

@@ -2,13 +2,13 @@ UfInsurance.controller('comEditorForm', function ($scope, modDevices, Upload, mo
 	$scope.devices = [];
 	modDevices.load(function (list) {
 		$scope.devices = list;
-		$scope.$apply();
+        if (!$scope.$$phase) $scope.$apply();
 	});
 	
 	modLogin.watch(function (account) {
 		$scope.data.insuree = account;
 		$scope.data.owner = account.name;
-		$scope.$apply();
+        if (!$scope.$$phase) $scope.$apply();
 	});
 })
 .filter('flyerInfo', function () {

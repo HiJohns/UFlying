@@ -1,0 +1,60 @@
+<form novalidate name="missionForm" ng-submit="false">
+    <fieldset>
+        <section class="staticInfo">
+            <label>任务类型</label>
+            <div ng-bind="data.missionConfig.typeName"/>
+        </section>
+        <section>
+            <label for="location">场所类型</label>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default" ng-model="data.place" btn-radio="1">室内</label>
+                <label class="btn btn-default" ng-model="data.place" btn-radio="2">室外</label>
+                <label class="btn btn-default" ng-model="data.place" btn-radio="3">室外+室内</label>
+            </div>
+        </section>
+        <section>
+            <label>任务城市</label>
+            <div class="twoInOne">
+                <select ng-model="data.province" ng-disabled="loading" class="form-control" ng-options="prov.name as prov.name for prov in provinces" ng-change="provinceChange()"></select>
+                <select ng-model="data.city" class="form-control" ng-disabled="cities.length == 0 || loading" ng-options="city for city in cities" ng-change="cityChange()"></select>
+            </div>
+        </section>
+        <section>
+            <label>具体地址</label>
+            <div>
+                <input ng-model="data.address" class="form-control" name="address" type="text" required ng-disabled="loading"></input>
+                <small class="errInfo" ng-show="(missionForm.$submitted || missionForm.address.$dirty) && missionForm.address.$invalid">请填写具体地址</small>
+            </div>
+        </section>
+        <section class="date">
+            <label>任务日期</label>
+            <div class="box-date">
+                <input type="date" datepicker-popup="yyyy年M月d日" ng-model="data.missionDate" is-open="opened" name="missionDate"
+                    min-date="minDate" datepicker-options="dateOptions" ng-required="true" class="form-control"/>
+                <button class="btn" ng-click="selectTime()"><i class="glyphicon glyphicon-calendar"></i></button>
+                <small class="errInfo" 
+                	ng-show="(missionForm.$submitted || missionForm.missionDate.$dirty) && missionForm.missionDate.$error.required">
+                	请填写任务日期</small>
+                <small class="errInfo" 
+                	ng-show="(missionForm.$submitted || missionForm.missionDate.$dirty) && missionForm.missionDate.$error.date">
+                	请点击左边按钮选择日期</small>
+            </div>
+        </section>
+
+        <section class="time">
+            <label>时间范围</label>
+            <div class="box-time">
+                <timepicker ng-model="data.startTime" name="startTime" show-meridian="false" minute-step="30"></timepicker>
+                <label>至</label>
+                <timepicker ng-model="data.endTime" name="endTime" show-meridian="false" minute-step="30"></timepicker>
+                <small class="errInfo" ng-show="missionForm.endTime.$error.timeRange">起始时间应早于结束时间</small>
+            </div>
+        </section>
+        <section>
+            <label>补充信息</label>
+            <div>
+                <textarea class="form-control" ng-model="data.remark" name="remark"></textarea>
+            </div>
+        </section>
+    </fieldset>
+</form>

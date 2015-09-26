@@ -61,33 +61,6 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $t
         $scope.page = 'form';
     }
 
-    $scope.provinceChange = function () {
-        var province = _.find($scope.provinces, function (prov) {
-            return prov.name == $scope.province;
-        });
-
-        if (_.isUndefined(province)) return;
-
-        $scope.cities = province.cities;
-        $scope.city = $scope.cities.length > 0 ? $scope.cities[0] : null;
-        $scope.cityChange();
-    }
-
-    $scope.cityChange = function () {
-        $scope.address = '';
-    }
-
-    $scope.open = function() {
-      $timeout(function() {
-        $scope.opened = true;
-      });
-    };
-
-    $scope.setMode = function (mode) {
-        console.log('setMode', mode);
-        $scope.mode = mode;
-    }
-    
     function login(callback) {
         dialogs.create(
             	'common/components/dialogLogin/DialogLogin.html',
@@ -116,52 +89,7 @@ UfMission.controller('vieMissionedit', function ($scope, modCities, $cookies, $t
                 });
     }
 
-    $scope.loading = true;
-    modCities.load(function (data) {
-        $scope.loading = false;
-        var provinces = [];
-        for (var province in data) {
-            provinces.push({
-                name: province,
-                cities: data[province]
-            });
-        }
-
-        $scope.provinces = provinces;
-        
-        $scope.province = provinces.length > 0 ? provinces[0].name : null;
-        $scope.cities = provinces.length > 0 ? provinces[0].cities : [];
-        $scope.city = $scope.cities[0];
-        if (!$scope.$$phase) $scope.$apply();
-    });
-    
-    modMissionconfigs.load(function (configs) {
-    	$scope.configs = configs;
-        $scope.config = modMissionconfigs.find($routeParams.type);
-        if (!$scope.$$phase) $scope.$apply();
-    });
-    
-    modLogin.load(function () {});
-
-    $scope.dateOptions = {
-      'year-format': "'yy'",
-      'starting-day': 1,
-      'show-weeks': false,
-      'current-text': '今天',
-      'clear-text': '清空',
-      'close-text': '完成'
-    };
-    var date = new Date();
-    var _dateTemplate = _.template('<%=year%>年<%=month%>月<%=date%>日');
-    $scope.minDate = $scope.date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2);
-    $scope.startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0);
-    $scope.endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 17, 0);
-    
     $scope.place = 1;
-    
-    $scope.$watch('startTime < endTime', function (newValue) {
-    	$scope.timeClass = newValue ? '' : 'invalid';
-    });
     
     $scope.headerTabs = [ '任务设置', '确认', '提交' ];
     $scope.headerActive = 0;
