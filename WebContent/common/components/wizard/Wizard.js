@@ -25,11 +25,11 @@ UfCommon.directive('comWizard', function ($injector) {
 				
 				++$scope.active;
 				broadCastData();
-				if (!$scope.$$phase) $scope.$apply();
+				// if (!$scope.$$phase) $scope.$apply();
 			}
 			
-			function _saveError() {
-				alert("文件上传失败，请稍候重试");
+			function _saveError(error) {
+				$scope.$emit('wizardSaveError', error);
 			}
 			
 			var config = $scope.config;

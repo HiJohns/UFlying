@@ -1,5 +1,16 @@
-UfMission.controller('vieEditor', ['$scope', '$templateCache', '$routeParams', 'misLogin', function ($scope, $templateCache, $routeParams, misLogin) {
+UfMission.controller('vieEditor', ['$scope', '$templateCache', '$routeParams', 'misLogin', 'misEnums', function ($scope, $templateCache, $routeParams, misLogin, misEnums) {
 	misLogin.promptLogin(function (account) {
+	});
+	
+	$scope.$on('wizardSaveError', function (e, params) {
+		switch (params.error) {
+		case misEnums.errors.httpFailed: 
+			alert('网络连接异常，请稍候重试');
+			break;
+		case misEnums.errors.failToSave: 
+			alert('保存失败，请联系客服或稍候重试');
+			break;
+		}
 	});
 	
 	$scope.wizardConfig = {

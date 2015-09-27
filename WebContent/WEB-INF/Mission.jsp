@@ -37,6 +37,7 @@
 		<script src="common/misc/Thread.js"></script>
 		<script src="common/misc/Filters.js"></script>
 		<script src="common/misc/Login.js"></script>
+		<script src="common/misc/Enums.js"></script>
 		<script src="common/models/Cities.js"></script>
 		<script src="common/models/Login.js"></script>
 		
