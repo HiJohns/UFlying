@@ -25,7 +25,7 @@ UfCommon.directive('comWizard', function ($injector) {
 				
 				++$scope.active;
 				broadCastData();
-				// if (!$scope.$$phase) $scope.$apply();
+				if (!$scope.$$phase) $scope.$apply();
 			}
 			
 			function _saveError(error) {

@@ -1,4 +1,4 @@
-UfMission.factory('modMission', function ($http, misUtils) {
+UfMission.factory('modMission', function ($http, misUtils, misEnums) {
 	var _date = new Date();
 	var _data = {
 		province: null,
@@ -51,11 +51,23 @@ UfMission.factory('modMission', function ($http, misUtils) {
         	
         	return new Promise(function (resolve, reject) {
                 $http.post('create_mission', JSON.stringify(data)).then(function (result) {
-                    _data.missionId = result.data.missionId;
-                    resolve(_data);
+                	if (result.status === 200 && _.isObject(result.data) && result.data.status >= 0) {
+                        _data.missionId = result.data.missionId;
+                        resolve(_data);
+                	}
+                	else {
+                		reject({ 
+                			error: misEnums.errors.failToSave, 
+                			data: result.data, 
+                			status: result.status
+                		});
+                	}
                 }, function (result) {
-                    console.log('提交失败!请稍候重试。');
-                    reject();
+                    reject({
+                    	error: misEnums.errors.httpFailed,
+                    	data: result.data,
+                    	status: result.status
+                    });
                 });
         	});
         }

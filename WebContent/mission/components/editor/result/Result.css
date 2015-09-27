@@ -1,0 +1,26 @@
+article ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+article li {
+	display: flex;
+}
+
+article li > label {
+	flex: 1;
+}
+
+article li > span {
+	flex: 4;
+}
+
+article img {
+	width: 45%;
+}
+
+@media screen and (max-width: 480px) {
+	article img {
+		width: 80%;
+	}
+}
