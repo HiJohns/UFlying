@@ -74,8 +74,8 @@ UfMission.controller('comEditorForm', function ($scope, $timeout, $routeParams, 
     	model.$setDirty();
     }
     
-    misUtils.waitForAll(allFinished, loadCities, loadMissionConfigs);
 	$timeout(function () {
+	    misUtils.waitForAll(allFinished, loadCities, loadMissionConfigs);
 	    $scope.minDate = $scope.data.date;
 	});
     	    

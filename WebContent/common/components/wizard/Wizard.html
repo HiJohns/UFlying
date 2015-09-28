@@ -3,6 +3,6 @@
 <ul>
 	<li ng-repeat="card in config.cards">
 		<com-wizardcard path="card.path" name="card.name" controller="card.controller" active="active === $index" 
-			submit="!!card.submit" form="card.form" first-page="$index === 0" data="card.data"></com-wizardcard>
+			submit="!!card.submit" form="card.form" first-page="$index === 0" no-move="card.noMove"></com-wizardcard>
 	</li>
 </ul>

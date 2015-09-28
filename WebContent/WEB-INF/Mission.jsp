@@ -43,13 +43,12 @@
 		
 		<script src="mission/Mission.js"></script>
 		<script src="mission/models/MissionConfigs.js"></script>
+		<script src="mission/models/Mission.js"></script>
 		<script src="mission/views/main/Main.js"></script>
 		<script src="mission/views/editor/Editor.js"></script>
-		<script src="mission/views/missionEdit/MissionEdit.js"></script>
 		<script src="mission/components/editor/form/Form.js"></script>
 		<script src="mission/components/editor/confirm/Confirm.js"></script>
 		<script src="mission/components/editor/result/Result.js"></script>
-		<script src="mission/models/Mission.js"></script>
 		
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="3rdParty/bootstrap/css/bootstrap-theme.min.css">

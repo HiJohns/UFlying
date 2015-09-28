@@ -17,7 +17,7 @@ UfMission.controller('vieEditor', ['$scope', '$templateCache', '$routeParams', '
 		cards: [
                { path: 'mission/components/editor/form/Form.html', controller: 'comEditorForm', name: 'form', title: '创建任务', form: "missionForm" },
                { path: 'mission/components/editor/confirm/Confirm.html', controller: 'comEditorConfirm', name: 'confirm', title: '确认', submit: true, form: "missionConfirmForm" },
-               { path: 'mission/components/editor/result/Result.html', controller: 'comEditorResult', name: 'result', title: '提交' }
+               { path: 'mission/components/editor/result/Result.html', controller: 'comEditorResult', name: 'result', title: '提交', noMove: true }
                ],
         model: 'modMission'
 	};

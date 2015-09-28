@@ -2,25 +2,29 @@ article ul {
     list-style-type: none;
     padding-left: 0;
 }
-
 article li {
 	display: flex;
 }
-
 article li > label {
 	flex: 1;
 }
-
 article li > span {
-	flex: 4;
+	flex: 12;
 }
-
 article img {
 	width: 45%;
+}
+
+article footer .btn-primary {
+    margin-top: 1em;
+    width: 7em;
 }
 
 @media screen and (max-width: 480px) {
 	article img {
 		width: 80%;
+	}
+	article li > span {
+		flex: 4;
 	}
 }

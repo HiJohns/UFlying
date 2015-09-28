@@ -43,14 +43,19 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 			}
 			
 			scope.$emit('forward', scope.data);
+			scope.waiting = true; 
 		}
 		
 		scope.prev = function () {
 			scope.$emit('backward');
+			scope.waiting = true; 
 		}
 		
 		scope.$on('data', function (e, name, data) { 
-			if (name === scope.name) scope.data = data; 
+			if (name === scope.name) {
+				scope.data = data; 
+				scope.waiting = false;
+			}
 		});
 	}
 	
@@ -64,7 +69,8 @@ UfCommon.directive('comWizardcard', function ($compile, $http, misUtils) {
 			active: '=',
 			submit: '=',
 			form: '=',
-			firstPage: '='
+			firstPage: '=',
+			noMove: '='
 		}
 	}
 })
